@@ -184,7 +184,7 @@ class ComprendeAgent:
     async def recommend_spanish_audio(self, s: Session, signal_entity_ids: list[str], kind: str) -> dict:
         label = "music" if kind == "artist" else "podcasts"
         await self.emit({"type": "step", "tool": "recommend_spanish_audio",
-                         "text": f"Asking Qloo for Spanish-language {label} that match your taste"})
+                         "text": f"Asking Qloo for Spanish-language {label} that {'matches' if kind == 'artist' else 'match'} your taste"})
         self._remember(s, signal_entity_ids)
         tags = await self._audio_tags(kind)
         if not tags:
