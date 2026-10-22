@@ -22,3 +22,6 @@ cache/
 
 .DS_Store
 Thumbs.db
+
+# Vercel CLI project links
+.vercel/

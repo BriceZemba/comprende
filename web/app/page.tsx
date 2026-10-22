@@ -80,9 +80,11 @@ export default function Home() {
       )}
       <header className="flex items-center justify-between py-6">
         <button type="button" onClick={() => go("intro")} className="font-display text-2xl">comprende</button>
-        <nav className="flex gap-5 text-sm text-muted">
-          <a href="#how" className="hover:text-ink">How it works</a>
-          <a href="/method" className="hover:text-ink">Method &amp; evidence</a>
+        <nav className="flex gap-5 whitespace-nowrap text-sm text-muted">
+          <a href="#how" className="hidden hover:text-ink sm:inline">How it works</a>
+          <a href="/method" className="hover:text-ink">
+            Method<span className="hidden sm:inline"> &amp; evidence</span>
+          </a>
         </nav>
       </header>
       <div ref={top} className="scroll-mt-4" />

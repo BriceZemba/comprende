@@ -5,3 +5,5 @@ backend/tests/
 .github/
 *.md
 !data/*.md
+data/titles_es.json
+data/frequency_es.tsv
