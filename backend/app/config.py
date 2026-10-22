@@ -22,5 +22,8 @@ _load_dotenv()
 QLOO_API_KEY = os.environ.get("QLOO_API_KEY", "")
 QLOO_BASE_URL = os.environ.get("QLOO_BASE_URL", "https://hackathon.api.qloo.com").rstrip("/")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+# Tried in order; the agent moves to the next model when one is overloaded (503) or rate limited (429).
+GEMINI_MODELS = [m.strip() for m in os.environ.get(
+    "GEMINI_MODELS", "gemini-3.8-flash,gemini-3.5-flash,gemini-3.5-flash-lite").split(",") if m.strip()]
+GEMINI_MODEL = GEMINI_MODELS[0]
 CACHE_DIR = Path(os.path.expanduser(os.environ.get("COMPRENDE_CACHE", "~/.cache/comprende"))) / "qloo"

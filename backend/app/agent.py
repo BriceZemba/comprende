@@ -99,6 +99,7 @@ class Session:
 class ComprendeAgent:
     def __init__(self, qloo: QlooClient, catalog: Catalog, emit: Emit):
         self.qloo, self.catalog, self.emit = qloo, catalog, emit
+        self.model_used: str | None = None
 
     # ---- tools ---------------------------------------------------------------
 
@@ -132,6 +133,8 @@ class ComprendeAgent:
         label = "films" if kind == "movie" else "series"
         want = "film" if kind == "movie" else "series"
         ids = [t.qloo_id for t in self.catalog.titles if t.qloo_id and t.kind == want]
+        if not ids:
+            return {"scored": 0, "top": [], "note": f"no measured {label} are mapped to Qloo yet"}
         await self.emit({"type": "step", "tool": "score_measured_titles",
                          "text": f"Scoring {len(ids)} {label} with measured dialogue against your taste"})
         self._remember(s, signal_entity_ids)
@@ -205,16 +208,38 @@ class ComprendeAgent:
             await self._run_fixed(s, favourites_text)
         if s.result is None:
             await self.rank_for_learner(s)
-        return {"mode": mode, "favourites": s.favourites, "qloo_calls": self.qloo.calls, **s.result}
+        return {"mode": mode, "model": self.model_used, "favourites": s.favourites, "qloo_calls": self.qloo.calls,
+                **s.result}
 
     async def _run_fixed(self, s: Session, favourites_text: str) -> None:
-        for name in [x.strip() for x in favourites_text.replace(";", ",").split(",") if x.strip()]:
-            await self._call(s, "find_entity", {"query": name})
+        # Reuse favourites the model already resolved before failing; only parse the text if there are none.
+        if not s.favourites:
+            parts = favourites_text.replace(";", ",").replace(" and ", ",").replace(" y ", ",").split(",")
+            for name in [x.strip() for x in parts if x.strip()]:
+                await self._call(s, "find_entity", {"query": name})
+        s.candidates.clear()
         ids = list(s.favourites)[:10]
         for kind in ("movie", "tv_show"):
             await self._call(s, "recommend_spanish_titles", {"signal_entity_ids": ids, "kind": kind})
             await self._call(s, "score_measured_titles", {"signal_entity_ids": ids, "kind": kind})
         await self._call(s, "rank_for_learner", {})
+
+    async def _generate(self, client, models: list[str], contents, cfg):
+        """Call the first available model; drop overloaded or rate-limited ones for the rest of the run."""
+        from google.genai import errors
+
+        while models:
+            try:
+                resp = await client.aio.models.generate_content(model=models[0], contents=contents, config=cfg)
+                self.model_used = models[0]
+                return resp
+            except errors.APIError as e:
+                if e.code in (429, 503) and len(models) > 1:
+                    await self.emit({"type": "warning", "text": f"{models[0]} is busy, switching to {models[1]}"})
+                    models.pop(0)
+                    continue
+                raise
+        raise RuntimeError("no model available")
 
     async def _run_llm(self, s: Session, favourites_text: str) -> None:
         from google import genai
@@ -230,8 +255,9 @@ class ComprendeAgent:
         cfg = types.GenerateContentConfig(
             system_instruction=SYSTEM, tools=tools, temperature=0.2,
             automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True))
+        models = list(config.GEMINI_MODELS)
         for _ in range(MAX_TURNS):
-            resp = await client.aio.models.generate_content(model=config.GEMINI_MODEL, contents=contents, config=cfg)
+            resp = await self._generate(client, models, contents, cfg)
             calls = resp.function_calls or []
             if not calls:
                 if resp.text:
@@ -243,4 +269,4 @@ class ComprendeAgent:
                 result = await self._call(s, call.name, dict(call.args or {}))
                 parts.append(types.Part.from_function_response(name=call.name, response={"result": json.loads(
                     json.dumps(result, default=str))}))
-            contents.append(types.Content(role="tool", parts=parts))
+            contents.append(types.Content(role="user", parts=parts))  # the API rejects role "tool"
