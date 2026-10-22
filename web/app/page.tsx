@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import AgentRun from "@/components/AgentRun";
 import FavouritesStep, { type Favourite } from "@/components/FavouritesStep";
 import LevelStep from "@/components/LevelStep";
-import Results from "@/components/Results";
+import Results, { pickKey, type Feedback } from "@/components/Results";
 import { runAgent, type AgentEvent, type RunResult } from "@/lib/api";
 
 type Stage = "intro" | "favourites" | "level" | "run" | "results";
@@ -23,15 +23,22 @@ export default function Home() {
 
   const go = (s: Stage) => { setStage(s); top.current?.scrollIntoView({ behavior: "smooth" }); };
 
-  const start = async (vocab: number) => {
+  const [vocab, setVocab] = useState(0);
+  const [feedback, setFeedback] = useState<Record<string, Feedback>>({});
+  const [excluded, setExcluded] = useState<string[]>([]);
+  const [note, setNote] = useState<string | null>(null);
+
+  const start = async (v: number, favs: Favourite[] = favourites, exclude: string[] = excluded) => {
     go("run");
-    setEvents([]); setResult(null); setError(null);
+    setVocab(v);
+    setEvents([]); setResult(null); setError(null); setFeedback({});
     try {
       await runAgent(
         {
-          favourites_text: favourites.filter((f) => !f.id).map((f) => f.name).join(", "),
-          favourite_ids: Object.fromEntries(favourites.filter((f) => f.id).map((f) => [f.id as string, f.name])),
-          vocab_size: vocab,
+          favourites_text: favs.filter((f) => !f.id).map((f) => f.name).join(", "),
+          favourite_ids: Object.fromEntries(favs.filter((f) => f.id).map((f) => [f.id as string, f.name])),
+          vocab_size: v,
+          exclude_ids: exclude,
         },
         (e) => {
           setEvents((prev) => [...prev, e]);
@@ -44,6 +51,26 @@ export default function Home() {
     }
   };
 
+  // Learner reactions become the next plan: loved titles become taste signals, every reacted title is
+  // excluded from the next list, and "too hard" lowers the vocabulary estimate by a fifth.
+  const update = () => {
+    if (!result) return;
+    const all = Object.values(result.buckets).flat();
+    const byKey = Object.fromEntries(all.map((p) => [pickKey(p), p]));
+    const loved = Object.entries(feedback).filter(([, f]) => f === "loved").map(([k]) => byKey[k]).filter(Boolean);
+    const hard = Object.entries(feedback).filter(([, f]) => f === "too_hard").map(([k]) => byKey[k]).filter(Boolean);
+    const favs = [...favourites, ...loved.filter((p) => p.qloo_id && !favourites.some((f) => f.id === p.qloo_id))
+      .map((p) => ({ id: p.qloo_id, name: p.name, kind: p.kind === "series" ? "tv_show" : "movie" }))];
+    const exclude = [...new Set([...excluded, ...Object.keys(feedback)])];
+    const v = hard.length ? Math.round((vocab * 0.8) / 50) * 50 : vocab;
+    const parts = [];
+    if (loved.length) parts.push(`added ${loved.map((p) => p.name).join(", ")} to your taste`);
+    if (hard.length) parts.push(`lowered your level from about ${vocab.toLocaleString()} to ${v.toLocaleString()} words because ${hard.map((p) => p.name).join(", ")} felt too hard`);
+    setNote(parts.length ? `Updated: ${parts.join("; ")}.` : null);
+    setFavourites(favs); setExcluded(exclude);
+    start(v, favs, exclude);
+  };
+
   return (
     <main className="mx-auto max-w-5xl px-4 pb-24 sm:px-8">
       {fake && (
@@ -53,7 +80,10 @@ export default function Home() {
       )}
       <header className="flex items-center justify-between py-6">
         <button type="button" onClick={() => go("intro")} className="font-display text-2xl">comprende</button>
-        <a href="#how" className="text-sm text-muted hover:text-ink">How it works</a>
+        <nav className="flex gap-5 text-sm text-muted">
+          <a href="#how" className="hover:text-ink">How it works</a>
+          <a href="/method" className="hover:text-ink">Method &amp; evidence</a>
+        </nav>
       </header>
       <div ref={top} className="scroll-mt-4" />
 
@@ -76,7 +106,7 @@ export default function Home() {
       )}
 
       {stage === "favourites" && <FavouritesStep value={favourites} onChange={setFavourites} onNext={() => go("level")} />}
-      {stage === "level" && <LevelStep onBack={() => go("favourites")} onDone={(v) => start(v)} />}
+      {stage === "level" && <LevelStep onBack={() => go("favourites")} onDone={(v) => { setNote(null); start(v); }} />}
       {stage === "run" && (
         <>
           <AgentRun events={events} running={!error} />
@@ -94,7 +124,18 @@ export default function Home() {
             <summary className="cursor-pointer">What the agent did ({events.filter((e) => e.type === "step").length} steps)</summary>
             <AgentRun events={events} running={false} />
           </details>
-          <Results result={result} onRestart={() => { setFavourites([]); go("favourites"); }} />
+          <Results
+            result={result}
+            feedback={feedback}
+            onFeedback={(p, f) => setFeedback((prev) => {
+              const next = { ...prev };
+              if (f) next[pickKey(p)] = f; else delete next[pickKey(p)];
+              return next;
+            })}
+            onUpdate={update}
+            note={note}
+            onRestart={() => { setFavourites([]); setExcluded([]); setNote(null); go("favourites"); }}
+          />
         </>
       )}
 

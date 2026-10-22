@@ -2,6 +2,15 @@
 
 import type { Pick, RunResult } from "@/lib/api";
 
+export type Feedback = "loved" | "not_for_me" | "too_hard";
+export const pickKey = (p: Pick) => p.qloo_id ?? p.imdb ?? p.name;
+
+const FEEDBACK: { kind: Feedback; label: string }[] = [
+  { kind: "loved", label: "Loved it" },
+  { kind: "too_hard", label: "Too hard" },
+  { kind: "not_for_me", label: "Not for me" },
+];
+
 const SECTIONS: { key: Pick["bucket"]; title: string; blurb: string }[] = [
   { key: "watch_now", title: "Watch now", blurb: "You'd know at least 95% of the words: enough to follow and enjoy." },
   { key: "stretch", title: "A good stretch", blurb: "90–95% of the words. Doable with Spanish subtitles on." },
@@ -25,7 +34,11 @@ function CoverageBar({ coverage }: { coverage: number }) {
   );
 }
 
-function PickCard({ p }: { p: Pick }) {
+function PickCard({ p, feedback, onFeedback }: {
+  p: Pick;
+  feedback?: Feedback;
+  onFeedback: (p: Pick, f: Feedback | undefined) => void;
+}) {
   return (
     <article className="rise flex gap-4 rounded-2xl border border-line bg-card p-4 shadow-sm">
       <div className="h-32 w-[88px] shrink-0 overflow-hidden rounded-lg bg-line">
@@ -48,12 +61,32 @@ function PickCard({ p }: { p: Pick }) {
           <p className="mt-2 text-sm text-muted">Because you like <span className="text-ink">{p.because.join(", ")}</span></p>
         )}
         {p.affinity !== null && <p className="mt-1 text-xs text-muted">Qloo taste affinity {p.affinity.toFixed(2)}</p>}
+        {p.qloo_id && (
+          <div className="mt-3 flex flex-wrap gap-1.5" role="group" aria-label={`Feedback on ${p.name}`}>
+            {FEEDBACK.map((f) => (
+              <button key={f.kind} type="button" aria-pressed={feedback === f.kind}
+                onClick={() => onFeedback(p, feedback === f.kind ? undefined : f.kind)}
+                className={`rounded-full border px-2.5 py-1 text-xs transition ${feedback === f.kind
+                  ? "border-ink bg-ink text-paper" : "border-line text-muted hover:border-ink hover:text-ink"}`}>
+                {f.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </article>
   );
 }
 
-export default function Results({ result, onRestart }: { result: RunResult; onRestart: () => void }) {
+export default function Results({ result, onRestart, feedback, onFeedback, onUpdate, note }: {
+  result: RunResult;
+  onRestart: () => void;
+  feedback: Record<string, Feedback>;
+  onFeedback: (p: Pick, f: Feedback | undefined) => void;
+  onUpdate: () => void;
+  note: string | null;
+}) {
+  const changes = Object.keys(feedback).length;
   const b = result.buckets;
   const empty = SECTIONS.every((s) => b[s.key].length === 0) && !result.held_back;
   return (
@@ -63,6 +96,8 @@ export default function Results({ result, onRestart }: { result: RunResult; onRe
       <p className="mt-2 text-muted">
         Based on about {result.vocab_size.toLocaleString()} known words and {Object.keys(result.favourites).length} favourites.
       </p>
+
+      {note && <p className="rise mt-4 max-w-2xl rounded-2xl bg-good-soft p-4 text-sm">{note}</p>}
 
       {result.held_back && (
         <div className="rise mt-6 max-w-2xl rounded-3xl bg-later-soft p-5">
@@ -84,7 +119,9 @@ export default function Results({ result, onRestart }: { result: RunResult; onRe
           <h3 className="font-display text-2xl">{s.title}</h3>
           <p className="text-sm text-muted">{s.blurb}</p>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
-            {b[s.key].map((p) => <PickCard key={p.imdb ?? p.qloo_id ?? p.name} p={p} />)}
+            {b[s.key].map((p) => (
+              <PickCard key={pickKey(p)} p={p} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
+            ))}
           </div>
         </div>
       ))}
@@ -114,6 +151,15 @@ export default function Results({ result, onRestart }: { result: RunResult; onRe
         {result.mode === "agent" ? "planned by the agent" : "fixed plan (language model unavailable)"}
       </p>
       <button type="button" onClick={onRestart} className="mt-4 text-muted underline">Start over</button>
+
+      {changes > 0 && (
+        <div className="rise fixed inset-x-0 bottom-4 z-20 mx-auto flex w-[min(92%,32rem)] items-center justify-between gap-3 rounded-full bg-ink py-2 pl-5 pr-2 text-paper shadow-lg">
+          <span className="text-sm">{changes} {changes === 1 ? "reaction" : "reactions"} noted</span>
+          <button type="button" onClick={onUpdate} className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-ink">
+            Update my picks
+          </button>
+        </div>
+      )}
     </section>
   );
 }

@@ -63,3 +63,19 @@ def test_fixed_plan_end_to_end(monkeypatch):
     assert any("Breaking Bad" in e["text"] for e in events if e["type"] == "step")
     # 2 searches + films (recommend, score) + series (recommend); no measured series, so no series scoring call
     assert out["qloo_calls"] == 5
+
+
+def test_excluded_titles_never_come_back(monkeypatch):
+    monkeypatch.setattr(agent_mod.config, "GEMINI_API_KEY", "")
+    catalog = Catalog([m("tt1", "Q-EASY", 0.97, 2000), m("tt2", "Q-HARD", 0.86, 9000), m("tt3", "Q-MID", 0.93, 5000)])
+
+    async def emit(e):
+        return None
+
+    async def go():
+        q = QlooClient(api_key="k", cache_dir=None, transport=httpx.MockTransport(handler))
+        return await agent_mod.ComprendeAgent(q, catalog, emit).run("Breaking Bad", {}, 3000, exclude_ids=["Q-EASY"])
+
+    out = asyncio.run(go())
+    shown = [p["qloo_id"] for b in out["buckets"].values() for p in b]
+    assert "Q-EASY" not in shown and out["buckets"]["watch_now"] == []

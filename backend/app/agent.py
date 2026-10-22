@@ -192,8 +192,9 @@ class ComprendeAgent:
 
     # ---- runs ----------------------------------------------------------------
 
-    async def run(self, favourites_text: str, favourite_ids: dict[str, str], vocab_size: int) -> dict:
-        s = Session(vocab_size=vocab_size, favourites=dict(favourite_ids))
+    async def run(self, favourites_text: str, favourite_ids: dict[str, str], vocab_size: int,
+                  exclude_ids: list[str] | None = None) -> dict:
+        s = Session(vocab_size=vocab_size, favourites=dict(favourite_ids), excluded=set(exclude_ids or []))
         mode = "agent"
         if config.GEMINI_API_KEY:
             try:
@@ -270,3 +271,5 @@ class ComprendeAgent:
                 parts.append(types.Part.from_function_response(name=call.name, response={"result": json.loads(
                     json.dumps(result, default=str))}))
             contents.append(types.Content(role="user", parts=parts))  # the API rejects role "tool"
+            if s.result is not None:
+                break  # ranked: the learner sees the result now; no closing message is needed

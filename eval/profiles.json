@@ -1,0 +1,25 @@
+{
+  "note": "Fixed taste profiles for comparing recommenders. Three favourites each, mixed domains, chosen to span ages, genres and cultures. Written before any results were seen.",
+  "profiles": [
+    {"id": "p01", "favourites": ["Breaking Bad", "Radiohead", "Kafka on the Shore"], "vocab_size": 3000},
+    {"id": "p02", "favourites": ["Love Island", "Bad Bunny", "FIFA 23"], "vocab_size": 1000},
+    {"id": "p03", "favourites": ["Up", "Taylor Swift", "Harry Potter and the Philosopher's Stone"], "vocab_size": 1000},
+    {"id": "p04", "favourites": ["The Godfather", "Frank Sinatra", "The Great Gatsby"], "vocab_size": 6000},
+    {"id": "p05", "favourites": ["Stranger Things", "Metallica", "Stephen King's It"], "vocab_size": 3000},
+    {"id": "p06", "favourites": ["The Office", "Vampire Weekend", "Animal Crossing"], "vocab_size": 3000},
+    {"id": "p07", "favourites": ["Succession", "Kendrick Lamar", "The Economist"], "vocab_size": 6000},
+    {"id": "p08", "favourites": ["Pride and Prejudice", "Adele", "Bridgerton"], "vocab_size": 3000},
+    {"id": "p09", "favourites": ["The Lord of the Rings", "Hans Zimmer", "The Legend of Zelda: Breath of the Wild"], "vocab_size": 3000},
+    {"id": "p10", "favourites": ["Planet Earth", "Bon Iver", "Patagonia"], "vocab_size": 1000},
+    {"id": "p11", "favourites": ["Squid Game", "BTS", "League of Legends"], "vocab_size": 1000},
+    {"id": "p12", "favourites": ["The Crown", "Ed Sheeran", "Downton Abbey"], "vocab_size": 3000},
+    {"id": "p13", "favourites": ["Pulp Fiction", "The Rolling Stones", "Grand Theft Auto V"], "vocab_size": 6000},
+    {"id": "p14", "favourites": ["Grey's Anatomy", "Beyoncé", "Sephora"], "vocab_size": 3000},
+    {"id": "p15", "favourites": ["Black Mirror", "Daft Punk", "Wired"], "vocab_size": 3000},
+    {"id": "p16", "favourites": ["Mamma Mia!", "ABBA", "The Great British Bake Off"], "vocab_size": 1000},
+    {"id": "p17", "favourites": ["The Sopranos", "Bruce Springsteen", "Sports Illustrated"], "vocab_size": 6000},
+    {"id": "p18", "favourites": ["Spirited Away", "Joe Hisaishi", "Studio Ghibli"], "vocab_size": 3000},
+    {"id": "p19", "favourites": ["True Detective", "Johnny Cash", "No Country for Old Men"], "vocab_size": 6000},
+    {"id": "p20", "favourites": ["Friends", "Shakira", "Starbucks"], "vocab_size": 1000}
+  ]
+}

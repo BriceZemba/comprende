@@ -1,0 +1,50 @@
+{
+ "llm_only": {
+  "titles": 200,
+  "spanish_original": 0.865,
+  "measured": 88,
+  "not_spanish": 0.015,
+  "unverified": 0.12,
+  "distinct_share": 0.56,
+  "mean_jaccard": 0.07539483582338398,
+  "repeated": [
+   [
+    "La casa de papel",
+    12
+   ],
+   [
+    "Gran Hotel",
+    8
+   ],
+   [
+    "El secreto de sus ojos",
+    7
+   ],
+   [
+    "Contratiempo",
+    7
+   ],
+   [
+    "El Ministerio del Tiempo",
+    6
+   ],
+   [
+    "Élite",
+    5
+   ],
+   [
+    "Velvet",
+    5
+   ],
+   [
+    "Relatos salvajes",
+    4
+   ]
+  ],
+  "fit_n": 88,
+  "fit_95": 0.6136363636363636,
+  "fit_below_90": 0.14772727272727273,
+  "label": "Gemini alone (no Qloo, no subtitles)",
+  "run_at": "2026-10-22T17:28:36+00:00"
+ }
+}

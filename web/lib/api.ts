@@ -29,6 +29,7 @@ export interface Pick {
 
 export interface RunResult {
   mode: "agent" | "fallback";
+  model: string | null;
   vocab_size: number;
   favourites: Record<string, string>;
   qloo_calls: number;
@@ -65,7 +66,12 @@ export async function getVocabItems(): Promise<VocabItemsFile> {
 }
 
 export async function runAgent(
-  body: { favourites_text: string; favourite_ids: Record<string, string>; vocab_size: number },
+  body: {
+    favourites_text: string;
+    favourite_ids: Record<string, string>;
+    vocab_size: number;
+    exclude_ids?: string[];
+  },
   onEvent: (e: AgentEvent) => void,
   signal?: AbortSignal,
 ): Promise<void> {

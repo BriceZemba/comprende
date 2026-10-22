@@ -46,6 +46,17 @@ def _allow(ip: str) -> bool:
     return True
 
 
+def _client_ip(request: Request) -> str:
+    """The web app proxies requests, so the visitor's address arrives in X-Forwarded-For. That header is
+    trusted only when the request also carries the proxy secret; otherwise anyone could spoof it."""
+    secret = os.environ.get("PROXY_SECRET", "")
+    if secret and request.headers.get("x-comprende-proxy") == secret:
+        forwarded = request.headers.get("x-forwarded-for", "").split(",")[0].strip()
+        if forwarded:
+            return forwarded
+    return request.client.host if request.client else "?"
+
+
 @app.get("/api/health")
 def health():
     cat = load_catalog()
@@ -56,6 +67,15 @@ def health():
         "measured_titles": len(cat.titles),
         "measured_titles_mapped_to_qloo": len(cat.by_qloo),
     }
+
+
+@app.get("/api/method")
+def method():
+    """Numbers for the methods page, read from files the pipeline and evaluation scripts generate."""
+    def read(path):
+        return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+    return {"validation": read(config.DATA_DIR / "validation_es.json"),
+            "evaluation": read(config.REPO_ROOT / "eval" / "results" / "summary.json")}
 
 
 @app.get("/api/vocab/items")
@@ -79,13 +99,14 @@ class RecommendRequest(BaseModel):
     favourites_text: str = Field("", max_length=500)
     favourite_ids: dict[str, str] = Field(default_factory=dict, max_length=10)
     vocab_size: int = Field(ge=0, le=20000)
+    exclude_ids: list[str] = Field(default_factory=list, max_length=50)  # titles the learner said "not for me"
 
 
 @app.post("/api/recommend")
 async def recommend(body: RecommendRequest, request: Request):
     if not body.favourites_text.strip() and not body.favourite_ids:
         raise HTTPException(400, detail="Tell us at least one thing you love")
-    if not _allow(request.client.host if request.client else "?"):
+    if not _allow(_client_ip(request)):
         raise HTTPException(429, detail="Too many runs from this address; try again in a few minutes")
 
     queue: asyncio.Queue = asyncio.Queue()
@@ -96,7 +117,7 @@ async def recommend(body: RecommendRequest, request: Request):
     async def work():
         try:
             agent = ComprendeAgent(qloo, load_catalog(), emit)
-            result = await agent.run(body.favourites_text, body.favourite_ids, body.vocab_size)
+            result = await agent.run(body.favourites_text, body.favourite_ids, body.vocab_size, body.exclude_ids)
             await queue.put({"type": "result", "result": result})
         except QlooError as e:
             await queue.put({"type": "error", "code": e.code, "text": "Qloo could not answer right now."})

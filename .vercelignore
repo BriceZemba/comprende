@@ -1,0 +1,7 @@
+web/
+pipeline/fixtures/
+pipeline/tests/
+backend/tests/
+.github/
+*.md
+!data/*.md

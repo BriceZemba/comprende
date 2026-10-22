@@ -70,3 +70,18 @@ def test_rate_limit(monkeypatch):
     assert c.post("/api/recommend", json=body).status_code == 200
     assert c.post("/api/recommend", json=body).status_code == 200
     assert c.post("/api/recommend", json=body).status_code == 429
+
+
+def test_rate_limit_counts_forwarded_client_only_from_trusted_proxy(monkeypatch):
+    c = setup(monkeypatch)
+    monkeypatch.setattr(main, "RUNS_PER_10_MIN", 1)
+    monkeypatch.setenv("PROXY_SECRET", "s3cret")
+    body = {"favourites_text": "Breaking Bad", "vocab_size": 3000}
+    proxy = {"X-Comprende-Proxy": "s3cret"}
+    assert c.post("/api/recommend", json=body, headers={**proxy, "X-Forwarded-For": "1.1.1.1"}).status_code == 200
+    assert c.post("/api/recommend", json=body, headers={**proxy, "X-Forwarded-For": "2.2.2.2"}).status_code == 200
+    assert c.post("/api/recommend", json=body, headers={**proxy, "X-Forwarded-For": "1.1.1.1"}).status_code == 429
+    # Without the secret a spoofed header is ignored: the direct client is limited as itself.
+    main._runs.clear()
+    assert c.post("/api/recommend", json=body, headers={"X-Forwarded-For": "9.9.9.9"}).status_code == 200
+    assert c.post("/api/recommend", json=body, headers={"X-Forwarded-For": "8.8.8.8"}).status_code == 429
