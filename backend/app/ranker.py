@@ -1,8 +1,13 @@
 """Taste x comprehension ranking. Deterministic: every number shown to the learner comes
 from Qloo (affinity) or from the subtitle pipeline (coverage), never from the language model."""
+import sys
 from dataclasses import dataclass, field
 
+from . import config
 from .catalog import Measured
+
+sys.path.insert(0, str(config.REPO_ROOT / "pipeline"))
+from comprende_pipeline.coverage import GRID  # noqa: E402
 
 BUCKET_ORDER = ["watch_now", "stretch", "later", "unmeasured"]
 
@@ -54,11 +59,19 @@ def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) ->
             "vocab_for_95": need,
             "words_to_go": max(0, int(need - vocab_size)) if need else None,
             "bucket": _bucket(fit),
+            "_curve": c.measured.coverage if c.measured else None,
         })
 
     def taste(p):
         return (p["affinity"] if p["affinity"] is not None else -1, p["popularity"] or 0)
 
+    # Every measured candidate with a taste score goes on the map; the browser recomputes coverage
+    # from the stored curve as the learner moves the vocabulary slider.
+    taste_map = [{"key": p["imdb"], "name": p["name"], "kind": p["kind"], "year": p["year"],
+                  "affinity": p["affinity"], "because": p["because"], "curve": p["_curve"]}
+                 for p in picks if p["_curve"] is not None and p["affinity"] is not None]
+    for p in picks:
+        p.pop("_curve")
     buckets = {b: sorted([p for p in picks if p["bucket"] == b], key=taste, reverse=True)[:per_bucket]
                for b in BUCKET_ORDER}
     # The title the learner would most love but cannot follow yet: the agent holds it back on purpose.
@@ -75,4 +88,5 @@ def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) ->
         "held_back": held_back,
         "counts": {b: sum(1 for p in picks if p["bucket"] == b) for b in BUCKET_ORDER},
         "measured_share": round(len(measured) / len(picks), 3) if picks else 0.0,
+        "map": {"grid": GRID, "titles": taste_map},
     }

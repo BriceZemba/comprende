@@ -139,6 +139,17 @@ class QlooClient:
         data = await self.get("/entities", {f"external.{source}.ids": ",".join(ids)})
         return [Entity.from_api(r) for r in data.get("results", [])]
 
+    async def tags(self, query: str, tag_types: list[str] | None = None, take: int = 20) -> list[dict]:
+        """GET /v2/tags: tag ids and names whose name matches the query."""
+        params: dict[str, Any] = {"filter.query": query, "take": take}
+        if tag_types:
+            params["filter.tag.types"] = ",".join(tag_types)
+        data = await self.get("/v2/tags", params)
+        results = data.get("results") or {}
+        rows = results.get("tags", []) if isinstance(results, dict) else results
+        return [{"id": r.get("id") or r.get("tag_id"), "name": r.get("name", ""), "type": r.get("type") or r.get("subtype")}
+                for r in rows if r.get("id") or r.get("tag_id")]
+
     async def insights(self, **params: Any) -> list[Entity]:
         """GET /v2/insights. Pass Qloo parameter names with dots replaced by double underscores,
         or a dict via insights(**{"filter.type": ...})."""

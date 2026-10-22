@@ -1,6 +1,7 @@
 "use client";
 
-import type { Pick, RunResult } from "@/lib/api";
+import type { ListenPick, Pick, RunResult } from "@/lib/api";
+import TasteMap from "./TasteMap";
 
 export type Feedback = "loved" | "not_for_me" | "too_hard";
 export const pickKey = (p: Pick) => p.qloo_id ?? p.imdb ?? p.name;
@@ -78,6 +79,42 @@ function PickCard({ p, feedback, onFeedback }: {
   );
 }
 
+function ListenLane({ artists, podcasts }: { artists: ListenPick[]; podcasts: ListenPick[] }) {
+  if (artists.length + podcasts.length === 0) return null;
+  const row = (items: ListenPick[], label: string) => items.length > 0 && (
+    <div className="mt-4">
+      <p className="text-sm font-medium text-muted">{label}</p>
+      <ul className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((a) => (
+          <li key={a.qloo_id} className="flex items-center gap-3 rounded-2xl border border-line bg-card p-3">
+            <div className={`h-12 w-12 shrink-0 overflow-hidden bg-line ${a.kind === "artist" ? "rounded-full" : "rounded-lg"}`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {a.image ? <img src={a.image} alt="" className="h-full w-full object-cover" loading="lazy" /> : null}
+            </div>
+            <div className="min-w-0">
+              <p className="truncate font-medium">{a.name}</p>
+              <p className="truncate text-xs text-muted">
+                {a.because.length > 0 ? `Because you like ${a.because.join(", ")}` : a.spanish_tags.join(", ")}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+  return (
+    <div className="mt-10">
+      <h3 className="font-display text-2xl">Listen in Spanish</h3>
+      <p className="text-sm text-muted">
+        Spanish-language and Latin {podcasts.length ? "artists and podcasts" : "artists"} Qloo matches to your taste, for
+        listening practice. Found through Qloo genre tags; lyrics and episodes are not measured for difficulty.
+      </p>
+      {row(artists, "Music")}
+      {row(podcasts, "Podcasts")}
+    </div>
+  );
+}
+
 export default function Results({ result, onRestart, feedback, onFeedback, onUpdate, note }: {
   result: RunResult;
   onRestart: () => void;
@@ -114,6 +151,8 @@ export default function Results({ result, onRestart, feedback, onFeedback, onUpd
         </div>
       )}
 
+      {result.map && <TasteMap titles={result.map.titles} grid={result.map.grid} vocab={result.vocab_size} />}
+
       {SECTIONS.map((s) => b[s.key].length > 0 && (
         <div key={s.key} className="mt-10">
           <h3 className="font-display text-2xl">{s.title}</h3>
@@ -131,6 +170,8 @@ export default function Results({ result, onRestart, feedback, onFeedback, onUpd
           None of the titles we measured fit both your taste and your level yet. Try adding a different favourite.
         </p>
       )}
+
+      {result.listen && <ListenLane artists={result.listen.artists} podcasts={result.listen.podcasts} />}
 
       {b.unmeasured.length > 0 && (
         <div className="mt-10">

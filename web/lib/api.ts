@@ -1,3 +1,4 @@
+import type { MapTitle } from "@/components/TasteMap";
 import type { Band, VocabItem } from "./comprehension";
 
 export interface SearchHit {
@@ -27,6 +28,17 @@ export interface Pick {
   bucket: "watch_now" | "stretch" | "later" | "unmeasured";
 }
 
+export interface ListenPick {
+  qloo_id: string;
+  name: string;
+  kind: "artist" | "podcast";
+  image: string | null;
+  description: string | null;
+  affinity: number | null;
+  because: string[];
+  spanish_tags: string[];
+}
+
 export interface RunResult {
   mode: "agent" | "fallback";
   model: string | null;
@@ -37,6 +49,8 @@ export interface RunResult {
   held_back: Pick | null;
   counts: Record<Pick["bucket"], number>;
   measured_share: number;
+  map: { grid: number[]; titles: MapTitle[] };
+  listen?: { artists: ListenPick[]; podcasts: ListenPick[] };
 }
 
 export type AgentEvent =

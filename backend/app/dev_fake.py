@@ -26,7 +26,17 @@ def handler(request: httpx.Request) -> httpx.Response:
         q = p.get("query", "")
         return httpx.Response(200, json={"results": [
             {"entity_id": f"FAKE-{q.lower().replace(' ', '-')}", "name": q, "subtype": "urn:entity:tv_show"}]})
+    if request.url.path == "/v2/tags":
+        hit = p.get("filter.query") == "latin" and p.get("filter.tag.types") == "urn:tag:genre:music"
+        return httpx.Response(200, json={"results": {"tags": [{"id": "urn:tag:genre:music:latin", "name": "Latin"}] if hit else []}})
     signals = p.get("signal.interests.entities", "").split(",")
+    if p.get("filter.type") == "urn:entity:artist":
+        names = ["Rosalía", "Natalia Lafourcade", "Jorge Drexler", "C. Tangana", "Mon Laferte", "Bad Bunny"]
+        return httpx.Response(200, json={"results": {"entities": [
+            {"entity_id": f"FAKE-artist-{i}", "name": n, "subtype": "urn:entity:artist", "popularity": 0.5,
+             "tags": [{"id": "urn:tag:genre:music:latin", "name": "Latin"}],
+             "query": {"affinity": _score(n, *signals), "explainability": {"signal.interests.entities": [
+                 {"entity_id": s_, "score": _score(s_, n)} for s_ in signals if s_]}}} for i, n in enumerate(names)]}})
     kind = "series" if p.get("filter.type", "").endswith("tv_show") else "film"
     if p.get("filter.results.entities"):
         wanted = set(p["filter.results.entities"].split(","))

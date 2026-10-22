@@ -57,3 +57,15 @@ def test_catalog_match_by_qloo_id_or_imdb():
     assert cat.match("Q-A") is a
     assert cat.match("unknown", ["tt2"]) is b
     assert cat.match(None, ["tt404"]) is None
+
+
+def test_map_holds_every_measured_scored_title_with_its_curve():
+    cands = [Candidate(f"q{i}", f"T{i}", "film", affinity=0.5 + i / 100, measured=measured(f"tt{i}", 0.9 + i / 1000, 3000))
+             for i in range(20)]
+    cands.append(Candidate("u", "Unmeasured", "film", affinity=0.99))
+    cands.append(Candidate("n", "No taste score", "film", affinity=None, measured=measured("tt99", 0.97, 2000)))
+    out = rank(cands, vocab_size=3000, per_bucket=6)
+    keys = {t["key"] for t in out["map"]["titles"]}
+    assert len(keys) == 20 and "tt99" not in keys          # uncapped, but only titles Qloo scored
+    assert all(len(t["curve"]) == len(out["map"]["grid"]) for t in out["map"]["titles"])
+    assert all("_curve" not in p for b in out["buckets"].values() for p in b)

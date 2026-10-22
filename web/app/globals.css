@@ -14,6 +14,10 @@
   --warn-soft: #f8ecd6;
   --later: #8a4b6b; /* later */
   --later-soft: #f3e4ec;
+  /* chart marks: validated for colour-vision deficiency on --card (dataviz validator, light) */
+  --dot-watch: #0b8068;
+  --dot-stretch: #b4720f;
+  --dot-later: #b0306f;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,6 +35,10 @@
     --warn-soft: #33281a;
     --later: #d495b5;
     --later-soft: #33222b;
+    /* validated on --card (dark) */
+    --dot-watch: #25a07f;
+    --dot-stretch: #c27f14;
+    --dot-later: #cc5c98;
   }
 }
 
