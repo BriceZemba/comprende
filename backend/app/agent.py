@@ -134,6 +134,7 @@ class ComprendeAgent:
         self.qloo, self.catalog, self.emit = qloo, catalog, emit
         self.model_used: str | None = None
         self.deadline = float("inf")
+        self.qloo_errors: list[str] = []
 
     # ---- tools ---------------------------------------------------------------
 
@@ -260,7 +261,8 @@ class ComprendeAgent:
         try:
             return await fn(s, **args)
         except QlooError as e:
-            await self.emit({"type": "warning", "text": f"Qloo returned {e.code}"})
+            self.qloo_errors.append(e.code)
+            await self.emit({"type": "warning", "text": f"Qloo did not answer ({e.code})"})
             return {"error": e.code, "retryable": e.retryable}
 
     # ---- runs ----------------------------------------------------------------
@@ -285,6 +287,7 @@ class ComprendeAgent:
             await self.rank_for_learner(s)
         listen = sorted(s.listen, key=lambda x: -(x["affinity"] or 0))
         return {"mode": mode, "model": self.model_used, "favourites": s.favourites, "qloo_calls": self.qloo.calls,
+                "qloo_errors": sorted(set(self.qloo_errors)), "qloo_unavailable": bool(self.qloo_errors) and not s.candidates,
                 "listen": {"artists": [x for x in listen if x["kind"] == "artist"][:8],
                            "podcasts": [x for x in listen if x["kind"] == "podcast"][:6]},
                 **s.result}

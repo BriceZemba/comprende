@@ -154,3 +154,18 @@ def test_slow_model_switches_then_gives_up_within_budget(monkeypatch):
     assert calls == ["fast-model", "backup-model"]          # switched once, then stopped
     assert time.monotonic() - started < 0.5                  # bounded by the per-call timeout
     assert any("slow" in e["text"] for e in events)
+
+
+def test_qloo_outage_is_reported_not_disguised_as_no_match(monkeypatch):
+    monkeypatch.setattr(agent_mod.config, "GEMINI_API_KEY", "")
+    agent_mod._AUDIO_TAG_CACHE.clear()
+
+    async def emit(e):
+        return None
+
+    async def go():
+        q = QlooClient(api_key="", cache_dir=None, transport=httpx.MockTransport(handler))
+        return await agent_mod.ComprendeAgent(q, Catalog([]), emit).run("Breaking Bad", {}, 3000)
+
+    out = asyncio.run(go())
+    assert out["qloo_unavailable"] is True and out["qloo_errors"] == ["QLOO_NO_KEY"]

@@ -165,7 +165,14 @@ export default function Results({ result, onRestart, feedback, onFeedback, onUpd
         </div>
       ))}
 
-      {empty && (
+      {result.qloo_unavailable && (
+        <p className="mt-8 max-w-xl rounded-2xl bg-warn-soft p-5">
+          Qloo&apos;s taste graph could not be reached just now, so we can&apos;t match titles to your taste. Please try
+          again in a minute.
+        </p>
+      )}
+
+      {empty && !result.qloo_unavailable && (
         <p className="mt-8 max-w-xl rounded-2xl bg-card p-5">
           None of the titles we measured fit both your taste and your level yet. Try adding a different favourite.
         </p>

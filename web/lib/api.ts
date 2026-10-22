@@ -45,6 +45,8 @@ export interface RunResult {
   vocab_size: number;
   favourites: Record<string, string>;
   qloo_calls: number;
+  qloo_errors?: string[];
+  qloo_unavailable?: boolean;
   buckets: Record<Pick["bucket"], Pick[]>;
   held_back: Pick | null;
   counts: Record<Pick["bucket"], number>;

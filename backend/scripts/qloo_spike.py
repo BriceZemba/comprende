@@ -82,6 +82,7 @@ async def main():
         print(f"\nlive calls made: {q.calls}")
     except QlooError as e:
         print(f"\nQLOO ERROR {e.code} ({e.status}): {e.message}")
+        raise SystemExit(1) from None
     finally:
         await q.aclose()
 
