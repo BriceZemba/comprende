@@ -1,0 +1,78 @@
+"""Taste x comprehension ranking. Deterministic: every number shown to the learner comes
+from Qloo (affinity) or from the subtitle pipeline (coverage), never from the language model."""
+from dataclasses import dataclass, field
+
+from .catalog import Measured
+
+BUCKET_ORDER = ["watch_now", "stretch", "later", "unmeasured"]
+
+
+@dataclass
+class Candidate:
+    qloo_id: str | None
+    name: str
+    kind: str  # film | series
+    year: int | None = None
+    image: str | None = None
+    description: str | None = None
+    affinity: float | None = None
+    popularity: float | None = None
+    because: list[str] = field(default_factory=list)  # names of the learner's favourites that drove the pick
+    measured: Measured | None = None
+
+
+def _bucket(fit: str | None) -> str:
+    return {"comfortable": "watch_now", "watchable": "watch_now", "stretch": "stretch", "later": "later"}.get(
+        fit or "", "unmeasured")
+
+
+def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) -> dict:
+    """Group candidates by how much of the dialogue the learner can follow, best taste match first."""
+    seen, picks = set(), []
+    for c in candidates:
+        key = c.measured.imdb if c.measured else (c.qloo_id or c.name.lower())
+        if key in seen:
+            continue
+        seen.add(key)
+        cov = c.measured.coverage_for(vocab_size) if c.measured else None
+        fit = c.measured.fit_for(vocab_size) if c.measured else None
+        need = c.measured.vocab_for_95 if c.measured else None
+        picks.append({
+            "qloo_id": c.qloo_id,
+            "imdb": c.measured.imdb if c.measured else None,
+            "name": (c.measured.title_es if c.measured and c.measured.title_es else c.name),
+            "name_en": c.measured.title_en if c.measured else None,
+            "kind": c.kind,
+            "year": c.year or (c.measured.year if c.measured else None),
+            "image": c.image,
+            "description": c.description,
+            "affinity": c.affinity,
+            "popularity": c.popularity,
+            "because": c.because,
+            "coverage": round(cov, 4) if cov is not None else None,
+            "fit": fit,
+            "vocab_for_95": need,
+            "words_to_go": max(0, int(need - vocab_size)) if need else None,
+            "bucket": _bucket(fit),
+        })
+
+    def taste(p):
+        return (p["affinity"] if p["affinity"] is not None else -1, p["popularity"] or 0)
+
+    buckets = {b: sorted([p for p in picks if p["bucket"] == b], key=taste, reverse=True)[:per_bucket]
+               for b in BUCKET_ORDER}
+    # The title the learner would most love but cannot follow yet: the agent holds it back on purpose.
+    # Only when it is a genuinely strong match (affinity at or above the median of all candidates).
+    later = [p for p in picks if p["bucket"] == "later"]
+    held_back = max(later, key=taste) if later else None
+    affinities = sorted(p["affinity"] for p in picks if p["affinity"] is not None)
+    if held_back and affinities and (held_back["affinity"] or 0) < affinities[len(affinities) // 2]:
+        held_back = None
+    measured = [p for p in picks if p["coverage"] is not None]
+    return {
+        "vocab_size": int(vocab_size),
+        "buckets": buckets,
+        "held_back": held_back,
+        "counts": {b: sum(1 for p in picks if p["bucket"] == b) for b in BUCKET_ORDER},
+        "measured_share": round(len(measured) / len(picks), 3) if picks else 0.0,
+    }

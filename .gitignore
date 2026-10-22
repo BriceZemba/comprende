@@ -1,0 +1,24 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Node
+node_modules/
+.next/
+out/
+
+# Raw corpus cache lives outside the repo (see pipeline/README.md); never commit subtitle text
+cache/
+*.pkl
+*.xml
+*.xml.gz
+
+.DS_Store
+Thumbs.db

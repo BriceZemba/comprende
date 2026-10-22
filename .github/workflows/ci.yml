@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest simplemma==2.0.0
+      - name: Unit tests (coverage maths, vocabulary scoring)
+        run: python -m pytest -q pipeline/tests
+      - name: Fixtures are up to date
+        run: |
+          python pipeline/scripts/make_parity_fixtures.py
+          git diff --exit-code pipeline/fixtures/parity.json
+      - name: Backend tests (Qloo client, ranker, agent, API; Qloo mocked)
+        run: |
+          pip install -r backend/requirements.txt
+          cd backend && python -m pytest -q tests
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.19.0"
+      - name: TypeScript port matches Python
+        run: node --experimental-strip-types web/lib/comprehension.parity.test.ts

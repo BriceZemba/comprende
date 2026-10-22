@@ -1,0 +1,480 @@
+{
+ "language": "es",
+ "bands": [
+  [
+   1,
+   1000
+  ],
+  [
+   1001,
+   2000
+  ],
+  [
+   2001,
+   3000
+  ],
+  [
+   3001,
+   5000
+  ],
+  [
+   5001,
+   8000
+  ],
+  [
+   8001,
+   12000
+  ]
+ ],
+ "items": [
+  {
+   "word": "ropa",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "comprar",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "tardar",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "convencer",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "sentir",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "entrar",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "millón",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "cuenta",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "punta",
+   "real": true,
+   "band": [
+    1001,
+    2000
+   ]
+  },
+  {
+   "word": "parque",
+   "real": true,
+   "band": [
+    1001,
+    2000
+   ]
+  },
+  {
+   "word": "mirada",
+   "real": true,
+   "band": [
+    1001,
+    2000
+   ]
+  },
+  {
+   "word": "calentar",
+   "real": true,
+   "band": [
+    1001,
+    2000
+   ]
+  },
+  {
+   "word": "esquina",
+   "real": true,
+   "band": [
+    1001,
+    2000
+   ]
+  },
+  {
+   "word": "sucio",
+   "real": true,
+   "band": [
+    1001,
+    2000
+   ]
+  },
+  {
+   "word": "acto",
+   "real": true,
+   "band": [
+    1001,
+    2000
+   ]
+  },
+  {
+   "word": "norte",
+   "real": true,
+   "band": [
+    1001,
+    2000
+   ]
+  },
+  {
+   "word": "debilidad",
+   "real": true,
+   "band": [
+    2001,
+    3000
+   ]
+  },
+  {
+   "word": "gallo",
+   "real": true,
+   "band": [
+    2001,
+    3000
+   ]
+  },
+  {
+   "word": "beneficio",
+   "real": true,
+   "band": [
+    2001,
+    3000
+   ]
+  },
+  {
+   "word": "ligero",
+   "real": true,
+   "band": [
+    2001,
+    3000
+   ]
+  },
+  {
+   "word": "reservado",
+   "real": true,
+   "band": [
+    2001,
+    3000
+   ]
+  },
+  {
+   "word": "arrojar",
+   "real": true,
+   "band": [
+    2001,
+    3000
+   ]
+  },
+  {
+   "word": "miembro",
+   "real": true,
+   "band": [
+    2001,
+    3000
+   ]
+  },
+  {
+   "word": "aguja",
+   "real": true,
+   "band": [
+    2001,
+    3000
+   ]
+  },
+  {
+   "word": "pera",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "vital",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "similar",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "telar",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "tecnología",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "brisa",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "incendio",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "jardinero",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "emigrar",
+   "real": true,
+   "band": [
+    5001,
+    8000
+   ]
+  },
+  {
+   "word": "amargura",
+   "real": true,
+   "band": [
+    5001,
+    8000
+   ]
+  },
+  {
+   "word": "asignar",
+   "real": true,
+   "band": [
+    5001,
+    8000
+   ]
+  },
+  {
+   "word": "mansión",
+   "real": true,
+   "band": [
+    5001,
+    8000
+   ]
+  },
+  {
+   "word": "disminuir",
+   "real": true,
+   "band": [
+    5001,
+    8000
+   ]
+  },
+  {
+   "word": "chucho",
+   "real": true,
+   "band": [
+    5001,
+    8000
+   ]
+  },
+  {
+   "word": "recta",
+   "real": true,
+   "band": [
+    5001,
+    8000
+   ]
+  },
+  {
+   "word": "chavo",
+   "real": true,
+   "band": [
+    5001,
+    8000
+   ]
+  },
+  {
+   "word": "usual",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "loquero",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "danés",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "ideológico",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "agraviar",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "ayuno",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "aclamar",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "feminismo",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "esole",
+   "real": false
+  },
+  {
+   "word": "neronir",
+   "real": false
+  },
+  {
+   "word": "caguje",
+   "real": false
+  },
+  {
+   "word": "vompreción",
+   "real": false
+  },
+  {
+   "word": "flunte",
+   "real": false
+  },
+  {
+   "word": "alvilar",
+   "real": false
+  },
+  {
+   "word": "sordezar",
+   "real": false
+  },
+  {
+   "word": "legrafo",
+   "real": false
+  },
+  {
+   "word": "ortir",
+   "real": false
+  },
+  {
+   "word": "insido",
+   "real": false
+  },
+  {
+   "word": "prola",
+   "real": false
+  },
+  {
+   "word": "paponiento",
+   "real": false
+  },
+  {
+   "word": "colvimar",
+   "real": false
+  },
+  {
+   "word": "clucinfo",
+   "real": false
+  },
+  {
+   "word": "ablegrucer",
+   "real": false
+  },
+  {
+   "word": "ignocción",
+   "real": false
+  }
+ ],
+ "method": "Yes/No test (Meara & Buxton 1987); per-band hit rate corrected for guessing."
+}
