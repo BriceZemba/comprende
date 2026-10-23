@@ -39,9 +39,16 @@ def handler(request: httpx.Request):
         assert set(p["filter.tags"].split(",")) >= {"urn:tag:genre:music:latin", "urn:tag:genre:music:reggaeton"}
         return httpx.Response(200, json={"results": {"entities": [
             {"entity_id": "A-ROSALIA", "name": "Rosalía", "subtype": "urn:entity:artist", "popularity": 0.9,
-             "tags": [{"id": "urn:tag:genre:music:latin", "name": "Latin"}],
+             "tags": [{"id": "urn:tag:genre:music:latin", "name": "Latin"},
+                      {"id": "urn:tag:genre:music:flamenco_pop", "name": "Flamenco Pop"}],
              "query": {"affinity": 0.8, "explainability": {"signal.interests.entities": [
-                 {"entity_id": "FAV-Bad Bunny", "score": 0.9}]}}}]}})
+                 {"entity_id": "FAV-Bad Bunny", "score": 0.9}]}}},
+            # Tagged "Latin" by Qloo but sings in French: must not reach the Spanish music lane.
+            {"entity_id": "A-KENDJI", "name": "Kendji Girac", "subtype": "urn:entity:artist", "popularity": 0.7,
+             "tags": [{"id": "urn:tag:genre:music:latin", "name": "Latin"},
+                      {"id": "urn:tag:genre:music:latin_pop", "name": "Latin Pop"},
+                      {"id": "urn:tag:genre:music:french_pop", "name": "French Pop"}],
+             "query": {"affinity": 0.79}}]}})
     if request.url.path == "/search":
         q = p["query"]
         return httpx.Response(200, json={"results": [{"entity_id": f"FAV-{q}", "name": q, "subtype": "urn:entity:tv_show"}]})
@@ -260,3 +267,14 @@ def test_wikipedia_language_overrides_spanish_countries():
     cat = Catalog([], not_spanish={"tt9073958"})
     assert not cat.is_spanish_original(["tt9073958"], ["Spain"])
     assert cat.is_spanish_original(["tt0000001"], ["Spain"])
+
+
+def test_sings_spanish_needs_a_spanish_genre_and_no_other_language_genre():
+    assert agent_mod.sings_spanish(["Latin", "Reggaeton"])
+    assert agent_mod.sings_spanish(["Spanish", "Spanish Pop Ballad", "French"])  # Raphael: plain "French" is noise
+    assert not agent_mod.sings_spanish(["Latin"])  # Kouz-1, Dry: the broad tag alone proves nothing
+    assert not agent_mod.sings_spanish(["Latin Pop", "French Pop"])  # Kendji Girac
+    assert not agent_mod.sings_spanish(["Latin", "French Chanson", "Gypsy Jazz"])  # Zoufris Maracas
+    assert not agent_mod.sings_spanish(["Latin Pop", "MPB"])  # Brazilian, sung in Portuguese
+    assert not agent_mod.sings_spanish(["French", "Salsa", "French Caribbean Zouk"])  # Zouk Machine
+    assert not agent_mod.sings_spanish(["Reggaeton", "Dub", "Downtempo", "Trip Hop"])  # Flox: mostly instrumental

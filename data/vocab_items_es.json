@@ -44,30 +44,6 @@
    ]
   },
   {
-   "word": "perfecto",
-   "real": true,
-   "band": [
-    1,
-    1000
-   ]
-  },
-  {
-   "word": "convencer",
-   "real": true,
-   "band": [
-    1,
-    1000
-   ]
-  },
-  {
-   "word": "sentir",
-   "real": true,
-   "band": [
-    1,
-    1000
-   ]
-  },
-  {
    "word": "entrar",
    "real": true,
    "band": [
@@ -85,6 +61,30 @@
   },
   {
    "word": "comer",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "esposa",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "entender",
+   "real": true,
+   "band": [
+    1,
+    1000
+   ]
+  },
+  {
+   "word": "tercero",
    "real": true,
    "band": [
     1,
@@ -132,22 +132,6 @@
    ]
   },
   {
-   "word": "fotografía",
-   "real": true,
-   "band": [
-    1001,
-    2000
-   ]
-  },
-  {
-   "word": "social",
-   "real": true,
-   "band": [
-    1001,
-    2000
-   ]
-  },
-  {
    "word": "socio",
    "real": true,
    "band": [
@@ -156,31 +140,23 @@
    ]
   },
   {
-   "word": "disparate",
+   "word": "aconsejar",
    "real": true,
    "band": [
-    2001,
-    3000
+    1001,
+    2000
+   ]
+  },
+  {
+   "word": "labio",
+   "real": true,
+   "band": [
+    1001,
+    2000
    ]
   },
   {
    "word": "huérfano",
-   "real": true,
-   "band": [
-    2001,
-    3000
-   ]
-  },
-  {
-   "word": "sumo",
-   "real": true,
-   "band": [
-    2001,
-    3000
-   ]
-  },
-  {
-   "word": "piscina",
    "real": true,
    "band": [
     2001,
@@ -196,7 +172,7 @@
    ]
   },
   {
-   "word": "fruta",
+   "word": "abuelito",
    "real": true,
    "band": [
     2001,
@@ -204,7 +180,7 @@
    ]
   },
   {
-   "word": "injusto",
+   "word": "celda",
    "real": true,
    "band": [
     2001,
@@ -212,7 +188,7 @@
    ]
   },
   {
-   "word": "efectivo",
+   "word": "pantalla",
    "real": true,
    "band": [
     2001,
@@ -220,31 +196,31 @@
    ]
   },
   {
-   "word": "fluir",
+   "word": "jugada",
    "real": true,
    "band": [
-    3001,
-    5000
+    2001,
+    3000
    ]
   },
   {
-   "word": "experimento",
+   "word": "coser",
    "real": true,
    "band": [
-    3001,
-    5000
+    2001,
+    3000
+   ]
+  },
+  {
+   "word": "ejercer",
+   "real": true,
+   "band": [
+    2001,
+    3000
    ]
   },
   {
    "word": "pescador",
-   "real": true,
-   "band": [
-    3001,
-    5000
-   ]
-  },
-  {
-   "word": "obstáculo",
    "real": true,
    "band": [
     3001,
@@ -268,14 +244,6 @@
    ]
   },
   {
-   "word": "definir",
-   "real": true,
-   "band": [
-    3001,
-    5000
-   ]
-  },
-  {
    "word": "pintor",
    "real": true,
    "band": [
@@ -284,23 +252,39 @@
    ]
   },
   {
+   "word": "salar",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "agarrado",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "apunte",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
+   "word": "tutear",
+   "real": true,
+   "band": [
+    3001,
+    5000
+   ]
+  },
+  {
    "word": "sotana",
-   "real": true,
-   "band": [
-    5001,
-    8000
-   ]
-  },
-  {
-   "word": "inaceptable",
-   "real": true,
-   "band": [
-    5001,
-    8000
-   ]
-  },
-  {
-   "word": "debate",
    "real": true,
    "band": [
     5001,
@@ -332,7 +316,7 @@
    ]
   },
   {
-   "word": "reprimir",
+   "word": "cotorra",
    "real": true,
    "band": [
     5001,
@@ -340,7 +324,7 @@
    ]
   },
   {
-   "word": "mocito",
+   "word": "ubicación",
    "real": true,
    "band": [
     5001,
@@ -348,11 +332,19 @@
    ]
   },
   {
-   "word": "apasionante",
+   "word": "desenterrar",
    "real": true,
    "band": [
-    8001,
-    12000
+    5001,
+    8000
+   ]
+  },
+  {
+   "word": "arar",
+   "real": true,
+   "band": [
+    5001,
+    8000
    ]
   },
   {
@@ -372,30 +364,6 @@
    ]
   },
   {
-   "word": "guiado",
-   "real": true,
-   "band": [
-    8001,
-    12000
-   ]
-  },
-  {
-   "word": "polar",
-   "real": true,
-   "band": [
-    8001,
-    12000
-   ]
-  },
-  {
-   "word": "artillero",
-   "real": true,
-   "band": [
-    8001,
-    12000
-   ]
-  },
-  {
    "word": "atadura",
    "real": true,
    "band": [
@@ -404,7 +372,39 @@
    ]
   },
   {
-   "word": "sociable",
+   "word": "surco",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "atener",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "cañonazo",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "pujar",
+   "real": true,
+   "band": [
+    8001,
+    12000
+   ]
+  },
+  {
+   "word": "berrinche",
    "real": true,
    "band": [
     8001,
@@ -424,14 +424,6 @@
    "real": false
   },
   {
-   "word": "canzar",
-   "real": false
-  },
-  {
-   "word": "hordser",
-   "real": false
-  },
-  {
    "word": "detiruzón",
    "real": false
   },
@@ -441,10 +433,6 @@
   },
   {
    "word": "nociturgar",
-   "real": false
-  },
-  {
-   "word": "expla",
    "real": false
   },
   {
@@ -472,7 +460,19 @@
    "real": false
   },
   {
-   "word": "aurobio",
+   "word": "comachipón",
+   "real": false
+  },
+  {
+   "word": "poliato",
+   "real": false
+  },
+  {
+   "word": "tillención",
+   "real": false
+  },
+  {
+   "word": "habracar",
    "real": false
   }
  ],

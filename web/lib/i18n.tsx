@@ -98,6 +98,7 @@ const en = {
       ? `One word you tapped is not real Spanish (${list}), so the estimate was lowered to match.`
       : `${n} words you tapped are not real Spanish (${list}), so the estimate was lowered to match.`,
     unreliable: " That is a lot of guesses: treat this number as rough.",
+    ceiling: "or more: you reached the top of the check",
     findPicks: "Find my Spanish picks →", retake: "Retake",
   },
   run: {
@@ -190,7 +191,7 @@ const en = {
     diffT: "Difficulty: words you know, in real dialogue",
     diff1: "For each Spanish-original film or series with subtitles in the open OPUS OpenSubtitles corpus, we count the words in its dialogue and rank Spanish words by how many titles use them. If you know the 3,000 most common words, the share of a title's running words you know is its coverage for you. Proper names and interjections count as known.",
     diff2: "Studies of reading and listening put adequate comprehension at about 95% coverage and comfortable, unassisted comprehension near 98% (Hu & Nation 2000; Nation 2006). Comprende uses 95% for “watch now” and 90–95% for “a good stretch”.",
-    diff3: "Your vocabulary comes from a yes/no word check: 48 real words from six frequency bands and 16 made-up words. Saying yes to made-up words lowers the estimate, the standard correction for guessing (Meara & Buxton 1987). Spanish words that look like English ones (cognates) are easy to recognise, so learners who know English may get a high estimate; if picks feel too hard, say so and the agent lowers it.",
+    diff3: "Your vocabulary comes from a yes/no word check: 48 real words from six frequency bands and 16 made-up words. Saying yes to made-up words lowers the estimate, the standard correction for guessing (Meara & Buxton 1987). Words spelled almost the same in English or French (cognates such as “perfecto” or “fotografía”) are left out of the check, because they can be recognised without knowing Spanish.",
     checkT: "Does the difficulty measure behave as research predicts?",
     check1: (titles: string, med: string, lo: string, hi: string, med98: string): ReactNode => <>Across {titles} measured titles, the median title needs <strong>{med} words</strong> for 95% coverage (middle half: {lo}–{hi}) and {med98} for 98%. Webb &amp; Rodgers (2009) found about 3,000 word families plus proper nouns give 95% coverage of English film dialogue.</>,
     check2: (a: string, b: string) => `Knowing 1,000 words covers ${a} of the median title; 3,000 words cover ${b}.`,
@@ -286,6 +287,7 @@ const fr: Messages = {
       ? `Un mot que vous avez touché n'existe pas en espagnol (${list}) : l'estimation a été abaissée en conséquence.`
       : `${n} mots que vous avez touchés n'existent pas en espagnol (${list}) : l'estimation a été abaissée en conséquence.`,
     unreliable: " Cela fait beaucoup de suppositions : considérez ce chiffre comme approximatif.",
+    ceiling: "ou plus : vous avez atteint le maximum du test",
     findPicks: "Trouver mes titres en espagnol →", retake: "Recommencer",
   },
   run: {
@@ -378,7 +380,7 @@ const fr: Messages = {
     diffT: "La difficulté : les mots que vous connaissez, dans de vrais dialogues",
     diff1: "Pour chaque film ou série originale en espagnol dont les sous-titres figurent dans le corpus ouvert OPUS OpenSubtitles, nous comptons les mots des dialogues et classons les mots espagnols selon le nombre de titres qui les utilisent. Si vous connaissez les 3 000 mots les plus courants, la part des mots d'un titre que vous connaissez est sa couverture pour vous. Les noms propres et les interjections comptent comme connus.",
     diff2: "Les études sur la lecture et l'écoute situent une compréhension suffisante vers 95 % de couverture et une compréhension confortable et autonome vers 98 % (Hu & Nation 2000 ; Nation 2006). Comprende utilise 95 % pour « à regarder » et 90–95 % pour « un bon défi ».",
-    diff3: "Votre vocabulaire vient d'un test oui/non : 48 vrais mots tirés de six tranches de fréquence et 16 mots inventés. Dire oui à des mots inventés abaisse l'estimation, la correction standard des réponses au hasard (Meara & Buxton 1987). Les mots espagnols proches de l'anglais ou du français (mots apparentés) se reconnaissent facilement, l'estimation peut donc être élevée ; si une suggestion semble trop difficile, dites-le et l'agent l'abaisse.",
+    diff3: "Votre vocabulaire vient d'un test oui/non : 48 vrais mots tirés de six tranches de fréquence et 16 mots inventés. Dire oui à des mots inventés abaisse l'estimation, la correction standard des réponses au hasard (Meara & Buxton 1987). Les mots presque identiques en anglais ou en français (mots apparentés comme « perfecto » ou « fotografía ») sont exclus du test, car on peut les reconnaître sans connaître l'espagnol.",
     checkT: "La mesure de difficulté se comporte-t-elle comme le prévoit la recherche ?",
     check1: (titles, med, lo, hi, med98) => <>Sur {titles} titres mesurés, le titre médian demande <strong>{med} mots</strong> pour 95 % de couverture (moitié centrale : {lo}–{hi}) et {med98} pour 98 %. Webb &amp; Rodgers (2009) ont trouvé qu&apos;environ 3 000 familles de mots plus les noms propres donnent 95 % de couverture des dialogues de films en anglais.</>,
     check2: (a, b) => `Connaître 1 000 mots couvre ${a} du titre médian ; 3 000 mots en couvrent ${b}.`,
@@ -472,6 +474,7 @@ const es: Messages = {
       ? `Una palabra que tocaste no existe en español (${list}), así que la estimación se ha reducido.`
       : `${n} palabras que tocaste no existen en español (${list}), así que la estimación se ha reducido.`,
     unreliable: " Son muchas suposiciones: toma esta cifra como aproximada.",
+    ceiling: "o más: has llegado al máximo de la prueba",
     findPicks: "Encontrar mis títulos en español →", retake: "Repetir",
   },
   run: {
@@ -564,7 +567,7 @@ const es: Messages = {
     diffT: "La dificultad: las palabras que conoces, en diálogos reales",
     diff1: "Para cada película o serie original en español con subtítulos en el corpus abierto OPUS OpenSubtitles, contamos las palabras de sus diálogos y ordenamos las palabras del español según cuántos títulos las usan. Si conoces las 3000 palabras más comunes, el porcentaje de palabras de un título que conoces es su cobertura para ti. Los nombres propios y las interjecciones cuentan como conocidas.",
     diff2: "Los estudios sobre lectura y escucha sitúan una comprensión suficiente en torno al 95 % de cobertura y una comprensión cómoda y autónoma cerca del 98 % (Hu & Nation 2000; Nation 2006). Comprende usa el 95 % para «para ver ya» y el 90–95 % para «un buen reto».",
-    diff3: "Tu vocabulario sale de una prueba de sí/no: 48 palabras reales de seis franjas de frecuencia y 16 inventadas. Decir sí a palabras inventadas reduce la estimación, la corrección habitual del acierto por azar (Meara & Buxton 1987). Las palabras parecidas al inglés (cognados) se reconocen con facilidad, así que la estimación puede salir alta; si una sugerencia te resulta demasiado difícil, dilo y el agente la reduce.",
+    diff3: "Tu vocabulario sale de una prueba de sí/no: 48 palabras reales de seis franjas de frecuencia y 16 inventadas. Decir sí a palabras inventadas reduce la estimación, la corrección habitual del acierto por azar (Meara & Buxton 1987). Las palabras casi iguales en inglés o francés (cognados como «perfecto» o «fotografía») quedan fuera de la prueba, porque se pueden reconocer sin saber español.",
     checkT: "¿Se comporta la medida de dificultad como predice la investigación?",
     check1: (titles, med, lo, hi, med98) => <>En {titles} títulos medidos, el título mediano necesita <strong>{med} palabras</strong> para un 95 % de cobertura (mitad central: {lo}–{hi}) y {med98} para un 98 %. Webb &amp; Rodgers (2009) hallaron que unas 3000 familias de palabras más los nombres propios dan un 95 % de cobertura de los diálogos de cine en inglés.</>,
     check2: (a, b) => `Conocer 1000 palabras cubre el ${a} del título mediano; 3000 palabras cubren el ${b}.`,

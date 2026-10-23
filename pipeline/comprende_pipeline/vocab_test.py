@@ -31,6 +31,23 @@ BLOCKLIST = {
 # could rightly think they know them.
 REVIEWED_OUT = {"clang", "querillo", "camete", "chist", "pisa", "remite", "heavy", "montonero",
                 "sordomudo", "sercial", "demismo"}
+# Transparent cognates of English or French words (perfecto, fotografía, inaceptable): learners who know
+# English or French recognise them without knowing Spanish, which inflated estimates. Also "sumo" (reads as
+# the sport) and "mocito" (a diminutive teachers found odd). Pseudowords one letter from a real word
+# ("aurobio"/aerobio, "canzar"/cansar) or plainly not Spanish ("hordser", "expla") are out too.
+COGNATES_OUT = {"perfecto", "convencer", "fotografía", "social", "piscina", "injusto", "efectivo", "fruta",
+                "experimento", "obstáculo", "definir", "fluir", "inaceptable", "debate", "reprimir",
+                "apasionante", "guiado", "polar", "sociable", "artillero", "sumo", "mocito",
+                "aceptar", "salvaje", "acusado", "inteligencia", "reforma", "centrar", "fabuloso", "transporte",
+                "partidario", "alimentación", "cascada", "estándar", "minoría", "fanfarrón",
+                "jovencito", "cuartelillo", "reacción", "artificial", "violín", "maternidad", "intruso",
+                "congregación", "masacrar", "complot", "patín", "masa", "desgraciar", "oportuno", "detestar",
+                "aliado", "embarque", "porche", "preocupación", "destacamento", "braga", "improvisar",
+                "insecto", "finito", "edificar", "chocar", "embarazo", "cancelar", "colección", "gobernar",
+                "verbo", "fracción", "colectivo", "incómodo", "serrano", "intemperie", "galleta",
+                "especialista", "inmobiliaria", "vedette", "comisión", "paleto", "sentir", "grandioso", "disparate"}
+WEAK_PSEUDOWORDS_OUT = {"aurobio", "canzar", "hordser", "expla", "taximo", "blidesid"}
+REVIEWED_OUT |= COGNATES_OUT | WEAK_PSEUDOWORDS_OUT
 
 
 def build_items(freq_rows, main_pos: dict[str, str], known_forms: set[str], seed: int = 7,

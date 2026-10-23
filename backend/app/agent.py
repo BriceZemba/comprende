@@ -9,6 +9,7 @@ If Gemini is unavailable the same tools run in a fixed order, so the app keeps w
 import asyncio
 import json
 import os
+import re
 import time
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
@@ -36,6 +37,16 @@ AUDIO_TAG_QUERIES = {
 # Instrumental genres do not help listening practice.
 INSTRUMENTAL_WORDS = ("guitar", "jazz", "house", "chill", "instrumental")
 AUDIO_TAG_TYPES = {"artist": ["urn:tag:genre:music"], "podcast": ["urn:tag:genre:media"]}
+# Qloo puts the broad tags "Latin" and "Spanish" on French acts too (Kendji Girac, Kouz-1, Revolver), so an
+# artist must also carry a genre that is sung in Spanish, and no genre that is sung in another language.
+SPANISH_GENRES = re.compile(r"reggaeton|cumbia|salsa|bachata|flamenco|merengue|bolero|ranchera|corrido|mariachi|"
+                            r"tango|vallenato|dembow|trap latino|urbano latino|latin (pop|rap|rock|trap|urban|"
+                            r"alternative|hip hop|ballad)|spanish (pop|rap|rock|hip hop|indie|punk|metal)|"
+                            r"en espa[nñ]ol|regional mexican|folklore argentino|cantautor", re.IGNORECASE)
+OTHER_LANGUAGE_GENRES = re.compile(r"french (pop|rap|hip hop|chanson|rock|variety)|chanson|vari[eé]t[eé]|"
+                                   r"french caribbean|zouk|brazilian|mpb|sertanejo|bossa nova|samba|portuguese|"
+                                   r"fado|italian|k-pop|j-pop|german|"
+                                   r"downtempo|trip hop|lounge|chillout|instrumental", re.IGNORECASE)  # little singing
 MAX_TURNS = 10
 MAX_SCORED_PER_TYPE = 400
 # Latency budget for the model: per call, and for the whole planning phase. Past it, the run
@@ -139,6 +150,12 @@ def _because(e: Entity, favourites: dict[str, str]) -> list[str]:
     return [name for score, name in scored[:2] if name and score >= max(0.42, 1.3 * even)]
 
 
+def sings_spanish(tag_names: list[str]) -> bool:
+    """True when an artist's Qloo genres say Spanish-language music (see SPANISH_GENRES)."""
+    return (any(SPANISH_GENRES.search(n) for n in tag_names)
+            and not any(OTHER_LANGUAGE_GENRES.search(n) for n in tag_names))
+
+
 def _imdb_ids(e: Entity) -> list[str]:
     return [x.get("id") for x in (e.external.get("imdb") or []) if isinstance(x, dict) and x.get("id")]
 
@@ -227,8 +244,11 @@ class ComprendeAgent:
         rows = await self.qloo.insights(**{
             "filter.type": f"urn:entity:{kind}", "signal.interests.entities": signal_entity_ids,
             "filter.tags": [t["id"] for t in tags], "operator.filter.tags": "union",
-            "feature.explainability": True, "take": 12,
+            "feature.explainability": True, "take": 30,
         })
+        returned = len(rows)
+        if kind == "artist":
+            rows = [r for r in rows if sings_spanish([t.get("name") or "" for t in r.tags])]
         tag_names = {t["id"]: t["name"] for t in tags}
         seen = {x["qloo_id"] for x in s.listen}
         for r in rows:
@@ -238,7 +258,7 @@ class ComprendeAgent:
             s.listen.append({"qloo_id": r.entity_id, "name": r.name, "kind": kind, "image": r.image,
                              "description": r.description, "affinity": r.affinity, "because": [b for b in because if b],
                              "spanish_tags": [tag_names[t["id"]] for t in r.tags if t.get("id") in tag_names]})
-        return {"returned": len(rows), "top": [r.name for r in rows[:6]]}
+        return {"returned": returned, "sung_in_spanish": len(rows), "top": [r.name for r in rows[:6]]}
 
     async def _audio_tags(self, kind: str) -> list[dict]:
         if kind in _AUDIO_TAG_CACHE:

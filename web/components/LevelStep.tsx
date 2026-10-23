@@ -121,6 +121,9 @@ export default function LevelStep({ onDone, onBack }: {
         <div className="rise mt-6 max-w-xl rounded-3xl border border-line bg-card p-6 shadow-sm">
           <p className="text-muted">{t.level.youKnow}</p>
           <p className="font-display text-5xl">{f.int(estimate.vocab_size)} <span className="text-2xl">{t.level.words}</span></p>
+          {data && estimate.vocab_size >= data.bands[data.bands.length - 1][1] && (
+            <p className="mt-1 text-sm text-muted">{t.level.ceiling}</p>
+          )}
           <div className="mt-5 space-y-1.5" aria-label={t.level.bandsAria}>
             {estimate.bands.map((b) => (
               <div key={b.band[0]} className="flex items-center gap-3 text-sm">
