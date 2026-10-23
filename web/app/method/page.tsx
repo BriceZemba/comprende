@@ -97,7 +97,7 @@ export default function Method() {
               <tbody>
                 {t.method.rows.map((label, i) => (
                   <tr key={i} className="border-b border-line/60">
-                    <td className="py-2 pr-4">{label}</td>
+                    <th scope="row" className="py-2 pr-4 font-normal">{label}</th>
                     {systems.map(([key, s]) => {
                       const val = ROWS[i](s);
                       return <td key={key} className="py-2 pr-4 tabular-nums">{COUNT_ROWS.has(i) ? n(val ?? 0) : pct(val)}</td>;

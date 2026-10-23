@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { getVocabItems, type VocabItemsFile } from "@/lib/api";
 import { estimateVocab, type VocabEstimate, type VocabItem } from "@/lib/comprehension";
 import { useI18n } from "@/lib/i18n";
@@ -31,6 +31,12 @@ export default function LevelStep({ onDone, onBack }: {
   const [page, setPage] = useState(0);
   const [known, setKnown] = useState<Record<string, boolean>>({});
   const [estimate, setEstimate] = useState<VocabEstimate | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const turn = (p: number) => {
+    setPage(p);
+    const el = sectionRef.current;
+    if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ block: "start" });
+  };
 
   useEffect(() => { getVocabItems().then(setData).catch(() => setFailed(true)); }, []);
   const items = useMemo<VocabItem[]>(() => (data ? shuffled(data.items) : []), [data]);
@@ -45,7 +51,7 @@ export default function LevelStep({ onDone, onBack }: {
   };
 
   return (
-    <section className="rise">
+    <section className="rise scroll-mt-4" ref={sectionRef}>
       <p className="text-sm font-medium uppercase tracking-wider text-accent">{t.level.step}</p>
       <h2 className="font-display mt-1 text-3xl sm:text-4xl">{t.level.title}</h2>
 
@@ -86,7 +92,7 @@ export default function LevelStep({ onDone, onBack }: {
             {items.slice(page * PAGE, (page + 1) * PAGE).map((i) => {
               const on = !!known[i.word];
               return (
-                <button key={i.word} type="button" aria-pressed={on}
+                <button key={i.word} type="button" aria-pressed={on} lang="es"
                   onClick={() => setKnown((k) => ({ ...k, [i.word]: !k[i.word] }))}
                   className={`rounded-xl border px-3 py-3.5 text-lg transition ${on
                     ? "border-good bg-good-soft font-medium text-good" : "border-line bg-card hover:border-ink"}`}>
@@ -96,9 +102,9 @@ export default function LevelStep({ onDone, onBack }: {
             })}
           </div>
           <div className="mt-6 flex items-center gap-4">
-            {page > 0 && <button type="button" onClick={() => setPage(page - 1)} className="text-muted underline">{t.level.previous}</button>}
+            {page > 0 && <button type="button" onClick={() => turn(page - 1)} className="text-muted underline">{t.level.previous}</button>}
             {page < pages - 1 ? (
-              <button type="button" onClick={() => setPage(page + 1)}
+              <button type="button" onClick={() => turn(page + 1)}
                 className="rounded-full bg-ink px-6 py-3 font-medium text-paper">{t.level.nextPage}</button>
             ) : (
               <button type="button" onClick={finish}

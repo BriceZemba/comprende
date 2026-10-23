@@ -23,23 +23,27 @@ export default function FavouritesStep({ value, onChange, onNext }: {
   const [hits, setHits] = useState<SearchHit[]>([]);
   const [open, setOpen] = useState(false);
   const [searchDown, setSearchDown] = useState(false);
+  const [searched, setSearched] = useState(""); // query whose results are in `hits`
+  const [status, setStatus] = useState(""); // announced to screen readers
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const q = query.trim();
     if (q.length < 2) { setHits([]); return; }
     const ctrl = new AbortController();
-    const t = setTimeout(() => {
+    const timer = setTimeout(() => {
       searchEntities(q, ctrl.signal)
-        .then((r) => { setHits(r); setSearchDown(false); setOpen(true); })
+        .then((r) => { setHits(r); setSearched(q); setSearchDown(false); setOpen(true); setStatus(t.fav.results(r.length)); })
         .catch((e) => { if (e.name !== "AbortError") setSearchDown(true); });
     }, 250);
-    return () => { clearTimeout(t); ctrl.abort(); };
-  }, [query]);
+    return () => { clearTimeout(timer); ctrl.abort(); };
+  }, [query, t]);
 
   const add = (f: Favourite) => {
-    if (value.length >= 8 || value.some((v) => v.name.toLowerCase() === f.name.toLowerCase())) return;
-    onChange([...value, f]);
+    const dup = value.some((v) => (f.id && v.id === f.id) || v.name.toLowerCase() === f.name.toLowerCase());
+    if (value.length >= 8 && !dup) return;
+    if (!dup) onChange([...value, f]);
+    setStatus(dup ? t.fav.already(f.name) : t.fav.added(f.name));
     setQuery(""); setHits([]); setOpen(false);
     inputRef.current?.focus();
   };
@@ -59,6 +63,7 @@ export default function FavouritesStep({ value, onChange, onNext }: {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => hits.length && setOpen(true)}
           onKeyDown={(e) => {
+            if (e.key === "Escape") setOpen(false);
             if (e.key === "Enter" && query.trim()) {
               e.preventDefault();
               add(hits[0] ? { id: hits[0].id, name: hits[0].name, kind: hits[0].kind } : { id: null, name: query.trim() });
@@ -66,10 +71,10 @@ export default function FavouritesStep({ value, onChange, onNext }: {
           }}
           placeholder={t.fav.placeholder}
           aria-label={t.fav.searchAria}
-          className="w-full rounded-2xl border border-line bg-card px-5 py-4 text-lg shadow-sm outline-none focus:border-accent"
+          className="w-full rounded-2xl border border-line bg-card px-5 py-4 text-lg shadow-sm outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
         />
         {open && hits.length > 0 && (
-          <ul className="absolute z-10 mt-2 w-full overflow-hidden rounded-2xl border border-line bg-card shadow-lg" role="listbox">
+          <ul className="absolute z-10 mt-2 w-full overflow-hidden rounded-2xl border border-line bg-card shadow-lg">
             {hits.map((h) => (
               <li key={h.id}>
                 <button
@@ -84,12 +89,16 @@ export default function FavouritesStep({ value, onChange, onNext }: {
                     </span>
                     <span className="truncate">{h.name}{h.year ? <span className="text-muted"> · {h.year}</span> : null}</span>
                   </span>
-                  <span className="shrink-0 rounded-full bg-paper px-2 py-0.5 text-xs text-muted">{KIND_LABEL[h.kind] ?? h.kind}</span>
+                  {h.kind && <span className="shrink-0 rounded-full bg-paper px-2 py-0.5 text-xs text-muted">{KIND_LABEL[h.kind] ?? h.kind}</span>}
                 </button>
               </li>
             ))}
           </ul>
         )}
+        {!searchDown && hits.length === 0 && searched && searched === query.trim() && (
+          <p className="mt-2 text-sm text-muted">{t.fav.noMatches}</p>
+        )}
+        <p className="sr-only" role="status">{status}</p>
         {searchDown && query.trim().length >= 2 && (
           <p className="mt-2 text-sm text-muted">{t.fav.searchDown}</p>
         )}
@@ -101,8 +110,9 @@ export default function FavouritesStep({ value, onChange, onNext }: {
             <li key={f.name} className="rise flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-paper">
               <span>{f.name}</span>
               {f.kind && <span className="text-xs opacity-70">{KIND_LABEL[f.kind] ?? f.kind}</span>}
-              <button type="button" aria-label={t.fav.remove(f.name)} onClick={() => onChange(value.filter((v) => v !== f))}
-                className="ml-1 opacity-70 hover:opacity-100">×</button>
+              <button type="button" aria-label={t.fav.remove(f.name)}
+                onClick={() => { onChange(value.filter((v) => v !== f)); inputRef.current?.focus(); }}
+                className="-my-2 -mr-2 ml-0.5 grid h-9 w-9 place-items-center rounded-full opacity-70 hover:opacity-100">×</button>
             </li>
           ))}
         </ul>

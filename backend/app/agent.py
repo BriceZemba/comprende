@@ -125,10 +125,18 @@ _AUDIO_TAG_CACHE: dict[str, list[dict]] = {}
 
 
 def _because(e: Entity, favourites: dict[str, str]) -> list[str]:
-    """The one or two favourites Qloo says contributed most to this pick (explainability score)."""
+    """The favourites Qloo says drove this pick, but only when they clearly stand out.
+
+    Qloo's explainability scores sum to about 1 across the signals. With three favourites they are
+    usually near 0.33 each, and naming the "top two" would be noise ("because you like Zelda" on a
+    prison drama). A favourite is named only if its share is well above an even split; an empty
+    list means the pick comes from all favourites together."""
     scored = sorted(((x.get("score") or 0, favourites[x["entity_id"]]) for x in e.explainability
-                     if x.get("entity_id") in favourites and (x.get("score") or 0) >= 0.1), reverse=True)
-    return [name for _, name in scored[:2] if name]
+                     if x.get("entity_id") in favourites), reverse=True)
+    if len(scored) == 1:
+        return [scored[0][1]] if scored[0][1] else []
+    even = 1 / max(1, len(scored))
+    return [name for score, name in scored[:2] if name and score >= max(0.42, 1.3 * even)]
 
 
 def _imdb_ids(e: Entity) -> list[str]:
@@ -143,6 +151,7 @@ class Session:
     excluded: set[str] = field(default_factory=set)
     listen: list[dict] = field(default_factory=list)
     result: dict | None = None
+    done: set[tuple[str, str]] = field(default_factory=set)  # (tool, kind) calls that completed
 
 
 class ComprendeAgent:
@@ -268,7 +277,8 @@ class ComprendeAgent:
         for r in rows:
             imdb = _imdb_ids(r)
             because = _because(r, s.favourites)
-            c = Candidate(qloo_id=r.entity_id, name=r.name, kind="film" if kind == "movie" else "series",
+            c = Candidate(qloo_id=r.entity_id, name=self.catalog.spanish_name(imdb) or r.name,
+                          kind="film" if kind == "movie" else "series",
                           year=r.year, image=r.image, description=r.description, affinity=r.affinity,
                           popularity=r.popularity, because=[b for b in because if b],
                           measured=self.catalog.match(r.entity_id, imdb))
@@ -283,7 +293,9 @@ class ComprendeAgent:
         if not fn:
             return {"error": f"unknown tool {name}"}
         try:
-            return await fn(s, **args)
+            out = await fn(s, **args)
+            s.done.add((name, str(args.get("kind", ""))))
+            return out
         except QlooError as e:
             self.qloo_errors.append(e.code)
             await self.emit({"type": "warning", "code": "qloo", "data": {"code": e.code},
@@ -329,12 +341,15 @@ class ComprendeAgent:
         for name in [x.strip() for x in parts if x.strip()]:
             if not any(name.lower() in k or k in name.lower() for k in known):
                 await self._call(s, "find_entity", {"query": name})
-        s.candidates.clear()
+        # Keep what the model already finished (the ranker drops duplicates) and run only the missing calls,
+        # so a model that times out at the last step does not double the run time and the Qloo calls.
         ids = list(s.favourites)[:10]
-        for kind in ("movie", "tv_show"):
-            await self._call(s, "recommend_spanish_titles", {"signal_entity_ids": ids, "kind": kind})
-            await self._call(s, "score_measured_titles", {"signal_entity_ids": ids, "kind": kind})
-        await self._call(s, "recommend_spanish_audio", {"signal_entity_ids": ids, "kind": "artist"})
+        plan = [("recommend_spanish_titles", "movie"), ("score_measured_titles", "movie"),
+                ("recommend_spanish_titles", "tv_show"), ("score_measured_titles", "tv_show"),
+                ("recommend_spanish_audio", "artist")]
+        for tool, kind in plan:
+            if (tool, kind) not in s.done:
+                await self._call(s, tool, {"signal_entity_ids": ids, "kind": kind})
         await self._call(s, "rank_for_learner", {})
 
     async def _generate(self, client, models: list[str], contents, cfg):

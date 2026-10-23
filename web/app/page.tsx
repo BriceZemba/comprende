@@ -12,6 +12,7 @@ import { useI18n } from "@/lib/i18n";
 
 type Stage = "intro" | "favourites" | "level" | "run" | "results";
 interface Proof { titles: number; ours: number; llm: number; personal: number; noQloo: number }
+const SAVED = "comprende:last"; // sessionStorage: the last results survive a reload or Back
 const EXAMPLE: Favourite[] = [
   { id: null, name: "Breaking Bad" }, { id: null, name: "Bad Bunny" }, { id: null, name: "The Legend of Zelda" },
 ];
@@ -37,17 +38,58 @@ export default function Home() {
     }).catch(() => {});
   }, []);
 
-  const go = (s: Stage) => { setStage(s); top.current?.scrollIntoView({ behavior: "smooth" }); };
+  // Each step is a browser history entry, so Back on a phone returns to the previous step instead of
+  // leaving the app. The run itself is replaced by its results, so Back from results goes to the level.
+  const go = (s: Stage, how: "push" | "replace" | "none" = "push") => {
+    setStage(s);
+    try {
+      if (how === "push") history.pushState({ stage: s }, "");
+      if (how === "replace") history.replaceState({ stage: s }, "");
+    } catch { /* history unavailable: steps still work */ }
+  };
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return; }
+    // New step: start at its top and move keyboard and screen-reader focus to its heading.
+    const el = top.current;
+    if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ block: "start" });
+    const h = el?.parentElement?.querySelector<HTMLElement>("main section h1, main section h2");
+    if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
+  }, [stage]);
 
   const [vocab, setVocab] = useState(0);
   const [feedback, setFeedback] = useState<Record<string, Feedback>>({});
   const [excluded, setExcluded] = useState<string[]>([]);
   const [note, setNote] = useState<string | null>(null);
 
+  useEffect(() => {
+    const onPop = (e: PopStateEvent) => {
+      const s = (e.state?.stage as Stage | undefined) ?? "intro";
+      // A run cannot be resumed from history; its entry leads back to the level step.
+      setStage(s === "run" ? "level" : s === "results" && !result ? "intro" : s);
+    };
+    addEventListener("popstate", onPop);
+    return () => removeEventListener("popstate", onPop);
+  }, [result]);
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(SAVED) ?? "null");
+      const s = history.state?.stage as Stage | undefined;
+      if (saved?.result && s === "results") {
+        setResult(saved.result); setEvents(saved.events ?? []); setVocab(saved.vocab ?? 0);
+        setFavourites(saved.favourites ?? []); setExcluded(saved.excluded ?? []); setStage("results");
+      } else if (s === "favourites" || s === "level") {
+        setFavourites(saved?.favourites ?? []); setStage(s);
+      }
+    } catch { /* nothing saved, or storage blocked */ }
+  }, []);
+
   const start = async (v: number, favs: Favourite[] = favourites, exclude: string[] = excluded) => {
     go("run");
     setVocab(v);
     setEvents([]); setResult(null); setError(null); setFeedback({});
+    const collected: AgentEvent[] = [];
     try {
       await runAgent(
         {
@@ -58,7 +100,14 @@ export default function Home() {
         },
         (e) => {
           setEvents((prev) => [...prev, e]);
-          if (e.type === "result") { setResult(e.result); setStage("results"); }
+          if (e.type === "result") {
+            setResult(e.result); go("results", "replace");
+            try {
+              sessionStorage.setItem(SAVED, JSON.stringify({ result: e.result, events: [...collected, e], vocab: v,
+                favourites: favs, excluded: exclude }));
+            } catch { /* not saved: results still show */ }
+          }
+          collected.push(e);
           if (e.type === "error") setError(e.text);
         },
       );
@@ -148,7 +197,10 @@ export default function Home() {
         </section>
       )}
 
-      {stage === "favourites" && <FavouritesStep value={favourites} onChange={setFavourites} onNext={() => go("level")} />}
+      {stage === "favourites" && <FavouritesStep value={favourites} onChange={(v) => {
+        setFavourites(v);
+        try { sessionStorage.setItem(SAVED, JSON.stringify({ favourites: v })); } catch { /* not saved */ }
+      }} onNext={() => go("level")} />}
       {stage === "level" && <LevelStep onBack={() => go("favourites")} onDone={(v) => { setNote(null); start(v); }} />}
       {stage === "run" && (
         <>

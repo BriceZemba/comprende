@@ -32,7 +32,7 @@ function describe(e: AgentEvent, t: Messages, int: (x: number) => string): strin
   }
   switch (e.code) {
     case "qloo": return t.run.qloo(String(d.code));
-    case "fallback": return t.run.fallback(!!d.slow);
+    case "fallback": return t.run.fallback();
     case "model_slow": return t.run.modelSlow(String(d.from), String(d.to));
     case "model_busy": return t.run.modelBusy(String(d.from), String(d.to));
   }
@@ -41,7 +41,9 @@ function describe(e: AgentEvent, t: Messages, int: (x: number) => string): strin
 
 export default function AgentRun({ events, running }: { events: AgentEvent[]; running: boolean }) {
   const { t, f } = useI18n();
-  const steps = events.filter((e) => e.type === "step" || e.type === "warning");
+  // Model failover is plumbing, not something a learner needs to read.
+  const steps = events.filter((e) => e.type === "step"
+    || (e.type === "warning" && e.code !== "model_busy" && e.code !== "model_slow"));
   const done = events.filter((e) => e.type === "step").length;
   const [seconds, setSeconds] = useState(0);
 
@@ -55,19 +57,19 @@ export default function AgentRun({ events, running }: { events: AgentEvent[]; ru
   const progress = running ? Math.min(0.95, done / EXPECTED_STEPS) : 1;
 
   return (
-    <section className="rise max-w-xl" aria-live="polite">
+    <section className="rise max-w-xl">
       <h2 className="font-display text-3xl">{running ? t.run.running : t.run.done}</h2>
       {running && (
         <>
           <p className="mt-2 text-sm text-muted">
-            {t.run.explainer} <span className="tabular-nums">{seconds}s</span>
+            {t.run.explainer} <span className="tabular-nums" aria-hidden>{seconds}&nbsp;s</span>
           </p>
           <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-line" aria-hidden>
             <div className="h-full rounded-full bg-accent transition-all duration-500" style={{ width: `${progress * 100}%` }} />
           </div>
         </>
       )}
-      <ol className="mt-5 space-y-3">
+      <ol className="mt-5 space-y-3" aria-live={running ? "polite" : "off"}>
         {steps.map((e, i) => {
           const last = i === steps.length - 1 && running;
           const source = e.type === "step" && SOURCE[e.tool] ? t.run.source[SOURCE[e.tool]] : null;

@@ -62,7 +62,8 @@ class Entity:
         return cls(
             entity_id=raw.get("entity_id") or raw.get("id"),
             name=raw.get("name") or get("title") or "",
-            subtype=raw.get("subtype") or raw.get("type") or "",
+            # /search lists the entity type under "types"; insights rows use "subtype" or "type".
+            subtype=raw.get("subtype") or raw.get("type") or next(iter(raw.get("types") or []), ""),
             year=int(year) if year else None,
             countries=list(countries),
             image=image,

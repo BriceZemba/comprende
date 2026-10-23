@@ -39,9 +39,11 @@ SPANISH_SPEAKING = {"Spain", "Mexico", "Argentina", "Colombia", "Chile", "Peru",
 
 
 class Catalog:
-    def __init__(self, titles: list[Measured], spanish_ids: set[str] | None = None):
+    def __init__(self, titles: list[Measured], spanish_ids: set[str] | None = None,
+                 spanish_names: dict[str, str] | None = None):
         self.titles = titles
         self.spanish_ids = spanish_ids or set()
+        self.spanish_names = spanish_names or {}  # imdb id -> original Spanish title (Wikidata)
         self.by_imdb = {t.imdb: t for t in titles}
         self.by_qloo = {t.qloo_id: t for t in titles if t.qloo_id}
 
@@ -66,7 +68,13 @@ class Catalog:
                 t.taste_baseline = base[t.imdb]["mean"]
         ids_file = data_dir / "spanish_originals.json"
         spanish_ids = set(json.loads(ids_file.read_text(encoding="utf-8"))) if ids_file.exists() else set()
-        return cls(titles, spanish_ids)
+        names_file = data_dir / "spanish_names_es.json"
+        names = json.loads(names_file.read_text(encoding="utf-8")) if names_file.exists() else {}
+        return cls(titles, spanish_ids, names)
+
+    def spanish_name(self, imdb_ids: list[str]) -> str | None:
+        """Qloo names titles in English ("Cable Girls"); learners should see "Las chicas del cable"."""
+        return next((self.spanish_names[i] for i in imdb_ids if i in self.spanish_names), None)
 
     def is_spanish_original(self, imdb_ids: list[str], countries: list[str]) -> bool:
         """Qloo's release-country filter also returns co-productions in English (Enemy: Canada/Spain/France).

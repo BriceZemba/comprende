@@ -207,3 +207,49 @@ def test_english_coproductions_are_dropped_but_spanish_ones_kept(monkeypatch):
     out = asyncio.run(go())
     shown = {p["name"] for b in out["buckets"].values() for p in b}
     assert shown == {"Monos", "El Topo"}
+
+
+def test_because_names_a_favourite_only_when_it_stands_out():
+    from app.qloo import Entity
+    favs = {"a": "Breaking Bad", "b": "Bad Bunny", "c": "Zelda"}
+
+    def e(scores):
+        return Entity.from_api(ent("x", "X", 0.8, [{"entity_id": k, "score": v} for k, v in scores.items()]))
+
+    # An even split across three favourites is not a reason to name any one of them.
+    assert agent_mod._because(e({"a": 0.35, "b": 0.34, "c": 0.31}), favs) == []
+    # A clearly dominant favourite is named.
+    assert agent_mod._because(e({"b": 0.52, "a": 0.24, "c": 0.24}), favs) == ["Bad Bunny"]
+    # With a single favourite it is always the reason.
+    assert agent_mod._because(e({"c": 1.0}), favs) == ["Zelda"]
+
+
+def test_spanish_name_replaces_qloo_english_title():
+    cat = Catalog([], spanish_names={"tt5674718": "Las chicas del cable"})
+    assert cat.spanish_name(["tt0000001", "tt5674718"]) == "Las chicas del cable"
+    assert cat.spanish_name(["tt0000001"]) is None
+
+
+def test_fallback_keeps_finished_model_work():
+    calls = []
+
+    def h(req):
+        calls.append(req.url.path)
+        return httpx.Response(200, json={"results": {"entities": []}})
+
+    async def emit(e):
+        return None
+
+    async def go():
+        q = QlooClient(api_key="k", cache_dir=None, transport=httpx.MockTransport(h))
+        a = agent_mod.ComprendeAgent(q, Catalog([]), emit)
+        s = agent_mod.Session(vocab_size=3000, favourites={"x": "Breaking Bad"})
+        s.done = {("recommend_spanish_titles", "movie"), ("score_measured_titles", "movie"),
+                  ("recommend_spanish_titles", "tv_show"), ("score_measured_titles", "tv_show"),
+                  ("recommend_spanish_audio", "artist")}
+        await a._run_fixed(s, "Breaking Bad")
+        return s
+
+    s = asyncio.run(go())
+    assert calls == []  # nothing fetched twice
+    assert s.result is not None

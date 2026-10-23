@@ -30,9 +30,12 @@ const FIT_CLASS: Record<string, string> = {
   later: "bg-later-soft text-later",
 };
 
-function PickCard({ p, vocab, feedback, onFeedback }: {
+const JUSTWATCH: Record<string, string> = { en: "us", fr: "fr", es: "es" };
+
+function PickCard({ p, vocab, blend, feedback, onFeedback }: {
   p: Pick;
   vocab: number;
+  blend: boolean;
   feedback?: Feedback;
   onFeedback: (p: Pick, f: Feedback | undefined) => void;
 }) {
@@ -43,7 +46,9 @@ function PickCard({ p, vocab, feedback, onFeedback }: {
   const taste = p.lift === null ? t.card.tasteNone
     : p.lift >= 0.05 ? t.card.tasteClear : p.lift > 0 ? t.card.tasteBit : t.card.tasteSame;
   const badge = p.fit && FIT_CLASS[p.fit] ? { label: t.card.fit[p.fit], cls: FIT_CLASS[p.fit] } : null;
-  const watch = `https://www.justwatch.com/us/search?q=${encodeURIComponent(p.name_en || p.name)}`;
+  // English title for the US catalogue, the original title elsewhere.
+  const watch = `https://www.justwatch.com/${JUSTWATCH[lang]}/search?q=${encodeURIComponent(
+    (lang === "en" && p.name_en) || p.name)}`;
   return (
     <article className="rise flex gap-4 rounded-2xl border border-line bg-card p-3 shadow-sm sm:p-4">
       <div className="aspect-[2/3] w-24 shrink-0 overflow-hidden rounded-xl bg-line sm:w-28">
@@ -55,7 +60,7 @@ function PickCard({ p, vocab, feedback, onFeedback }: {
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex flex-col-reverse items-start gap-1 sm:flex-row sm:justify-between sm:gap-2">
-          <h4 className="font-display text-xl leading-tight">{p.name}</h4>
+          <h4 className="font-display text-xl leading-tight" lang="es">{p.name}</h4>
           {badge && p.coverage !== null && (
             <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium tabular-nums ${badge.cls}`}>
               {badge.label} · {pct(p.coverage)}
@@ -63,7 +68,7 @@ function PickCard({ p, vocab, feedback, onFeedback }: {
           )}
         </div>
         <p className="text-sm text-muted">
-          {p.name_en && p.name_en !== p.name ? `${p.name_en} · ` : ""}{p.kind === "series" ? t.card.series : t.card.film}{p.year ? ` · ${p.year}` : ""}
+          {p.name_en && p.name_en.toLowerCase() !== p.name.toLowerCase() ? `${p.name_en} · ` : ""}{p.kind === "series" ? t.card.series : t.card.film}{p.year ? ` · ${p.year}` : ""}
         </p>
         {p.coverage !== null && (
           <>
@@ -71,12 +76,12 @@ function PickCard({ p, vocab, feedback, onFeedback }: {
             <CoverageBar coverage={p.coverage} />
           </>
         )}
-        {p.because.length > 0 && (
+        {p.because.length > 0 ? (
           <div className="mt-2 flex flex-wrap items-center gap-1.5 text-xs text-muted">
             <span>{t.res.becauseYouLike}</span>
             {p.because.map((b) => <span key={b} className="rounded-full bg-paper px-2 py-0.5 text-ink">{b}</span>)}
           </div>
-        )}
+        ) : blend && <p className="mt-2 text-xs text-muted">{t.res.blend}</p>}
         <details className="mt-2 text-sm">
           <summary className="cursor-pointer text-muted hover:text-ink">{t.card.why}</summary>
           <div className="mt-1 space-y-1 text-muted">
@@ -93,20 +98,22 @@ function PickCard({ p, vocab, feedback, onFeedback }: {
           {p.qloo_id && FEEDBACK.map((k) => (
             <button key={k} type="button" aria-pressed={feedback === k}
               onClick={() => onFeedback(p, feedback === k ? undefined : k)}
-              className={`rounded-full border px-2.5 py-1 text-xs transition ${feedback === k
+              className={`min-h-9 rounded-full border px-3 py-1.5 text-xs transition ${feedback === k
                 ? "border-ink bg-ink text-paper" : "border-line text-muted hover:border-ink hover:text-ink"}`}>
               {t.card.feedback[k]}
             </button>
           ))}
           <a href={watch} target="_blank" rel="noopener noreferrer"
-            className="ml-auto text-xs text-muted underline hover:text-ink">{t.card.watch}</a>
+            className="ml-auto py-2 text-xs text-muted underline hover:text-ink">
+            {t.card.watch}<span className="sr-only"> {t.card.newTab}</span>
+          </a>
         </div>
       </div>
     </article>
   );
 }
 
-function ListenLane({ artists, podcasts }: { artists: ListenPick[]; podcasts: ListenPick[] }) {
+function ListenLane({ artists, podcasts, blend }: { artists: ListenPick[]; podcasts: ListenPick[]; blend: boolean }) {
   const { t } = useI18n();
   if (artists.length + podcasts.length === 0) return null;
   const row = (items: ListenPick[], label: string) => items.length > 0 && (
@@ -123,7 +130,7 @@ function ListenLane({ artists, podcasts }: { artists: ListenPick[]; podcasts: Li
               <a href={`https://open.spotify.com/search/${encodeURIComponent(a.name)}`} target="_blank"
                 rel="noopener noreferrer" className="block truncate font-medium hover:underline">{a.name}</a>
               <p className="truncate text-xs text-muted">
-                {a.because.length > 0 ? `${t.res.becauseYouLike} ${a.because.join(", ")}` : a.spanish_tags.join(", ")}
+                {a.because.length > 0 ? `${t.res.becauseYouLike} ${a.because.join(", ")}` : blend ? t.res.blend : a.spanish_tags.join(", ")}
               </p>
             </div>
           </li>
@@ -157,6 +164,7 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
   const changes = Object.keys(feedback).length;
   const b = result.buckets;
   const held = result.held_back;
+  const blend = Object.keys(result.favourites).length > 1;
   const empty = SECTIONS.every((s) => b[s].length === 0) && !held;
   return (
     <section className="rise">
@@ -202,7 +210,7 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
           <p className="text-sm text-muted">{t.res.sections[s][1]}</p>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
             {b[s].map((p) => (
-              <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
+              <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} blend={blend} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
             ))}
           </div>
         </div>
@@ -212,7 +220,7 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
 
       {empty && !result.qloo_unavailable && <p className="mt-8 max-w-xl rounded-2xl bg-card p-5">{t.res.empty}</p>}
 
-      {result.listen && <ListenLane artists={result.listen.artists} podcasts={result.listen.podcasts} />}
+      {result.listen && <ListenLane artists={result.listen.artists} podcasts={result.listen.podcasts} blend={blend} />}
 
       {b.unmeasured.length > 0 && (
         <div className="mt-10">
@@ -233,7 +241,7 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
 
       {changes > 0 && (
         <div className="rise fixed inset-x-0 bottom-4 z-20 mx-auto flex w-[min(92%,32rem)] items-center justify-between gap-3 rounded-full bg-ink py-2 pl-5 pr-2 text-paper shadow-lg">
-          <span className="text-sm">{t.res.reactions(changes)}</span>
+          <span className="text-sm" role="status">{t.res.reactions(changes)}</span>
           <button type="button" onClick={onUpdate} className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-ink">
             {t.res.update}
           </button>

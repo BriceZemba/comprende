@@ -82,26 +82,26 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
           <rect x={L} y={y(0.9)} width={W - L - R} height={y(Y_MIN) - y(0.9)} className="fill-later-soft" />
           {(["watch", "stretch", "later"] as Zone[]).map((z) => {
             const yy = z === "watch" ? y(1) + 14 : z === "stretch" ? y(0.95) + 14 : y(0.9) + 14;
-            return <text key={z} x={W - R - 6} y={yy} textAnchor="end" className="fill-muted text-[11px]">{ZONE_LABEL[z]}</text>;
+            return <text key={z} x={W - R - 6} y={yy} textAnchor="end" className="fill-muted text-[11px] max-sm:text-[20px]">{ZONE_LABEL[z]}</text>;
           })}
           {/* y axis */}
           {[0.85, 0.9, 0.95, 1].map((c) => (
             <g key={c}>
               <line x1={L} x2={W - R} y1={y(c)} y2={y(c)} className="stroke-line" strokeWidth={c === 0.95 || c === 0.9 ? 1.2 : 0.6} />
-              <text x={L - 8} y={y(c) + 4} textAnchor="end" className="fill-muted text-[11px] tabular-nums">{c === Y_MIN ? `≤${f.pct0(c)}` : f.pct0(c)}</text>
+              <text x={L - 8} y={y(c) + 4} textAnchor="end" className="fill-muted text-[11px] tabular-nums max-sm:text-[20px]">{c === Y_MIN ? `≤${f.pct0(c)}` : f.pct0(c)}</text>
             </g>
           ))}
-          <text x={14} y={T + (H - T - B) / 2} transform={`rotate(-90 14 ${T + (H - T - B) / 2})`} textAnchor="middle" className="fill-muted text-[11px]">{t.map.yAxis}</text>
+          <text x={14} y={T + (H - T - B) / 2} transform={`rotate(-90 14 ${T + (H - T - B) / 2})`} textAnchor="middle" className="fill-muted text-[11px] max-sm:text-[18px]">{t.map.yAxis}</text>
           {/* x axis */}
           <line x1={L} x2={W - R} y1={H - B} y2={H - B} className="stroke-line" />
-          <text x={L} y={H - B + 18} className="fill-muted text-[11px]">{t.map.less}</text>
-          <text x={W - R} y={H - B + 18} textAnchor="end" className="fill-muted text-[11px]">{t.map.more}</text>
-          <text x={L + (W - L - R) / 2} y={H - 12} textAnchor="middle" className="fill-muted text-[11px]">{t.map.xAxis}</text>
+          <text x={L} y={H - B + 22} className="fill-muted text-[11px] max-sm:text-[18px]">{t.map.less}</text>
+          <text x={W - R} y={H - B + 22} textAnchor="end" className="fill-muted text-[11px] max-sm:text-[18px]">{t.map.more}</text>
+          <text x={L + (W - L - R) / 2} y={H - 12} textAnchor="middle" className="fill-muted text-[11px] max-sm:hidden">{t.map.xAxis}</text>
           {/* dots */}
           {points.map((p) => (
             <g key={p.key} className="cursor-pointer outline-none transition-transform duration-300 ease-out motion-reduce:transition-none"
               style={{ transform: `translate(${x(tasteOf(p))}px, ${y(p.c)}px)` }}
-              tabIndex={0} role="button" aria-label={t.map.dotAria(p.name, pctFloor(p.c), ZONE_LABEL[p.zone])}
+              aria-hidden
               onMouseEnter={() => setFocus(p.key)} onFocus={() => setFocus(p.key)} onClick={() => setFocus(p.key)}>
               <circle r={14} fill="transparent" />
               <Marker zone={p.zone} />
@@ -110,7 +110,7 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
                 const right = x(tasteOf(p)) > L + (W - L - R) * 0.6;
                 return (
                   <text x={right ? -10 : 10} y={[-12, 20, -26][i]} textAnchor={right ? "end" : "start"}
-                    className="pointer-events-none fill-ink stroke-card text-[11px] font-medium [paint-order:stroke] [stroke-width:3px]">
+                    className="pointer-events-none fill-ink stroke-card text-[11px] font-medium [paint-order:stroke] [stroke-width:3px] max-sm:hidden">
                     {p.name}
                   </text>
                 );

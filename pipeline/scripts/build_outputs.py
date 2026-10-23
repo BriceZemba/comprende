@@ -4,6 +4,7 @@ Writes:
   data/frequency_es.tsv   rank, lemma, titles (contextual diversity), count, main POS
   data/catalog_es.json    one row per title with its coverage curve
   data/vocab_items_es.json  items for the yes/no vocabulary check
+  data/spanish_originals.json, data/spanish_names_es.json  Spanish-original ids and titles
 """
 import json
 import sys
@@ -24,6 +25,10 @@ def main():
     titles = {t["imdb"]: t for t in json.loads((DATA_DIR / "titles_es.json").read_text(encoding="utf-8"))}
     # Spanish-original IMDb ids, used at run time to keep English co-productions out of recommendations.
     (DATA_DIR / "spanish_originals.json").write_text(json.dumps(sorted(titles), separators=(",", ":")), encoding="utf-8")
+    # Original Spanish titles, so Qloo's English names ("Cable Girls") can be shown as "Las chicas del cable".
+    names = {i: t["title_es"] for i, t in sorted(titles.items()) if t.get("title_es")}
+    (DATA_DIR / "spanish_names_es.json").write_text(json.dumps(names, ensure_ascii=False, separators=(",", ":")),
+                                                    encoding="utf-8")
     records = [json.loads(p.read_text(encoding="utf-8")) for p in sorted((CACHE_DIR / "lemmas").glob("*.json"))]
     records = [r for r in records if r["imdb"] in titles]
     print(f"{len(records)} lemmatised titles")
