@@ -37,6 +37,7 @@ AUDIO_TAG_QUERIES = {
 INSTRUMENTAL_WORDS = ("guitar", "jazz", "house", "chill", "instrumental")
 AUDIO_TAG_TYPES = {"artist": ["urn:tag:genre:music"], "podcast": ["urn:tag:genre:media"]}
 MAX_TURNS = 10
+MAX_SCORED_PER_TYPE = 400
 # Latency budget for the model: per call, and for the whole planning phase. Past it, the run
 # finishes with the fixed plan from wherever the model got to.
 MODEL_CALL_TIMEOUT_S = float(os.environ.get("MODEL_CALL_TIMEOUT_S", "12"))
@@ -54,7 +55,7 @@ Process:
 2. Call recommend_spanish_titles for films and for series using all resolved favourites.
 3. Call score_measured_titles for films and for series, so titles whose difficulty we measured are scored
    against the learner's taste too.
-4. Call recommend_spanish_audio for artists and for podcasts (listening practice).
+4. Call recommend_spanish_audio for artists (listening practice).
 5. Call rank_for_learner, then answer.
 
 Rules: only mention titles returned by the tools. Never state a number that a tool did not return.
@@ -101,13 +102,13 @@ TOOLS = [
     },
     {
         "name": "recommend_spanish_audio",
-        "description": "Qloo recommendations of Spanish-language or Latin music artists, or podcasts, that fit the "
-                       "learner's favourites. For listening practice; difficulty is not measured for these.",
+        "description": "Qloo recommendations of Spanish-language or Latin music artists that fit the learner's "
+                       "favourites. For listening practice; difficulty is not measured for these.",
         "parameters_json_schema": {
             "type": "object",
             "properties": {
                 "signal_entity_ids": {"type": "array", "items": {"type": "string"}},
-                "kind": {"type": "string", "enum": ["artist", "podcast"]},
+                "kind": {"type": "string", "enum": ["artist"]},
             },
             "required": ["signal_entity_ids", "kind"],
         },
@@ -184,14 +185,15 @@ class ComprendeAgent:
     async def score_measured_titles(self, s: Session, signal_entity_ids: list[str], kind: str) -> dict:
         label = "films" if kind == "movie" else "series"
         want = "film" if kind == "movie" else "series"
-        ids = [t.qloo_id for t in self.catalog.titles if t.qloo_id and t.kind == want]
+        # The best-known measured titles (catalog order), capped to keep a run within ~8 Qloo calls per type.
+        ids = [t.qloo_id for t in self.catalog.titles if t.qloo_id and t.kind == want][:MAX_SCORED_PER_TYPE]
         if not ids:
             return {"scored": 0, "top": [], "note": f"no measured {label} are mapped to Qloo yet"}
         await self.emit({"type": "step", "tool": "score_measured_titles",
                          "text": f"Scoring {len(ids)} {label} with measured dialogue against your taste"})
         self._remember(s, signal_entity_ids)
         rows: list[Entity] = []
-        for i in range(0, min(len(ids), 400), 50):
+        for i in range(0, len(ids), 50):
             rows += await self.qloo.insights(**{
                 "filter.type": KINDS[kind], "signal.interests.entities": signal_entity_ids,
                 "filter.results.entities": ids[i:i + 50], "feature.explainability": True, "take": 50,
@@ -199,7 +201,9 @@ class ComprendeAgent:
         added = self._add(s, rows, kind)
         return {"scored": len(rows), "top": [c.name for c in sorted(added, key=lambda c: -(c.affinity or 0))[:8]]}
 
-    async def recommend_spanish_audio(self, s: Session, signal_entity_ids: list[str], kind: str) -> dict:
+    async def recommend_spanish_audio(self, s: Session, signal_entity_ids: list[str], kind: str = "artist") -> dict:
+        if not AUDIO_TAG_QUERIES.get(kind):
+            return {"returned": 0, "note": f"{kind} recommendations are not available"}
         label = "music" if kind == "artist" else "podcasts"
         await self.emit({"type": "step", "tool": "recommend_spanish_audio",
                          "text": f"Asking Qloo for Spanish-language {label} that {'matches' if kind == 'artist' else 'match'} your taste"})
@@ -320,8 +324,7 @@ class ComprendeAgent:
         for kind in ("movie", "tv_show"):
             await self._call(s, "recommend_spanish_titles", {"signal_entity_ids": ids, "kind": kind})
             await self._call(s, "score_measured_titles", {"signal_entity_ids": ids, "kind": kind})
-        for kind in ("artist", "podcast"):
-            await self._call(s, "recommend_spanish_audio", {"signal_entity_ids": ids, "kind": kind})
+        await self._call(s, "recommend_spanish_audio", {"signal_entity_ids": ids, "kind": "artist"})
         await self._call(s, "rank_for_learner", {})
 
     async def _generate(self, client, models: list[str], contents, cfg):
