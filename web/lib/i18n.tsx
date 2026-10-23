@@ -110,6 +110,8 @@ const en = {
     fallback: (slow: boolean) => `The language model is ${slow ? "slow right now" : "unavailable"}; finishing with the fixed plan`,
     qloo: (code: string) => `Qloo did not answer (${code})`,
     tryAgain: "Try again",
+    unreachable: "The recommendation service is not answering right now. Please try again in a minute.",
+    tooMany: "Too many runs from this connection. Please wait a few minutes and try again.",
   },
   res: {
     eyebrow: "Your picks",
@@ -289,6 +291,8 @@ const fr: Messages = {
     fallback: (slow) => `Le modèle de langage est ${slow ? "lent en ce moment" : "indisponible"} ; fin avec le plan fixe`,
     qloo: (code) => `Qloo n'a pas répondu (${code})`,
     tryAgain: "Réessayer",
+    unreachable: "Le service de recommandation ne répond pas pour le moment. Réessayez dans une minute.",
+    tooMany: "Trop de recherches depuis cette connexion. Attendez quelques minutes puis réessayez.",
   },
   res: {
     eyebrow: "Vos suggestions",
@@ -466,6 +470,8 @@ const es: Messages = {
     fallback: (slow) => `El modelo de lenguaje ${slow ? "va lento ahora" : "no está disponible"}; terminando con el plan fijo`,
     qloo: (code) => `Qloo no respondió (${code})`,
     tryAgain: "Reintentar",
+    unreachable: "El servicio de recomendaciones no responde ahora mismo. Inténtalo de nuevo en un minuto.",
+    tooMany: "Demasiadas búsquedas desde esta conexión. Espera unos minutos y vuelve a intentarlo.",
   },
   res: {
     eyebrow: "Tus sugerencias",

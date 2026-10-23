@@ -7,7 +7,7 @@ import FavouritesStep, { type Favourite } from "@/components/FavouritesStep";
 import LevelStep from "@/components/LevelStep";
 import Results, { pickKey, type Feedback } from "@/components/Results";
 import Header from "@/components/Header";
-import { runAgent, type AgentEvent, type RunResult } from "@/lib/api";
+import { AgentStartError, runAgent, type AgentEvent, type RunResult } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
 
 type Stage = "intro" | "favourites" | "level" | "run" | "results";
@@ -63,7 +63,9 @@ export default function Home() {
         },
       );
     } catch (e) {
-      setError(e instanceof Error ? e.message : "The agent could not start.");
+      setError(e instanceof AgentStartError && e.status === 429 ? t.run.tooMany
+        : e instanceof AgentStartError && e.status >= 500 ? t.run.unreachable
+        : e instanceof Error && e.name !== "TypeError" ? e.message : t.run.unreachable);
     }
   };
 

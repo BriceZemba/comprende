@@ -83,6 +83,11 @@ export async function getVocabItems(): Promise<VocabItemsFile> {
   return r.json();
 }
 
+// Carries the HTTP status so the page can explain the failure in the learner's language.
+export class AgentStartError extends Error {
+  constructor(message: string, readonly status: number) { super(message); }
+}
+
 export async function runAgent(
   body: {
     favourites_text: string;
@@ -101,7 +106,7 @@ export async function runAgent(
   });
   if (!r.ok || !r.body) {
     const detail = await r.json().catch(() => ({}));
-    throw new Error(typeof detail.detail === "string" ? detail.detail : `The agent could not start (${r.status})`);
+    throw new AgentStartError(typeof detail.detail === "string" ? detail.detail : `The agent could not start (${r.status})`, r.status);
   }
   const reader = r.body.getReader();
   const decoder = new TextDecoder();

@@ -7,15 +7,21 @@ export const maxDuration = 120;
 
 export async function POST(req: Request) {
   const forwardedFor = req.headers.get("x-forwarded-for") ?? "";
-  const upstream = await fetch(`${backend}/api/recommend`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Forwarded-For": forwardedFor,
-      "X-Comprende-Proxy": process.env.PROXY_SECRET ?? "",
-    },
-    body: await req.text(),
-  });
+  let upstream: Response;
+  try {
+    upstream = await fetch(`${backend}/api/recommend`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Forwarded-For": forwardedFor,
+        "X-Comprende-Proxy": process.env.PROXY_SECRET ?? "",
+      },
+      body: await req.text(),
+    });
+  } catch {
+    // Backend down or unreachable: say so instead of letting Next answer with a bare 500.
+    return Response.json({ detail: "The recommendation service is not reachable" }, { status: 502 });
+  }
   if (!upstream.ok || !upstream.body) {
     return new Response(await upstream.text(), {
       status: upstream.status,
