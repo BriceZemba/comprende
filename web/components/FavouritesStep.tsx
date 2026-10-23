@@ -77,9 +77,15 @@ export default function FavouritesStep({ value, onChange, onNext }: {
                 <button
                   type="button"
                   onClick={() => add({ id: h.id, name: h.name, kind: h.kind })}
-                  className="flex w-full items-center justify-between gap-3 px-5 py-3 text-left hover:bg-paper"
+                  className="flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left hover:bg-paper"
                 >
-                  <span className="truncate">{h.name}{h.year ? <span className="text-muted"> · {h.year}</span> : null}</span>
+                  <span className="flex min-w-0 items-center gap-3">
+                    <span className="h-10 w-10 shrink-0 overflow-hidden rounded-lg bg-line">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      {h.image ? <img src={h.image} alt="" className="h-full w-full object-cover" loading="lazy" /> : null}
+                    </span>
+                    <span className="truncate">{h.name}{h.year ? <span className="text-muted"> · {h.year}</span> : null}</span>
+                  </span>
                   <span className="shrink-0 rounded-full bg-paper px-2 py-0.5 text-xs text-muted">{KIND_LABEL[h.kind] ?? h.kind}</span>
                 </button>
               </li>

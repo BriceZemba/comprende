@@ -19,6 +19,7 @@ export interface Pick {
   image: string | null;
   description: string | null;
   affinity: number | null;
+  lift: number | null;
   popularity: number | null;
   because: string[];
   coverage: number | null;

@@ -35,20 +35,47 @@ function CoverageBar({ coverage }: { coverage: number }) {
   );
 }
 
-function PickCard({ p, feedback, onFeedback }: {
+const FIT_BADGE: Record<string, { label: string; cls: string }> = {
+  comfortable: { label: "Watch now", cls: "bg-good-soft text-good" },
+  watchable: { label: "Watch now", cls: "bg-good-soft text-good" },
+  stretch: { label: "Stretch", cls: "bg-warn-soft text-warn" },
+  later: { label: "Later", cls: "bg-later-soft text-later" },
+};
+
+// Plain-language reading of Qloo's lift: affinity for this learner minus the title's typical affinity.
+function tasteSentence(lift: number | null) {
+  if (lift === null) return "Qloo matched it to your taste.";
+  if (lift >= 0.05) return "Qloo says it fits your taste clearly more than it fits most people's.";
+  if (lift > 0) return "Qloo says it fits your taste a little more than it fits most people's.";
+  return "Qloo says it fits your taste about as well as it fits most people's: a broadly liked pick.";
+}
+
+function PickCard({ p, vocab, feedback, onFeedback }: {
   p: Pick;
+  vocab: number;
   feedback?: Feedback;
   onFeedback: (p: Pick, f: Feedback | undefined) => void;
 }) {
+  const badge = p.fit ? FIT_BADGE[p.fit] : null;
+  const watch = `https://www.justwatch.com/us/search?q=${encodeURIComponent(p.name_en || p.name)}`;
   return (
-    <article className="rise flex gap-4 rounded-2xl border border-line bg-card p-4 shadow-sm">
-      <div className="h-32 w-[88px] shrink-0 overflow-hidden rounded-lg bg-line">
+    <article className="rise flex gap-4 rounded-2xl border border-line bg-card p-3 shadow-sm sm:p-4">
+      <div className="aspect-[2/3] w-24 shrink-0 overflow-hidden rounded-xl bg-line sm:w-28">
         {/* Posters come from Qloo's image CDN at a fixed small size; next/image would add nothing here. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        {p.image ? <img src={p.image} alt="" className="h-full w-full object-cover" loading="lazy" /> : null}
+        {p.image ? <img src={p.image} alt={`Poster: ${p.name}`} className="h-full w-full object-cover" loading="lazy" /> : (
+          <div className="grid h-full place-items-center p-2 text-center font-display text-sm text-muted">{p.name}</div>
+        )}
       </div>
       <div className="min-w-0 flex-1">
-        <h4 className="font-display text-xl leading-tight">{p.name}</h4>
+        <div className="flex flex-col-reverse items-start gap-1 sm:flex-row sm:justify-between sm:gap-2">
+          <h4 className="font-display text-xl leading-tight">{p.name}</h4>
+          {badge && p.coverage !== null && (
+            <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium tabular-nums ${badge.cls}`}>
+              {badge.label} · {pct(p.coverage)}
+            </span>
+          )}
+        </div>
         <p className="text-sm text-muted">
           {p.name_en && p.name_en !== p.name ? `${p.name_en} · ` : ""}{p.kind === "series" ? "Series" : "Film"}{p.year ? ` · ${p.year}` : ""}
         </p>
@@ -59,21 +86,36 @@ function PickCard({ p, feedback, onFeedback }: {
           </>
         )}
         {p.because.length > 0 && (
-          <p className="mt-2 text-sm text-muted">Because you like <span className="text-ink">{p.because.join(", ")}</span></p>
-        )}
-        {p.affinity !== null && <p className="mt-1 text-xs text-muted">Qloo taste affinity {p.affinity.toFixed(2)}</p>}
-        {p.qloo_id && (
-          <div className="mt-3 flex flex-wrap gap-1.5" role="group" aria-label={`Feedback on ${p.name}`}>
-            {FEEDBACK.map((f) => (
-              <button key={f.kind} type="button" aria-pressed={feedback === f.kind}
-                onClick={() => onFeedback(p, feedback === f.kind ? undefined : f.kind)}
-                className={`rounded-full border px-2.5 py-1 text-xs transition ${feedback === f.kind
-                  ? "border-ink bg-ink text-paper" : "border-line text-muted hover:border-ink hover:text-ink"}`}>
-                {f.label}
-              </button>
-            ))}
+          <div className="mt-2 flex flex-wrap items-center gap-1.5 text-xs text-muted">
+            <span>Because you like</span>
+            {p.because.map((b) => <span key={b} className="rounded-full bg-paper px-2 py-0.5 text-ink">{b}</span>)}
           </div>
         )}
+        <details className="mt-2 text-sm">
+          <summary className="cursor-pointer text-muted hover:text-ink">Why this pick?</summary>
+          <div className="mt-1 space-y-1 text-muted">
+            <p>{tasteSentence(p.lift)}{p.affinity !== null ? ` (affinity ${p.affinity.toFixed(2)})` : ""}</p>
+            {p.coverage !== null && (
+              <p>
+                From its subtitles, someone who knows about {vocab.toLocaleString()} words would recognise {pct(p.coverage)} of
+                the dialogue.
+                Comfortable listening starts around 95–98%.
+              </p>
+            )}
+          </div>
+        </details>
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          {p.qloo_id && FEEDBACK.map((f) => (
+            <button key={f.kind} type="button" aria-pressed={feedback === f.kind}
+              onClick={() => onFeedback(p, feedback === f.kind ? undefined : f.kind)}
+              className={`rounded-full border px-2.5 py-1 text-xs transition ${feedback === f.kind
+                ? "border-ink bg-ink text-paper" : "border-line text-muted hover:border-ink hover:text-ink"}`}>
+              {f.label}
+            </button>
+          ))}
+          <a href={watch} target="_blank" rel="noopener noreferrer"
+            className="ml-auto text-xs text-muted underline hover:text-ink">Where to watch ↗</a>
+        </div>
       </div>
     </article>
   );
@@ -84,15 +126,16 @@ function ListenLane({ artists, podcasts }: { artists: ListenPick[]; podcasts: Li
   const row = (items: ListenPick[], label: string) => items.length > 0 && (
     <div className="mt-4">
       <p className="text-sm font-medium text-muted">{label}</p>
-      <ul className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((a) => (
-          <li key={a.qloo_id} className="flex items-center gap-3 rounded-2xl border border-line bg-card p-3">
+          <li key={a.qloo_id} className="flex min-w-0 items-center gap-3 rounded-2xl border border-line bg-card p-3">
             <div className={`h-12 w-12 shrink-0 overflow-hidden bg-line ${a.kind === "artist" ? "rounded-full" : "rounded-lg"}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               {a.image ? <img src={a.image} alt="" className="h-full w-full object-cover" loading="lazy" /> : null}
             </div>
             <div className="min-w-0">
-              <p className="truncate font-medium">{a.name}</p>
+              <a href={`https://open.spotify.com/search/${encodeURIComponent(a.name)}`} target="_blank"
+                rel="noopener noreferrer" className="block truncate font-medium hover:underline">{a.name}</a>
               <p className="truncate text-xs text-muted">
                 {a.because.length > 0 ? `Because you like ${a.because.join(", ")}` : a.spanish_tags.join(", ")}
               </p>
@@ -115,9 +158,12 @@ function ListenLane({ artists, podcasts }: { artists: ListenPick[]; podcasts: Li
   );
 }
 
-export default function Results({ result, onRestart, feedback, onFeedback, onUpdate, note }: {
+const LEVELS = [1000, 3000, 6000];
+
+export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note }: {
   result: RunResult;
   onRestart: () => void;
+  onChangeLevel: (vocab: number) => void;
   feedback: Record<string, Feedback>;
   onFeedback: (p: Pick, f: Feedback | undefined) => void;
   onUpdate: () => void;
@@ -130,9 +176,21 @@ export default function Results({ result, onRestart, feedback, onFeedback, onUpd
     <section className="rise">
       <p className="text-sm font-medium uppercase tracking-wider text-accent">Your picks</p>
       <h2 className="font-display mt-1 text-3xl sm:text-4xl">Spanish you&apos;ll love, at your level</h2>
-      <p className="mt-2 text-muted">
-        Based on about {result.vocab_size.toLocaleString()} known words and {Object.keys(result.favourites).length} favourites.
-      </p>
+      <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+        <span className="text-muted">For fans of</span>
+        {Object.values(result.favourites).map((f) => (
+          <span key={f} className="rounded-full bg-ink px-3 py-1 text-paper">{f}</span>
+        ))}
+      </div>
+      <div className="mt-3 flex flex-wrap items-center gap-2 text-sm" role="group" aria-label="Change level">
+        <span className="text-muted">At about <strong className="text-ink">{result.vocab_size.toLocaleString()}</strong> words. Try</span>
+        {LEVELS.filter((v) => v !== result.vocab_size).map((v) => (
+          <button key={v} type="button" onClick={() => onChangeLevel(v)}
+            className="rounded-full border border-line bg-card px-3 py-1 hover:border-accent">
+            {v.toLocaleString()} words
+          </button>
+        ))}
+      </div>
 
       {note && <p className="rise mt-4 max-w-2xl rounded-2xl bg-good-soft p-4 text-sm">{note}</p>}
 
@@ -153,13 +211,20 @@ export default function Results({ result, onRestart, feedback, onFeedback, onUpd
 
       {result.map && <TasteMap titles={result.map.titles} grid={result.map.grid} vocab={result.vocab_size} />}
 
+      {b.watch_now.length === 0 && b.stretch.length > 0 && (
+        <p className="mt-8 max-w-2xl rounded-2xl bg-warn-soft p-4 text-sm">
+          At about {result.vocab_size.toLocaleString()} words, no native title we measured is comfortable yet: these
+          stretches are the closest. Watch with Spanish subtitles on, and use the slider above to see what opens up next.
+        </p>
+      )}
+
       {SECTIONS.map((s) => b[s.key].length > 0 && (
         <div key={s.key} className="mt-10">
           <h3 className="font-display text-2xl">{s.title}</h3>
           <p className="text-sm text-muted">{s.blurb}</p>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
+          <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
             {b[s.key].map((p) => (
-              <PickCard key={pickKey(p)} p={p} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
+              <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
             ))}
           </div>
         </div>
