@@ -103,9 +103,9 @@
  },
  "comprende": {
   "titles": 200,
-  "spanish_original": 0.95,
-  "measured": 176,
-  "not_spanish": 0.01,
+  "spanish_original": 0.935,
+  "measured": 173,
+  "not_spanish": 0.025,
   "unverified": 0.04,
   "distinct_share": 0.685,
   "mean_jaccard": 0.032187279343870515,
@@ -143,11 +143,11 @@
     4
    ]
   ],
-  "fit_n": 176,
-  "fit_95": 0.4772727272727273,
+  "fit_n": 173,
+  "fit_95": 0.4797687861271676,
   "fit_below_90": 0.0,
-  "first5_n": 100,
-  "first5_95": 0.7,
+  "first5_n": 99,
+  "first5_95": 0.696969696969697,
   "first5_below_90": 0.0,
   "label": "Comprende (Qloo + subtitle coverage)",
   "run_at": "2026-10-23T01:10:37+00:00"

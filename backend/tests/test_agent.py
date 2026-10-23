@@ -253,3 +253,10 @@ def test_fallback_keeps_finished_model_work():
     s = asyncio.run(go())
     assert calls == []  # nothing fetched twice
     assert s.result is not None
+
+
+def test_wikipedia_language_overrides_spanish_countries():
+    # White Lines: produced in Spain, but mainly in English.
+    cat = Catalog([], not_spanish={"tt9073958"})
+    assert not cat.is_spanish_original(["tt9073958"], ["Spain"])
+    assert cat.is_spanish_original(["tt0000001"], ["Spain"])

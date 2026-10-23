@@ -24,7 +24,7 @@ Subtitle text is never committed: only counts derived from it.
 
 ## Validation
 
-From `data/validation_es.md` (1,483 titles):
+From `data/validation_es.md` (1,464 titles):
 
 - The median title needs **3,000 lemmas for 95% coverage** (middle half: 2,500–4,000) and 8,000 for 98%. Webb & Rodgers (2009) found about 3,000 word families plus proper nouns give 95% coverage of English film dialogue, so the measure lands where published research predicts.
 - Knowing 3,000 lemmas covers 95.1% of the words in the median title; 1,000 lemmas cover 89.8%.

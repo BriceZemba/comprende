@@ -5,16 +5,16 @@
 | Metric | Gemini alone (no Qloo, no subtitles) | Comprende without Qloo (popularity instead of taste) | Comprende (Qloo + subtitle coverage) |
 |---|---|---|---|
 | Titles returned | 200 | 200 | 200 |
-| Verified Spanish-original | 86.5% | 100.0% | 95.0% |
-| Real title, not originally Spanish | 1.5% | 0.0% | 1.0% |
+| Verified Spanish-original | 86.5% | 100.0% | 93.5% |
+| Real title, not originally Spanish | 1.5% | 0.0% | 2.5% |
 | Not verified automatically (not proof of invention) | 12.0% | 0.0% | 4.0% |
 | Distinct titles / all titles | 56.0% | 8.0% | 68.5% |
 | Mean overlap between profiles (Jaccard) | 0.08 | 0.66 | 0.03 |
-| Titles with measured dialogue | 88 | 200 | 176 |
-| …of which followable (≥ 95% coverage at the profile's level) | 61.4% | 48.0% | 47.7% |
+| Titles with measured dialogue | 88 | 200 | 173 |
+| …of which followable (≥ 95% coverage at the profile's level) | 61.4% | 48.0% | 48.0% |
 | …of which too hard (< 90% coverage) | 14.8% | 6.0% | 0.0% |
-| First five picks with measured dialogue | 50 | 100 | 100 |
-| …of which followable (≥ 95%) | 60.0% | 82.0% | 70.0% |
+| First five picks with measured dialogue | 50 | 100 | 99 |
+| …of which followable (≥ 95%) | 60.0% | 82.0% | 69.7% |
 | …of which too hard (< 90%) | 14.0% | 0.0% | 0.0% |
 
 ## Gemini alone (no Qloo, no subtitles)

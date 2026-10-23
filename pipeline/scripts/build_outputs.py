@@ -17,16 +17,24 @@ from comprende_pipeline.config import CACHE_DIR, DATA_DIR  # noqa: E402
 from comprende_pipeline.lexicon import normalize_counts, normalize_lemma  # noqa: E402
 from comprende_pipeline.coverage import GRID, coverage_curve, frequency_ranks, vocab_needed  # noqa: E402
 from comprende_pipeline.vocab_test import build_items  # noqa: E402
+from comprende_pipeline.wikipedia import is_spanish_language  # noqa: E402
 
 FREQ_ROWS_KEPT = 25000
 
 
 def main():
     titles = {t["imdb"]: t for t in json.loads((DATA_DIR / "titles_es.json").read_text(encoding="utf-8"))}
+    # Titles Wikidata calls Spanish but whose English Wikipedia infobox lists another main language
+    # (Extinction, White Lines): see scripts/check_wikipedia.py. They stay in the word-frequency counts
+    # (their Spanish subtitles are still Spanish text, and the word check must not change), but are not
+    # measured titles and are never recommended.
+    spanish = {i: t for i, t in titles.items() if is_spanish_language(t.get("wp_languages") or [])}
+    (DATA_DIR / "not_spanish_es.json").write_text(json.dumps(sorted(set(titles) - set(spanish)), separators=(",", ":")),
+                                                  encoding="utf-8")
     # Spanish-original IMDb ids, used at run time to keep English co-productions out of recommendations.
-    (DATA_DIR / "spanish_originals.json").write_text(json.dumps(sorted(titles), separators=(",", ":")), encoding="utf-8")
+    (DATA_DIR / "spanish_originals.json").write_text(json.dumps(sorted(spanish), separators=(",", ":")), encoding="utf-8")
     # Original Spanish titles, so Qloo's English names ("Cable Girls") can be shown as "Las chicas del cable".
-    names = {i: t["title_es"] for i, t in sorted(titles.items()) if t.get("title_es")}
+    names = {i: t["title_es"] for i, t in sorted(spanish.items()) if t.get("title_es")}
     (DATA_DIR / "spanish_names_es.json").write_text(json.dumps(names, ensure_ascii=False, separators=(",", ":")),
                                                     encoding="utf-8")
     records = [json.loads(p.read_text(encoding="utf-8")) for p in sorted((CACHE_DIR / "lemmas").glob("*.json"))]
@@ -62,6 +70,8 @@ def main():
 
     catalog = []
     for r in records:
+        if r["imdb"] not in spanish:
+            continue
         t = titles[r["imdb"]]
         curve = coverage_curve(r["lemmas"], r["marginal"], r["tokens"], rank)
         catalog.append({

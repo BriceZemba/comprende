@@ -34,12 +34,12 @@ The agent (Google Gemini with tool calling) plans these calls; a deterministic r
 
 | Claim | Result | Where |
 |---|---|---|
-| Titles measured from real subtitles | 1,483 Spanish-original films and series | `data/catalog_es.json` |
+| Titles measured from real subtitles | 1,464 Spanish-original films and series | `data/catalog_es.json` |
 | The difficulty measure behaves as published research predicts | Median title needs 3,000 lemmas for 95% coverage (Webb & Rodgers 2009: ~3,000 word families + proper nouns for English film) | `data/validation_es.md` |
 | A hypothesis that did not hold | Animation/family titles are **not** easier than dramas (94.1% vs 95.4% coverage at 3,000 lemmas) | `data/validation_es.md` |
 | A language model alone ignores level | Gemini, no Qloo, no subtitles, 20 profiles: of its 88 measured picks, 61.4% followable at the learner's level, 14.8% below 90% coverage | `eval/results/report.md` |
 | Qloo is what makes it personal | Same subtitle data without Qloo (popularity instead of taste): 8.0% distinct titles across 20 learners, list overlap 0.66. With Qloo: 68.5% distinct, overlap 0.03 | `eval/results/report.md` |
-| Comprende vs. a language model, first five picks | 70.0% followable at the learner's level vs 60.0%; 0.0% far too hard (< 90%) vs 14.0%; 95.0% verified Spanish-original vs 86.5% | `eval/results/report.md` |
+| Comprende vs. a language model, first five picks | 69.7% followable at the learner's level vs 60.0%; 0.0% far too hard (< 90%) vs 14.0%; 93.5% verified Spanish-original vs 86.5% | `eval/results/report.md` |
 
 Reproduce: `python pipeline/scripts/validate_catalog.py`, `python eval/run_llm_baseline.py`, `python eval/run_comprende.py`, `python eval/metrics.py`.
 
@@ -52,7 +52,7 @@ flowchart LR
   A -->|search, insights, tags, entities| Q[(Qloo API)]
   A -->|plans tool calls| G[Gemini]
   A --> R[Ranker: taste x comprehension]
-  C[(Coverage catalog: 1,483 titles)] --> R
+  C[(Coverage catalog: 1,464 titles)] --> R
   P[Offline pipeline: Wikidata titles + OPUS subtitles + lemmas] --> C
 ```
 
@@ -80,7 +80,7 @@ Tests: `python -m pytest -q pipeline/tests`, `cd backend && python -m pytest -q 
 - Only titles in the open subtitle corpus are measured; others are labelled "difficulty not measured", never guessed. Series coverage is thin (episodes are filed separately in the corpus).
 - The music lane depends on Qloo genre tags; lyrics are not measured. Podcasts are left out: Qloo's "Spanish" podcast tags describe topics (Spanish history), not the language of the show.
 - Qloo's language filter is by release country, which also returns co-productions in English; those are removed using the Wikidata list of Spanish-original titles, or when every production country is Spanish-speaking (this can still let a Catalan or Galician title through).
-- Qloo returned taste scores for 670 of our measured titles; the others cannot be ranked by taste.
+- Qloo returned taste scores for 657 of our measured titles; the others cannot be ranked by taste.
 - Qloo describes what groups of people tend to like; it does not predict what one person will do. No personal data is sent to Qloo: only the ids of things the learner says they like.
 
 ## Data and credits

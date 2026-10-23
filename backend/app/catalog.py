@@ -40,9 +40,10 @@ SPANISH_SPEAKING = {"Spain", "Mexico", "Argentina", "Colombia", "Chile", "Peru",
 
 class Catalog:
     def __init__(self, titles: list[Measured], spanish_ids: set[str] | None = None,
-                 spanish_names: dict[str, str] | None = None):
+                 spanish_names: dict[str, str] | None = None, not_spanish: set[str] | None = None):
         self.titles = titles
         self.spanish_ids = spanish_ids or set()
+        self.not_spanish = not_spanish or set()  # Wikidata says Spanish, Wikipedia says another main language
         self.spanish_names = spanish_names or {}  # imdb id -> original Spanish title (Wikidata)
         self.by_imdb = {t.imdb: t for t in titles}
         self.by_qloo = {t.qloo_id: t for t in titles if t.qloo_id}
@@ -70,7 +71,9 @@ class Catalog:
         spanish_ids = set(json.loads(ids_file.read_text(encoding="utf-8"))) if ids_file.exists() else set()
         names_file = data_dir / "spanish_names_es.json"
         names = json.loads(names_file.read_text(encoding="utf-8")) if names_file.exists() else {}
-        return cls(titles, spanish_ids, names)
+        not_file = data_dir / "not_spanish_es.json"
+        not_spanish = set(json.loads(not_file.read_text(encoding="utf-8"))) if not_file.exists() else set()
+        return cls(titles, spanish_ids, names, not_spanish)
 
     def spanish_name(self, imdb_ids: list[str]) -> str | None:
         """Qloo names titles in English ("Cable Girls"); learners should see "Las chicas del cable"."""
@@ -78,7 +81,10 @@ class Catalog:
 
     def is_spanish_original(self, imdb_ids: list[str], countries: list[str]) -> bool:
         """Qloo's release-country filter also returns co-productions in English (Enemy: Canada/Spain/France).
-        Keep a title only if Wikidata lists it as Spanish-original, or every production country speaks Spanish."""
+        Keep a title only if Wikidata lists it as Spanish-original, or every production country speaks Spanish.
+        A title Wikipedia shows to be mainly in another language (White Lines) is dropped either way."""
+        if any(i in self.not_spanish for i in imdb_ids):
+            return False
         if any(i in self.spanish_ids or i in self.by_imdb for i in imdb_ids):
             return True
         return bool(countries) and all(c in SPANISH_SPEAKING for c in countries)
