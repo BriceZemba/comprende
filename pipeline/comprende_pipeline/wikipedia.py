@@ -12,8 +12,6 @@ import re
 import time
 import unicodedata
 
-import requests
-
 from .config import CACHE_DIR, USER_AGENT
 
 WIKIDATA_API = "https://www.wikidata.org/w/api.php"
@@ -34,6 +32,8 @@ PAREN = re.compile(r"\s*\((?:película|pelicula|serie|telenovela|miniserie|progr
 
 
 def _get(url: str, params: dict) -> dict:
+    import requests  # only the fetchers need it; the parsing helpers and their tests run without it
+
     params = {**params, "format": "json", "formatversion": "2"}
     for attempt in range(5):
         r = requests.get(url, params=params, headers={"User-Agent": USER_AGENT}, timeout=60)
