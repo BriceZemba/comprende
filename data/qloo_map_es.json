@@ -1,0 +1,7437 @@
+{
+"tt6468322": {
+"entity_id": "0ED36723-363F-448E-83B3-B1D261D508C4",
+"name": "Money Heist",
+"via": "imdb-batch"
+},
+"tt0457430": {
+"entity_id": "878B26C8-9C94-4A6B-B65A-5AAD2CC67D97",
+"name": "Pan's Labyrinth",
+"via": "imdb-batch"
+},
+"tt6155172": {
+"entity_id": "FB052F84-01CF-48BB-A30A-51C45F183777",
+"name": "Roma",
+"via": "imdb-batch"
+},
+"tt0287467": {
+"entity_id": "199B5A4A-EE62-4967-83D6-1E462963008C",
+"name": "Talk to Her",
+"via": "imdb-batch"
+},
+"tt0441909": {
+"entity_id": "5C90D1C5-19B9-4DB1-8E08-6C12C33A3BF3",
+"name": "Volver",
+"via": "imdb-batch"
+},
+"tt0369702": {
+"entity_id": "262FB9AA-E00D-4BC4-AD6E-966897FAA281",
+"name": "The Sea Inside",
+"via": "imdb-batch"
+},
+"tt0318462": {
+"entity_id": "185D7270-D2FD-4A69-84D6-27156DCD6590",
+"name": "The Motorcycle Diaries",
+"via": "imdb-batch"
+},
+"tt1305806": {
+"entity_id": "DE6E333E-3F36-49B2-B1F0-00F59C5CB4F5",
+"name": "The Secret in Their Eyes",
+"via": "imdb-batch"
+},
+"tt0275491": {
+"entity_id": "520C7848-82A4-4FDA-9196-1C57AD0EE826",
+"name": "Bad Education",
+"via": "imdb-batch"
+},
+"tt3011894": {
+"entity_id": "CB803F97-5412-42A4-831C-D62D05660A68",
+"name": "Wild Tales",
+"via": "imdb-batch"
+},
+"tt1189073": {
+"entity_id": "2A69DCE7-D5E5-41B3-9705-C05965F7B3E4",
+"name": "The Skin I Live In",
+"via": "imdb-batch"
+},
+"tt8291806": {
+"entity_id": "DE02F90E-EF5E-4860-9D19-18BCFCD47F38",
+"name": "Pain and Glory",
+"via": "imdb-batch"
+},
+"tt0055601": {
+"entity_id": "AC1A0F0C-8F62-4A3A-ADF2-CDA6D6923F90",
+"name": "Viridiana",
+"via": "imdb-batch"
+},
+"tt5639354": {
+"entity_id": "A181E2D0-3712-4A22-A946-620B1ABA08BD",
+"name": "A Fantastic Woman",
+"via": "imdb-batch"
+},
+"tt0095675": {
+"entity_id": "92E3A1C8-CE5C-473A-A85C-C995DE24A2BB",
+"name": "Women on the Verge of a Nervous Breakdown",
+"via": "imdb-batch"
+},
+"tt0245574": {
+"entity_id": "D7DC69EE-925B-4B0E-AF53-56524E075523",
+"name": "Y tu mamá también",
+"via": "imdb-batch"
+},
+"tt0245712": {
+"entity_id": "AAED2C10-DBA8-438A-90B7-5A16D2051EB0",
+"name": "Amores Perros",
+"via": "imdb-batch"
+},
+"tt16277242": {
+"entity_id": "D3939768-1816-4F23-9AD7-E6E27254A321",
+"name": "Society of the Snow",
+"via": "imdb-batch"
+},
+"tt0066491": {
+"entity_id": "6579EA90-9BD1-47F6-B7D4-18B935D2CF53",
+"name": "Tristana",
+"via": "imdb-batch"
+},
+"tt0104815": {
+"entity_id": "9B96C58A-70F8-4051-9A18-A8AB35F5BA4B",
+"name": "El Mariachi",
+"via": "imdb-batch"
+},
+"tt4285496": {
+"entity_id": "F018148A-4E01-4169-AF68-60C4E6B655D2",
+"name": "Embrace of the Serpent",
+"via": "imdb-batch"
+},
+"tt8228288": {
+"entity_id": "985F6F9D-FE97-41AF-BDC7-A2EFC513BEA7",
+"name": "The Platform",
+"via": "imdb-batch"
+},
+"tt2243389": {
+"entity_id": "9E96284D-DACC-4028-BA77-D1098A82C4BE",
+"name": "I'm So Excited!",
+"via": "imdb-batch"
+},
+"tt1038988": {
+"entity_id": "B6F5149C-287A-4DE6-948B-BB63651FA12B",
+"name": "REC",
+"via": "imdb-batch"
+},
+"tt4326444": {
+"entity_id": "A2331F3B-E1AF-4D53-AE6E-BAEB60EDD517",
+"name": "Julieta",
+"via": "imdb-batch"
+},
+"tt4857264": {
+"entity_id": "9AC8FD0D-0735-4D44-BB8F-FCEF47226E23",
+"name": "The Invisible Guest",
+"via": "imdb-batch"
+},
+"tt0070040": {
+"entity_id": "D8EA0E08-00BB-449D-B33F-8C1E352C97FC",
+"name": "The Spirit of the Beehive",
+"via": "imdb-batch"
+},
+"tt0464141": {
+"entity_id": "F55AFA0D-576A-49DC-A354-E4834394FDC2",
+"name": "The Orphanage",
+"via": "imdb-batch"
+},
+"tt12618926": {
+"entity_id": "EB4A91B4-1B03-43B5-9CE9-6841A0A8779D",
+"name": "Parallel Mothers",
+"via": "imdb-batch"
+},
+"tt0089276": {
+"entity_id": "66EB744F-4216-4285-A6DE-2EFEDB196D55",
+"name": "The Official Story",
+"via": "imdb-batch"
+},
+"tt1206488": {
+"entity_id": "5EE04201-6C60-43D5-82F7-AD5F2A6F200D",
+"name": "The Milk of Sorrow",
+"via": "imdb-batch"
+},
+"tt0093412": {
+"entity_id": "FC477F5C-4FD7-434F-B824-5441019FD767",
+"name": "Law of Desire",
+"via": "imdb-batch"
+},
+"tt0101026": {
+"entity_id": "CDEE1E81-0986-4ED5-92BF-0B9E3B05B74B",
+"name": "Tie Me Up! Tie Me Down!",
+"via": "imdb-batch"
+},
+"tt0103030": {
+"entity_id": "E2924A98-9939-4468-8D30-EADDEDBAC3CD",
+"name": "High Heels",
+"via": "imdb-batch"
+},
+"tt0118819": {
+"entity_id": "64449A7C-9CE9-4568-AF03-8E297FE47031",
+"name": "Live Flesh",
+"via": "imdb-batch"
+},
+"tt0256009": {
+"entity_id": "8FBAA194-96F4-4D46-9478-B5D2295F92AA",
+"name": "The Devil's Backbone",
+"via": "imdb-batch"
+},
+"tt1648216": {
+"entity_id": "5BB11404-2AD3-45FC-9198-BA3583367B3B",
+"name": "Three Steps Above Heaven",
+"via": "imdb-batch"
+},
+"tt4964788": {
+"entity_id": "5F313216-EE86-42F1-B16B-876009C13F34",
+"name": "Everybody Knows",
+"via": "imdb-batch"
+},
+"tt0247586": {
+"entity_id": "C1C8D380-60EC-4B75-B9F2-5C2D79BA2EAA",
+"name": "Nine Queens",
+"via": "imdb-batch"
+},
+"tt15789492": {
+"entity_id": "2AD328B9-479B-4A26-80D0-EC6E7745D63F",
+"name": "Infiesto",
+"via": "imdb-batch"
+},
+"tt1634003": {
+"entity_id": "E2CD5751-7991-47CB-B17A-5014113708E2",
+"name": "Underdogs",
+"via": "imdb-batch"
+},
+"tt1764625": {
+"entity_id": "9D3FB394-7C88-4DF7-9F8A-AA59ADDB88EC",
+"name": "Tad: The Lost Explorer",
+"via": "imdb-batch"
+},
+"tt5208252": {
+"entity_id": "FDA01384-F6CD-4949-B77E-E29E0708B4E6",
+"name": "Operation Finale",
+"via": "imdb-batch"
+},
+"tt0067866": {
+"entity_id": "FF087F29-8172-494A-8334-4B550721C168",
+"name": "El Topo",
+"via": "imdb-batch"
+},
+"tt0074360": {
+"entity_id": "1029DD36-A504-409E-989C-7CC1EBF65EC7",
+"name": "Cría Cuervos",
+"via": "imdb-batch"
+},
+"tt4375438": {
+"entity_id": "3691AA3F-E429-4EB1-8477-1E49E4C4C836",
+"name": "The Club",
+"via": "imdb-batch"
+},
+"tt0051983": {
+"entity_id": "C5A12A05-332E-4546-8182-7734A05EA75A",
+"name": "Nazarin",
+"via": "imdb-batch"
+},
+"tt0118845": {
+"entity_id": "775EC12C-91AA-4113-9B0C-858195DC09ED",
+"name": "Happy Together",
+"via": "imdb-batch"
+},
+"tt0319769": {
+"entity_id": "86E1C142-0D28-4AFB-95E6-AC2BFFFBF4A5",
+"name": "Mondays in the Sun",
+"via": "imdb-batch"
+},
+"tt0042804": {
+"entity_id": "D07721B5-85CD-4719-9E1C-266A79ADD03B",
+"name": "The Young and the Damned",
+"via": "imdb-single"
+},
+"tt0480669": {
+"entity_id": "3B076458-77EF-4DA7-8B66-858E958B947F",
+"name": "Timecrimes",
+"via": "imdb-batch"
+},
+"tt0048394": {
+"entity_id": "7F44BD5D-9A40-4762-89AB-91F3F0F2ECF6",
+"name": "Death of a Cyclist",
+"via": "imdb-batch"
+},
+"tt0055207": {
+"entity_id": "30A9B8FD-BC87-4B48-9373-79C18654558E",
+"name": "Mysterious Island",
+"via": "imdb-batch"
+},
+"tt0084228": {
+"entity_id": "C8D21FAF-7037-4A10-9C31-885DD6507842",
+"name": "Labyrinth of Passion",
+"via": "imdb-batch"
+},
+"tt0107315": {
+"entity_id": "7E8E93D1-3A0A-44B6-8526-3908A2BB7BDD",
+"name": "Kika",
+"via": "imdb-batch"
+},
+"tt0292542": {
+"entity_id": "73E3E4F5-0E69-4002-B039-42DC8CF7B172",
+"name": "Son of the Bride",
+"via": "imdb-batch"
+},
+"tt1245112": {
+"entity_id": "DD07B23E-70D7-46A9-98ED-0917B7501550",
+"name": "[Rec]²",
+"via": "imdb-batch"
+},
+"tt13066182": {
+"entity_id": "6BDDFD72-B044-4036-AB9D-B6679A8A4B1F",
+"name": "The Good Boss",
+"via": "imdb-batch"
+},
+"tt1772250": {
+"entity_id": "75F543EE-70E8-4EA5-92DD-0E07558E71FA",
+"name": "The Hidden Face",
+"via": "imdb-batch"
+},
+"tt2006421": {
+"entity_id": "7270AF34-1F32-4000-A1A9-56A79B2977A0",
+"name": "Grand Hotel",
+"via": "imdb-batch"
+},
+"tt21909764": {
+"entity_id": "9A5D7468-76DE-4D7F-B1D8-10405B360F50",
+"name": "My Fault",
+"via": "imdb-batch"
+},
+"tt0045554": {
+"entity_id": "4B116524-8F30-4F83-8645-F2C8E54AA3AE",
+"name": "Welcome Mr. Marshall!",
+"via": "imdb-batch"
+},
+"tt0059719": {
+"entity_id": "287551B3-DB24-48AC-88B9-247803B490D4",
+"name": "Simon of the Desert",
+"via": "imdb-batch"
+},
+"tt0085297": {
+"entity_id": "9B5FBECB-0867-4C38-8CA0-67966BCFE1FF",
+"name": "Carmen",
+"via": "imdb-batch"
+},
+"tt0112922": {
+"entity_id": "3ECA36A5-4D4D-47B0-BC0A-46240DB1DB45",
+"name": "The Day of the Beast",
+"via": "imdb-batch"
+},
+"tt1242422": {
+"entity_id": "E4BEE81E-B0DE-4103-8814-C29D48163E05",
+"name": "Cell 211",
+"via": "imdb-batch"
+},
+"tt4135844": {
+"entity_id": "684391D7-6525-4D74-91D5-8EA4034FC1A4",
+"name": "Ixcanul",
+"via": "imdb-batch"
+},
+"tt6760876": {
+"entity_id": "5EA8C922-31AC-4DE4-837D-DB8E616E278B",
+"name": "Wasp Network",
+"via": "imdb-batch"
+},
+"tt0085496": {
+"entity_id": "E9B010D1-E1EB-46E8-A907-8AF27998CA66",
+"name": "Dark Habits",
+"via": "imdb-batch"
+},
+"tt15301048": {
+"entity_id": "547609EF-44F0-4E6F-9710-152AB6F5C3A0",
+"name": "Argentina, 1985",
+"via": "imdb-batch"
+},
+"tt1937149": {
+"entity_id": "D1E21F9F-B219-42ED-AE00-5C0AA4AD6AD3",
+"name": "The Body",
+"via": "imdb-batch"
+},
+"tt14176542": {
+"entity_id": "6883B91C-2D78-498E-8863-A2C0CCBD1C6C",
+"name": "Bardo: False Chronicle of a Handful of Truths",
+"via": "imdb-batch"
+},
+"tt1572491": {
+"entity_id": "CF56D60B-B707-47E1-9195-B267917669D3",
+"name": "The Last Circus",
+"via": "imdb-batch"
+},
+"tt3147312": {
+"entity_id": "EAD1811B-F66C-44C7-9620-9364E6F40B92",
+"name": "Desierto",
+"via": "imdb-batch"
+},
+"tt7875464": {
+"entity_id": "DA4958C1-9FD7-4713-8EE6-CB969E81AC8C",
+"name": "The Heiresses",
+"via": "imdb-batch"
+},
+"tt0063291": {
+"entity_id": "32E3F4D3-8BED-4731-A0B5-19621C255D87",
+"name": "Memories of Underdevelopment",
+"via": "imdb-batch"
+},
+"tt0120274": {
+"entity_id": "D020B7C8-73F8-4B5E-90E4-76D560E38CF3",
+"name": "Tango",
+"via": "imdb-batch"
+},
+"tt0270480": {
+"entity_id": "B98D4F4E-1BB6-4496-BF9E-41F7D93FB096",
+"name": "Mad Love",
+"via": "imdb-batch"
+},
+"tt0350193": {
+"entity_id": "ADEBC774-F6C2-4E6F-B2CA-54E1BE12365C",
+"name": "Take My Eyes",
+"via": "imdb-batch"
+},
+"tt0995829": {
+"entity_id": "75C4852B-2012-480E-B59E-2114DC155978",
+"name": "XXY",
+"via": "imdb-batch"
+},
+"tt2896036": {
+"entity_id": "AD480DCF-BFCE-4878-8831-356B545C1E9B",
+"name": "Living Is Easy with Eyes Closed",
+"via": "imdb-batch"
+},
+"tt3253930": {
+"entity_id": "C20A60F3-E9B8-42A4-B12F-D9F65C93A71D",
+"name": "Marshland",
+"via": "imdb-batch"
+},
+"tt4411504": {
+"entity_id": "86626FFC-FDF6-473B-8FB6-7316F44F3D3E",
+"name": "The Clan",
+"via": "imdb-batch"
+},
+"tt6386748": {
+"entity_id": "122E6B0C-CDBC-40B7-B4D1-C17236E18C21",
+"name": "Birds of Passage",
+"via": "imdb-batch"
+},
+"tt6908274": {
+"entity_id": "4B80A6A1-5219-45ED-BF16-2611CC6308C0",
+"name": "Mirage",
+"via": "imdb-batch"
+},
+"tt0083543": {
+"entity_id": "3D0B7E39-DCE0-4222-A095-2DB7527FA82E",
+"name": "Alsino and the Condor",
+"via": "imdb-batch"
+},
+"tt0339806": {
+"entity_id": "DC42EE2E-FAFB-4586-B746-BDA0FB3F377D",
+"name": "Torremolinos 73",
+"via": "imdb-batch"
+},
+"tt0362372": {
+"entity_id": "B9C5407A-2FBC-4EA7-B390-EC7B356D12ED",
+"name": "Los Serrano",
+"via": "imdb-batch"
+},
+"tt1111890": {
+"entity_id": "9E3E012C-DEA3-46A7-B671-0595644C452E",
+"name": "Diary of a Nymphomaniac",
+"via": "imdb-batch"
+},
+"tt1127715": {
+"entity_id": "D6C5195F-9A65-47E5-85A5-C942E390765A",
+"name": "Sin Nombre",
+"via": "imdb-batch"
+},
+"tt6062774": {
+"entity_id": "380AEFF3-6D3E-49D1-B2BD-DD3145A683F6",
+"name": "Monos",
+"via": "imdb-batch"
+},
+"tt0054042": {
+"entity_id": "8B335BE9-03EA-4062-8D0C-F3E4059FAD77",
+"name": "Macario",
+"via": "imdb-batch"
+},
+"tt0101025": {
+"entity_id": "092BBB2F-C6EB-4D6E-8DC6-DA790824A131",
+"name": "Oh, Carmela!",
+"via": "imdb-single"
+},
+"tt0113649": {
+"entity_id": "E23A511D-FA8A-4768-934E-49301088F14E",
+"name": "Freedomfighters",
+"via": "imdb-single"
+},
+"tt0188030": {
+"entity_id": "6AC4C955-5030-4804-AF24-0A79C32E035E",
+"name": "Butterfly",
+"via": "imdb-single"
+},
+"tt0313196": {
+"entity_id": "8A6416C6-588C-4DD4-BFBD-5E80D646CC0C",
+"name": "The Crime of Padre Amaro",
+"via": "imdb-single"
+},
+"tt0117883": {
+"entity_id": "F1037BC7-0465-4B73-BB6A-C1F547722F79",
+"name": "Thesis",
+"via": "imdb-single"
+},
+"tt0284491": {
+"entity_id": "34879AB3-7C56-4AB9-90E5-7D9F67B72399",
+"name": "No News from God",
+"via": "imdb-single"
+},
+"tt1797504": {
+"entity_id": "9C6EBD16-C851-488A-9E83-301C1F88EDC7",
+"name": "I Want You",
+"via": "imdb-single"
+},
+"tt1446611": {
+"entity_id": "B7115D80-A38A-4A1B-A20F-5B14A5488B3A",
+"name": "Falling Angel",
+"via": "imdb-single"
+},
+"tt0227277": {
+"entity_id": "16C08465-62D0-45E4-A2B6-ED8826CA0174",
+"name": "Burnt Money",
+"via": "imdb-batch"
+},
+"tt0378284": {
+"entity_id": "B446A393-5640-4CB9-9A85-A7B75F005FCF",
+"name": "Machuca",
+"via": "imdb-batch"
+},
+"tt1206285": {
+"entity_id": "AD6BBB8B-1775-4A7B-A536-45C8A96D9518",
+"name": "Camino",
+"via": "imdb-batch"
+},
+"tt1298554": {
+"entity_id": "C2D6E0C3-9D0E-49C5-8943-A1B7BF29EF6C",
+"name": "Eva",
+"via": "imdb-batch"
+},
+"tt1467391": {
+"entity_id": "4344DF52-3C0B-441D-9ACF-1D1577775026",
+"name": "Spanish Movie",
+"via": "imdb-batch"
+},
+"tt28231777": {
+"entity_id": "875E8866-B8A6-42C8-A6AC-DF4E32D53917",
+"name": "Kill the Jockey",
+"via": "imdb-batch"
+},
+"tt2955316": {
+"entity_id": "A49632F8-E925-498A-9547-466DF71C78FB",
+"name": "Spanish Affair",
+"via": "imdb-batch"
+},
+"tt3089326": {
+"entity_id": "5C4AE77A-1F99-4982-8F67-47B3FD16FCC5",
+"name": "Magical Girl",
+"via": "imdb-batch"
+},
+"tt3480886": {
+"entity_id": "2CDDBA30-12F6-4450-9ACD-2C5EE7BAE31D",
+"name": "Ma ma",
+"via": "imdb-batch"
+},
+"tt4562518": {
+"entity_id": "B007FB58-58E1-4E3B-991C-267E4F9A8299",
+"name": "The Distinguished Citizen",
+"via": "imdb-batch"
+},
+"tt5862312": {
+"entity_id": "6F3E9404-37CC-45A7-9FC4-5381FB5FAF41",
+"name": "Veronica",
+"via": "imdb-batch"
+},
+"tt6792282": {
+"entity_id": "355777C2-86A9-46B6-941A-5CCEF555C69C",
+"name": "A Twelve-Year Night",
+"via": "imdb-batch"
+},
+"tt6793580": {
+"entity_id": "E843F0CC-F119-420B-B602-6FA7A7A717F6",
+"name": "Champions",
+"via": "imdb-batch"
+},
+"tt0427582": {
+"entity_id": "DA28764E-EFC6-4DC5-AABD-388D66D592C7",
+"name": "The Method",
+"via": "imdb-batch"
+},
+"tt0434292": {
+"entity_id": "81AAE173-6C3D-4AEA-9B1B-45DBE3E05EA8",
+"name": "Princesses",
+"via": "imdb-batch"
+},
+"tt0456340": {
+"entity_id": "E8E68AC8-7661-4180-87D9-3CF8673C6C60",
+"name": "Chaotic Ana",
+"via": "imdb-batch"
+},
+"tt0922037": {
+"entity_id": "B3B99D92-5079-4DE4-86C7-DB6291AF7C7D",
+"name": "La que se avecina",
+"via": "imdb-batch"
+},
+"tt1016301": {
+"entity_id": "EAB4A985-7DE0-4CE7-9C33-243823A5DEF5",
+"name": "Fermat's Room",
+"via": "imdb-batch"
+},
+"tt14463484": {
+"entity_id": "C47FFD1B-2478-4584-B987-36695F667E27",
+"name": "Through My Window",
+"via": "imdb-batch"
+},
+"tt23177868": {
+"entity_id": "BC0E52A6-0BB8-4141-A66C-ECBB48757530",
+"name": "Mummies",
+"via": "imdb-batch"
+},
+"tt2387513": {
+"entity_id": "31989275-EBC6-4124-88CA-B0495EFFF3D2",
+"name": "The Liberator",
+"via": "imdb-batch"
+},
+"tt3169770": {
+"entity_id": "47313F19-65A8-44EF-96EF-9D507E39C556",
+"name": "Retribution",
+"via": "imdb-batch"
+},
+"tt3202202": {
+"entity_id": "263B262D-808D-46CA-95EE-D2A63A31A64A",
+"name": "Palm Trees in the Snow",
+"via": "imdb-batch"
+},
+"tt5121816": {
+"entity_id": "A1E055D8-9A67-4ED6-86AF-8140490D8FFA",
+"name": "The Bar",
+"via": "imdb-batch"
+},
+"tt7818580": {
+"entity_id": "00C0EB80-EF6E-4A32-A1FF-7675A6D8D1E4",
+"name": "While at War",
+"via": "imdb-batch"
+},
+"tt0067425": {
+"entity_id": "EB53CCAB-57B6-4BF1-A7C5-ADB7F4D28AE1",
+"name": "My Dearest Senorita",
+"via": "imdb-batch"
+},
+"tt0090125": {
+"entity_id": "8E3AA2E0-A501-4F45-8359-F45CC5777D2D",
+"name": "Tangos, the Exile of Gardel",
+"via": "imdb-batch"
+},
+"tt0105438": {
+"entity_id": "A64F2D71-A373-4E22-814C-821313281EA9",
+"name": "Dream of Light",
+"via": "imdb-batch"
+},
+"tt0120868": {
+"entity_id": "B2E94681-2A91-465E-9A9C-BABB1826AD7E",
+"name": "Torrente: The Dumb Arm of the Law",
+"via": "imdb-batch"
+},
+"tt0132905": {
+"entity_id": "1DDD6D16-998A-4A23-B319-0065E286D8FA",
+"name": "No One Writes to the Colonel",
+"via": "imdb-batch"
+},
+"tt1243375": {
+"entity_id": "2F087CED-3DAA-41FB-85D2-D0BFA198F174",
+"name": "The Dancer and the Thief",
+"via": "imdb-batch"
+},
+"tt1381020": {
+"entity_id": "55D9945E-29FA-434D-A5C8-CBF5836B80BB",
+"name": "Águila Roja",
+"via": "imdb-batch"
+},
+"tt1705786": {
+"entity_id": "E268894D-B962-4B28-9EF2-2FC241B329DE",
+"name": "Chinese Take-Away",
+"via": "imdb-batch"
+},
+"tt1713440": {
+"entity_id": "19608544-02F0-4C22-AF09-2FB1DFA0683E",
+"name": "Smoke & Mirrors",
+"via": "imdb-batch"
+},
+"tt1924277": {
+"entity_id": "785E0D1C-1A38-4532-B93A-4770875CCBF5",
+"name": "Unit 7",
+"via": "imdb-batch"
+},
+"tt26315142": {
+"entity_id": "B6328FB0-5308-46C7-8307-1E0841245A9A",
+"name": "Totem",
+"via": "imdb-batch"
+},
+"tt5808778": {
+"entity_id": "A52CFE32-2894-4A09-B7C3-59048D9DDBB5",
+"name": "Pieles",
+"via": "imdb-batch"
+},
+"tt6704898": {
+"entity_id": "FCF9F442-2C17-4B07-BBDF-99B2A42E0596",
+"name": "Elisa & Marcela",
+"via": "imdb-batch"
+},
+"tt0053724": {
+"entity_id": "66D175A0-9A71-4927-B284-2F03C486EFEC",
+"name": "El cochecito",
+"via": "imdb-batch"
+},
+"tt0083743": {
+"entity_id": "09C7C547-201F-4B64-A8EA-266BCB54C07C",
+"name": "La colmena",
+"via": "imdb-batch"
+},
+"tt0395125": {
+"entity_id": "A12AC5AC-35D1-4E77-9B75-187D965A19DD",
+"name": "The Ferpect Crime",
+"via": "imdb-single"
+},
+"tt0452971": {
+"entity_id": "4613938D-FD76-4724-BFAD-C4CC3C3F6CF5",
+"name": "Dark Blue Almost Black",
+"via": "imdb-single"
+},
+"tt0037680": {
+"entity_id": "180F41BA-E6B9-4583-9BD8-FC0453486600",
+"name": "Days of Hope",
+"via": "imdb-single"
+},
+"tt0052995": {
+"entity_id": "012A5401-7826-43F6-9A51-E7147ED2039D",
+"name": "Lazarillo",
+"via": "imdb-single"
+},
+"tt0420509": {
+"entity_id": "F4544967-3970-4B7C-8A0D-471C8981B045",
+"name": "The Aura",
+"via": "imdb-single"
+},
+"tt1935914": {
+"entity_id": "962B1E71-E4B1-4D73-B1EA-7D7AF38B214B",
+"name": "The Last Days",
+"via": "imdb-single"
+},
+"tt0255067": {
+"entity_id": "D57445C7-82F3-43BC-8699-1B18135ACF96",
+"name": "Common Wealth",
+"via": "imdb-single"
+},
+"tt0292886": {
+"entity_id": "FDF24DE1-2A04-4FD0-9413-C6F269C4F34A",
+"name": "Eight Hundred Bullets",
+"via": "imdb-single"
+},
+"tt3500544": {
+"entity_id": "E87AA8B5-F157-4B74-93ED-D87096B2CDD2",
+"name": "Off Course",
+"via": "imdb-single"
+},
+"tt0107165": {
+"entity_id": "6099C14F-E0A3-4A43-A52C-FD48F6AA3EA8",
+"name": "Golden Balls",
+"via": "imdb-batch"
+},
+"tt0117069": {
+"entity_id": "44EF3200-C766-43B2-9533-9CE0BEA0B501",
+"name": "Moebius",
+"via": "imdb-batch"
+},
+"tt0314121": {
+"entity_id": "9B5254E7-819C-43D4-9D02-729967F4E044",
+"name": "Mortadelo & Filemon: The Big Adventure",
+"via": "imdb-batch"
+},
+"tt0482473": {
+"entity_id": "31913387-0ABE-4C6D-9D95-975FA5B57124",
+"name": "The Borgia",
+"via": "imdb-batch"
+},
+"tt1221141": {
+"entity_id": "A18525FC-6009-4414-844A-22AD4D2AF732",
+"name": "The Headless Woman",
+"via": "imdb-batch"
+},
+"tt12474056": {
+"entity_id": "08B16D3E-08E0-43C3-8297-26B07276DFA8",
+"name": "New Order",
+"via": "imdb-batch"
+},
+"tt12540080": {
+"entity_id": "107D49E6-EC34-4608-9D38-13FAE3517A73",
+"name": "Dark Desire",
+"via": "imdb-batch"
+},
+"tt1702425": {
+"entity_id": "771D82A0-1332-4A80-8267-31DEDABEA8B1",
+"name": "Casa de mi Padre",
+"via": "imdb-batch"
+},
+"tt1797348": {
+"entity_id": "268121D5-2D40-49D6-8BDF-061039EB81EC",
+"name": "7 Days in Havana",
+"via": "imdb-batch"
+},
+"tt3655414": {
+"entity_id": "8E4F02DE-873A-44A2-BFF2-EBD4A034EA24",
+"name": "To Steal from a Thief",
+"via": "imdb-batch"
+},
+"tt3754940": {
+"entity_id": "F170256C-BE32-499E-81E1-96F3AE645DFE",
+"name": "Truman",
+"via": "imdb-batch"
+},
+"tt4958448": {
+"entity_id": "B064A3F6-F26D-4D6D-BEDC-4B6DC284AA52",
+"name": "Museo",
+"via": "imdb-batch"
+},
+"tt6704776": {
+"entity_id": "357EC19D-F2C8-4DA0-97B5-F5969315C856",
+"name": "The Photographer of Mauthausen",
+"via": "imdb-batch"
+},
+"tt9731242": {
+"entity_id": "5296D96C-7BE0-4F3F-84D9-4AE26C321C98",
+"name": "The Mess You Leave Behind",
+"via": "imdb-batch"
+},
+"tt9845564": {
+"entity_id": "C738BC6F-7D81-49ED-AF21-26A16E7E1738",
+"name": "Below Zero",
+"via": "imdb-batch"
+},
+"tt0043018": {
+"entity_id": "E4A843DA-F0F7-4D76-9262-3BD988B5EDAD",
+"name": "Susana",
+"via": "imdb-batch"
+},
+"tt0087027": {
+"entity_id": "862C3223-D0EF-4923-B0B9-8B108A176249",
+"name": "Camila",
+"via": "imdb-batch"
+},
+"tt0104662": {
+"entity_id": "9E979B86-7F2E-4DA3-B06D-77549EF00B4B",
+"name": "The Dark Side of the Heart",
+"via": "imdb-batch"
+},
+"tt0104774": {
+"entity_id": "0404480C-4582-4ADC-8FD5-A2614FF852D4",
+"name": "A Place in the World",
+"via": "imdb-batch"
+},
+"tt0201631": {
+"entity_id": "4BCAA4C1-AE21-4B83-8257-C6BD733017AE",
+"name": "Olympic Garage",
+"via": "imdb-batch"
+},
+"tt0482901": {
+"entity_id": "0EBB6D01-C01D-4A60-96A5-559E1C4DEC2D",
+"name": "The Pope's Toilet",
+"via": "imdb-batch"
+},
+"tt0809533": {
+"entity_id": "136F2FDD-C478-49B9-8EE6-E8683B097910",
+"name": "Las 13 rosas",
+"via": "imdb-batch"
+},
+"tt10384744": {
+"entity_id": "DFDAE823-7C47-4286-8969-D853BECF3283",
+"name": "Heroic Losers",
+"via": "imdb-batch"
+},
+"tt1103192": {
+"entity_id": "4F34C723-D8C7-4AC1-810F-BAFA7BB4FDF9",
+"name": "Los girasoles ciegos",
+"via": "imdb-batch"
+},
+"tt1542852": {
+"entity_id": "D6AF0C23-CBD6-4BF7-8038-C971FDCAD997",
+"name": "Carancho",
+"via": "imdb-batch"
+},
+"tt1592521": {
+"entity_id": "656A96F1-D084-49BC-9B82-0ADBCCA19262",
+"name": "Cousinhood",
+"via": "imdb-batch"
+},
+"tt1754078": {
+"entity_id": "8CCCCBD0-CD2A-4BCB-8586-A5CA9A1F14C5",
+"name": "Las Acacias",
+"via": "imdb-batch"
+},
+"tt1911600": {
+"entity_id": "49C18952-306D-4096-8102-20710754D6A0",
+"name": "Miss Bala",
+"via": "imdb-batch"
+},
+"tt4771896": {
+"entity_id": "85555A80-264E-453D-B77A-6782B78BB9BC",
+"name": "The Fury of a Patient Man",
+"via": "imdb-batch"
+},
+"tt4924942": {
+"entity_id": "A97BC078-852C-4A04-8B10-516CA8DD245B",
+"name": "The Invisible Guardian",
+"via": "imdb-batch"
+},
+"tt5698568": {
+"entity_id": "0458F944-6879-42C4-965B-679F6A0C2D43",
+"name": "1898: Our Last Men in the Philippines",
+"via": "imdb-batch"
+},
+"tt5827790": {
+"entity_id": "59F7E882-FF0E-49B3-9723-7DB8852FF20A",
+"name": "Unknown Origins",
+"via": "imdb-batch"
+},
+"tt0044084": {
+"entity_id": "001848E3-386D-4B36-8173-EB08F3E43A67",
+"name": "Mexican Bus Ride",
+"via": "imdb-batch"
+},
+"tt0072601": {
+"entity_id": "4BBEEC18-F94C-4FE0-A86C-38FC1C310E2A",
+"name": "Letters from Marusia",
+"via": "imdb-batch"
+},
+"tt0075462": {
+"entity_id": "4A99994F-4B71-4416-B05C-B9C96561A3C7",
+"name": "Who Can Kill a Child?",
+"via": "imdb-batch"
+},
+"tt0094641": {
+"entity_id": "0C7F12C2-EBAA-4B97-8D38-776CFA8E41E9",
+"name": "Amanece, que no es poco",
+"via": "imdb-batch"
+},
+"tt0109747": {
+"entity_id": "F0D3BD2F-456E-45DF-BB6C-97CFAF4F6331",
+"name": "The Strategy of the Snail",
+"via": "imdb-batch"
+},
+"tt0146468": {
+"entity_id": "A55D50DE-DDAA-4090-BBBE-563ED6DF0D7B",
+"name": "Barrio",
+"via": "imdb-batch"
+},
+"tt0222368": {
+"entity_id": "69ACB717-72B0-49AC-B5BC-EE32A7A8BF0B",
+"name": "The Nameless",
+"via": "imdb-batch"
+},
+"tt0106215": {
+"entity_id": "FD362290-673A-454F-A796-634A22A7C806",
+"name": "Mutant Action",
+"via": "imdb-single"
+},
+"tt0387914": {
+"entity_id": "BFF55F43-6FA8-40D8-A9EE-D897F12EF9F0",
+"name": "Innocent Voices",
+"via": "imdb-single"
+},
+"tt0055646": {
+"entity_id": "3BA5FB95-DFA0-4380-A9DC-FF70AA980272",
+"name": "The Important Man",
+"via": "imdb-single"
+},
+"tt0056040": {
+"entity_id": "61397400-8722-48D3-8C73-584261E68640",
+"name": "The Awful Dr. Orlof",
+"via": "imdb-single"
+},
+"tt0060223": {
+"entity_id": "8AAACD2D-32A9-461E-9E31-E8674F27747D",
+"name": "The Hunt",
+"via": "imdb-single"
+},
+"tt0103186": {
+"entity_id": "F1DDE73C-5AFE-48A6-8E75-894DFE450FF1",
+"name": "Cows",
+"via": "imdb-single"
+},
+"tt11385336": {
+"entity_id": "5EBDF52F-8864-4D21-8C92-7A6FF3CFF51C",
+"name": "Memories of My Father",
+"via": "imdb-single"
+},
+"tt3896102": {
+"entity_id": "974066A6-64BA-4509-AC44-012CE5839CDD",
+"name": "Tad, the Lost Explorer, and the Secret of King Midas",
+"via": "imdb-single"
+},
+"tt7095482": {
+"entity_id": "5C28798C-6681-4212-82F0-A1EDFA00D613",
+"name": "The Candidate",
+"via": "imdb-single"
+},
+"tt0090250": {
+"entity_id": "482E0621-DEA1-42BC-BA82-D290E4175A1A",
+"name": "The Heifer",
+"via": "imdb-single"
+},
+"tt0092693": {
+"entity_id": "800290FE-8C15-4594-991F-C5B099B7EB7D",
+"name": "The Enchanted Forest",
+"via": "imdb-single"
+},
+"tt0300270": {
+"entity_id": "6D5053FC-8A05-4BBF-8F43-2AF0D1F669AF",
+"name": "The Holy Girl",
+"via": "imdb-batch"
+},
+"tt0301524": {
+"entity_id": "2781B452-4E2C-4B64-A94E-1519C8B38802",
+"name": "The Other Side of the Bed",
+"via": "imdb-batch"
+},
+"tt0311072": {
+"entity_id": "02397B32-D16F-438B-A3D5-9ECA38105417",
+"name": "En la ciudad sin límites",
+"via": "imdb-batch"
+},
+"tt0314693": {
+"entity_id": "607A49C2-2545-4161-B7EC-FDF58B04142A",
+"name": "Soldiers of Salamina",
+"via": "imdb-batch"
+},
+"tt0444505": {
+"entity_id": "DB9D9E44-236B-4AEC-8371-F5870C021BE1",
+"name": "Torrente 3: El protector",
+"via": "imdb-batch"
+},
+"tt0451966": {
+"entity_id": "48055C79-C6D2-4D49-A8D2-1D37F615EC15",
+"name": "The Violin",
+"via": "imdb-batch"
+},
+"tt10332588": {
+"entity_id": "4C0EE098-FF23-487C-B130-DE0856736F03",
+"name": "Finding 'Ohana",
+"via": "imdb-batch"
+},
+"tt11127690": {
+"entity_id": "B01E92ED-6289-420D-AFDC-03637561A58E",
+"name": "The Paramedic",
+"via": "imdb-batch"
+},
+"tt11887316": {
+"entity_id": "44334628-3EB7-48F9-A3F0-12F7DAAA05B1",
+"name": "The Teacher Who Promised the Sea",
+"via": "imdb-batch"
+},
+"tt1512685": {
+"entity_id": "2F24F86A-8293-4EF3-9554-962B14D1B4FD",
+"name": "Julia's Eyes",
+"via": "imdb-batch"
+},
+"tt15789472": {
+"entity_id": "469557E7-3F52-499C-ADCE-6355844CB687",
+"name": "Nowhere",
+"via": "imdb-batch"
+},
+"tt16300962": {
+"entity_id": "76A4287B-5576-4B20-AD8C-98144B8DD500",
+"name": "When Evil Lurks",
+"via": "imdb-batch"
+},
+"tt1661862": {
+"entity_id": "A104EFBA-64B4-4DA1-97D6-1134923F1B7E",
+"name": "No Rest for the Wicked",
+"via": "imdb-batch"
+},
+"tt2093990": {
+"entity_id": "F46BF452-5A76-4271-9D2C-CE2051D26E12",
+"name": "El nino",
+"via": "imdb-batch"
+},
+"tt2333598": {
+"entity_id": "03B9112D-DECD-47FC-8506-C583467717BC",
+"name": "7 Boxes",
+"via": "imdb-batch"
+},
+"tt3467412": {
+"entity_id": "21D1A4DE-58EE-438E-A6D9-AD715CDE2AAB",
+"name": "Extinction",
+"via": "imdb-batch"
+},
+"tt3655972": {
+"entity_id": "7A517CF5-602F-4384-ACC5-8EC1012C18A1",
+"name": "The Olive Tree",
+"via": "imdb-batch"
+},
+"tt4323594": {
+"entity_id": "CAB0C7F8-89B9-40A6-B2FC-37FEB7A8AA6D",
+"name": "I'm No Longer Here",
+"via": "imdb-batch"
+},
+"tt4412362": {
+"entity_id": "40F8EACF-B34F-4E89-A5BC-C3F76CA0729A",
+"name": "My Big Night",
+"via": "imdb-batch"
+},
+"tt4944596": {
+"entity_id": "CBFB5E57-5D80-454E-8050-BF50352B029E",
+"name": "May God Save Us",
+"via": "imdb-batch"
+},
+"tt7104984": {
+"entity_id": "2A74127C-8460-407A-B8E6-1B4E45B9C9A1",
+"name": "Gun City",
+"via": "imdb-batch"
+},
+"tt9345754": {
+"entity_id": "755051F8-D604-4E93-89E0-04897E4B93F7",
+"name": "The Occupant",
+"via": "imdb-batch"
+},
+"tt0022339": {
+"entity_id": "00BB3243-C1A4-43AF-8164-11221FA15703",
+"name": "Santa",
+"via": "imdb-batch"
+},
+"tt0056208": {
+"entity_id": "D125B970-1299-4A7E-9C14-AAA5B6F698DD",
+"name": "Madame",
+"via": "imdb-batch"
+},
+"tt0062941": {
+"entity_id": "EC3AE147-E840-4937-AA2C-6839E1425921",
+"name": "España otra vez",
+"via": "imdb-batch"
+},
+"tt0064609": {
+"entity_id": "8BAE102D-FC31-4048-AA17-5495B9AB6676",
+"name": "Lucia",
+"via": "imdb-batch"
+},
+"tt0071976": {
+"entity_id": "3E13EC78-A222-4869-8F1E-8E17A4F7FD64",
+"name": "Rebellion in Patagonia",
+"via": "imdb-batch"
+},
+"tt0088040": {
+"entity_id": "D848DFED-5654-446E-98BF-AB852A28755A",
+"name": "The Holy Innocents",
+"via": "imdb-batch"
+},
+"tt0091531": {
+"entity_id": "0FD25879-3264-4B99-B36B-658F29254364",
+"name": "La mitad del cielo",
+"via": "imdb-batch"
+},
+"tt0109949": {
+"entity_id": "85BE3A80-4941-4971-AACD-00BF011D0C31",
+"name": "Guantanamera",
+"via": "imdb-batch"
+},
+"tt0115793": {
+"entity_id": "8D8ECB78-69BA-4303-8E5B-C7EDC27EB48F",
+"name": "Bwana",
+"via": "imdb-batch"
+},
+"tt0119626": {
+"entity_id": "D0D50347-B00B-4872-AFAC-3CB51C8C82D4",
+"name": "Martín (Hache)",
+"via": "imdb-batch"
+},
+"tt0177747": {
+"entity_id": "67FDE075-FDFD-4F9E-8C35-37D8B3010573",
+"name": "Between Your Legs",
+"via": "imdb-batch"
+},
+"tt0220631": {
+"entity_id": "A4322EF2-44E4-4B58-BBE3-E776671B62EC",
+"name": "El mar",
+"via": "imdb-batch"
+},
+"tt0232611": {
+"entity_id": "F72FF586-2A65-467E-A3A4-77C645AF1E7A",
+"name": "Second Skin",
+"via": "imdb-batch"
+},
+"tt0250478": {
+"entity_id": "96B89343-3652-44E4-9496-9C2B33730DD0",
+"name": "Nico and Dani",
+"via": "imdb-batch"
+},
+"tt0266079": {
+"entity_id": "429A9336-86B1-4DAC-B597-E0773D80EB10",
+"name": "You're the one (una historia de entonces)",
+"via": "imdb-batch"
+},
+"tt0371853": {
+"entity_id": "C7C1CFB2-E30C-4FE7-8D41-90884B56B137",
+"name": "The Nun",
+"via": "imdb-batch"
+},
+"tt0405393": {
+"entity_id": "1469D54E-C874-43CA-A346-A868E9B385B9",
+"name": "Rudo y Cursi",
+"via": "imdb-batch"
+},
+"tt0896986": {
+"entity_id": "98F3D873-F0B0-4373-BE89-2965559961D7",
+"name": "La torre de Suso",
+"via": "imdb-batch"
+},
+"tt1020559": {
+"entity_id": "E54E59D1-CFF5-403D-BDE6-FC5502D81867",
+"name": "Patagonia",
+"via": "imdb-batch"
+},
+"tt1022606": {
+"entity_id": "6549E4F3-47A6-43F4-BA48-718CAD3DBB6C",
+"name": "Leonera",
+"via": "imdb-batch"
+},
+"tt10399608": {
+"entity_id": "32343B35-57C8-425B-B9AB-1AFC6EDDB731",
+"name": "Piggy",
+"via": "imdb-batch"
+},
+"tt11525022": {
+"entity_id": "073776E0-E8DF-4D0C-B4D2-0DD2B59978B6",
+"name": "Dance of the 41",
+"via": "imdb-batch"
+},
+"tt1166810": {
+"entity_id": "770B6C39-3BCE-4FFD-BD32-8A15E7812F64",
+"name": "Fat People",
+"via": "imdb-batch"
+},
+"tt11807888": {
+"entity_id": "254B53CA-BC9D-40EA-803F-D58ECEA7DA06",
+"name": "The Grandmother",
+"via": "imdb-batch"
+},
+"tt9916362": {
+"entity_id": "00877F46-DA12-465F-ACD8-717D59E8D310",
+"name": "Coven",
+"via": "imdb-single"
+},
+"tt0079655": {
+"entity_id": "854EFB5D-FA74-418A-BCEE-182092193E27",
+"name": "Operation Ogre",
+"via": "imdb-single"
+},
+"tt0243794": {
+"entity_id": "5F308878-46FE-4613-96E8-D92C19260C0E",
+"name": "Pellet",
+"via": "imdb-single"
+},
+"tt0257231": {
+"entity_id": "19BF9075-9894-46A8-BD41-8586DAE68BB1",
+"name": "Torrente 2: Mission in Marbella",
+"via": "imdb-single"
+},
+"tt1235841": {
+"entity_id": "FE7118E6-76D7-4194-9409-1A2B610C98B0",
+"name": "Sidewalls",
+"via": "imdb-batch"
+},
+"tt1688649": {
+"entity_id": "675385D8-39B7-435B-820A-DE10BA972D6A",
+"name": "The Sleeping Voice",
+"via": "imdb-batch"
+},
+"tt1838571": {
+"entity_id": "F159F807-5065-465C-839C-FEFC2C9DDB1D",
+"name": "Juan of the Dead",
+"via": "imdb-batch"
+},
+"tt1899142": {
+"entity_id": "A99D53AD-16A5-4E33-A93B-F0091A766747",
+"name": "Combustion",
+"via": "imdb-batch"
+},
+"tt2734566": {
+"entity_id": "E6EF8C05-C5AA-4BBD-96BC-4BBA3910393A",
+"name": "The Bride",
+"via": "imdb-batch"
+},
+"tt3685622": {
+"entity_id": "60C8E23B-91CC-4866-A090-4B0D8C23CCF6",
+"name": "600 Miles",
+"via": "imdb-batch"
+},
+"tt6060156": {
+"entity_id": "731F03DA-00E4-4E7E-8F7F-471F93B0E091",
+"name": "Toc Toc",
+"via": "imdb-batch"
+},
+"tt6485304": {
+"entity_id": "1CFB0B63-D407-43BD-9571-933C5A932FF9",
+"name": "Quién te cantará",
+"via": "imdb-batch"
+},
+"tt7304824": {
+"entity_id": "1E685B51-54C5-46A3-ADE8-D45D3591DAB6",
+"name": "Offering to the Storm",
+"via": "imdb-batch"
+},
+"tt8800266": {
+"entity_id": "B2B425B5-BCEF-48C8-BD33-B9EC997D7159",
+"name": "Ema",
+"via": "imdb-batch"
+},
+"tt0045843": {
+"entity_id": "4802CCD8-6A92-48F0-B4F9-A638CFAB9701",
+"name": "I Was a Parish Priest",
+"via": "imdb-batch"
+},
+"tt0052369": {
+"entity_id": "03EE7E29-4A7F-495C-8F03-67FDDE59DE35",
+"name": "La violetera",
+"via": "imdb-batch"
+},
+"tt0060701": {
+"entity_id": "4BCD2134-A80C-42BF-89D1-A1ED5E8B2A4A",
+"name": "The Diabolical Dr. Z",
+"via": "imdb-batch"
+},
+"tt0069029": {
+"entity_id": "ACFE9116-0457-45DB-9AE8-C0020E590CF2",
+"name": "The Blood Spattered Bride",
+"via": "imdb-batch"
+},
+"tt0071133": {
+"entity_id": "1EC8016A-BB80-4D97-AFEE-8D3BEEC16CE0",
+"name": "The Love of Captain Brando",
+"via": "imdb-batch"
+},
+"tt0076001": {
+"entity_id": "7BF44FD5-A688-4242-A4C0-CC21CC30872C",
+"name": "La escopeta nacional",
+"via": "imdb-batch"
+},
+"tt0100990": {
+"entity_id": "D4C356D3-BA56-4986-A58F-451F1C9FF44D",
+"name": "I, the Worst of All",
+"via": "imdb-batch"
+},
+"tt0111449": {
+"entity_id": "6580CB1C-DB77-479F-9158-D317A0C980F3",
+"name": "Todo es mentira",
+"via": "imdb-batch"
+},
+"tt0190611": {
+"entity_id": "B487C82B-7B65-4095-9FED-2CF559DCCCFD",
+"name": "Captain Pantoja and the Special Services",
+"via": "imdb-batch"
+},
+"tt0222150": {
+"entity_id": "41710004-102D-4B22-B91F-6258EB333651",
+"name": "The Waiting List",
+"via": "imdb-batch"
+},
+"tt0280381": {
+"entity_id": "85AE35C9-A04C-4A6C-B23A-327BAAA91E78",
+"name": "25 Watts",
+"via": "imdb-batch"
+},
+"tt0320042": {
+"entity_id": "FAB2587A-60C4-459B-A114-6954ABC45CD4",
+"name": "Kamchatka",
+"via": "imdb-batch"
+},
+"tt0366137": {
+"entity_id": "8E1093DE-97ED-4A2C-8F3E-BA597A64FB57",
+"name": "Lost Embrace",
+"via": "imdb-batch"
+},
+"tt0434304": {
+"entity_id": "1066329E-DE44-4ED9-9503-FF1E54B33587",
+"name": "Queens",
+"via": "imdb-batch"
+},
+"tt0441297": {
+"entity_id": "BD74C080-3077-48E9-9C1F-9C61AD39EE29",
+"name": "Habana Blues",
+"via": "imdb-batch"
+},
+"tt0461894": {
+"entity_id": "8B09A48F-ADAF-4F27-9860-746A2116F116",
+"name": "7 Virgins",
+"via": "imdb-batch"
+},
+"tt0479354": {
+"entity_id": "CE97B71B-FF6D-4F85-B378-F2D6B084849F",
+"name": "Chronicle of an Escape",
+"via": "imdb-batch"
+},
+"tt0862826": {
+"entity_id": "1762AA72-EA86-48C5-84A0-7C6E962F0025",
+"name": "Siete mesas de billar francés",
+"via": "imdb-batch"
+},
+"tt1020955": {
+"entity_id": "B7C33EA0-9647-4CA8-B58D-2616799EF438",
+"name": "Chef's Special",
+"via": "imdb-batch"
+},
+"tt1318025": {
+"entity_id": "5785F6CF-AE81-4482-A3A9-74E416FD71D0",
+"name": "Hierro",
+"via": "imdb-batch"
+},
+"tt1417108": {
+"entity_id": "E32ACC7A-5A6D-45B0-B538-7BD158A4C791",
+"name": "Torrente 4: Lethal Crisis",
+"via": "imdb-batch"
+},
+"tt18558306": {
+"entity_id": "9C357356-09F7-4DDD-B742-87DE22C61BD7",
+"name": "The Delinquents",
+"via": "imdb-batch"
+},
+"tt1924273": {
+"entity_id": "DCBFC654-555B-4FCD-B224-1450E755AFD0",
+"name": "Ghost Graduation",
+"via": "imdb-batch"
+},
+"tt1999995": {
+"entity_id": "02739EB5-E7A5-46E8-9FF8-FDB3B4F9FA72",
+"name": "Would You Rather",
+"via": "imdb-batch"
+},
+"tt2132324": {
+"entity_id": "F0442044-DB5D-4AA0-9181-C93F5CD9FC5B",
+"name": "White Elephant",
+"via": "imdb-batch"
+},
+"tt22866358": {
+"entity_id": "435106FA-EC43-4E48-BF53-071262D723EC",
+"name": "The Book of Clarence",
+"via": "imdb-batch"
+},
+"tt3114132": {
+"entity_id": "57FD5EA8-00FF-4F62-B8C6-6432C833F3E6",
+"name": "10.000 Km",
+"via": "imdb-batch"
+},
+"tt3211400": {
+"entity_id": "810CFF37-C61F-4DEA-BA64-942B65F5D49A",
+"name": "Nothing in Return",
+"via": "imdb-batch"
+},
+"tt1629377": {
+"entity_id": "F7BF1497-2E60-40A0-8F06-7DFA79997BC9",
+"name": "Kidnapped",
+"via": "imdb-single"
+},
+"tt5089786": {
+"entity_id": "31C1FCFC-EB3F-4259-BE4B-9F0E5BBB1198",
+"name": "100 Meters",
+"via": "imdb-single"
+},
+"tt0055763": {
+"entity_id": "7AEABDEA-3B51-4F42-962F-4FC6FBF5459E",
+"name": "Robbery at 3 O'clock",
+"via": "imdb-single"
+},
+"tt0060853": {
+"entity_id": "AABA8B93-9C75-4083-B18D-F98EB6AA68BF",
+"name": "The Ugly Ones",
+"via": "imdb-single"
+},
+"tt0078797": {
+"entity_id": "4960EB1D-238D-4F30-A73F-AEC0B343A419",
+"name": "Rapture",
+"via": "imdb-single"
+},
+"tt0094705": {
+"entity_id": "2176DF07-3B72-424E-BC79-EE79716977EB",
+"name": "Going Down in Morocco",
+"via": "imdb-single"
+},
+"tt0380736": {
+"entity_id": "8761F39D-68B3-4EBA-BCD0-B97A330DA06A",
+"name": "El 7º día",
+"via": "imdb-single"
+},
+"tt11698630": {
+"entity_id": "EC8F3D5E-EBCF-4115-B3DA-7B1EB9A91B46",
+"name": "Crazy About Her",
+"via": "imdb-single"
+},
+"tt1186357": {
+"entity_id": "8A053B22-1080-4F29-93B5-F47A4EA38D42",
+"name": "The Outlaw",
+"via": "imdb-single"
+},
+"tt11892272": {
+"entity_id": "A0E08FDB-24F6-4EE1-A19F-F67D0DF8BDC2",
+"name": "The Laws of the Border",
+"via": "imdb-single"
+},
+"tt21245882": {
+"entity_id": "4CA24386-2171-4822-914F-B95C6CC53A26",
+"name": "Through My Window: Across the Sea",
+"via": "imdb-single"
+},
+"tt2403961": {
+"entity_id": "C4D957C8-53B9-4076-A836-EB53F7E19148",
+"name": "The 7th Floor",
+"via": "imdb-single"
+},
+"tt3417756": {
+"entity_id": "30875C02-4C0F-4034-9D8D-AA35EBBFBEC1",
+"name": "Shrew's Nest",
+"via": "imdb-batch"
+},
+"tt3577686": {
+"entity_id": "8AC7743A-C2C8-45DB-A3F5-54241F6948B4",
+"name": "Una noche sin luna",
+"via": "imdb-batch"
+},
+"tt3595966": {
+"entity_id": "782E0462-8656-42D9-B672-B39F12607F84",
+"name": "Behavior",
+"via": "imdb-batch"
+},
+"tt4663992": {
+"entity_id": "663011C5-D026-4E3D-9985-70FCC8E4E23C",
+"name": "Land and Shade",
+"via": "imdb-batch"
+},
+"tt5451244": {
+"entity_id": "38CB2808-0D72-44C6-85F8-235AE9D3E189",
+"name": "The Motive",
+"via": "imdb-batch"
+},
+"tt5479616": {
+"entity_id": "4007FF50-3F4F-42F0-BD2D-00912B2C145B",
+"name": "Amar",
+"via": "imdb-batch"
+},
+"tt6053948": {
+"entity_id": "4499582B-F9DC-45E1-B075-BBC09E240459",
+"name": "Sunday's Illness",
+"via": "imdb-batch"
+},
+"tt6400166": {
+"entity_id": "2E6835DF-C7C1-492F-9BC2-E3D062EE9C35",
+"name": "My Best Friend",
+"via": "imdb-batch"
+},
+"tt6970700": {
+"entity_id": "0F5DAE1E-D388-424A-91C1-E028A79AB740",
+"name": "Unauthorized Living",
+"via": "imdb-batch"
+},
+"tt7549892": {
+"entity_id": "5D0E6B6C-ABC6-49A4-BD78-1E628BC9D66B",
+"name": "Terrified",
+"via": "imdb-batch"
+},
+"tt7937168": {
+"entity_id": "530014F0-66C3-4135-9754-B710B01C815E",
+"name": "The Endless Trench",
+"via": "imdb-batch"
+},
+"tt0039793": {
+"entity_id": "93AD8C66-718E-4482-91A3-6724E5D9611F",
+"name": "Hidden River",
+"via": "imdb-batch"
+},
+"tt0040197": {
+"entity_id": "2AB5C6B8-B793-464F-B2FA-B2031FA7348B",
+"name": "Calabacitas tiernas",
+"via": "imdb-batch"
+},
+"tt0044092": {
+"entity_id": "5499B0DD-64EF-4821-9F8D-A760CAB8F531",
+"name": "Surcos",
+"via": "imdb-batch"
+},
+"tt0046769": {
+"entity_id": "D41B4E7D-18B7-478A-9F49-E3A093AD95D5",
+"name": "El beso de Judas",
+"via": "imdb-batch"
+},
+"tt0047489": {
+"entity_id": "2A58A2CB-B026-4AF1-AF72-A9E69713B104",
+"name": "Sierra maldita",
+"via": "imdb-batch"
+},
+"tt0049499": {
+"entity_id": "F0F1585C-9DCF-4527-BF1A-EA96DA7E8043",
+"name": "Mi tío Jacinto",
+"via": "imdb-batch"
+},
+"tt0051504": {
+"entity_id": "FA34BF47-3A4B-40D9-B8DF-EB369DC8ED10",
+"name": "The Soldiers of Pancho Villa",
+"via": "imdb-batch"
+},
+"tt0056037": {
+"entity_id": "E60CE024-C937-45D8-A97B-DFD1E29D9E2C",
+"name": "La gran familia",
+"via": "imdb-batch"
+},
+"tt0057147": {
+"entity_id": "C1C0A67A-4229-4ABA-92FD-7D8C1A75C6FD",
+"name": "The Paper Man",
+"via": "imdb-batch"
+},
+"tt0064620": {
+"entity_id": "CE68694A-8FCF-4E7E-9C12-5A304144D1AC",
+"name": "Honeycomb",
+"via": "imdb-batch"
+},
+"tt0083813": {
+"entity_id": "62626C36-25CF-4649-9A59-61C3CCC53D7A",
+"name": "Demonios en el jardín",
+"via": "imdb-batch"
+},
+"tt0097909": {
+"entity_id": "85B98F90-79BF-4E13-A91D-67001234431E",
+"name": "Montoyas y Tarantos",
+"via": "imdb-batch"
+},
+"tt0098324": {
+"entity_id": "BE80F904-1F01-4659-9077-889BDCEB054E",
+"name": "If They Tell You I Fell",
+"via": "imdb-batch"
+},
+"tt0101431": {
+"entity_id": "AF897DA4-23BB-475F-8675-D660CF3BCFCD",
+"name": "Beltenebros",
+"via": "imdb-batch"
+},
+"tt0106251": {
+"entity_id": "220D70D2-AE86-480E-9B46-85FA33C9A5A3",
+"name": "El amante bilingüe",
+"via": "imdb-batch"
+},
+"tt0106678": {
+"entity_id": "034CFB1E-7056-4DFC-AE55-ED4C5C0914DF",
+"name": "I Don't Want to Talk About It",
+"via": "imdb-batch"
+},
+"tt0109075": {
+"entity_id": "D58621F6-21C2-488C-A2F3-CA582F4E6FD4",
+"name": "Alegre ma non troppo",
+"via": "imdb-batch"
+},
+"tt0117866": {
+"entity_id": "D8F0F333-88DF-426F-903E-939A14952263",
+"name": "Taxi",
+"via": "imdb-batch"
+},
+"tt0151572": {
+"entity_id": "E4FBE963-9BBA-4E18-AFAF-E1B8EAC5DF02",
+"name": "The Miracle of P. Tinto",
+"via": "imdb-batch"
+},
+"tt0231208": {
+"entity_id": "73E77606-CCEA-4C14-8218-1C71FEF5337D",
+"name": "Año Mariano",
+"via": "imdb-batch"
+},
+"tt0280507": {
+"entity_id": "6D3E7F04-D389-4B2C-A71B-3049BA351EFF",
+"name": "Buñuel y la mesa del rey Salomón",
+"via": "imdb-batch"
+},
+"tt0296915": {
+"entity_id": "E1799997-B336-4368-93F2-B552BF627583",
+"name": "Valentin",
+"via": "imdb-batch"
+},
+"tt0319917": {
+"entity_id": "3C7D4288-E488-4204-A354-ED87CCBDD503",
+"name": "Planta 4ª",
+"via": "imdb-batch"
+},
+"tt0331701": {
+"entity_id": "69CEE4C0-41A8-4094-84BA-85B9FEA175C8",
+"name": "El viaje de Carol",
+"via": "imdb-batch"
+},
+"tt10077544": {
+"entity_id": "BC873E1D-0EDB-421A-B002-FF05864C533E",
+"name": "Rosa's Wedding",
+"via": "imdb-batch"
+},
+"tt1064926": {
+"entity_id": "966097DB-BE4E-454B-89C2-C3BF5A2B6EA8",
+"name": "Cordero de Dios",
+"via": "imdb-batch"
+},
+"tt10728764": {
+"entity_id": "BEDF8DD1-13B1-43FA-87FC-36769CB6C184",
+"name": "Nobody Knows I'm Here",
+"via": "imdb-batch"
+},
+"tt10952782": {
+"entity_id": "31847878-F692-443C-BFF7-11F8597651C5",
+"name": "Malasaña 32",
+"via": "imdb-batch"
+},
+"tt11028768": {
+"entity_id": "1A5FD40A-DEB3-4531-9250-355BB91F531C",
+"name": "The People Upstairs",
+"via": "imdb-batch"
+},
+"tt1235842": {
+"entity_id": "E7AA2FB8-7FD2-4369-AB12-60B54E6FA4BC",
+"name": "The Fish Child",
+"via": "imdb-batch"
+},
+"tt1274645": {
+"entity_id": "69D023B2-0EE2-465C-9602-689967895A6F",
+"name": "The Mosquito Net",
+"via": "imdb-batch"
+},
+"tt14035242": {
+"entity_id": "528768ED-F4B7-4302-8347-2B332CEC4770",
+"name": "A Cop Movie",
+"via": "imdb-batch"
+},
+"tt1426374": {
+"entity_id": "39A4BEAA-485C-437A-86EA-CC95BEEA6CFE",
+"name": "The Wind Journeys",
+"via": "imdb-batch"
+},
+"tt1475400": {
+"entity_id": "2BC7E9F3-DDFD-4CA3-AC84-0C790C1D9856",
+"name": "To Hell with the Ugly",
+"via": "imdb-batch"
+},
+"tt15399372": {
+"entity_id": "59F9E4B0-2A21-4546-A425-11F3A4CDF432",
+"name": "The Kings of the World",
+"via": "imdb-batch"
+},
+"tt4110388": {
+"entity_id": "C9D68E5F-475E-4996-9CCF-1541F997B3F1",
+"name": "Superlopez",
+"via": "imdb-single"
+},
+"tt0080554": {
+"entity_id": "AAF3F1B8-ECDE-4CAD-9CCC-786521DCDE09",
+"name": "Pals",
+"via": "imdb-single"
+},
+"tt0193355": {
+"entity_id": "1BE97016-EBA3-42F4-8ACA-543F5DE0D8E9",
+"name": "The Night of the Pencils",
+"via": "imdb-single"
+},
+"tt0420548": {
+"entity_id": "6A62F920-DF6E-46F0-B2DC-2A56449A0016",
+"name": "Bombón: El Perro",
+"via": "imdb-single"
+},
+"tt15676664": {
+"entity_id": "7872294C-AA81-4DBC-A563-13DFCBA06369",
+"name": "Venus",
+"via": "imdb-batch"
+},
+"tt1646118": {
+"entity_id": "38271589-3529-472C-BD7E-F245C62967EE",
+"name": "October",
+"via": "imdb-batch"
+},
+"tt1735945": {
+"entity_id": "65326CD1-8E71-40B6-8DF5-A785BDD128AF",
+"name": "¿Para qué sirve un oso?",
+"via": "imdb-batch"
+},
+"tt19175696": {
+"entity_id": "75A0BF1B-A50C-4A02-A68D-57EE489B1527",
+"name": "Sister Death",
+"via": "imdb-batch"
+},
+"tt1945034": {
+"entity_id": "F45DC66A-B2C0-4E13-BCE8-5139291B7E16",
+"name": "A Gun in Each Hand",
+"via": "imdb-batch"
+},
+"tt2252680": {
+"entity_id": "49FDD10B-6579-458C-A6C1-18D7CC9EC9A1",
+"name": "Family United",
+"via": "imdb-batch"
+},
+"tt2418440": {
+"entity_id": "90A24F28-274D-4217-8CF0-127CFFA033B2",
+"name": "Three Many Weddings",
+"via": "imdb-batch"
+},
+"tt26744818": {
+"entity_id": "1FCC26BA-D233-4349-81DF-8966A2A4855E",
+"name": "Un Amor",
+"via": "imdb-batch"
+},
+"tt2721712": {
+"entity_id": "BDDBF4A5-1822-4928-859C-193A5774DA52",
+"name": "Wounded",
+"via": "imdb-batch"
+},
+"tt3005242": {
+"entity_id": "822DD167-DC79-41DD-BAB0-C3622B0F4AD1",
+"name": "Cantinflas",
+"via": "imdb-batch"
+},
+"tt3621802": {
+"entity_id": "41AB2399-A3AC-400D-8279-7480E888739F",
+"name": "Death in Buenos Aires",
+"via": "imdb-batch"
+},
+"tt3685554": {
+"entity_id": "75588D9C-C9FB-4FD6-8691-4F857ED73171",
+"name": "Alias Maria",
+"via": "imdb-batch"
+},
+"tt4597598": {
+"entity_id": "3B9A4AAC-56EE-4A6E-B7F2-81A25A29A77D",
+"name": "María (y los demás)",
+"via": "imdb-batch"
+},
+"tt5173032": {
+"entity_id": "18D03538-5D1A-473C-920E-0905CAAC5C71",
+"name": "Buster's Mal Heart",
+"via": "imdb-batch"
+},
+"tt6433832": {
+"entity_id": "E3704563-97A3-468E-B8A2-735CA6653E19",
+"name": "The Tree of Blood",
+"via": "imdb-batch"
+},
+"tt6895746": {
+"entity_id": "C80A9C63-073F-4FAC-A4C2-C5F692C5174B",
+"name": "Bomb Scared",
+"via": "imdb-batch"
+},
+"tt7354440": {
+"entity_id": "A339DB4B-C351-4F65-AA00-47CC8D52B836",
+"name": "Tin & Tina",
+"via": "imdb-batch"
+},
+"tt8406744": {
+"entity_id": "109B3FD7-0672-4D5E-AEAA-BA92D6C8264F",
+"name": "Out in the Open",
+"via": "imdb-batch"
+},
+"tt0043166": {
+"entity_id": "FAD01910-1A0C-4FCA-9D91-40854B1D4020",
+"name": "El último caballo",
+"via": "imdb-batch"
+},
+"tt0044026": {
+"entity_id": "5F996E73-C746-4791-9898-D806B731053D",
+"name": "La señora de Fátima",
+"via": "imdb-batch"
+},
+"tt0044574": {
+"entity_id": "6C6CF2EE-FC8E-4210-A696-02246875DA99",
+"name": "Flamenco",
+"via": "imdb-batch"
+},
+"tt0050116": {
+"entity_id": "389429EF-196A-469E-9C6B-447581FEA728",
+"name": "Amanecer en Puerta Oscura",
+"via": "imdb-batch"
+},
+"tt0050574": {
+"entity_id": "522992AA-AA2E-4EB9-8CCF-6016EF4FD130",
+"name": "Los jueves, milagro",
+"via": "imdb-batch"
+},
+"tt0051237": {
+"entity_id": "5EF34C56-38FD-4A04-B9EF-E3F556A7A2D1",
+"name": "The Man Who Wagged His Tail",
+"via": "imdb-batch"
+},
+"tt0058297": {
+"entity_id": "5373FEB6-C8CC-45A1-8F40-EEAA9B33D809",
+"name": "Llanto por un bandido",
+"via": "imdb-batch"
+},
+"tt0059589": {
+"entity_id": "8D4F1546-08D3-4B0A-A2E1-37E396845348",
+"name": "The Uninhibited",
+"via": "imdb-batch"
+},
+"tt0060240": {
+"entity_id": "A650E8E9-DE4B-49D2-94AE-27ECD55448DB",
+"name": "La ciudad no es para mí",
+"via": "imdb-batch"
+},
+"tt0061776": {
+"entity_id": "0C3713D9-02EB-42D9-AFC8-33597A6EE47A",
+"name": "Dakota Joe",
+"via": "imdb-batch"
+},
+"tt0062891": {
+"entity_id": "A6FCB1AA-B595-40E5-AF42-149BFD4253A0",
+"name": "Digan lo que digan",
+"via": "imdb-batch"
+},
+"tt0062904": {
+"entity_id": "23B3A72C-845D-4430-9237-DA621687D454",
+"name": "Two Crosses at Danger Pass",
+"via": "imdb-batch"
+},
+"tt0063853": {
+"entity_id": "24F189AA-72A6-4A95-B0D4-9B25B190ACBC",
+"name": "Dead Men Don't Count",
+"via": "imdb-batch"
+},
+"tt0064490": {
+"entity_id": "7956A3F7-6B63-4A88-B1D0-CBD67EB694E4",
+"name": "Invasion",
+"via": "imdb-batch"
+},
+"tt0065913": {
+"entity_id": "63697398-FDDC-41B9-A5A6-9449E882BD67",
+"name": "The Garden of Delights",
+"via": "imdb-batch"
+},
+"tt0067912": {
+"entity_id": "97A020BB-7F73-436B-A1E1-66077882FF5D",
+"name": "Apocalypse Joe",
+"via": "imdb-batch"
+},
+"tt0070250": {
+"entity_id": "F6C641E6-2CAA-4247-861B-F7EED03C4927",
+"name": "Juan Moreira",
+"via": "imdb-batch"
+},
+"tt0071897": {
+"entity_id": "56BE27ED-7602-42E2-BF96-7E0D03534671",
+"name": "Nazareno Cruz and the Wolf",
+"via": "imdb-batch"
+},
+"tt0078021": {
+"entity_id": "65DF8ED3-8FDB-4CBC-BDFC-ECEB09A965B1",
+"name": "Blindfolded Eyes",
+"via": "imdb-batch"
+},
+"tt0083859": {
+"entity_id": "53371D62-07E6-4D59-A87A-0C26E607E44B",
+"name": "Sweet Hours",
+"via": "imdb-batch"
+},
+"tt0092983": {
+"entity_id": "F843842C-9F23-470E-BBFC-E294937CE9C9",
+"name": "La estanquera de Vallecas",
+"via": "imdb-batch"
+},
+"tt0094624": {
+"entity_id": "10280934-8D5F-4E6D-B199-F7A16A55B330",
+"name": "El aire de un crimen",
+"via": "imdb-batch"
+},
+"tt0099226": {
+"entity_id": "97F6FE15-B3AC-4D2B-8CC3-5218645C83C5",
+"name": "Las cartas de Alou",
+"via": "imdb-batch"
+},
+"tt1650555": {
+"entity_id": "383C3129-68A1-48F0-9DC1-7B5A0E381646",
+"name": "Game of Werewolves",
+"via": "imdb-single"
+},
+"tt3510480": {
+"entity_id": "1BF12164-4887-486A-B490-C0952A8CAE73",
+"name": "Spy Time",
+"via": "imdb-single"
+},
+"tt3626742": {
+"entity_id": "6935AB11-10EE-4B1E-B07B-4F107F08FECB",
+"name": "Spanish Affair 2",
+"via": "imdb-single"
+},
+"tt4922692": {
+"entity_id": "A11475E5-35D0-4CC6-8579-D1534DAC7CEB",
+"name": "Kiki, Love to Love",
+"via": "imdb-single"
+},
+"tt5517438": {
+"entity_id": "0E406F87-2A52-43B9-A5F1-A8C10C823195",
+"name": "7 Years",
+"via": "imdb-single"
+},
+"tt0058563": {
+"entity_id": "332D61F2-2199-42E3-B61A-5F69A43A3FFF",
+"name": "The Mistresses of Dr. Jekyll",
+"via": "imdb-single"
+},
+"tt0060722": {
+"entity_id": "F45BE369-15E8-4F0A-8ABE-C4C70FA6EAB5",
+"name": "Death of a Bureaucrat",
+"via": "imdb-single"
+},
+"tt0061136": {
+"entity_id": "977D2FEA-EF00-4C57-A7E9-024BB60B0984",
+"name": "Ukamau (Así es)",
+"via": "imdb-single"
+},
+"tt0075389": {
+"entity_id": "05A229D2-19EE-43AE-9FB6-58C44937F448",
+"name": "Where Time Began",
+"via": "imdb-single"
+},
+"tt0101755": {
+"entity_id": "2D72B382-F144-486A-A338-79C7F9A26C29",
+"name": "Don Juan in Hell",
+"via": "imdb-batch"
+},
+"tt0107901": {
+"entity_id": "9C207A95-2F6D-41FB-80F0-6DF92A0C2657",
+"name": "El pájaro de la felicidad",
+"via": "imdb-batch"
+},
+"tt0134421": {
+"entity_id": "07AD18CE-2B0F-46E1-9B4C-5E5A34532751",
+"name": "El camino de la vida",
+"via": "imdb-batch"
+},
+"tt0201721": {
+"entity_id": "BAFE770C-DF57-4375-B04F-12F640DE3A63",
+"name": "The Ugliest Woman in the World",
+"via": "imdb-batch"
+},
+"tt0205843": {
+"entity_id": "6ACFCD95-1C82-4FCA-A312-175EDF4D0CC7",
+"name": "El corazón del guerrero",
+"via": "imdb-batch"
+},
+"tt0220703": {
+"entity_id": "A3159314-1731-4E4F-AEE7-BF97C3509BFB",
+"name": "Plenilunio",
+"via": "imdb-batch"
+},
+"tt0225100": {
+"entity_id": "42A475D6-0789-4AE3-B5DB-6F3046DEB888",
+"name": "Asfalto",
+"via": "imdb-batch"
+},
+"tt0291022": {
+"entity_id": "BE69FE61-1D2E-460A-9957-C8CBE2CFB858",
+"name": "Aro Tolbukhin - En la mente del asesino",
+"via": "imdb-batch"
+},
+"tt0303120": {
+"entity_id": "F7FDE039-1CEF-4170-A6FD-2D6F4CB063F7",
+"name": "Mine Alone",
+"via": "imdb-batch"
+},
+"tt0310001": {
+"entity_id": "32315E93-CF6F-4533-8652-4670E525A808",
+"name": "Stones",
+"via": "imdb-batch"
+},
+"tt0351278": {
+"entity_id": "BDBB258D-5111-4215-A0A2-82376F4BF318",
+"name": "La luz prodigiosa",
+"via": "imdb-batch"
+},
+"tt0377834": {
+"entity_id": "8FD071B9-1D3D-41B1-AEA6-89CC128C3555",
+"name": "Días de fútbol",
+"via": "imdb-batch"
+},
+"tt0383862": {
+"entity_id": "687F6C26-3BA4-4EE7-8998-1952681D1172",
+"name": "Roma",
+"via": "imdb-batch"
+},
+"tt0446312": {
+"entity_id": "5277B5D5-3703-4FA7-B6E8-505B2AEDB796",
+"name": "Los 2 lados de la cama",
+"via": "imdb-batch"
+},
+"tt0453047": {
+"entity_id": "F0E3AF84-FE85-47F4-A730-A9D89100F4AB",
+"name": "Elsa y Fred",
+"via": "imdb-batch"
+},
+"tt0457436": {
+"entity_id": "A35D1DC7-7A64-4602-84BB-696B8269BF76",
+"name": "Play",
+"via": "imdb-batch"
+},
+"tt0470290": {
+"entity_id": "2CA00007-2F6A-426B-8D28-9BDC320C1E9F",
+"name": "The Silly Age",
+"via": "imdb-batch"
+},
+"tt0474622": {
+"entity_id": "B5D2108E-0BAE-43AE-AB23-DD0A0521BC1C",
+"name": "Family Law",
+"via": "imdb-batch"
+},
+"tt0479230": {
+"entity_id": "4B69ECEA-575E-4F95-AF32-A42A97B6B5CA",
+"name": "Un Franco 14 Pesetas",
+"via": "imdb-batch"
+},
+"tt0485634": {
+"entity_id": "5E8969B0-FE25-43BA-B579-D6F9DF5056B1",
+"name": "The Education of Fairies",
+"via": "imdb-batch"
+},
+"tt0495922": {
+"entity_id": "C2260578-9195-45D9-A1CB-77CD20C9194D",
+"name": "Alma pirata",
+"via": "imdb-batch"
+},
+"tt0781533": {
+"entity_id": "8CBE97D4-8224-4442-90E0-37405CC9A91D",
+"name": "My Name Is Juani",
+"via": "imdb-batch"
+},
+"tt11924738": {
+"entity_id": "853E4A06-7594-458D-AB84-AF0AD75509D3",
+"name": "The Perfect Family",
+"via": "imdb-batch"
+},
+"tt11941694": {
+"entity_id": "6889E49C-80FE-42A7-BE90-4CAFA7813B8B",
+"name": "The Blue Star",
+"via": "imdb-batch"
+},
+"tt1233487": {
+"entity_id": "FD243A38-1954-4D58-B9C3-104AB5BA972A",
+"name": "Don't Look Down",
+"via": "imdb-batch"
+},
+"tt1235827": {
+"entity_id": "B33E567C-C406-454D-9FE5-6E3305E1C7DA",
+"name": "Boogie",
+"via": "imdb-batch"
+},
+"tt13660916": {
+"entity_id": "5174BC8B-B423-4DC3-B9DD-466B9FA17B94",
+"name": "Code Name Emperor",
+"via": "imdb-batch"
+},
+"tt1388402": {
+"entity_id": "127BFD37-16E0-4AA0-82E8-8C8D26FF95FA",
+"name": "Bad Day to Go Fishing",
+"via": "imdb-batch"
+},
+"tt14570440": {
+"entity_id": "42289AF7-7009-4F08-9C4B-DC8F01330C94",
+"name": "Radical",
+"via": "imdb-batch"
+},
+"tt1839688": {
+"entity_id": "CBEF82BD-C93B-4213-8929-CE80C588C247",
+"name": "Katmandú, un espejo en el cielo",
+"via": "imdb-batch"
+},
+"tt21199996": {
+"entity_id": "6B7784A2-28E9-4DF5-9967-5CA4A07AF367",
+"name": "13 Exorcisms",
+"via": "imdb-batch"
+},
+"tt2388821": {
+"entity_id": "A74F7BB0-D4F1-429C-9369-825872FD3601",
+"name": "Zip & Zap and the Marble Gang",
+"via": "imdb-batch"
+},
+"tt27307501": {
+"entity_id": "CB7ED2DD-BD51-44AB-8C00-86B96F970A7F",
+"name": "Lost in the Night",
+"via": "imdb-batch"
+},
+"tt3028412": {
+"entity_id": "B01DFD88-24C9-4535-BED8-53717DCAB350",
+"name": "For a Handful of Kisses",
+"via": "imdb-batch"
+},
+"tt3480158": {
+"entity_id": "F9EE715B-7922-4501-95D4-86C4AA9E2FAC",
+"name": "Return to Ithaca",
+"via": "imdb-batch"
+},
+"tt3711510": {
+"entity_id": "2D692229-6E86-4845-A4F8-EDC81E5E8792",
+"name": "The Warning",
+"via": "imdb-batch"
+},
+"tt4161962": {
+"entity_id": "4445C9D1-7F9C-4358-9467-D9DF7DD8F620",
+"name": "Ahora o nunca",
+"via": "imdb-batch"
+},
+"tt4213806": {
+"entity_id": "2BCE18F5-9287-49B8-BEA9-4FFF7AD60494",
+"name": "Toro",
+"via": "imdb-batch"
+},
+"tt5070130": {
+"entity_id": "65E760CF-CFED-402B-8345-8D67024B62B3",
+"name": "Rara",
+"via": "imdb-batch"
+},
+"tt5133308": {
+"entity_id": "160673B8-0ED5-4A39-A479-4050C74289A4",
+"name": "At the End of the Tunnel",
+"via": "imdb-batch"
+},
+"tt5176252": {
+"entity_id": "4790AF36-01A0-4280-A174-F0E179E70811",
+"name": "Holy Camp!",
+"via": "imdb-batch"
+},
+"tt5991974": {
+"entity_id": "14014CF2-D225-455F-ADDE-608BDBAE9CE4",
+"name": "The Last Suit",
+"via": "imdb-batch"
+},
+"tt6347150": {
+"entity_id": "2121ABE9-F9A0-4D11-AEB4-1C23FF8AEE4A",
+"name": "The Skin of the Wolf",
+"via": "imdb-batch"
+},
+"tt6444140": {
+"entity_id": "5F23A9AF-C830-40FF-ACCD-9F571C9DC00B",
+"name": "Time Share",
+"via": "imdb-batch"
+},
+"tt0193167": {
+"entity_id": "D639E6C5-B3B3-4DA2-8A77-157691343AE1",
+"name": "Flowers from Another World",
+"via": "imdb-single"
+},
+"tt0329330": {
+"entity_id": "FF00A208-64A2-4604-A5AA-8653628C813E",
+"name": "Common Ground",
+"via": "imdb-single"
+},
+"tt0347449": {
+"entity_id": "A5E9C428-C94E-4F6A-AB9E-BF082100601F",
+"name": "Avellaneda's Moon",
+"via": "imdb-single"
+},
+"tt0363292": {
+"entity_id": "25CFCDF1-4699-429E-860F-61E275EEB6E9",
+"name": "Sex with Love",
+"via": "imdb-single"
+},
+"tt3165636": {
+"entity_id": "710F750F-EBC0-4E82-9A72-2FF3D39749E6",
+"name": "Bergoglio, the Pope Francis",
+"via": "imdb-single"
+},
+"tt4516324": {
+"entity_id": "E80E6371-A56D-4FCF-9C0A-2E0B3D54B098",
+"name": "The King of Havana",
+"via": "imdb-single"
+},
+"tt7684260": {
+"entity_id": "363FB131-D5EB-4E2C-9AE1-C345C3AD11EA",
+"name": "Arde Madrid",
+"via": "imdb-batch"
+},
+"tt8988748": {
+"entity_id": "2E096230-8615-4AC9-9F1C-2559D339B24B",
+"name": "Seventeen",
+"via": "imdb-batch"
+},
+"tt0032186": {
+"entity_id": "240A71D0-95C6-4E0A-BB12-7DF2CF7CF63E",
+"name": "You're Missing the Point",
+"via": "imdb-batch"
+},
+"tt0035040": {
+"entity_id": "4823E38A-92E9-4973-B3AF-095CB74D7749",
+"name": "Un marido a precio fijo",
+"via": "imdb-batch"
+},
+"tt0038510": {
+"entity_id": "EBC63C7E-04A8-40FA-A65A-293B6A9C05BD",
+"name": "Enamorada",
+"via": "imdb-batch"
+},
+"tt0040568": {
+"entity_id": "F3A82A4A-D557-479F-8DE9-A58AB4D79B7E",
+"name": "Mare nostrum",
+"via": "imdb-batch"
+},
+"tt0042711": {
+"entity_id": "021A52B2-9F3F-40F4-BA3B-E8652B6B1776",
+"name": "La marca del zorrillo",
+"via": "imdb-batch"
+},
+"tt0045608": {
+"entity_id": "5B0E1127-B23B-43C0-9C73-0EC31E1BAA7C",
+"name": "Carne de horca",
+"via": "imdb-batch"
+},
+"tt0046233": {
+"entity_id": "8BAAC92F-31F5-44B5-8F46-44676ED4C17D",
+"name": "La red",
+"via": "imdb-batch"
+},
+"tt0050924": {
+"entity_id": "8BD535DC-98F2-4F74-80F0-F49384992073",
+"name": "Saeta del ruiseñor",
+"via": "imdb-batch"
+},
+"tt0052783": {
+"entity_id": "1F784ECB-EF7C-43DB-962B-7039064482E1",
+"name": "Escucha mi canción",
+"via": "imdb-batch"
+},
+"tt0053294": {
+"entity_id": "E8F6B3AC-2071-4FB5-929C-410EA99DFCD6",
+"name": "Sonatas",
+"via": "imdb-batch"
+},
+"tt0056220": {
+"entity_id": "8C865A70-0976-47C9-8223-1E7E42C60757",
+"name": "La mano de un hombre muerto",
+"via": "imdb-batch"
+},
+"tt0057855": {
+"entity_id": "708E7B68-579E-47EE-A5E6-3611ACE5308D",
+"name": "El arte de vivir",
+"via": "imdb-batch"
+},
+"tt0057914": {
+"entity_id": "7FF68710-F4A1-431F-A6BB-847546DAEF41",
+"name": "Cavalry Charge",
+"via": "imdb-batch"
+},
+"tt0059624": {
+"entity_id": "ED4CE80F-6492-4889-91F3-A3FDFD66A6DF",
+"name": "4 Dollars of Revenge",
+"via": "imdb-batch"
+},
+"tt0061228": {
+"entity_id": "3B8B5D5D-68FC-4479-8DB3-1D8E9EFF52D3",
+"name": "Último encuentro",
+"via": "imdb-batch"
+},
+"tt0064226": {
+"entity_id": "FE83BBE9-1AC7-4660-9FD6-830B06577810",
+"name": "A Bullet for Sandoval",
+"via": "imdb-batch"
+},
+"tt0065367": {
+"entity_id": "340D4F9B-9B75-4E68-828C-F14B84BD4B75",
+"name": "Dig Your Grave Friend... Sabata's Coming",
+"via": "imdb-batch"
+},
+"tt0066158": {
+"entity_id": "803B5DB3-78B8-4FA4-94CF-A62281BE87EA",
+"name": "No desearás al vecino del quinto",
+"via": "imdb-batch"
+},
+"tt0066746": {
+"entity_id": "29A8BA9A-727B-4404-BEA6-26E931E07D84",
+"name": "Adiós, cigüeña, adiós",
+"via": "imdb-batch"
+},
+"tt0066868": {
+"entity_id": "FAE68A5C-B82B-44FD-9928-96DDB4D9C839",
+"name": "And the Crows Will Dig Your Grave",
+"via": "imdb-batch"
+},
+"tt0068250": {
+"entity_id": "1D61E074-0670-4AF5-90BF-97C0E4329E40",
+"name": "God in Heaven... Arizona on Earth",
+"via": "imdb-batch"
+},
+"tt0068348": {
+"entity_id": "0D9EDFE1-0ED5-40FA-B2B4-E509738F987B",
+"name": "The Castle of Purity",
+"via": "imdb-batch"
+},
+"tt0070636": {
+"entity_id": "39A3F744-F202-45B2-A621-4BBCF99EE715",
+"name": "Satanic Pandemonium",
+"via": "imdb-batch"
+},
+"tt0079971": {
+"entity_id": "CA70C61F-8CFF-4B61-817C-611ED1D3EF05",
+"name": "Supersonic Man",
+"via": "imdb-batch"
+},
+"tt0082424": {
+"entity_id": "8848E102-276A-463C-881C-0DE82CA07E53",
+"name": "La fuga de Segovia",
+"via": "imdb-batch"
+},
+"tt0082439": {
+"entity_id": "BE76BEFD-90FF-4F1A-A34D-7A4946B27A7B",
+"name": "Gary Cooper, que estás en los cielos",
+"via": "imdb-batch"
+},
+"tt0086864": {
+"entity_id": "F7E6B5F9-4811-44B7-84F0-FE7AAFBCC349",
+"name": "Akelarre",
+"via": "imdb-batch"
+},
+"tt0088173": {
+"entity_id": "EB975665-271B-4196-84E2-F20EDB8CB203",
+"name": "Stico",
+"via": "imdb-batch"
+},
+"tt0088443": {
+"entity_id": "34E63FCB-9F87-48E0-9550-8C0F3BA5C0B0",
+"name": "Los zancos",
+"via": "imdb-batch"
+},
+"tt0089499": {
+"entity_id": "0665C7EA-3AA6-41D8-8F11-21B6DB38F60A",
+"name": "Lola",
+"via": "imdb-batch"
+},
+"tt0092982": {
+"entity_id": "A12D763A-536A-491F-957C-E9E276BFBDBB",
+"name": "Espérame en el cielo",
+"via": "imdb-batch"
+},
+"tt0093569": {
+"entity_id": "B93B679A-B94B-4170-8C4B-008108271549",
+"name": "Moros y cristianos",
+"via": "imdb-batch"
+},
+"tt0096111": {
+"entity_id": "EF9B60CF-EE69-436F-9556-7F5E7925D20D",
+"name": "Sinatra",
+"via": "imdb-batch"
+},
+"tt0097986": {
+"entity_id": "7ACEFB14-7302-471B-A923-95DD4404BAB4",
+"name": "Moon Child",
+"via": "imdb-batch"
+},
+"tt0101332": {
+"entity_id": "D89E97C2-1982-47A4-A8D1-20F9A030DD62",
+"name": "Amo tu cama rica",
+"via": "imdb-batch"
+},
+"tt0102830": {
+"entity_id": "F294AB2A-7C72-41E0-8345-B3AF4E18804E",
+"name": "Pink Sauce",
+"via": "imdb-batch"
+},
+"tt0105912": {
+"entity_id": "34117F33-BFA0-4084-91BB-617CFAA4D4F6",
+"name": "Why Do They Call It Love When They Mean Sex?",
+"via": "imdb-batch"
+},
+"tt6693154": {
+"entity_id": "860DA3F4-3AE2-440E-A87B-58D88A04905E",
+"name": "The Zone",
+"via": "imdb-single"
+},
+"tt7807026": {
+"entity_id": "BA8F627E-E515-4FA5-8C4C-869655000EBF",
+"name": "Your Son",
+"via": "imdb-single"
+},
+"tt0051151": {
+"entity_id": "8539EF55-B4F8-4BD7-BBC7-97276CA9133C",
+"name": "The Vampire",
+"via": "imdb-single"
+},
+"tt0061775": {
+"entity_id": "4DB549EE-AFFE-4C3E-9B4E-A973FEB6AC12",
+"name": "A Few Bullets More",
+"via": "imdb-single"
+},
+"tt0065759": {
+"entity_id": "78BACFA6-5F78-4FE6-AFB8-ECEB551AFB49",
+"name": "Dead Are Countless",
+"via": "imdb-single"
+},
+"tt0066331": {
+"entity_id": "6365173C-3763-48C3-9127-68A6FE69D7C5",
+"name": "Twenty Paces to Death",
+"via": "imdb-single"
+},
+"tt0078192": {
+"entity_id": "188C1BCE-16FC-4698-A1EC-868F4101D8F5",
+"name": "The Priest",
+"via": "imdb-single"
+},
+"tt0087121": {
+"entity_id": "668DC2ED-BA6A-48DF-8AF3-8C55D63C8518",
+"name": "State of Reality",
+"via": "imdb-single"
+},
+"tt0090949": {
+"entity_id": "B5A242F5-C318-4F03-94B6-7A7BEAB45F87",
+"name": "El disputado voto del Sr. Cayo",
+"via": "imdb-single"
+},
+"tt0097998": {
+"entity_id": "9F451440-4513-4F93-A467-07EC8BCC561F",
+"name": "The Dark Night of the Soul",
+"via": "imdb-single"
+},
+"tt0107564": {
+"entity_id": "043DDE75-8513-4138-B975-275BCCAF8A9C",
+"name": "Mi hermano del alma",
+"via": "imdb-batch"
+},
+"tt0108344": {
+"entity_id": "84BBC69E-85C2-4BCD-8C00-278675E36A29",
+"name": "Tirano Banderas",
+"via": "imdb-batch"
+},
+"tt0109735": {
+"entity_id": "C36C912B-C504-46A0-B952-225D2D13A87A",
+"name": "Entre rojas",
+"via": "imdb-batch"
+},
+"tt0111058": {
+"entity_id": "7B1BDD24-5ED1-438C-8798-8BDA34AD4ED5",
+"name": "Salto al vacío",
+"via": "imdb-batch"
+},
+"tt0112403": {
+"entity_id": "36605D11-8034-4072-A0C3-D9A7D063A9D9",
+"name": "Así en el cielo como en la tierra",
+"via": "imdb-batch"
+},
+"tt0169364": {
+"entity_id": "241387BC-0DEE-46E7-A5DF-24962729963C",
+"name": "Wind with the Gone",
+"via": "imdb-batch"
+},
+"tt0212854": {
+"entity_id": "86595146-FD94-4864-BE02-FA5BB939E893",
+"name": "Celos",
+"via": "imdb-batch"
+},
+"tt0220905": {
+"entity_id": "4B326710-AA36-462C-A6EA-8E2368C678B7",
+"name": "Imperio de cristal",
+"via": "imdb-batch"
+},
+"tt0236843": {
+"entity_id": "8A2032E1-AD40-468A-864C-393BA1AA0AA0",
+"name": "Viento negro",
+"via": "imdb-batch"
+},
+"tt0242285": {
+"entity_id": "033CE0CD-E23C-4400-A4DE-8F65D92DC089",
+"name": "El arte de morir",
+"via": "imdb-batch"
+},
+"tt0276863": {
+"entity_id": "4CFA3720-15D5-4D23-AF26-026D5C4F1825",
+"name": "El cielo abierto",
+"via": "imdb-batch"
+},
+"tt0286971": {
+"entity_id": "6766895E-B978-426A-BBE4-67391D63E5BD",
+"name": "Sin vergüenza",
+"via": "imdb-batch"
+},
+"tt0299876": {
+"entity_id": "34B3FECA-E3B9-4C38-818A-E2548BFA1A53",
+"name": "Loco Fever",
+"via": "imdb-batch"
+},
+"tt0325145": {
+"entity_id": "E5C79CA4-4198-4893-B202-11A24D59C6E9",
+"name": "La caja 507",
+"via": "imdb-batch"
+},
+"tt0347037": {
+"entity_id": "845A2383-51F0-4DB2-888C-8A758B680D07",
+"name": "The Galíndez File",
+"via": "imdb-batch"
+},
+"tt0349076": {
+"entity_id": "6E0DF3BB-C9A8-40FA-A99B-414A4ACC2694",
+"name": "South from Granada",
+"via": "imdb-batch"
+},
+"tt0365289": {
+"entity_id": "1BE20829-3EBB-4ECB-A9E5-4BC589799032",
+"name": "Grimm",
+"via": "imdb-batch"
+},
+"tt0425758": {
+"entity_id": "0ECB3676-D989-4482-9692-D3EED028C8ED",
+"name": "El asombroso mundo de Borjamari y Pocholo",
+"via": "imdb-batch"
+},
+"tt0447907": {
+"entity_id": "28C28232-D0AC-4A02-9E8F-27DC19852A9F",
+"name": "Concursante",
+"via": "imdb-batch"
+},
+"tt0456111": {
+"entity_id": "CC7D2585-BB96-4265-B38E-DE4C2FA90A28",
+"name": "The Night of the Sunflowers",
+"via": "imdb-batch"
+},
+"tt0479221": {
+"entity_id": "CEE6FEE0-E449-4B40-994C-0FA5F2986DF7",
+"name": "Bajo las estrellas",
+"via": "imdb-batch"
+},
+"tt0484273": {
+"entity_id": "239A6E28-671C-4F55-A57B-620E0C8EB79D",
+"name": "The Dark Hour",
+"via": "imdb-batch"
+},
+"tt0818123": {
+"entity_id": "AF8F3698-1778-4BFE-A5A7-597413B1B1C3",
+"name": "The Mudboy",
+"via": "imdb-batch"
+},
+"tt0884131": {
+"entity_id": "A3BB5A4C-28D4-4231-8C89-19ED75A8A7A9",
+"name": "Memoria negra",
+"via": "imdb-batch"
+},
+"tt0970469": {
+"entity_id": "25F0E433-0EDB-4F89-A063-F81ACE91240C",
+"name": "Mortadelo y Filemón. Misión: Salvar la Tierra",
+"via": "imdb-batch"
+},
+"tt10984580": {
+"entity_id": "0DFA1356-94BC-4A32-AE3F-7AB493D07679",
+"name": "Utama",
+"via": "imdb-batch"
+},
+"tt1103193": {
+"entity_id": "2BD0093F-B7FB-4913-A548-172500407145",
+"name": "El patio de mi cárcel",
+"via": "imdb-batch"
+},
+"tt1198340": {
+"entity_id": "2BC83D14-C4EE-49F0-B4F2-CE3C87F306E5",
+"name": "Mediterranean Food",
+"via": "imdb-batch"
+},
+"tt1259570": {
+"entity_id": "854C0B95-3156-40D9-9AD6-681CA7AE648A",
+"name": "Neon Flesh",
+"via": "imdb-batch"
+},
+"tt1280534": {
+"entity_id": "1DD4B469-0827-4C90-B5DD-698723F2E38B",
+"name": "A Boyfriend for My Wife",
+"via": "imdb-batch"
+},
+"tt12923028": {
+"entity_id": "694D6D66-D83C-466A-90EC-15987955ED21",
+"name": "Live Is Life",
+"via": "imdb-batch"
+},
+"tt14118046": {
+"entity_id": "182BBD96-0453-407F-BDF5-077E73AAEFDF",
+"name": "Dancing on Glass",
+"via": "imdb-batch"
+},
+"tt1442434": {
+"entity_id": "96C3FFE5-DBA6-404F-9BCB-29AE525A777C",
+"name": "Los misterios de Laura",
+"via": "imdb-batch"
+},
+"tt1525915": {
+"entity_id": "CD44D40E-28D5-434C-B607-2810DDD7224B",
+"name": "The Great Vazquez",
+"via": "imdb-batch"
+},
+"tt15303284": {
+"entity_id": "B4CE7131-5A1E-4E4E-9819-4B464E172038",
+"name": "La edad de la ira",
+"via": "imdb-batch"
+},
+"tt1547084": {
+"entity_id": "A89E4A65-CEE2-4FC4-8262-C8143D2A3D3A",
+"name": "The Squad",
+"via": "imdb-batch"
+},
+"tt1661236": {
+"entity_id": "D327E19E-6591-46DE-9BB5-91D98B174E39",
+"name": "The Movie Teller",
+"via": "imdb-batch"
+},
+"tt1710393": {
+"entity_id": "5285A5E9-8CB9-497E-B076-90EBC3C7CF41",
+"name": "Ismael",
+"via": "imdb-batch"
+},
+"tt1714886": {
+"entity_id": "509CF595-F9BB-4E28-9C3B-2A86F137373E",
+"name": "Post Mortem",
+"via": "imdb-batch"
+},
+"tt0116170": {
+"entity_id": "4C48D9CF-BC11-4B8A-9965-D5FA5096ACEA",
+"name": "Oedipus Mayor",
+"via": "imdb-single"
+},
+"tt0119880": {
+"entity_id": "EE4724D7-231D-470E-B475-C81A9DA977DC",
+"name": "Lucas me quería a mí",
+"via": "imdb-single"
+},
+"tt0166700": {
+"entity_id": "B3457210-007F-424E-A193-EE8D7A14CA97",
+"name": "La mancha de sangre",
+"via": "imdb-single"
+},
+"tt0184782": {
+"entity_id": "82EB8995-0370-4CE8-A36B-D8AA3006A82E",
+"name": "Never Open That Door",
+"via": "imdb-single"
+},
+"tt0210843": {
+"entity_id": "B391BF91-63A1-4077-9C3E-0B85C1B28210",
+"name": "The Same Love, the Same Rain",
+"via": "imdb-single"
+},
+"tt0322298": {
+"entity_id": "4B4B1F0D-3CE6-4F0A-8C6F-112502E17B9D",
+"name": "The Bottom of the Sea",
+"via": "imdb-single"
+},
+"tt0374569": {
+"entity_id": "CBE4708A-8964-4B97-96E3-FC41D6805886",
+"name": "Che: Part Two",
+"via": "imdb-single"
+},
+"tt0380538": {
+"entity_id": "9A81CA35-E359-48AB-8D55-E0E354AF336C",
+"name": "Killing Cabos",
+"via": "imdb-single"
+},
+"tt0461336": {
+"entity_id": "9ADA7A85-ABBD-4D5D-85ED-2563134803D1",
+"name": "Private Pérez",
+"via": "imdb-single"
+},
+"tt0499540": {
+"entity_id": "76CFA7C3-13D6-44AE-902C-E376AA4A967E",
+"name": "The Other",
+"via": "imdb-single"
+},
+"tt13014746": {
+"entity_id": "0AAB9494-C626-4353-B814-CE1B7B069296",
+"name": "Manticore",
+"via": "imdb-single"
+},
+"tt1890391": {
+"entity_id": "DA42E9F4-9306-464B-8ACD-B54B92FC1453",
+"name": "The Dead Man and Being Happy",
+"via": "imdb-batch"
+},
+"tt2062559": {
+"entity_id": "2CC13F06-C197-4269-BFFD-6FFE71F99FC8",
+"name": "Invader",
+"via": "imdb-batch"
+},
+"tt2351524": {
+"entity_id": "F52C26D4-8275-4797-91D0-2688C6AA5B6F",
+"name": "La educación prohibida",
+"via": "imdb-batch"
+},
+"tt2514338": {
+"entity_id": "B5B7A36D-EF6B-4384-83C3-21736A988BC6",
+"name": "Jauja",
+"via": "imdb-batch"
+},
+"tt2640474": {
+"entity_id": "CA589159-D41D-4BAE-A5AF-D5B34CB96215",
+"name": "The House at the End of Time",
+"via": "imdb-batch"
+},
+"tt2823088": {
+"entity_id": "B927F8F6-2C20-4BC7-95E5-C8B6E41A8DB5",
+"name": "Carmina y amén.",
+"via": "imdb-batch"
+},
+"tt3184616": {
+"entity_id": "FEF434BB-D302-4D39-AA33-7C0DD50F200D",
+"name": "Sin muertos no hay carnaval",
+"via": "imdb-batch"
+},
+"tt3721072": {
+"entity_id": "3768006B-12D1-497F-B84E-B539FC3F4055",
+"name": "The Beach of the Drowned",
+"via": "imdb-batch"
+},
+"tt4480494": {
+"entity_id": "2D288A19-316A-4B80-AE1E-97B491756770",
+"name": "The Night My Mother Killed My Father",
+"via": "imdb-batch"
+},
+"tt4778424": {
+"entity_id": "BD05B716-8424-45A3-9C6E-50FD8F7EA595",
+"name": "The Blind Christ",
+"via": "imdb-batch"
+},
+"tt5538670": {
+"entity_id": "62768D69-63BD-40BE-A51A-8A8321B628F5",
+"name": "Jailbreak Pact",
+"via": "imdb-batch"
+},
+"tt5614612": {
+"entity_id": "8EEC4E6C-3563-4DE9-9905-B8551B3E2F25",
+"name": "Black Snow",
+"via": "imdb-batch"
+},
+"tt6053938": {
+"entity_id": "4FF64B29-CB62-4855-86E4-4941C7FD1B0E",
+"name": "The Laws of Thermodynamics",
+"via": "imdb-batch"
+},
+"tt6386168": {
+"entity_id": "B6B50546-D074-4DB4-9BA8-3F2A7A1B47B7",
+"name": "A Sort of Family",
+"via": "imdb-batch"
+},
+"tt6869362": {
+"entity_id": "4668D5A3-A09C-4848-A932-AA00700E97C2",
+"name": "In Family I Trust",
+"via": "imdb-batch"
+},
+"tt7605922": {
+"entity_id": "7FDB2802-94CD-43E8-BE1E-E1FDA4B25D88",
+"name": "My Masterpiece",
+"via": "imdb-batch"
+},
+"tt7972178": {
+"entity_id": "D64F0B06-9E40-4C69-AD6E-A4732A23FFB4",
+"name": "70 Big Ones",
+"via": "imdb-batch"
+},
+"tt8743032": {
+"entity_id": "725CA4CD-DE4B-4B56-928A-E40479C4D1C3",
+"name": "The Silence of the Marsh",
+"via": "imdb-batch"
+},
+"tt8790552": {
+"entity_id": "1F8F96E0-F693-4BA5-B185-C2E7C89FB24B",
+"name": "Turu, the Wacky Hen",
+"via": "imdb-batch"
+},
+"tt9063902": {
+"entity_id": "A25AF09C-85DC-4B7D-98B4-62844322BEC8",
+"name": "Live Twice, Love Once",
+"via": "imdb-batch"
+},
+"tt9204170": {
+"entity_id": "9A21871F-9CD9-495E-A248-9EDFCABB5B6E",
+"name": "Madres. Amor Y Vida",
+"via": "imdb-batch"
+},
+"tt9717498": {
+"entity_id": "D94B340F-1719-46CE-9548-E7B4925310B3",
+"name": "One for All",
+"via": "imdb-batch"
+},
+"tt0015935": {
+"entity_id": "AFE735B1-A5EC-4BF0-A06A-48C09D07A4B3",
+"name": "El húsar de la muerte",
+"via": "imdb-batch"
+},
+"tt0033625": {
+"entity_id": "8A321EA9-8CB6-400B-8D1C-0592A7497B13",
+"name": "Fortunato",
+"via": "imdb-batch"
+},
+"tt0036756": {
+"entity_id": "5B626297-D0C8-4B27-A7A1-9C6340C69EC4",
+"name": "El destino se disculpa",
+"via": "imdb-batch"
+},
+"tt0040755": {
+"entity_id": "425ED384-FB92-4663-ACA2-C51BCD24A468",
+"name": "Salón México",
+"via": "imdb-batch"
+},
+"tt0041725": {
+"entity_id": "4BDC009F-970B-4E2E-9923-20CE4135103D",
+"name": "La oveja negra",
+"via": "imdb-batch"
+},
+"tt0042574": {
+"entity_id": "D5238FD4-6FE1-40E9-B5BD-467B7AF74CA1",
+"name": "La honradez de la cerradura",
+"via": "imdb-batch"
+},
+"tt0043273": {
+"entity_id": "56806BF5-2E36-41EF-BC31-83E8CB08EC06",
+"name": "Dawn of America",
+"via": "imdb-batch"
+},
+"tt0045933": {
+"entity_id": "3DE5B332-1D8C-4F36-8782-9149AA5AA44E",
+"name": "Jeromín",
+"via": "imdb-batch"
+},
+"tt0048170": {
+"entity_id": "593EDD70-9EE0-4436-9A61-318F95245C9D",
+"name": "Historias de la radio",
+"via": "imdb-batch"
+},
+"tt0051475": {
+"entity_id": "85FFAEBE-4326-4DB6-B61D-3B9A95ADAD4D",
+"name": "Las chicas de la Cruz Roja",
+"via": "imdb-batch"
+},
+"tt0052150": {
+"entity_id": "890DEEFA-D32C-44B8-B35E-017556567C01",
+"name": "El ruiseñor de las cumbres",
+"via": "imdb-batch"
+},
+"tt0054986": {
+"entity_id": "10E6470F-8F93-481F-9F16-FE4EF40CAD3E",
+"name": "Hombre de la esquina rosada",
+"via": "imdb-batch"
+},
+"tt0055588": {
+"entity_id": "4E8C1F84-A63A-4E8A-B466-E5176E20F5CD",
+"name": "La venganza de Don Mendo",
+"via": "imdb-batch"
+},
+"tt0055720": {
+"entity_id": "B6AA2261-B89C-462B-B1F4-97E02350D630",
+"name": "Kill and Be Killed",
+"via": "imdb-batch"
+},
+"tt0056100": {
+"entity_id": "13E0F04B-E5E1-4D2D-A820-2310F39DD945",
+"name": "Los inocentes",
+"via": "imdb-batch"
+},
+"tt2102355": {
+"entity_id": "5B15A1CC-DE23-488B-B924-B7C282139C81",
+"name": "La banda Picasso",
+"via": "imdb-single"
+},
+"tt2231505": {
+"entity_id": "6823EECB-998E-45D7-987E-CAFA50F71A7E",
+"name": "Seven Seas Pirates",
+"via": "imdb-single"
+},
+"tt2241605": {
+"entity_id": "F609E0E7-35E1-4FB9-956C-AEDA202F0850",
+"name": "Thesis on a Homicide",
+"via": "imdb-single"
+},
+"tt3321428": {
+"entity_id": "973C4E47-0DE9-4329-8C53-68CBC828462D",
+"name": "Torrente 5: Operation Eurovegas",
+"via": "imdb-single"
+},
+"tt3841866": {
+"entity_id": "FAE525EB-C154-4B5F-A3BE-9692774B49BB",
+"name": "Happy 140",
+"via": "imdb-single"
+},
+"tt4944658": {
+"entity_id": "69E9F49B-9D8A-46BB-8F0C-77716BC1E86E",
+"name": "The Lighthouse of the Whales",
+"via": "imdb-single"
+},
+"tt9315904": {
+"entity_id": "EC0474A8-4F48-43A3-A4E7-B111F705E0CC",
+"name": "The Year of Fury",
+"via": "imdb-single"
+},
+"tt9587732": {
+"entity_id": "F399CFC9-F65D-4ECB-95B5-1D9CC02AD382",
+"name": "Playing with Fire",
+"via": "imdb-single"
+},
+"tt0038433": {
+"entity_id": "B7902377-0AE1-48E5-94C2-AAE80CF0D525",
+"name": "The Crime of Bordadores Street",
+"via": "imdb-single"
+},
+"tt0042185": {
+"entity_id": "F96E239F-C0CA-4D4E-BC25-4963EE4DA251",
+"name": "The Siege",
+"via": "imdb-single"
+},
+"tt0044560": {
+"entity_id": "BBA316DF-F6A9-43C8-9194-B600C27578EB",
+"name": "Two Careful Fellows",
+"via": "imdb-single"
+},
+"tt0049203": {
+"entity_id": "5680EBFF-E5D1-4DD5-8874-D917AE981524",
+"name": "Fedra, the Devil's Daughter",
+"via": "imdb-single"
+},
+"tt0055408": {
+"entity_id": "8CA82FC6-E94F-4865-9F8B-78445A782294",
+"name": "Santo vs. the Vampire Women",
+"via": "imdb-single"
+},
+"tt0056598": {
+"entity_id": "0D95B444-686B-45CB-A2E9-B51ABD55787C",
+"name": "Torrejón City",
+"via": "imdb-batch"
+},
+"tt0056893": {
+"entity_id": "C1798BBA-DE7B-4D60-8DD8-6DB735C1B891",
+"name": "Shades of Zorro",
+"via": "imdb-batch"
+},
+"tt0056925": {
+"entity_id": "FB731048-36F8-41C1-AA5E-11AFA515FD6A",
+"name": "Rififí en la ciudad",
+"via": "imdb-batch"
+},
+"tt0058643": {
+"entity_id": "3138EAEF-384D-4FE8-9B6E-5538B3628BB6",
+"name": "The Terrace",
+"via": "imdb-batch"
+},
+"tt0059340": {
+"entity_id": "8F99383F-9D69-4D2F-B962-F69BF1602968",
+"name": "El juego de la oca",
+"via": "imdb-batch"
+},
+"tt0061351": {
+"entity_id": "00824DE0-E4B9-4AB3-B440-491E483477F3",
+"name": "Amor en el aire",
+"via": "imdb-batch"
+},
+"tt0062637": {
+"entity_id": "F2A7B7EF-6DB6-48B6-8580-48A6DC5DF69E",
+"name": "One by One",
+"via": "imdb-batch"
+},
+"tt0063548": {
+"entity_id": "8029381D-0D99-4DA0-808F-A21ED738C1A4",
+"name": "Sartana Does Not Forgive",
+"via": "imdb-batch"
+},
+"tt0065373": {
+"entity_id": "28FDDBE2-39E7-47BE-8220-0C07F19F81B2",
+"name": "20,000 dólares por un cadáver",
+"via": "imdb-batch"
+},
+"tt0066939": {
+"entity_id": "FFA68AC4-4691-4F7C-97B1-1EFF9915115A",
+"name": "Cut-Throats Nine",
+"via": "imdb-batch"
+},
+"tt0067462": {
+"entity_id": "197E410D-534E-4A21-B50C-DA89ED379C47",
+"name": "The Boldest Job in the West",
+"via": "imdb-batch"
+},
+"tt0067836": {
+"entity_id": "D0269E57-B2AE-47E9-9090-344D636724A6",
+"name": "The Glass Ceiling",
+"via": "imdb-batch"
+},
+"tt0067935": {
+"entity_id": "4BBFC0AA-BDD6-437B-AECC-F00B9B8DFD81",
+"name": "Vente a Alemania, Pepe",
+"via": "imdb-batch"
+},
+"tt0068234": {
+"entity_id": "9E3499FF-1379-43FD-9DFE-A2F0B5F07533",
+"name": "Watch Out Gringo! Sabata Will Return",
+"via": "imdb-batch"
+},
+"tt0069014": {
+"entity_id": "55EF00E2-3673-421C-9BE2-E29E482EA51D",
+"name": "The Lonely Woman",
+"via": "imdb-batch"
+},
+"tt0075311": {
+"entity_id": "05E25770-3868-4537-A90C-99E0E2681511",
+"name": "Tatuaje",
+"via": "imdb-batch"
+},
+"tt0078156": {
+"entity_id": "9E113962-191F-4AD6-84EC-0A7C3B99F781",
+"name": "Los restos del naufragio",
+"via": "imdb-batch"
+},
+"tt0078298": {
+"entity_id": "F12712DA-CC59-4329-9080-6BEF9776B1B7",
+"name": "Sonámbulos",
+"via": "imdb-batch"
+},
+"tt0078998": {
+"entity_id": "32CCF6F4-C447-4A02-A21C-BD3DA18813CF",
+"name": "El corazón del bosque",
+"via": "imdb-batch"
+},
+"tt0080604": {
+"entity_id": "C945683E-ABB4-4AD9-9B03-92460E72F640",
+"name": "Dedicatoria",
+"via": "imdb-batch"
+},
+"tt0088027": {
+"entity_id": "FE41050D-145E-43F0-AEF5-D885BEFF82CA",
+"name": "On the Line",
+"via": "imdb-batch"
+},
+"tt0088230": {
+"entity_id": "E8F884EE-D895-40EB-A5D1-0BBF23DC72CA",
+"name": "Tasio",
+"via": "imdb-batch"
+},
+"tt0089108": {
+"entity_id": "90EC0224-C2A0-44FA-AA74-4D1A7BC01593",
+"name": "Waiting for the Hearse",
+"via": "imdb-batch"
+},
+"tt0089541": {
+"entity_id": "5C9478E8-A881-44D1-8E2F-B7F3B9B6C96D",
+"name": "Mambrú se fue a la guerra",
+"via": "imdb-batch"
+},
+"tt0091196": {
+"entity_id": "7B3230A5-DC79-45C5-85ED-0F2F81ED5D52",
+"name": "El hermano bastardo de Dios",
+"via": "imdb-batch"
+},
+"tt0095394": {
+"entity_id": "10B3ED04-0885-4AA1-8E34-69BE40898706",
+"name": "Jericho",
+"via": "imdb-batch"
+},
+"tt0095559": {
+"entity_id": "B4C77FD4-1CE2-4366-8CA1-6D7ABD6CD6A1",
+"name": "El Lute II: Tomorrow I'll Be Free",
+"via": "imdb-batch"
+},
+"tt0097831": {
+"entity_id": "28ECD087-B79F-4462-850E-995B292D0DDF",
+"name": "El mar y el tiempo",
+"via": "imdb-batch"
+},
+"tt0103638": {
+"entity_id": "5E773D21-052B-489A-A415-78667180E3FF",
+"name": "Al otro lado del túnel",
+"via": "imdb-batch"
+},
+"tt0104820": {
+"entity_id": "D7AD5FE5-3E71-449A-B61F-0A748B5E6DF7",
+"name": "La marrana",
+"via": "imdb-batch"
+},
+"tt0114277": {
+"entity_id": "D2EED5A4-090B-4AC8-920E-58F9B6C9B387",
+"name": "El rey del río",
+"via": "imdb-batch"
+},
+"tt0056915": {
+"entity_id": "FA338796-8446-4E80-B823-B16F5AC13527",
+"name": "Cavalca e uccidi",
+"via": "imdb-single"
+},
+"tt0057333": {
+"entity_id": "FA9E5C0F-3D3F-4422-9A4D-58BF5124552B",
+"name": "El mundo sigue",
+"via": "imdb-single"
+},
+"tt0057981": {
+"entity_id": "E2FE4191-FFF2-4193-B737-5CBFD4C0BF25",
+"name": "Shots Ring Out!",
+"via": "imdb-single"
+},
+"tt0058121": {
+"entity_id": "3D9E5B58-BB0F-4C21-96F7-90D64B73F711",
+"name": "Doomed Fort",
+"via": "imdb-single"
+},
+"tt0058133": {
+"entity_id": "735FE633-35F9-4461-9CA8-6FC41EAFB846",
+"name": "Five Thousand Dollars on One Ace",
+"via": "imdb-single"
+},
+"tt0059059": {
+"entity_id": "E99244D1-FF07-4B30-BF55-39F8D6D5BA1D",
+"name": "Code Name: Jaguar",
+"via": "imdb-single"
+},
+"tt0059618": {
+"entity_id": "CC352767-2315-42AD-9D78-8052C57D4560",
+"name": "Django the Honorable Killer",
+"via": "imdb-single"
+},
+"tt0061752": {
+"entity_id": "714506D5-36D6-4328-9176-CA5B1D1482DB",
+"name": "Even the Wind Is Afraid",
+"via": "imdb-single"
+},
+"tt0065638": {
+"entity_id": "FFFE9A7A-AA72-4477-8417-A679B3EED464",
+"name": "Stagecoach of the Condemned",
+"via": "imdb-single"
+},
+"tt0066898": {
+"entity_id": "FE96FF46-10AD-4D88-8967-1B69B07A607F",
+"name": "The House Without Frontiers",
+"via": "imdb-single"
+},
+"tt0068352": {
+"entity_id": "83EB00B4-8A65-4E6C-800C-3C288708E93E",
+"name": "The Legend of Blood Castle",
+"via": "imdb-single"
+},
+"tt0070432": {
+"entity_id": "1CE394E4-A346-4851-8C44-CCDC5DB0B844",
+"name": "No One Heard the Scream",
+"via": "imdb-single"
+},
+"tt0075027": {
+"entity_id": "688B1A44-39A6-46B1-9DAC-E7E6879A4357",
+"name": "The Other Bedroom",
+"via": "imdb-single"
+},
+"tt0076390": {
+"entity_id": "7A31F286-ED7A-4EAB-9AF4-954C8DBCA2C3",
+"name": "My Daughter Hildegart",
+"via": "imdb-single"
+},
+"tt0079007": {
+"entity_id": "A9D4BB89-42F2-41CB-92CB-95326FA3316B",
+"name": "The Cuenca Crime",
+"via": "imdb-single"
+},
+"tt0090354": {
+"entity_id": "F21B0973-CDB4-4647-9CCF-8D89DD52E98E",
+"name": "The Gypsy",
+"via": "imdb-single"
+},
+"tt0120579": {
+"entity_id": "40D378C3-CBCB-4B20-9F11-AD80AFECC5CA",
+"name": "99.9",
+"via": "imdb-batch"
+},
+"tt0143920": {
+"entity_id": "E8C20E56-E3BC-424C-A988-48E994F7E7FE",
+"name": "The Bitter Stems",
+"via": "imdb-batch"
+},
+"tt0161215": {
+"entity_id": "84FAFF0A-4234-4B1F-9892-1728245DC64F",
+"name": "¡A volar joven!",
+"via": "imdb-batch"
+},
+"tt0161535": {
+"entity_id": "C0E35E53-7A56-48E6-9A7E-06A510C6E99A",
+"name": "Un día con el diablo",
+"via": "imdb-batch"
+},
+"tt0161815": {
+"entity_id": "0FC98E82-40C5-4C00-814F-5E185DE5DC07",
+"name": "El ministro y yo",
+"via": "imdb-batch"
+},
+"tt0161973": {
+"entity_id": "AD1D799C-CBF2-4124-A2AF-B80C7D61E329",
+"name": "Si yo fuera diputado",
+"via": "imdb-batch"
+},
+"tt0161996": {
+"entity_id": "6231D91E-37CB-423C-A2A7-9F4097342DF0",
+"name": "El supersabio",
+"via": "imdb-batch"
+},
+"tt0175942": {
+"entity_id": "2EF81A82-92D3-4775-AD9E-0EED6780E3B5",
+"name": "Nada en la nevera",
+"via": "imdb-batch"
+},
+"tt0192877": {
+"entity_id": "21D46BD3-D0D4-45EF-B1E1-7A787456D713",
+"name": "7 vidas",
+"via": "imdb-batch"
+},
+"tt0206117": {
+"entity_id": "26E9A49E-BDAA-4DBA-9274-B133341D8B19",
+"name": "Manolito Gafotas",
+"via": "imdb-batch"
+},
+"tt0239955": {
+"entity_id": "6A41FA71-769B-4958-9F04-3B5585AD35FC",
+"name": "I Know Who You Are",
+"via": "imdb-batch"
+},
+"tt0244624": {
+"entity_id": "E4FEDE93-6C48-4307-9D7A-991EFAF72B92",
+"name": "Lázaro de Tormes",
+"via": "imdb-batch"
+},
+"tt0251797": {
+"entity_id": "FD9BDBE1-6588-40B4-AEB8-245263B2E73A",
+"name": "Leo",
+"via": "imdb-batch"
+},
+"tt0256583": {
+"entity_id": "D904A14F-D687-4696-A810-B9733C294B71",
+"name": "Adiós con el corazón",
+"via": "imdb-batch"
+},
+"tt0263939": {
+"entity_id": "3A923DA2-031C-4AF8-8391-9062D481EDE2",
+"name": "El Rey",
+"via": "imdb-batch"
+},
+"tt0264943": {
+"entity_id": "9B0ACAC7-0ABF-4FFC-8A0F-E52BF2919814",
+"name": "Mátenme porque me muero",
+"via": "imdb-batch"
+},
+"tt0326676": {
+"entity_id": "E99D5D55-792B-422E-AF4C-46DFD9FAFAA1",
+"name": "La hiena",
+"via": "imdb-batch"
+},
+"tt0356487": {
+"entity_id": "EF7FDD87-1674-40E7-84C2-F9B608FCEE9B",
+"name": "Whisky Romeo Zulu",
+"via": "imdb-batch"
+},
+"tt0371939": {
+"entity_id": "981BC0AC-B6DC-44C0-A315-0F7F72B77962",
+"name": "Secuestro express",
+"via": "imdb-batch"
+},
+"tt0397355": {
+"entity_id": "C5C8456F-EB93-4C8D-A223-02C853C13602",
+"name": "Buena vida (Delivery)",
+"via": "imdb-batch"
+},
+"tt0418129": {
+"entity_id": "B38B6DEB-36CB-4025-806E-A4AF10914500",
+"name": "Salvador Allende",
+"via": "imdb-batch"
+},
+"tt0434086": {
+"entity_id": "3F6A4981-3943-4B77-B29A-0413E24971BF",
+"name": "Hormigas en la boca",
+"via": "imdb-batch"
+},
+"tt0458500": {
+"entity_id": "F6EB237D-25CA-445A-8B38-474A6C565D8B",
+"name": "Theresa: The Body of Christ",
+"via": "imdb-batch"
+},
+"tt0462242": {
+"entity_id": "70EA1F65-36A9-4EC4-8630-224E06C1B491",
+"name": "El custodio",
+"via": "imdb-batch"
+},
+"tt0470692": {
+"entity_id": "0B172708-4EF6-4269-AFD4-61800E8F7E4E",
+"name": "Bienvenido a casa",
+"via": "imdb-batch"
+},
+"tt0480680": {
+"entity_id": "D75CFCCC-F710-4EC5-A972-3F663C68951D",
+"name": "Ficció",
+"via": "imdb-batch"
+},
+"tt0484039": {
+"entity_id": "2EFAC075-4445-4F3C-9E79-AA3795EB17EE",
+"name": "Glue",
+"via": "imdb-batch"
+},
+"tt0781332": {
+"entity_id": "A26ED658-7D12-4DDE-8839-BF05F4191782",
+"name": "The Nautical Chart",
+"via": "imdb-batch"
+},
+"tt1043800": {
+"entity_id": "C9E662D3-B1CB-4F16-BFA4-2276FEE9091C",
+"name": "El mal ajeno",
+"via": "imdb-batch"
+},
+"tt1082851": {
+"entity_id": "51180773-25B6-444D-AA24-109D5C274092",
+"name": "Lucio",
+"via": "imdb-batch"
+},
+"tt10915060": {
+"entity_id": "1732DB7F-4B78-4F12-BDCB-B73FE2247F49",
+"name": "The Crimes That Bind",
+"via": "imdb-batch"
+},
+"tt11362866": {
+"entity_id": "384D11B2-ABD5-45E1-A3A3-8B7D493F39E8",
+"name": "Historias lamentables",
+"via": "imdb-batch"
+},
+"tt1139664": {
+"entity_id": "C1100B59-2B8F-4840-B6FC-A2443E199896",
+"name": "Empty Nest",
+"via": "imdb-batch"
+},
+"tt1157631": {
+"entity_id": "EEABE6C4-A280-4F96-B3FC-34DD13D2A44C",
+"name": "Dog Eat Dog",
+"via": "imdb-batch"
+},
+"tt1206479": {
+"entity_id": "67F75111-2F40-4A7A-B558-5EBBE86F88EA",
+"name": "Of Love and Other Demons",
+"via": "imdb-batch"
+},
+"tt12282598": {
+"entity_id": "F4FCC98A-58AD-44E1-971D-B4C3946C781B",
+"name": "Intuition",
+"via": "imdb-batch"
+},
+"tt12306964": {
+"entity_id": "E5D100AF-4A4B-4894-86E6-C769F160A47D",
+"name": "On the Fringe",
+"via": "imdb-batch"
+},
+"tt1233259": {
+"entity_id": "B6F6BFD3-02CB-4E22-8A02-92C942F58D0E",
+"name": "Captain Thunder",
+"via": "imdb-batch"
+},
+"tt12410714": {
+"entity_id": "3837AEBA-32AB-491B-B7DB-CC41628186ED",
+"name": "Teresa",
+"via": "imdb-batch"
+},
+"tt1372282": {
+"entity_id": "44BCA094-3EC0-4B4B-8041-256B1ADD0192",
+"name": "Música en espera",
+"via": "imdb-batch"
+},
+"tt0118239": {
+"entity_id": "618C516A-D833-4784-B3DA-79D79FDC4B13",
+"name": "Ecstasy",
+"via": "imdb-single"
+},
+"tt0168734": {
+"entity_id": "78D4CE60-49CE-4C52-91AA-BE8B64C4C93E",
+"name": "Under a Spell",
+"via": "imdb-single"
+},
+"tt0375342": {
+"entity_id": "CBE8CFB8-FE16-48B9-A117-3E09E1A01A30",
+"name": "Hours of Light",
+"via": "imdb-single"
+},
+"tt0378453": {
+"entity_id": "5BA8F6AF-E5D3-49F7-A1AB-34589968974E",
+"name": "It's Not You, It's Me",
+"via": "imdb-single"
+},
+"tt0865438": {
+"entity_id": "AA9B6CAC-E6C8-43AB-9ECF-CD9C5ECD3F39",
+"name": "The Road to San Diego",
+"via": "imdb-single"
+},
+"tt11238932": {
+"entity_id": "48466940-9F2F-438D-9BB4-2E8446BA4E8B",
+"name": "My Heart Goes Boom!",
+"via": "imdb-single"
+},
+"tt13323118": {
+"entity_id": "A38FB15E-8467-4998-B201-5CF99A57410C",
+"name": "The Wasteland",
+"via": "imdb-single"
+},
+"tt13479592": {
+"entity_id": "0D7F01F0-6712-44AF-8CFC-3E5E499E1D68",
+"name": "Centaur",
+"via": "imdb-single"
+},
+"tt14149544": {
+"entity_id": "343948A5-8176-4B3C-81BB-3BB2D1F5190F",
+"name": "Stories Not to Be Told",
+"via": "imdb-single"
+},
+"tt15977250": {
+"entity_id": "BCA2F2E7-30C4-468F-9A96-DF451C47041C",
+"name": "Under Therapy",
+"via": "imdb-batch"
+},
+"tt1651143": {
+"entity_id": "CA5B7452-D936-49A5-87B8-A36EF37F5C01",
+"name": "No controles",
+"via": "imdb-batch"
+},
+"tt1671616": {
+"entity_id": "65F65AA0-EBC8-4E8E-947A-70667E3EBC4B",
+"name": "18 Meals",
+"via": "imdb-batch"
+},
+"tt1801071": {
+"entity_id": "6470BB33-21F9-4892-915C-B49C29F4AD8A",
+"name": "See You in Montevideo",
+"via": "imdb-batch"
+},
+"tt18556326": {
+"entity_id": "7555A6C1-4130-43A1-AAAE-065A72D0F574",
+"name": "Awareness",
+"via": "imdb-batch"
+},
+"tt19869024": {
+"entity_id": "5A888A14-20D7-4EC3-A85C-31C6421806C3",
+"name": "Sayen",
+"via": "imdb-batch"
+},
+"tt2006894": {
+"entity_id": "221349B1-B7DA-4F76-A3BB-C432019C35EF",
+"name": "All Is Silence",
+"via": "imdb-batch"
+},
+"tt20215670": {
+"entity_id": "35739A41-739A-40D5-BC27-636B5CD4F597",
+"name": "Fatum",
+"via": "imdb-batch"
+},
+"tt2034692": {
+"entity_id": "40E3859B-6BBA-4B9C-81E3-CE19C3F293EB",
+"name": "Habanastation",
+"via": "imdb-batch"
+},
+"tt2090497": {
+"entity_id": "1FAF2A56-E487-4FCB-9F42-7956B0ADF674",
+"name": "Son of Cain",
+"via": "imdb-batch"
+},
+"tt2108535": {
+"entity_id": "50632860-BE56-4D3F-A320-9371CA11D549",
+"name": "Holmes & Watson. Madrid Days",
+"via": "imdb-batch"
+},
+"tt21282898": {
+"entity_id": "7C077E3A-46FB-4230-A3B8-09C0109EEC8C",
+"name": "Chinas",
+"via": "imdb-batch"
+},
+"tt2177509": {
+"entity_id": "D3A1EC7B-A04A-4BE4-A29D-C3D2FCBF9417",
+"name": "Carmina or Blow Up",
+"via": "imdb-batch"
+},
+"tt22643896": {
+"entity_id": "7F4738AD-C4BB-4FA6-AEB3-C65819956CD9",
+"name": "Love & Revolution",
+"via": "imdb-batch"
+},
+"tt2311348": {
+"entity_id": "F8C6ACAF-26C2-44A1-AD3A-52E0D8BB5B7E",
+"name": "La vida inesperada",
+"via": "imdb-batch"
+},
+"tt2342317": {
+"entity_id": "25E971FD-1378-46D1-8E7E-724E1F89212C",
+"name": "Dream and Silence",
+"via": "imdb-batch"
+},
+"tt2363564": {
+"entity_id": "4EB5F4D0-5EE3-470E-99A6-DB682CF6F66A",
+"name": "Barcelona Summer Night",
+"via": "imdb-batch"
+},
+"tt2604346": {
+"entity_id": "0174D5C4-29C3-4AB3-A07D-C474F4FFCFF9",
+"name": "Who Killed Bambi?",
+"via": "imdb-batch"
+},
+"tt3091242": {
+"entity_id": "A7E37040-906B-4A5E-80E9-F51F0D9C7C87",
+"name": "People in Places",
+"via": "imdb-batch"
+},
+"tt3626760": {
+"entity_id": "9FD52DC8-6A70-416C-8E09-FD4FD5EB8664",
+"name": "Negociador",
+"via": "imdb-batch"
+},
+"tt3686272": {
+"entity_id": "F1D82031-F11A-4511-96E7-8CCD7FBD8847",
+"name": "The Misfits Club",
+"via": "imdb-batch"
+},
+"tt3720724": {
+"entity_id": "0DE5A869-7658-4715-B37D-0376CA407FE5",
+"name": "Requirements to Be a Normal Person",
+"via": "imdb-batch"
+},
+"tt3902698": {
+"entity_id": "DB10C5E7-5C37-4BFD-9F2C-BDAA2C5D3765",
+"name": "Rey Gitano",
+"via": "imdb-batch"
+},
+"tt4051972": {
+"entity_id": "F083B4D6-D705-4421-AC8D-A0E8E5AF7D7F",
+"name": "Anclados",
+"via": "imdb-batch"
+},
+"tt4378066": {
+"entity_id": "7109BEE9-A370-40C7-925F-161579FB52E8",
+"name": "Cerca de tu casa",
+"via": "imdb-batch"
+},
+"tt4523910": {
+"entity_id": "737D4954-9C67-4274-A718-845EA9A67459",
+"name": "Chicuarotes",
+"via": "imdb-batch"
+},
+"tt4547514": {
+"entity_id": "E8D6DC50-FF5C-4C21-9ABD-47D7F7780BC3",
+"name": "The Chosen",
+"via": "imdb-batch"
+},
+"tt4581310": {
+"entity_id": "9BCFEFAB-C4EB-4FEB-ABA9-AD47AE2073B2",
+"name": "El Inca",
+"via": "imdb-batch"
+},
+"tt6502956": {
+"entity_id": "AF0B6263-5D14-42EB-9786-6CFC2D71BD78",
+"name": "Yucatan",
+"via": "imdb-batch"
+},
+"tt6762348": {
+"entity_id": "56F82D6B-F313-44E7-A868-012590808224",
+"name": "Velvet Colección",
+"via": "imdb-batch"
+},
+"tt8872580": {
+"entity_id": "52055A61-6843-40E6-A1D0-7912C9EE15C5",
+"name": "The Innocence",
+"via": "imdb-batch"
+},
+"tt9359344": {
+"entity_id": "22850F9B-FDD4-42CA-9133-101B4E8C626A",
+"name": "Te quiero, imbécil",
+"via": "imdb-batch"
+},
+"tt9471660": {
+"entity_id": "D12F5425-8CD4-4D17-AADE-968FA221EAB8",
+"name": "Fever Dream",
+"via": "imdb-batch"
+},
+"tt0026789": {
+"entity_id": "57F1069D-2356-4E3D-B6F9-2ED6AE0C63DF",
+"name": "Nobleza baturra",
+"via": "imdb-batch"
+},
+"tt0032760": {
+"entity_id": "AE8A07EC-D2D2-47EC-886F-EC944086C3C2",
+"name": "Marianela",
+"via": "imdb-batch"
+},
+"tt0035512": {
+"entity_id": "383D194C-8F37-44E3-80EA-C6DC7413DF0D",
+"name": "Viaje sin destino",
+"via": "imdb-batch"
+},
+"tt0035603": {
+"entity_id": "6E1F9CE1-DEAD-43F7-8270-500B00AFD35F",
+"name": "El abanderado",
+"via": "imdb-batch"
+},
+"tt0036877": {
+"entity_id": "05878235-0FD9-4E5D-B4A7-8F3B5AEFF9AF",
+"name": "Gran Hotel",
+"via": "imdb-batch"
+},
+"tt0039653": {
+"entity_id": "9BF0C8BA-9372-4167-8EB2-5C7218A1DD48",
+"name": "La nao Capitana",
+"via": "imdb-batch"
+},
+"tt0039662": {
+"entity_id": "9F66E834-D298-42AE-AD75-F3EC53B9F053",
+"name": "El niño perdido",
+"via": "imdb-batch"
+},
+"tt0041140": {
+"entity_id": "BD3BF54C-E0FF-4ABC-9E3D-2354E388CAD6",
+"name": "Aventuras de Juan Lucas",
+"via": "imdb-batch"
+},
+"tt1483386": {
+"entity_id": "DFE8EA56-2F8B-490A-8D2C-CB80AC29F983",
+"name": "Forever Young",
+"via": "imdb-single"
+},
+"tt27672387": {
+"entity_id": "A1095601-194D-4A83-A316-F34E6CA39FE6",
+"name": "Jokes & Cigarettes",
+"via": "imdb-single"
+},
+"tt4110400": {
+"entity_id": "F2D9FBF8-8806-41ED-A62B-3862CCEEE70A",
+"name": "Zip & Zap and the Captain's Island",
+"via": "imdb-single"
+},
+"tt4568106": {
+"entity_id": "4B402552-800F-4DBE-9D50-B928199BEA39",
+"name": "Gabo: The Creation of Gabriel Garcia Marquez",
+"via": "imdb-single"
+},
+"tt4679438": {
+"entity_id": "BDBE919D-6C33-4981-8FB2-E8838BE0F786",
+"name": "B",
+"via": "imdb-single"
+},
+"tt7459182": {
+"entity_id": "6E12ADF1-E576-4D29-A9EC-07FDEE3487A9",
+"name": "Wave of Crimes",
+"via": "imdb-single"
+},
+"tt8344544": {
+"entity_id": "B4E03F20-B55E-42C8-B77B-81693C779DE5",
+"name": "Vida perfecta",
+"via": "imdb-single"
+},
+"tt0036815": {
+"entity_id": "2379C703-5B80-4F26-8C78-DD9CD474B2AE",
+"name": "El fantasma y Dª Juanita",
+"via": "imdb-single"
+},
+"tt0039732": {
+"entity_id": "35B7057E-ACBC-44C6-B7D7-88D536970410",
+"name": "Princess of the Ursinos",
+"via": "imdb-single"
+},
+"tt0041649": {
+"entity_id": "EEDF5572-89E7-424E-B9B1-DEDED22E0B1D",
+"name": "Mi adorado Juan",
+"via": "imdb-batch"
+},
+"tt0041665": {
+"entity_id": "76CE4660-942A-4E65-BF2C-2F3CEC090B91",
+"name": "Una mujer cualquiera",
+"via": "imdb-batch"
+},
+"tt0041773": {
+"entity_id": "3CA86FCB-39C0-4AD9-90B0-56F2B7C25908",
+"name": "El portero",
+"via": "imdb-batch"
+},
+"tt0042308": {
+"entity_id": "DF86D985-84C2-4B57-A2B0-3CA1CA159AE1",
+"name": "El capitán Veneno",
+"via": "imdb-batch"
+},
+"tt0043031": {
+"entity_id": "B3619B0B-6696-4FB6-96FA-ECE7E4577370",
+"name": "Teatro Apolo",
+"via": "imdb-batch"
+},
+"tt0047297": {
+"entity_id": "F9730218-BCF8-47A2-BD7D-C4145EF9964F",
+"name": "Once pares de botas",
+"via": "imdb-batch"
+},
+"tt0049859": {
+"entity_id": "92FD5EB7-2079-4A5A-92E9-777068227C76",
+"name": "Todos somos necesarios",
+"via": "imdb-batch"
+},
+"tt0050382": {
+"entity_id": "FD7EC08D-3B9E-46F4-BF09-BF9D62007A79",
+"name": "Faustina",
+"via": "imdb-batch"
+},
+"tt0050667": {
+"entity_id": "29591593-070C-48A0-A998-56E2A46A2973",
+"name": "Madrugada",
+"via": "imdb-batch"
+},
+"tt0050835": {
+"entity_id": "1498F4C5-9583-49FC-8685-4FB78A02B944",
+"name": "El pequeño ruiseñor",
+"via": "imdb-batch"
+},
+"tt0052725": {
+"entity_id": "42EE3E77-39A3-4620-97D4-1F21E701EB7C",
+"name": "De espaldas a la puerta",
+"via": "imdb-batch"
+},
+"tt0053969": {
+"entity_id": "8A27FD81-F77A-4CC8-A449-B102D946518C",
+"name": "Juanito",
+"via": "imdb-batch"
+},
+"tt0054233": {
+"entity_id": "9054F8B4-CA92-441B-AFE4-331B55033485",
+"name": "Un rayo de luz",
+"via": "imdb-batch"
+},
+"tt0054668": {
+"entity_id": "30856C62-4A32-47AE-BFE3-BB51CF3ACD0D",
+"name": "The Brainiac",
+"via": "imdb-batch"
+},
+"tt0054677": {
+"entity_id": "DA859A36-6934-44CF-A032-E4042148C0B0",
+"name": "Bello recuerdo",
+"via": "imdb-batch"
+},
+"tt0055818": {
+"entity_id": "B2C4C47C-573E-4A27-BEA7-EC3680B25663",
+"name": "El caballo blanco",
+"via": "imdb-batch"
+},
+"tt0056287": {
+"entity_id": "77D86187-1DC4-44B1-A85D-2F06A6CF49B7",
+"name": "Noche de verano",
+"via": "imdb-batch"
+},
+"tt0056889": {
+"entity_id": "2E221200-50C9-40E7-B1BF-687ECFF8F838",
+"name": "El buen amor",
+"via": "imdb-batch"
+},
+"tt0056944": {
+"entity_id": "4ED3A719-0E01-4E16-9F67-4D8045668568",
+"name": "Como dos gotas de agua",
+"via": "imdb-batch"
+},
+"tt0058418": {
+"entity_id": "751D9A2F-D4C6-4DF5-9B91-1DE5F5C6AC8F",
+"name": "Nuevo en esta plaza",
+"via": "imdb-batch"
+},
+"tt0059511": {
+"entity_id": "74E93C31-159F-4D9A-ABA9-95FCECB34F9D",
+"name": "Ninette y un señor de Murcia",
+"via": "imdb-batch"
+},
+"tt0059803": {
+"entity_id": "CC7CE4E8-4670-4F83-9BC1-002985212294",
+"name": "Time to Die",
+"via": "imdb-batch"
+},
+"tt0059863": {
+"entity_id": "8FA18274-0B83-4167-AC7F-F64FECA81257",
+"name": "Ruthless Colt of the Gringo",
+"via": "imdb-batch"
+},
+"tt0061038": {
+"entity_id": "11E61454-C2CA-47A5-B93F-F7539CB37FBB",
+"name": "Su excelencia",
+"via": "imdb-batch"
+},
+"tt0062836": {
+"entity_id": "8A3B3BD4-F088-4DCE-96CC-2644D877B716",
+"name": "The Exquisite Cadaver",
+"via": "imdb-batch"
+},
+"tt0063446": {
+"entity_id": "2F59A5E6-59F9-4765-8A98-79018371063B",
+"name": "Por mis pistolas",
+"via": "imdb-batch"
+},
+"tt0064147": {
+"entity_id": "B03AA781-BD56-4255-B43E-96492B105D82",
+"name": "Jackal of Nahueltoro",
+"via": "imdb-batch"
+},
+"tt0065601": {
+"entity_id": "0052F3D3-E262-46F4-8AB0-8DEE5B826D3F",
+"name": "Cuadrilátero",
+"via": "imdb-batch"
+},
+"tt0066897": {
+"entity_id": "8E795C04-A437-49B1-85CC-3D4C6A9D81B7",
+"name": "The House of the Doves",
+"via": "imdb-batch"
+},
+"tt0067936": {
+"entity_id": "FFB7DB37-C35F-45EF-B1EC-3B09D752B29F",
+"name": "Vente a ligar al Oeste",
+"via": "imdb-batch"
+},
+"tt0068496": {
+"entity_id": "BC6F1309-3753-44BA-BFCE-879C25DBBDAA",
+"name": "Don Quijote cabalga de nuevo",
+"via": "imdb-batch"
+},
+"tt0069010": {
+"entity_id": "347ECDDE-02DD-4E2D-A7BC-DD3239AEB6F1",
+"name": "El niño es nuestro",
+"via": "imdb-batch"
+},
+"tt0069015": {
+"entity_id": "656CA5C3-920B-43C6-886F-EE92C474755E",
+"name": "No es bueno que el hombre esté solo",
+"via": "imdb-batch"
+},
+"tt0070869": {
+"entity_id": "3F218802-A6EF-40D2-A8F3-C10993E6C9F3",
+"name": "A Candle for the Devil",
+"via": "imdb-batch"
+},
+"tt0077240": {
+"entity_id": "DC5170E7-1013-4026-AC26-A4CFE5E9F0B2",
+"name": "Los bingueros",
+"via": "imdb-batch"
+},
+"tt0078404": {
+"entity_id": "C9B4E3B4-56A9-40B5-A012-C7B9833EDFA6",
+"name": "Tobi",
+"via": "imdb-batch"
+},
+"tt0080090": {
+"entity_id": "DFA6C5A5-C71B-4312-B7CD-8C9956C8269A",
+"name": "Las verdes praderas",
+"via": "imdb-batch"
+},
+"tt0082210": {
+"entity_id": "0A59170A-D224-4606-B1F7-0E57EFF17D7A",
+"name": "El crack",
+"via": "imdb-batch"
+},
+"tt0042605": {
+"entity_id": "AC5CE2AE-FF74-43E6-93EB-922C96C341AE",
+"name": "Los islas Marias",
+"via": "imdb-single"
+},
+"tt0048476": {
+"entity_id": "7D39701D-3D31-4FC8-9FCC-ED4C949C7AB3",
+"name": "Red Fish",
+"via": "imdb-single"
+},
+"tt0052428": {
+"entity_id": "C63970A3-EC8B-4467-8C2D-26D5B595B68B",
+"name": "¡Viva lo imposible!",
+"via": "imdb-single"
+},
+"tt0054957": {
+"entity_id": "87F487BA-9456-45FC-AAC7-F6D6C37CFE65",
+"name": "An Angel Has Appeared",
+"via": "imdb-single"
+},
+"tt0055128": {
+"entity_id": "86780E59-6859-4F38-AE78-338C6BF2A486",
+"name": "The Curse of the Crying Woman",
+"via": "imdb-single"
+},
+"tt0055966": {
+"entity_id": "30D7768A-F5EF-4056-9873-A17AC57C0B5C",
+"name": "The Witch's Mirror",
+"via": "imdb-single"
+},
+"tt0060197": {
+"entity_id": "6182DEA7-BA2F-4E5F-B5C1-DCCC31527F55",
+"name": "The Search",
+"via": "imdb-single"
+},
+"tt0060886": {
+"entity_id": "CCCCAD70-1448-4D98-91B0-A9478AB38375",
+"name": "I tre del Colorado",
+"via": "imdb-single"
+},
+"tt0066901": {
+"entity_id": "9771CC72-747D-4DB2-8753-0B6E1231CC54",
+"name": "Songs for After a War",
+"via": "imdb-single"
+},
+"tt0074398": {
+"entity_id": "E5EADA84-6E28-468C-913C-D88A719C9B7E",
+"name": "The Disenchantment",
+"via": "imdb-single"
+},
+"tt0077177": {
+"entity_id": "6601EFF0-03D2-49B7-87A9-2779A62B3BFB",
+"name": "Hail Hazana",
+"via": "imdb-single"
+},
+"tt0082777": {
+"entity_id": "2552134B-78B7-4AED-B57B-9FF94C06054D",
+"name": "La mujer del ministro",
+"via": "imdb-batch"
+},
+"tt0085535": {
+"entity_id": "D9E0D910-2BE3-4645-9394-D2F8F729DBA4",
+"name": "Feroz",
+"via": "imdb-batch"
+},
+"tt0093320": {
+"entity_id": "76DBE791-6563-45E3-A740-1B9CCF97059A",
+"name": "El juego más divertido",
+"via": "imdb-batch"
+},
+"tt0094201": {
+"entity_id": "5007CE0F-3494-4676-8688-0A23AEDA7613",
+"name": "The Tunnel",
+"via": "imdb-batch"
+},
+"tt0096406": {
+"entity_id": "A9CB7BE8-D9D0-4D7E-BBB6-C2740534F3B1",
+"name": "El vuelo de la paloma",
+"via": "imdb-batch"
+},
+"tt0098732": {
+"entity_id": "8123D86A-7AA6-41A4-935F-AEA8C47ED290",
+"name": "Last Images of the Shipwreck",
+"via": "imdb-batch"
+},
+"tt0099845": {
+"entity_id": "7A054AAB-854C-42C8-8F36-ABEB5D07F6E6",
+"name": "Innisfree",
+"via": "imdb-batch"
+},
+"tt0100657": {
+"entity_id": "0960435B-828D-4ADB-B742-839984B53AE2",
+"name": "La sombra del ciprés es alargada",
+"via": "imdb-batch"
+},
+"tt0105231": {
+"entity_id": "3DDE1E78-D81F-4EF9-9378-E4A607CBBE8E",
+"name": "La reina anónima",
+"via": "imdb-batch"
+},
+"tt0110568": {
+"entity_id": "A3FB6321-14B8-45B2-96A7-EBD6D6A2302A",
+"name": "Morirás en Chafarinas",
+"via": "imdb-batch"
+},
+"tt0111198": {
+"entity_id": "A70243A9-E5EC-4BA7-BF48-5B31EC4C2805",
+"name": "Sin remitente",
+"via": "imdb-batch"
+},
+"tt0113647": {
+"entity_id": "51751C0A-B1E0-487B-98FD-6490D63B9773",
+"name": "La ley de la frontera",
+"via": "imdb-batch"
+},
+"tt0115468": {
+"entity_id": "C33846F4-9D01-42B1-A7C4-24C4F8D96657",
+"name": "Adosados",
+"via": "imdb-batch"
+},
+"tt0115930": {
+"entity_id": "F086FA04-24EB-4E5A-BD4C-1A8372C0C8BA",
+"name": "Como un relámpago",
+"via": "imdb-batch"
+},
+"tt0119056": {
+"entity_id": "A12BD597-6D97-4D7C-870B-C3108B2C2CBB",
+"name": "Elisa Before the End of the World",
+"via": "imdb-batch"
+},
+"tt0119652": {
+"entity_id": "52B380DD-FCC0-492F-8276-F0D20935F7DD",
+"name": "Memorias del ángel caído",
+"via": "imdb-batch"
+},
+"tt0121703": {
+"entity_id": "DC0A9043-1D83-463E-BB0A-E23513D1D51A",
+"name": "Rosaura at 10 O'Clock",
+"via": "imdb-batch"
+},
+"tt0121763": {
+"entity_id": "D982A6AC-DD42-4462-90CB-B6BBFB7478E5",
+"name": "El señor doctor",
+"via": "imdb-batch"
+},
+"tt0143790": {
+"entity_id": "DBCC4EFB-7D4C-46B3-820E-0F0BCC68D4CE",
+"name": "Pafnucio Santo",
+"via": "imdb-batch"
+},
+"tt0158482": {
+"entity_id": "41963A0B-7B06-4A1B-9AB2-502420E4ABC1",
+"name": "La balandra Isabel llegó esta tarde",
+"via": "imdb-batch"
+},
+"tt0169025": {
+"entity_id": "A7488BD9-615C-426A-95FF-E99DBD9A7E17",
+"name": "Mensaka",
+"via": "imdb-batch"
+},
+"tt0176912": {
+"entity_id": "4133C552-06D0-4C1A-B6E7-7DD411A7D7B2",
+"name": "Lágrimas negras",
+"via": "imdb-batch"
+},
+"tt0179799": {
+"entity_id": "FA3EDD75-C5DF-42C4-8095-114C3F4CEC88",
+"name": "Ésta es mi vida",
+"via": "imdb-batch"
+},
+"tt0190984": {
+"entity_id": "9266945B-B4B0-4DAB-9B3B-3F6E454D13D4",
+"name": "Condemned to Hell",
+"via": "imdb-batch"
+},
+"tt0199500": {
+"entity_id": "9BCD52E2-3A65-4F5F-91DD-E03EFD8C1008",
+"name": "Esposa último modelo",
+"via": "imdb-batch"
+},
+"tt0243004": {
+"entity_id": "2BD47539-2996-4BD7-B676-09539924A139",
+"name": "La vida íntima de Marco Antonio y Cleopatra",
+"via": "imdb-batch"
+},
+"tt0252912": {
+"entity_id": "C6E87ED0-994C-4598-83BF-DA54FAA9F33C",
+"name": "Aunque tú no lo sepas",
+"via": "imdb-batch"
+},
+"tt0253110": {
+"entity_id": "2D106CDB-506A-47F2-8B02-43348F7AE28F",
+"name": "Living It Up",
+"via": "imdb-batch"
+},
+"tt0263824": {
+"entity_id": "C71AC115-1FD4-4CF6-8118-238D541392AE",
+"name": "El otro barrio",
+"via": "imdb-batch"
+},
+"tt0265436": {
+"entity_id": "0369142D-6D32-46B6-9D7A-B0CCB8A60CC5",
+"name": "Nuts for Love",
+"via": "imdb-batch"
+},
+"tt0316562": {
+"entity_id": "D77EF10A-630E-489F-B0AF-53EC24CA4994",
+"name": "Un secreto de Esperanza",
+"via": "imdb-batch"
+},
+"tt0338537": {
+"entity_id": "296F1BB4-992A-48D1-8968-721383D189C3",
+"name": "Volverás",
+"via": "imdb-batch"
+},
+"tt0339862": {
+"entity_id": "E6CD0592-9C3C-4E3B-A6D7-5BAC4D2B502D",
+"name": "Nobody's Life",
+"via": "imdb-batch"
+},
+"tt0376650": {
+"entity_id": "414BA42C-3970-44C0-9FDF-ABE19879B7BC",
+"name": "Hipnos",
+"via": "imdb-batch"
+},
+"tt0385889": {
+"entity_id": "246F6D28-8ECC-48B7-83AA-60000E9E19A3",
+"name": "A Less Bad World",
+"via": "imdb-batch"
+},
+"tt0448404": {
+"entity_id": "1A938452-0CC7-4279-AE1C-5F9CC3781651",
+"name": "Camarón",
+"via": "imdb-batch"
+},
+"tt0456698": {
+"entity_id": "B40D0019-BA37-4BFF-B97D-3A791855CFFC",
+"name": "Va a ser que nadie es perfecto",
+"via": "imdb-batch"
+},
+"tt0480126": {
+"entity_id": "D5154095-1128-4075-8777-E34B8AE69943",
+"name": "La dignidad de los nadies",
+"via": "imdb-batch"
+},
+"tt0484064": {
+"entity_id": "D0E1FD1A-B315-443A-B7DF-2474C608BC14",
+"name": "El próximo oriente",
+"via": "imdb-batch"
+},
+"tt0829326": {
+"entity_id": "3D097B57-6CA1-4598-B251-0FA2A4E239A7",
+"name": "¿Y tú quién eres?",
+"via": "imdb-batch"
+},
+"tt0836632": {
+"entity_id": "F2B3DA14-64E7-48E4-A18C-9BEDC259D440",
+"name": "Abrígate",
+"via": "imdb-batch"
+},
+"tt0906777": {
+"entity_id": "B626A02E-B85B-4E43-908B-9174AB047773",
+"name": "La señal",
+"via": "imdb-batch"
+},
+"tt0922564": {
+"entity_id": "8A9B172A-D23C-4BF5-ACEE-78E695DB9934",
+"name": "El prado de las estrellas",
+"via": "imdb-batch"
+},
+"tt0943407": {
+"entity_id": "CEC3C4CD-1967-47EC-B3AE-616021C25C5A",
+"name": "Casual Day",
+"via": "imdb-batch"
+},
+"tt1060243": {
+"entity_id": "FB07DA94-658E-414E-B203-7774321EDEFB",
+"name": "La buena nueva",
+"via": "imdb-batch"
+},
+"tt1157552": {
+"entity_id": "D0C4BE77-DEC8-41D9-B147-E3F117F79D36",
+"name": "Huacho",
+"via": "imdb-batch"
+},
+"tt11827806": {
+"entity_id": "A9C74E1E-1596-4F97-A896-A1D2C2E56D4C",
+"name": "So Much Love to Give",
+"via": "imdb-batch"
+},
+"tt0112933": {
+"entity_id": "D70B6BCB-634D-4552-8003-A15F4BCFCA71",
+"name": "The Butterfly Effect",
+"via": "imdb-single"
+},
+"tt0359254": {
+"entity_id": "3A7FF66F-2A09-47A0-973F-13E5480BAEBE",
+"name": "Rolling Family",
+"via": "imdb-single"
+},
+"tt1056419": {
+"entity_id": "0E935CE8-F6AD-40A4-931D-D0DA9A756721",
+"name": "Cowards",
+"via": "imdb-single"
+},
+"tt1190905": {
+"entity_id": "2415E1BC-EDEC-40FB-AA4D-528EA57B9B11",
+"name": "The One-Handed Trick",
+"via": "imdb-batch"
+},
+"tt12390330": {
+"entity_id": "21C671FA-ABAD-4D68-AFB1-43A4FC7FBB57",
+"name": "Mamacruz",
+"via": "imdb-batch"
+},
+"tt1288635": {
+"entity_id": "F8A1C54F-DB3F-46C7-BBCA-1C799DA6C9BD",
+"name": "Bullying",
+"via": "imdb-batch"
+},
+"tt13118012": {
+"entity_id": "C430EBA1-72FB-48BD-B920-E0BF91FAA299",
+"name": "You've Got This",
+"via": "imdb-batch"
+},
+"tt1351734": {
+"entity_id": "9DEA2CD1-85AA-40B0-908C-0415151C2E68",
+"name": "Ander",
+"via": "imdb-batch"
+},
+"tt1386741": {
+"entity_id": "9EFBB473-AEB3-4172-ABD5-56B73C1BD16D",
+"name": "The Widows of Thursdays",
+"via": "imdb-batch"
+},
+"tt1417582": {
+"entity_id": "AC4CD990-2731-452F-B290-1E5371576E31",
+"name": "Among Wolves",
+"via": "imdb-batch"
+},
+"tt14300504": {
+"entity_id": "B75E4BF7-FDD3-42E2-B33F-E2C5BF1ED369",
+"name": "The Water",
+"via": "imdb-batch"
+},
+"tt14941698": {
+"entity_id": "B92A074D-F5FD-401D-9BAD-3AB118908789",
+"name": "Tad the Lost Explorer and the Emerald Tablet",
+"via": "imdb-batch"
+},
+"tt15006754": {
+"entity_id": "4B3D2447-6939-4CEB-9945-ECA10F8824CA",
+"name": "Under Her Control",
+"via": "imdb-batch"
+},
+"tt15341168": {
+"entity_id": "7491B855-224A-4502-90AA-391435BFF679",
+"name": "Full of Grace",
+"via": "imdb-batch"
+},
+"tt15941636": {
+"entity_id": "FBC246EB-D575-40D9-820D-A7394E32431A",
+"name": "The Substitute",
+"via": "imdb-batch"
+},
+"tt1625098": {
+"entity_id": "9371DF0D-FF74-49F3-B247-42D01E00767E",
+"name": "Igualita a mí",
+"via": "imdb-batch"
+},
+"tt1639075": {
+"entity_id": "3FBFFE53-8292-4965-B100-2F2C91D2A1C4",
+"name": "No Return",
+"via": "imdb-batch"
+},
+"tt1734067": {
+"entity_id": "7737E16F-8523-45B4-8526-CAC21E5DFA31",
+"name": "Atrocious",
+"via": "imdb-batch"
+},
+"tt1743229": {
+"entity_id": "2D1E3689-AB2F-424D-A394-1EF59B640804",
+"name": "Clara Campoamor. La mujer olvidada",
+"via": "imdb-batch"
+},
+"tt21342370": {
+"entity_id": "2CF8596A-118A-4AF6-9FBC-72AEC47600F4",
+"name": "The Girls Are Alright",
+"via": "imdb-batch"
+},
+"tt2197926": {
+"entity_id": "4C2AF414-8087-4E2E-BA51-FB3651BAA218",
+"name": "The 4th Company",
+"via": "imdb-batch"
+},
+"tt2379436": {
+"entity_id": "28F0B958-7128-4220-937A-E79B39762C4D",
+"name": "Gone Fishing",
+"via": "imdb-batch"
+},
+"tt2388240": {
+"entity_id": "0B47BA89-C946-4B2B-84DD-5CE8E3302484",
+"name": "El tesoro del rey Midas",
+"via": "imdb-batch"
+},
+"tt2484530": {
+"entity_id": "F1AAE54F-AED7-46F7-A1F4-1782102A0E4B",
+"name": "Amapola",
+"via": "imdb-batch"
+},
+"tt3183402": {
+"entity_id": "8A89F262-FFFA-45A4-BC20-825992D62FDE",
+"name": "Veronica",
+"via": "imdb-batch"
+},
+"tt3230668": {
+"entity_id": "057660E2-1E40-45C1-ADFB-25B8E6CF2B4E",
+"name": "Perdona Si Te Llamo Amor",
+"via": "imdb-batch"
+},
+"tt3374866": {
+"entity_id": "7D5A445D-688B-4F1A-A361-94069647C87A",
+"name": "Purgatorio",
+"via": "imdb-batch"
+},
+"tt3495184": {
+"entity_id": "841EE9AE-7654-4F94-9E1C-F6BE3DA0FE94",
+"name": "Las ovejas no pierden el tren",
+"via": "imdb-batch"
+},
+"tt3717390": {
+"entity_id": "7161FE48-56A4-4F36-A971-F12BD81B5170",
+"name": "Refugiado",
+"via": "imdb-batch"
+},
+"tt3732280": {
+"entity_id": "9E4A3176-FB69-4D99-9F8E-B29AA5F3C235",
+"name": "When Angels Sleep",
+"via": "imdb-batch"
+},
+"tt3751300": {
+"entity_id": "D85F9A3D-C8FD-4A78-9EBC-7E7C0A564EE5",
+"name": "Gente de bien",
+"via": "imdb-batch"
+},
+"tt3949658": {
+"entity_id": "0586E9CC-C785-4E7A-A3AA-684F3A37EE8E",
+"name": "The Similars",
+"via": "imdb-batch"
+},
+"tt3952900": {
+"entity_id": "3F3E0323-D65B-4277-8F95-C76E37B6340D",
+"name": "We Are Pregnant",
+"via": "imdb-batch"
+},
+"tt4292596": {
+"entity_id": "D64199D5-668D-4357-93C6-9AB3E5F34733",
+"name": "Los héroes del mal",
+"via": "imdb-batch"
+},
+"tt4631532": {
+"entity_id": "FF7E9CFF-BF15-4307-B505-948E7DB71BEA",
+"name": "Our Lovers",
+"via": "imdb-batch"
+},
+"tt4823434": {
+"entity_id": "9695D8B3-992A-4F1B-AE97-6DA6948A5D0C",
+"name": "Tigers Are Not Afraid",
+"via": "imdb-batch"
+},
+"tt4843012": {
+"entity_id": "12B5B285-A60E-47CD-A8AB-19301091ECEA",
+"name": "No Filter",
+"via": "imdb-batch"
+},
+"tt5433520": {
+"entity_id": "3B3DD110-329C-4A32-9D5C-013B4791F65C",
+"name": "No culpes al karma de lo que te pasa por gilipollas",
+"via": "imdb-batch"
+},
+"tt6708044": {
+"entity_id": "2A2BBA2E-ACE9-40E5-B6CD-7FD402892E28",
+"name": "The Tribe",
+"via": "imdb-batch"
+},
+"tt6708834": {
+"entity_id": "1E64281F-CA13-4A1E-830F-3D49AC577D95",
+"name": "The Awakening of the Ants",
+"via": "imdb-batch"
+},
+"tt7320560": {
+"entity_id": "4B7B3A85-3AE4-4EA8-877B-D10782FF0B89",
+"name": "Cuba and the Cameraman",
+"via": "imdb-batch"
+},
+"tt7474914": {
+"entity_id": "2CF29691-E422-4D31-9911-FED887040F06",
+"name": "Unbridled",
+"via": "imdb-batch"
+},
+"tt7952000": {
+"entity_id": "449B995B-7AD9-4120-9E0A-51DE154987D5",
+"name": "The Accused",
+"via": "imdb-batch"
+},
+"tt8099236": {
+"entity_id": "F30C81E6-717F-4BE8-98FA-AFDF6195AC4C",
+"name": "The Silence of Others",
+"via": "imdb-batch"
+},
+"tt8382834": {
+"entity_id": "29B076F7-C20F-474E-AD0C-6C6FA80C0CA4",
+"name": "Instinto",
+"via": "imdb-batch"
+},
+"tt8435268": {
+"entity_id": "AE2EF243-043F-4CFC-B04D-7D2275EAC23C",
+"name": "How to Get Over a Breakup",
+"via": "imdb-batch"
+},
+"tt0025021": {
+"entity_id": "61F62752-D7FD-4DDD-8D71-2C3843C15161",
+"name": "Cuesta abajo",
+"via": "imdb-batch"
+},
+"tt14803538": {
+"entity_id": "2A5FE143-5563-4610-92D1-069E80F8B269",
+"name": "The Extortion",
+"via": "imdb-single"
+},
+"tt3169832": {
+"entity_id": "772250C3-CF62-4F3B-A1BB-1088EAC83F19",
+"name": "Incidents",
+"via": "imdb-single"
+},
+"tt5674842": {
+"entity_id": "9B7C71E1-8FDA-41EC-B223-686A2682ABEC",
+"name": "A Stroke of Luck",
+"via": "imdb-single"
+},
+"tt5732530": {
+"entity_id": "6CBAB632-9B5F-4309-A836-5788131007E2",
+"name": "The Chessplayer",
+"via": "imdb-single"
+},
+"tt6970690": {
+"entity_id": "4D9EA2C6-E729-444D-8394-B8297960808F",
+"name": "Giants",
+"via": "imdb-single"
+},
+"tt7806430": {
+"entity_id": "292DB652-4DE9-4E37-ACAF-122E3B0FDC81",
+"name": "Off Course to China",
+"via": "imdb-single"
+},
+"tt0028166": {
+"entity_id": "7ADCAD04-2095-4BD0-9432-E617A5A76864",
+"name": "La reina mora",
+"via": "imdb-batch"
+},
+"tt0034574": {
+"entity_id": "0BD834EE-69F5-4916-8B16-0F9D84998DB1",
+"name": "Canelita en rama",
+"via": "imdb-batch"
+},
+"tt0038313": {
+"entity_id": "E5250116-D474-4DA3-94FB-A942EA74F909",
+"name": "Audiencia pública",
+"via": "imdb-batch"
+},
+"tt0038445": {
+"entity_id": "8DBCEBCE-9C01-483B-829B-A96297C0F98B",
+"name": "La dama de la muerte",
+"via": "imdb-batch"
+},
+"tt0040784": {
+"entity_id": "23910B37-F305-4132-BCFC-833FCBE2D75B",
+"name": "Siempre vuelven de madrugada",
+"via": "imdb-batch"
+},
+"tt0040928": {
+"entity_id": "986B532D-7DE3-413B-8EBE-504FC29B7D3A",
+"name": "Ustedes, los ricos",
+"via": "imdb-batch"
+},
+"tt0042406": {
+"entity_id": "201FBFC5-4F6B-46D5-8F07-00547B123457",
+"name": "Don Juan",
+"via": "imdb-batch"
+},
+"tt0042547": {
+"entity_id": "602F5935-9BB8-494B-BEE5-4A0FCEF2E9B5",
+"name": "Hay muertos que no hacen ruido",
+"via": "imdb-batch"
+},
+"tt0043494": {
+"entity_id": "22E33381-C9FB-4B9C-9F8C-A4974A542BAF",
+"name": "Día tras día",
+"via": "imdb-batch"
+},
+"tt0044412": {
+"entity_id": "B98B650F-7E96-4D0F-8352-6F625BBD8974",
+"name": "The Beautiful Dreamer",
+"via": "imdb-batch"
+},
+"tt0045686": {
+"entity_id": "C2AFC929-F5ED-4DAA-BB1E-8FDB2F80B659",
+"name": "El diablo toca la flauta",
+"via": "imdb-batch"
+},
+"tt0047946": {
+"entity_id": "EE3A0E34-1CDA-4AAC-AFBA-F2FCA0117454",
+"name": "Congreso en Sevilla",
+"via": "imdb-batch"
+},
+"tt0048307": {
+"entity_id": "E4939EAE-B06C-4559-A8C4-FF0756CD1C0A",
+"name": "Lo que le pasó a Sansón",
+"via": "imdb-batch"
+},
+"tt0048334": {
+"entity_id": "F58D7877-1909-4239-8025-3D97F30E33A4",
+"name": "El malvado Carabel",
+"via": "imdb-batch"
+},
+"tt0048453": {
+"entity_id": "9C371BAE-38F5-46D3-9DD7-31419E32C052",
+"name": "Orgullo",
+"via": "imdb-batch"
+},
+"tt0049274": {
+"entity_id": "067F3632-6E51-491F-8C3A-77EED3FBFA45",
+"name": "La gran mentira",
+"via": "imdb-batch"
+},
+"tt0049427": {
+"entity_id": "5B6B2EF0-9773-4902-AAB2-2DD0731AE7BD",
+"name": "Los ladrones somos gente honrada",
+"via": "imdb-batch"
+},
+"tt0050170": {
+"entity_id": "AC79B5F2-CE92-4404-BCC7-BC5BC78F52F8",
+"name": "El batallón de las sombras",
+"via": "imdb-batch"
+},
+"tt0053556": {
+"entity_id": "9B8F993E-00BD-4B4E-A110-18FE712C80BC",
+"name": "091 Policía al habla",
+"via": "imdb-batch"
+},
+"tt0053617": {
+"entity_id": "A9752D51-DA8E-4792-9354-93DAD53B75F1",
+"name": "Aventuras de Joselito y Pulgarcito",
+"via": "imdb-batch"
+},
+"tt0054165": {
+"entity_id": "6A383283-885F-4463-9B95-CD8DFC613AAF",
+"name": "La paz empieza nunca",
+"via": "imdb-batch"
+},
+"tt0054173": {
+"entity_id": "749FF9B7-BA4E-4A0E-8CDC-7CA15889DB13",
+"name": "El pequeño coronel",
+"via": "imdb-batch"
+},
+"tt0054254": {
+"entity_id": "6BADCB87-404A-49FA-BA7D-86338096729B",
+"name": "El rufián",
+"via": "imdb-batch"
+},
+"tt0054409": {
+"entity_id": "BBCFB963-57B0-4FE7-8BEA-B1C7F11D9CEC",
+"name": "Trío de damas",
+"via": "imdb-batch"
+},
+"tt0054717": {
+"entity_id": "3D72C554-D08A-42A1-91FA-8B5514667651",
+"name": "Canción de juventud",
+"via": "imdb-batch"
+},
+"tt0056039": {
+"entity_id": "83F1F00E-E0F7-4ECE-B529-100F00841A8E",
+"name": "El grano de mostaza",
+"via": "imdb-batch"
+},
+"tt0056420": {
+"entity_id": "75CDBFEE-0167-4DB7-AD3B-1E0ED7EDC444",
+"name": "Rocío de La Mancha",
+"via": "imdb-batch"
+},
+"tt0056898": {
+"entity_id": "E7B5906B-7C59-4F49-98DF-CD433493A908",
+"name": "El camino",
+"via": "imdb-batch"
+},
+"tt0056981": {
+"entity_id": "827E9720-6CC3-4142-8CA4-77ECF374C945",
+"name": "Del rosa al amarillo",
+"via": "imdb-batch"
+},
+"tt0057838": {
+"entity_id": "FC8C5D79-B67E-4EC7-B8A8-40A6018AAF9D",
+"name": "Amador",
+"via": "imdb-batch"
+},
+"tt0058518": {
+"entity_id": "C1F0F7F2-8B84-40DC-A21A-4C1F0F60E0E6",
+"name": "Relevo para un pistolero",
+"via": "imdb-batch"
+},
+"tt0058713": {
+"entity_id": "8A4575E1-F88F-45DC-84F0-3ABDB456AEE8",
+"name": "Vacaciones para Ivette",
+"via": "imdb-batch"
+},
+"tt0058966": {
+"entity_id": "9F250AFE-0E3C-494D-B7C6-CCB12CA516F2",
+"name": "Un beso en el puerto",
+"via": "imdb-batch"
+},
+"tt0059060": {
+"entity_id": "46FE9C70-777E-4431-836A-9C4F84A339D0",
+"name": "Cotolay",
+"via": "imdb-batch"
+},
+"tt0059164": {
+"entity_id": "ADCA30EC-C2B1-4B6C-8CEE-0E7EBAD6E6ED",
+"name": "La familia y... uno más",
+"via": "imdb-batch"
+},
+"tt0059521": {
+"entity_id": "4B5F6C6B-CA3F-433F-8903-B15E569F7543",
+"name": "Nueve cartas a Berta",
+"via": "imdb-batch"
+},
+"tt0061892": {
+"entity_id": "85CFD5D6-0420-4606-9D07-1725D8553BB0",
+"name": "Las que tienen que servir",
+"via": "imdb-batch"
+},
+"tt0062118": {
+"entity_id": "239EE5E1-A4A0-4183-B82A-2ADCE0E85DD3",
+"name": "Pero... ¿en qué país vivimos?",
+"via": "imdb-batch"
+},
+"tt0062437": {
+"entity_id": "9968EF31-8351-4DE9-8D85-327E387DABF6",
+"name": "Una vez al año ser hippy no hace daño",
+"via": "imdb-batch"
+},
+"tt0062875": {
+"entity_id": "99D91CCC-CBE7-4416-8047-0C081C90F1D2",
+"name": "Los desafíos",
+"via": "imdb-batch"
+},
+"tt0063239": {
+"entity_id": "7A68CEBD-DDDF-424C-BC7B-B16967C645D6",
+"name": "Los que tocan el piano",
+"via": "imdb-batch"
+},
+"tt0063846": {
+"entity_id": "43C27FE9-5BD2-46B1-90C7-25A6BB743F70",
+"name": "Zorro, Rider of Vengeance",
+"via": "imdb-batch"
+},
+"tt0045527": {
+"entity_id": "7FF1B0A2-B0AA-4212-BC22-217D00050417",
+"name": "The Adventurer of Seville",
+"via": "imdb-single"
+},
+"tt0049249": {
+"entity_id": "EF4CF586-3CE5-43CE-B361-C40A89DE59A8",
+"name": "El Vaquero and the Girl",
+"via": "imdb-single"
+},
+"tt0053600": {
+"entity_id": "3B1C53A5-FDAE-403D-8C6C-F7A55010CF36",
+"name": "The Illiterate One",
+"via": "imdb-single"
+},
+"tt0054505": {
+"entity_id": "2A10B38D-1434-4C70-B807-33A4CD0BAE1A",
+"name": "Alfonso XII y María Cristina: ¿Dónde vas triste de ti?",
+"via": "imdb-single"
+},
+"tt0057602": {
+"entity_id": "440EE4C1-8F2E-4175-A1DC-170CB0E70EB0",
+"name": "Sword of Zorro",
+"via": "imdb-single"
+},
+"tt0058438": {
+"entity_id": "0DE50214-9580-43A8-A751-F587B007C0C0",
+"name": "The Little Priest",
+"via": "imdb-single"
+},
+"tt0061573": {
+"entity_id": "5348C435-5B98-4059-ADEE-8C9E15D8E76B",
+"name": "Dynamite Jim",
+"via": "imdb-single"
+},
+"tt0064868": {
+"entity_id": "D9F0C171-FDAB-4838-AAB1-003818E65F36",
+"name": "A Quixote Without La Mancha",
+"via": "imdb-single"
+},
+"tt0065164": {
+"entity_id": "C192C7FE-B64B-4297-B67F-292AF337AFFB",
+"name": "Quinto: non ammazzare",
+"via": "imdb-batch"
+},
+"tt0065251": {
+"entity_id": "AE9A6232-09C6-430F-857E-83E9400DB328",
+"name": "¡¡Se armó el belén!!",
+"via": "imdb-batch"
+},
+"tt0065843": {
+"entity_id": "E7355F2B-1122-450B-8EF2-12566D313CE4",
+"name": "El hombre oculto",
+"via": "imdb-batch"
+},
+"tt0066247": {
+"entity_id": "25254435-E4D0-47EB-972A-1C2EAE4057C2",
+"name": "La princesa hippie",
+"via": "imdb-batch"
+},
+"tt0066956": {
+"entity_id": "5A6F6FBF-1F78-470E-B2F2-4A99B70302AE",
+"name": "El Cristo del Océano",
+"via": "imdb-batch"
+},
+"tt0069344": {
+"entity_id": "1E138CC3-A285-4682-91F7-5DDC4121A38A",
+"name": "Tarzan and the Brown Prince",
+"via": "imdb-batch"
+},
+"tt0069873": {
+"entity_id": "8A55E153-5CAB-49CE-85B5-7B6D49FA5FAB",
+"name": "Una chica y un señor",
+"via": "imdb-batch"
+},
+"tt0070331": {
+"entity_id": "2B1091BD-5D71-4B93-AB17-3BF2625DEF80",
+"name": "Lo verde empieza en los Pirineos",
+"via": "imdb-batch"
+},
+"tt0071333": {
+"entity_id": "F042AE0E-9705-477B-84C4-44D5DD5F75C4",
+"name": "Clara es el precio",
+"via": "imdb-batch"
+},
+"tt0071427": {
+"entity_id": "53E97822-8D8D-45D9-928F-D507D7A4A657",
+"name": "Diálogos de exiliados",
+"via": "imdb-batch"
+},
+"tt0074610": {
+"entity_id": "227EB118-8AFF-4596-8275-EA7F2BA0717D",
+"name": "Hasta que el matrimonio nos separe",
+"via": "imdb-batch"
+},
+"tt0074824": {
+"entity_id": "3589960C-BADC-439D-8466-1A6C7578A5BB",
+"name": "La lozana andaluza",
+"via": "imdb-batch"
+},
+"tt0075037": {
+"entity_id": "4E979145-3CE6-4FFD-AB2E-04D0DA2B870F",
+"name": "Parranda",
+"via": "imdb-batch"
+},
+"tt0076116": {
+"entity_id": "8A04DD44-7B9C-4AD0-A040-12B4B0B2B187",
+"name": "La guerra de papá",
+"via": "imdb-batch"
+},
+"tt0076506": {
+"entity_id": "4F168EA1-2D68-42C8-BBBD-07CBE6D47889",
+"name": "La oscura historia de la prima Montse",
+"via": "imdb-batch"
+},
+"tt0077137": {
+"entity_id": "A11A0ABE-BC16-4B57-88CA-10CA8812688F",
+"name": "At the Service of Spanish Womanhood",
+"via": "imdb-batch"
+},
+"tt0077338": {
+"entity_id": "B7275029-10DC-4966-B45E-8732821A96A8",
+"name": "La ciudad maldita",
+"via": "imdb-batch"
+},
+"tt0079130": {
+"entity_id": "F0F52AA3-24C2-455F-A140-5AFCB1B752D6",
+"name": "F.E.N.",
+"via": "imdb-batch"
+},
+"tt0079553": {
+"entity_id": "43D71682-42B0-4C99-965F-7AAA459BB636",
+"name": "Miedo a salir de noche",
+"via": "imdb-batch"
+},
+"tt0079927": {
+"entity_id": "6D73368C-2D75-4965-8090-7FEE38AC115C",
+"name": "Soltera y madre en la vida",
+"via": "imdb-batch"
+},
+"tt0082048": {
+"entity_id": "D0245C8B-A8E0-4E01-BD91-2AF3026E9874",
+"name": "El barrendero",
+"via": "imdb-batch"
+},
+"tt0082196": {
+"entity_id": "5432A130-2035-4795-BB1B-87954FC2CADC",
+"name": "Con el culo al aire",
+"via": "imdb-batch"
+},
+"tt0082492": {
+"entity_id": "1DA8F900-896B-459A-A92F-38C902C6470B",
+"name": "Hablamos esta noche",
+"via": "imdb-batch"
+},
+"tt0083903": {
+"entity_id": "7E3B4CB0-15B0-49FD-9E40-5D3E7AB76F41",
+"name": "Estoy en crisis",
+"via": "imdb-batch"
+},
+"tt0087304": {
+"entity_id": "F5B62483-3104-4032-90BC-6CE9EE8AC585",
+"name": "Fuego eterno",
+"via": "imdb-batch"
+},
+"tt0090591": {
+"entity_id": "D1EDD655-4621-4880-B948-C29FE0F463B7",
+"name": "Adiós pequeña",
+"via": "imdb-batch"
+},
+"tt0090797": {
+"entity_id": "9E332ADC-858A-4258-8B61-E9C7783CE48C",
+"name": "Cara de acelga",
+"via": "imdb-batch"
+},
+"tt0093497": {
+"entity_id": "21486BF5-1A93-42FA-A631-4ECEF92672C1",
+"name": "Mariana, Mariana",
+"via": "imdb-batch"
+},
+"tt0094397": {
+"entity_id": "7A030FC0-E667-4163-AE24-9FB467211B00",
+"name": "¡Biba la banda!",
+"via": "imdb-batch"
+},
+"tt0094830": {
+"entity_id": "BF0CEE07-05D9-49C8-9ABF-4994002A2510",
+"name": "Camino largo a Tijuana",
+"via": "imdb-batch"
+},
+"tt0095601": {
+"entity_id": "BFC291D8-4D8D-4DBF-8BCE-65295BE76EDC",
+"name": "Matar al Nani",
+"via": "imdb-batch"
+},
+"tt0099411": {
+"entity_id": "D776B52D-5035-4796-B633-7D0E5C442906",
+"name": "Después de la tormenta",
+"via": "imdb-batch"
+},
+"tt0102548": {
+"entity_id": "E4AD5568-7EA7-4B89-B800-824878AC4EE8",
+"name": "La noche más larga",
+"via": "imdb-batch"
+},
+"tt0113783": {
+"entity_id": "554AB72A-744C-42EB-8A57-F4C9731E7267",
+"name": "Matías, juez de línea",
+"via": "imdb-batch"
+},
+"tt0115563": {
+"entity_id": "89693A73-7CEE-4BF1-8926-41DEFC3B7628",
+"name": "Aquí llega Condemor, el pecador de la pradera",
+"via": "imdb-batch"
+},
+"tt0116346": {
+"entity_id": "61CCC547-3B60-4F91-8624-064545A24B73",
+"name": "Fotos",
+"via": "imdb-batch"
+},
+"tt0116769": {
+"entity_id": "365A7008-E6E2-4CE0-94AF-5BC468B2C5D3",
+"name": "Killer Barbys",
+"via": "imdb-batch"
+},
+"tt0118231": {
+"entity_id": "49B67AA2-FD6E-4227-AE64-8D2FB2CE3EA1",
+"name": "África",
+"via": "imdb-batch"
+},
+"tt0118937": {
+"entity_id": "3AE8C66E-FB1E-4688-A987-85B5C3005FF8",
+"name": "¿De qué se ríen las mujeres?",
+"via": "imdb-batch"
+},
+"tt0151936": {
+"entity_id": "B35B1015-14DD-4DC5-A4C6-B6F9CDB2D09B",
+"name": "El pendiente",
+"via": "imdb-batch"
+},
+"tt0154859": {
+"entity_id": "B10C3AFD-50EC-4C47-B00E-90FE28790D67",
+"name": "Medianoche",
+"via": "imdb-batch"
+},
+"tt0066287": {
+"entity_id": "5B299F10-B7A2-4809-8A19-C2307FC33E44",
+"name": "Rebels of Arizona",
+"via": "imdb-single"
+},
+"tt0068563": {
+"entity_id": "9235FBB9-8E4B-4F1F-96B5-7645F5C752B7",
+"name": "Fabulous Trinity",
+"via": "imdb-single"
+},
+"tt0069142": {
+"entity_id": "1A584C7B-BE9D-4ED4-A526-8AA74D6566B2",
+"name": "Quartier de femmes",
+"via": "imdb-single"
+},
+"tt0072685": {
+"entity_id": "7D874B81-57B8-4489-81FA-920A287AE3B6",
+"name": "The Battle of Chile: Part I",
+"via": "imdb-single"
+},
+"tt0075810": {
+"entity_id": "CFA5A6E8-C2EA-4FA9-94AE-B1E20324F6F2",
+"name": "Battered Flesh",
+"via": "imdb-single"
+},
+"tt0089115": {
+"entity_id": "70242157-B079-4C96-861C-A5878DAC933A",
+"name": "Beyond the Walls",
+"via": "imdb-single"
+},
+"tt0090263": {
+"entity_id": "61528860-E459-4EF8-B074-7AEBBA06E4EA",
+"name": "The Old Music",
+"via": "imdb-single"
+},
+"tt0104081": {
+"entity_id": "22E84F33-1407-4C29-927D-7998A6C63E38",
+"name": "Too Much Heart",
+"via": "imdb-single"
+},
+"tt0119900": {
+"entity_id": "5235B6D6-DE9C-4592-B4D5-0FB3284811FD",
+"name": "My Brother's Gun",
+"via": "imdb-single"
+},
+"tt0184223": {
+"entity_id": "FC3F4D1C-8005-448F-B494-7B49CCE39F94",
+"name": "Armiño negro",
+"via": "imdb-batch"
+},
+"tt0200987": {
+"entity_id": "7ADCCB89-98BB-4871-8447-0D7CDA8EB348",
+"name": "La pródiga",
+"via": "imdb-batch"
+},
+"tt0204741": {
+"entity_id": "20476214-7931-4593-B7AC-EA550E99196B",
+"name": "Fading Memories",
+"via": "imdb-batch"
+},
+"tt0216990": {
+"entity_id": "8F30E510-2935-4C8B-96D9-12A207D63167",
+"name": "Sin dejar huella",
+"via": "imdb-batch"
+},
+"tt0243739": {
+"entity_id": "9327F5EF-63A8-4A40-A9D7-263B3C53E42B",
+"name": "Regarding Buñuel",
+"via": "imdb-batch"
+},
+"tt0264584": {
+"entity_id": "9866FF77-EFF2-41EF-8513-3D0A219AB251",
+"name": "La espalda del mundo",
+"via": "imdb-batch"
+},
+"tt0266381": {
+"entity_id": "F42093A8-1626-4A92-9902-E3232FD52BD0",
+"name": "Fill Me with Life",
+"via": "imdb-batch"
+},
+"tt0308983": {
+"entity_id": "5E58034A-FF1A-4852-8797-5902AD022A0E",
+"name": "Tiempo de tormenta",
+"via": "imdb-batch"
+},
+"tt0356446": {
+"entity_id": "6C934650-37D7-49F5-B2B9-A5D663D126F6",
+"name": "Buenos Aires 100 Km",
+"via": "imdb-batch"
+},
+"tt0362969": {
+"entity_id": "8582AB69-5E3B-4268-B8AD-9E759C9F1627",
+"name": "Perros callejeros II",
+"via": "imdb-batch"
+},
+"tt0377051": {
+"entity_id": "4BCB65B4-AE8D-4454-9517-7285023E9DBA",
+"name": "Di que sí",
+"via": "imdb-batch"
+},
+"tt0404513": {
+"entity_id": "8F3A65CA-0D72-4CD3-9931-4BDEBD7C8F5B",
+"name": "Trileros",
+"via": "imdb-batch"
+},
+"tt0406542": {
+"entity_id": "E88BA565-A5C7-49A5-8E8E-2DD7F9314C70",
+"name": "Atún y chocolate",
+"via": "imdb-batch"
+},
+"tt0410288": {
+"entity_id": "ADC15366-45F8-4E34-A1CD-B2974EB1F0E0",
+"name": "Mala Leche",
+"via": "imdb-batch"
+},
+"tt0444746": {
+"entity_id": "6CB51633-FF68-4CB9-BFF1-05B1F01EEE17",
+"name": "El programa de Ana Rosa",
+"via": "imdb-batch"
+},
+"tt0462570": {
+"entity_id": "00D43792-7E70-4456-8FE4-471046D31BFB",
+"name": "On Probation",
+"via": "imdb-batch"
+},
+"tt0475567": {
+"entity_id": "BF8B7203-FDE8-4C68-9650-08F5BE372C82",
+"name": "Días de cine",
+"via": "imdb-batch"
+},
+"tt0889083": {
+"entity_id": "A869687F-85CE-43EA-9FA0-0E10951D244A",
+"name": "La silla de Fernando",
+"via": "imdb-batch"
+},
+"tt0904013": {
+"entity_id": "88FD7DF6-67AF-42D4-AAC1-1FCC55CC230B",
+"name": "Salir pitando",
+"via": "imdb-batch"
+},
+"tt0940828": {
+"entity_id": "F2ECCF9E-5312-431F-BBE3-2569B479B158",
+"name": "Mentiras piadosas",
+"via": "imdb-batch"
+},
+"tt0977645": {
+"entity_id": "DE07ECEB-E6A3-434B-A546-EC507DC0193A",
+"name": "La cámara oscura",
+"via": "imdb-batch"
+},
+"tt1060244": {
+"entity_id": "B8854E0D-4BF2-459B-ACEE-BEF91ACBE73A",
+"name": "La casa de mi padre",
+"via": "imdb-batch"
+},
+"tt1080647": {
+"entity_id": "4323BAB9-96C5-4F31-A386-1F02C8CDF8A8",
+"name": "Martín Fierro: La película",
+"via": "imdb-batch"
+},
+"tt10879920": {
+"entity_id": "6BE00E17-7FFF-4875-B000-330FF61E2798",
+"name": "My Tender Matador",
+"via": "imdb-batch"
+},
+"tt1095432": {
+"entity_id": "A8DFB719-F619-44A5-9FA6-57379CA9A903",
+"name": "A Tram in SP",
+"via": "imdb-batch"
+},
+"tt1110207": {
+"entity_id": "DA089EDE-E87C-49DA-AE03-1C025B9BB833",
+"name": "Under the Salt",
+"via": "imdb-batch"
+},
+"tt11613746": {
+"entity_id": "2CE44790-9CD5-425B-8F88-285A41D53D91",
+"name": "García y García",
+"via": "imdb-batch"
+},
+"tt11623464": {
+"entity_id": "3D39F032-24EC-4039-92F1-82C3C91C7758",
+"name": "Paraíso",
+"via": "imdb-batch"
+},
+"tt1178654": {
+"entity_id": "8B416ED5-4719-4DB0-A422-1DFF3E37CAAD",
+"name": "Los paranoicos",
+"via": "imdb-batch"
+},
+"tt1223936": {
+"entity_id": "8AA8ABD0-575A-4F03-BD27-BE0849503ECF",
+"name": "V.O.S.",
+"via": "imdb-batch"
+},
+"tt1242841": {
+"entity_id": "E11972E3-341B-418B-B94D-1580AD7C33B6",
+"name": "Road to Santiago",
+"via": "imdb-batch"
+},
+"tt1308010": {
+"entity_id": "F62BA7B5-6127-4D9E-9909-E385C4F353E1",
+"name": "Princesa de África",
+"via": "imdb-batch"
+},
+"tt1313254": {
+"entity_id": "9B7465E0-1362-4CDC-88C8-0C061EE2F88E",
+"name": "The Invisible Eye",
+"via": "imdb-batch"
+},
+"tt1365451": {
+"entity_id": "8B752467-23F6-4386-BE9A-A3ACA0FBDF83",
+"name": "Drama",
+"via": "imdb-batch"
+},
+"tt1383604": {
+"entity_id": "E5F26939-C73C-4AE4-969C-156ECADDA07A",
+"name": "Francia",
+"via": "imdb-batch"
+},
+"tt14030846": {
+"entity_id": "8514D986-C767-4499-8A61-379716EA14E2",
+"name": "Northern Skies Over Empty Space",
+"via": "imdb-batch"
+},
+"tt1445712": {
+"entity_id": "65F64303-0E41-4231-9B5A-A06A7D0060FA",
+"name": "Papá por un día",
+"via": "imdb-batch"
+},
+"tt14549558": {
+"entity_id": "33786322-0697-4FA3-9DF1-E67408BC8CAE",
+"name": "The House of Flowers: The Movie",
+"via": "imdb-batch"
+},
+"tt1629736": {
+"entity_id": "43630130-6136-43DC-A9DA-7204AC4C9C30",
+"name": "Los Marziano",
+"via": "imdb-batch"
+},
+"tt1757806": {
+"entity_id": "0E38744B-EB00-41A1-AA3F-F1EB978EEC45",
+"name": "Marcelino Pan y Vino",
+"via": "imdb-batch"
+},
+"tt1774531": {
+"entity_id": "A284F2EA-4611-4428-885B-ABA8E2B74073",
+"name": "Porfirio",
+"via": "imdb-batch"
+},
+"tt1797449": {
+"entity_id": "3652E94E-87DD-4BA3-9E34-8B64FD845258",
+"name": "My First Wedding",
+"via": "imdb-batch"
+},
+"tt0269111": {
+"entity_id": "A1C3EB7C-E18F-45AA-B245-8396780A485B",
+"name": "Sword of Granada",
+"via": "imdb-single"
+},
+"tt0291368": {
+"entity_id": "DC72597E-2E75-4138-BABB-75B989525F96",
+"name": "More Grief Than Glory",
+"via": "imdb-single"
+},
+"tt0445960": {
+"entity_id": "1D897A8C-3837-4207-A585-52BD9F74C27F",
+"name": "Eréndira la indomable",
+"via": "imdb-single"
+},
+"tt10602132": {
+"entity_id": "3906F1F4-D762-4CE6-ABC0-CBCD6F1EC162",
+"name": "Something Is About to Happen",
+"via": "imdb-single"
+},
+"tt1129422": {
+"entity_id": "BA0D4CD3-C84B-4930-B658-8F747B4B5821",
+"name": "Rated R",
+"via": "imdb-single"
+},
+"tt11310884": {
+"entity_id": "D7F65C55-FC6B-457F-98DC-BBAA29B46644",
+"name": "History of the Occult",
+"via": "imdb-single"
+},
+"tt15198592": {
+"entity_id": "03622640-43A8-45E9-B34A-F30BDBEEFE21",
+"name": "I'm Going to Have a Good Time",
+"via": "imdb-single"
+},
+"tt1576382": {
+"entity_id": "1BBE09CA-8D6A-4F55-A206-D97AE95D5010",
+"name": "Brother and Sister",
+"via": "imdb-single"
+},
+"tt1841584": {
+"entity_id": "6E513061-BA24-4D0C-8780-B6519A16D7DE",
+"name": "The Cat Vanishes",
+"via": "imdb-batch"
+},
+"tt1861334": {
+"entity_id": "7969CEF7-76DB-4CB0-8EF5-6F5B123F67FB",
+"name": "Fuga de cerebros 2",
+"via": "imdb-batch"
+},
+"tt1928200": {
+"entity_id": "3F77B5A6-103D-4F72-B98F-FF67AFBF1E6B",
+"name": "Kamikaze",
+"via": "imdb-batch"
+},
+"tt1986760": {
+"entity_id": "60D5CA94-37DD-4FD1-9C14-82820D514520",
+"name": "A puerta fría",
+"via": "imdb-batch"
+},
+"tt2011183": {
+"entity_id": "C287FB9A-6878-43EE-A73B-8CFF29F08A18",
+"name": "Pastorela",
+"via": "imdb-batch"
+},
+"tt20420798": {
+"entity_id": "6A1D0801-89C4-4031-904A-E384974C1108",
+"name": "Me he hecho viral",
+"via": "imdb-batch"
+},
+"tt21881982": {
+"entity_id": "48792DC0-2BD4-4645-B7BE-EBF8EE045127",
+"name": "Championext",
+"via": "imdb-batch"
+},
+"tt2203951": {
+"entity_id": "934ACF72-E8AC-415D-9FBF-9F9EE1D6A3AE",
+"name": "Hold Up!",
+"via": "imdb-batch"
+},
+"tt22656762": {
+"entity_id": "0235A616-1EA6-4128-BEC3-2007CA727C9B",
+"name": "Dive",
+"via": "imdb-batch"
+},
+"tt2281189": {
+"entity_id": "65136B91-1D7C-4C9D-AFC6-9A94F07F2F3D",
+"name": "Diamond Flash",
+"via": "imdb-batch"
+},
+"tt23728826": {
+"entity_id": "FF90D624-26BB-43D6-B0D5-EAB8E871ED2D",
+"name": "Poquita Fe",
+"via": "imdb-batch"
+},
+"tt2424028": {
+"entity_id": "3BB9BDDA-4089-4230-BB4F-E2EEC8ABBF8E",
+"name": "Bring Me the Head of the Machine Gun Woman",
+"via": "imdb-batch"
+},
+"tt2668800": {
+"entity_id": "0DB55B49-59BE-47D6-8CC4-BA4DCBF43092",
+"name": "Perfect Obedience",
+"via": "imdb-batch"
+},
+"tt2802172": {
+"entity_id": "20A21FA7-8E34-45D9-8A82-3976DF71C4E9",
+"name": "The Kids from the Port",
+"via": "imdb-batch"
+},
+"tt2897076": {
+"entity_id": "3E676078-AE96-4050-9CBB-0618280AF05C",
+"name": "Marsella",
+"via": "imdb-batch"
+},
+"tt3144582": {
+"entity_id": "AC47D42C-8A40-494C-B162-8ADE6931431E",
+"name": "Asesinos inocentes",
+"via": "imdb-batch"
+},
+"tt3155542": {
+"entity_id": "68D13269-0F37-4A9E-A90C-F3B59E2817C3",
+"name": "Breach in the Silence",
+"via": "imdb-batch"
+},
+"tt3468352": {
+"entity_id": "BD25105C-BE1F-402B-BD47-3611580CEB39",
+"name": "The Tip of the Iceberg",
+"via": "imdb-batch"
+},
+"tt3954646": {
+"entity_id": "0A47435B-0FA8-465F-9438-FB6195449148",
+"name": "Ánimas",
+"via": "imdb-batch"
+},
+"tt3984304": {
+"entity_id": "34AE75E5-EDB7-4BAF-A70F-74FE7CE9345C",
+"name": "Dancing with Maria",
+"via": "imdb-batch"
+},
+"tt4008566": {
+"entity_id": "30610C00-8FD4-40AD-B21F-15845DBBEF46",
+"name": "The Influence",
+"via": "imdb-batch"
+},
+"tt4413338": {
+"entity_id": "159EE9EB-DD5C-4204-8DF6-9B18A587EF49",
+"name": "Abzurdah",
+"via": "imdb-batch"
+},
+"tt4621630": {
+"entity_id": "9D0DF258-F73B-4E4D-BFB2-163C124760B5",
+"name": "Boy Missing",
+"via": "imdb-batch"
+},
+"tt4791322": {
+"entity_id": "07227B88-1B96-4220-A4B7-5B85F73AA2AE",
+"name": "Tiger, Blood in the Mouth",
+"via": "imdb-batch"
+},
+"tt4806012": {
+"entity_id": "AF70B4C8-DA5C-46FC-861F-E2D53DDC44FD",
+"name": "Heroes Wanted",
+"via": "imdb-batch"
+},
+"tt5900208": {
+"entity_id": "451FE0C2-0348-42C1-BF39-19FBE77EFE1B",
+"name": "The Reconquest",
+"via": "imdb-batch"
+},
+"tt5908566": {
+"entity_id": "D1756E23-FC01-4CFD-8280-2EAF37883BD3",
+"name": "Locos de Amor",
+"via": "imdb-batch"
+},
+"tt5959698": {
+"entity_id": "1FB21FD5-30B1-4EF4-921F-106D5B4312F8",
+"name": "The Tutor",
+"via": "imdb-batch"
+},
+"tt5979312": {
+"entity_id": "705A3CA0-867F-4881-853F-019FDE160467",
+"name": "7:19",
+"via": "imdb-batch"
+},
+"tt6312802": {
+"entity_id": "BF21CBAF-CD59-4333-BED7-E1EF6C3383FE",
+"name": "Dry Martina",
+"via": "imdb-batch"
+},
+"tt6511502": {
+"entity_id": "6533701F-F41F-4F73-AB60-9A575BBAEE92",
+"name": "El accidente",
+"via": "imdb-batch"
+},
+"tt6601954": {
+"entity_id": "16CB529F-5582-446F-8B2B-B3038E6C64E0",
+"name": "Cantábrico",
+"via": "imdb-batch"
+},
+"tt7264116": {
+"entity_id": "CE6EEA9B-79E5-4560-BB1C-905AC0D5D3B8",
+"name": "Candelaria",
+"via": "imdb-batch"
+},
+"tt7272242": {
+"entity_id": "4D0FCDEC-3962-48F7-96EF-0CAC04C2010B",
+"name": "Killing Jesus",
+"via": "imdb-batch"
+},
+"tt7841496": {
+"entity_id": "5DC8319C-51A1-42AE-847C-26AFAA390724",
+"name": "Perdida",
+"via": "imdb-batch"
+},
+"tt7858408": {
+"entity_id": "6EC88839-CCDF-41A1-93D3-8E9FE72159F0",
+"name": "Locos de Amor 2",
+"via": "imdb-batch"
+},
+"tt8446886": {
+"entity_id": "B47B8581-8EA0-40E2-B60F-BC00785BC30E",
+"name": "Leona",
+"via": "imdb-batch"
+},
+"tt8975008": {
+"entity_id": "47058DD2-6DFD-45BE-B41C-B49EF17C2598",
+"name": "Litus.",
+"via": "imdb-batch"
+},
+"tt9062342": {
+"entity_id": "36417DB2-2E3C-421B-A303-92045B5894B3",
+"name": "El Potro: Unstoppable",
+"via": "imdb-batch"
+},
+"tt9427166": {
+"entity_id": "6BDC6A66-0B28-47A1-81EA-E822B0128FEF",
+"name": "Father There Is Only One",
+"via": "imdb-batch"
+},
+"tt0025861": {
+"entity_id": "B0F96E20-BB5B-4C4A-A9CD-1692208D0A74",
+"name": "El tango en Broadway",
+"via": "imdb-batch"
+},
+"tt0027077": {
+"entity_id": "098E44F0-BF5F-44EF-9DF3-B0AF670CA812",
+"name": "Tango Bar",
+"via": "imdb-batch"
+},
+"tt0034484": {
+"entity_id": "52BBAC13-6509-4683-ACE6-746AEF4B12D3",
+"name": "¡Ay Jalisco... no te rajes!",
+"via": "imdb-batch"
+},
+"tt0035732": {
+"entity_id": "9BD295DA-027A-428C-8E1B-E79FCA419EA1",
+"name": "La chica del gato",
+"via": "imdb-batch"
+},
+"tt21861984": {
+"entity_id": "90AA8442-924C-4478-BF1D-8DA2E2D7DE22",
+"name": "The Enchanted",
+"via": "imdb-single"
+},
+"tt3028418": {
+"entity_id": "6A89210F-4410-4EAF-BCA0-E221C450F5AF",
+"name": "Just a Little Chemistry",
+"via": "imdb-single"
+},
+"tt3282484": {
+"entity_id": "9F4F5DF3-FA3C-4121-916D-17455DC191AB",
+"name": "The Ignorance of Blood",
+"via": "imdb-single"
+},
+"tt6984534": {
+"entity_id": "949DC03F-4198-4DB5-A89A-B280D5BED330",
+"name": "Hopelessly Devout",
+"via": "imdb-single"
+},
+"tt8220332": {
+"entity_id": "74A45EAD-766A-47E7-9009-6ACDBEDFD99E",
+"name": "My Best Friend's Wedding",
+"via": "imdb-single"
+},
+"tt0036254": {
+"entity_id": "9498B362-5DD9-4609-9544-6F8AC68BDFE6",
+"name": "La patria chica",
+"via": "imdb-batch"
+},
+"tt0039353": {
+"entity_id": "F2ACB2B6-CC72-46FF-9976-49C32FB63E10",
+"name": "Embrujo",
+"via": "imdb-batch"
+},
+"tt0042840": {
+"entity_id": "1CC95F03-0C9B-4E2D-9069-88F554C057F5",
+"name": "Pequeñeces...",
+"via": "imdb-batch"
+},
+"tt0042968": {
+"entity_id": "D910E317-2A37-4C0F-AE4F-A072FBBF54F9",
+"name": "Simbad el Mareado",
+"via": "imdb-batch"
+},
+"tt0047823": {
+"entity_id": "65A9CA28-5E3C-4A70-8202-DE438EE841D4",
+"name": "El amor nunca muere",
+"via": "imdb-batch"
+},
+"tt0048786": {
+"entity_id": "BD039EA1-A0DB-4041-930B-CF1A6B9B45CC",
+"name": "La vida en un bloc",
+"via": "imdb-batch"
+},
+"tt0049205": {
+"entity_id": "3C705255-1830-41BF-B704-B734B8A8BEA9",
+"name": "El fenómeno",
+"via": "imdb-batch"
+},
+"tt0049479": {
+"entity_id": "683B8C9C-4827-4A2E-B30C-0B413E563229",
+"name": "Manolo guardia urbano",
+"via": "imdb-batch"
+},
+"tt0050509": {
+"entity_id": "8B1799BC-EF75-4D04-8A32-6C80A9D3F782",
+"name": "El hincha",
+"via": "imdb-batch"
+},
+"tt0051798": {
+"entity_id": "47DC9CC5-DDCD-4DD2-83BA-E9D36E8EF39E",
+"name": "El jinete sin cabeza",
+"via": "imdb-batch"
+},
+"tt0052353": {
+"entity_id": "6928BF5C-CB50-42FB-9005-06F80D2FDBFE",
+"name": "Venta de Vargas",
+"via": "imdb-batch"
+},
+"tt0052766": {
+"entity_id": "98798FBD-6B28-4EF3-AB28-CBB7BF8139F6",
+"name": "El día de los enamorados",
+"via": "imdb-batch"
+},
+"tt0053945": {
+"entity_id": "39A34578-D2DE-4588-ADF1-F9115197680D",
+"name": "The Reprieve",
+"via": "imdb-batch"
+},
+"tt0054160": {
+"entity_id": "B540677A-CD69-4FB4-8B8A-D0EFA4595EF1",
+"name": "Un paso al frente",
+"via": "imdb-batch"
+},
+"tt0055347": {
+"entity_id": "2B99DEE3-B2B2-40D1-8709-F793FA14524E",
+"name": "Los que no fuimos a la guerra",
+"via": "imdb-batch"
+},
+"tt0056928": {
+"entity_id": "03790D46-E12B-4EA4-BA3A-A47543A48596",
+"name": "La chica del trébol",
+"via": "imdb-batch"
+},
+"tt0058412": {
+"entity_id": "062723E5-9040-46E7-BB07-C4E1FA3B54E6",
+"name": "El niño y el muro",
+"via": "imdb-batch"
+},
+"tt0058641": {
+"entity_id": "7A82CE4E-B5DB-4E54-9212-D5EB4A803D5E",
+"name": "Tengo 17 años",
+"via": "imdb-batch"
+},
+"tt0060573": {
+"entity_id": "CA9FD705-3B57-4BFF-B185-BAD4BA93E4D2",
+"name": "Juguetes rotos",
+"via": "imdb-batch"
+},
+"tt0063083": {
+"entity_id": "16C18E1F-3B7E-41D3-9E5E-9723EA4CB96C",
+"name": "A Bullet for Rommel",
+"via": "imdb-batch"
+},
+"tt0063360": {
+"entity_id": "7AF32385-D822-4EFE-8B57-4AD736024C39",
+"name": "No somos de piedra",
+"via": "imdb-batch"
+},
+"tt0063653": {
+"entity_id": "FBCDBC07-03C2-4BAA-BFF8-E7E73DD7B28D",
+"name": "Los subdesarrollados",
+"via": "imdb-batch"
+},
+"tt0064308": {
+"entity_id": "6FF337FE-B35A-47C6-82E0-1C6E18B1D38E",
+"name": "El extraño caso del doctor Fausto",
+"via": "imdb-batch"
+},
+"tt0068351": {
+"entity_id": "DFB5B644-327A-48B5-96CB-B102BB13CB55",
+"name": "La cera virgen",
+"via": "imdb-batch"
+},
+"tt0069674": {
+"entity_id": "B5309E73-B207-49DD-B87B-7405CF74E3B8",
+"name": "El abuelo tiene un plan",
+"via": "imdb-batch"
+},
+"tt0070878": {
+"entity_id": "9A61EAAD-5CEF-48DE-9383-370070936E73",
+"name": "Vida conyugal sana",
+"via": "imdb-batch"
+},
+"tt0071768": {
+"entity_id": "57C19E83-A0F0-4E59-AAD9-D5B058D604A8",
+"name": "La loba y la Paloma",
+"via": "imdb-batch"
+},
+"tt0072082": {
+"entity_id": "65CF0099-6A51-4D52-A42A-6EF4F4207738",
+"name": "La revolución matrimonial",
+"via": "imdb-batch"
+},
+"tt0072144": {
+"entity_id": "8213DB81-12D8-405D-97FD-23D1AFDBD94F",
+"name": "Sex o no sex",
+"via": "imdb-batch"
+},
+"tt0072749": {
+"entity_id": "D8A84C57-9872-42F9-B14D-ACBD8A3ED0F2",
+"name": "Los buenos días perdidos",
+"via": "imdb-batch"
+},
+"tt0073215": {
+"entity_id": "AE065C83-DBF2-44F0-95D9-3C2BA6890939",
+"name": "La joven casada",
+"via": "imdb-batch"
+},
+"tt0074191": {
+"entity_id": "45CBDDC0-1D3C-419B-856A-2DCD020B6028",
+"name": "Beatriz",
+"via": "imdb-batch"
+},
+"tt0074250": {
+"entity_id": "63EECCEB-876A-462C-8AE4-82BA42C9BF78",
+"name": "¡Bruja, más que bruja!",
+"via": "imdb-batch"
+},
+"tt0079132": {
+"entity_id": "E04D707B-6CB1-4BD7-AD36-3AC2DD68C91C",
+"name": "The Family, Fine, Thanks",
+"via": "imdb-batch"
+},
+"tt0081790": {
+"entity_id": "33FD671A-D4EF-4065-AE78-51A07127D2BF",
+"name": "Yo hice a Roque III",
+"via": "imdb-batch"
+},
+"tt0082047": {
+"entity_id": "C4213F1D-41B4-40F3-BE53-A2418653E43C",
+"name": "Barcelona sur",
+"via": "imdb-batch"
+},
+"tt0083234": {
+"entity_id": "3ADEFFB0-850A-41E3-8720-02F7BDB38BB3",
+"name": "Trágala, perro",
+"via": "imdb-batch"
+},
+"tt0084563": {
+"entity_id": "982CB26F-A8BE-42D0-B2EF-3707AA9C3AD3",
+"name": "Que nos quiten lo bailao",
+"via": "imdb-batch"
+},
+"tt0085220": {
+"entity_id": "323720C2-1AFA-4BFF-83A9-4BA50A3603BA",
+"name": "Bearn o la sala de las muñecas",
+"via": "imdb-batch"
+},
+"tt0043529": {
+"entity_id": "B5DB74FE-659A-4218-8BD1-6C8E76D0D3F5",
+"name": "The Taming of the Shrew",
+"via": "imdb-single"
+},
+"tt0049023": {
+"entity_id": "6A88C097-26A5-4129-8FBF-7467AA1EBFDA",
+"name": "Raquel's Shoeshiner",
+"via": "imdb-single"
+},
+"tt0051937": {
+"entity_id": "B4D34015-682B-4103-9261-72335B2AA3B4",
+"name": "The Black Pit of Dr. M",
+"via": "imdb-single"
+},
+"tt0052348": {
+"entity_id": "F9CEEB62-BB2F-43D1-B977-D3D80989B04D",
+"name": "Un vaso de whisky",
+"via": "imdb-single"
+},
+"tt0059532": {
+"entity_id": "7A7501A7-5183-433A-96FC-757E50B6D19F",
+"name": "Guns of Nevada",
+"via": "imdb-single"
+},
+"tt0061734": {
+"entity_id": "37425C2E-CE35-415F-A9FD-6BD697170DF3",
+"name": "La guerrillera de Villa",
+"via": "imdb-single"
+},
+"tt0064491": {
+"entity_id": "FF02FBE0-3F94-4CDA-8262-959D30A41D33",
+"name": "Winter in Mallorca",
+"via": "imdb-single"
+},
+"tt0064889": {
+"entity_id": "850979B6-9A1C-4B5E-98C0-D01963A1E33E",
+"name": "La respuesta",
+"via": "imdb-single"
+},
+"tt0065590": {
+"entity_id": "89D5F343-1C76-42BA-89B4-6145567AC13D",
+"name": "An Imperfect Crime",
+"via": "imdb-single"
+},
+"tt0069009": {
+"entity_id": "47C0D11E-D5AD-46A1-8866-2EA5B137C567",
+"name": "Fat Brothers of Trinity",
+"via": "imdb-single"
+},
+"tt0076901": {
+"entity_id": "04482334-DD54-4147-B454-A164ED81CC44",
+"name": "Let's Go, Barbara",
+"via": "imdb-single"
+},
+"tt0090694": {
+"entity_id": "739BE36C-4871-43B8-B85F-304245468E3D",
+"name": "Bandera negra",
+"via": "imdb-batch"
+},
+"tt0099855": {
+"entity_id": "B83E8112-9303-49A4-A3E7-F5876FA82E7C",
+"name": "El invierno en Lisboa",
+"via": "imdb-batch"
+},
+"tt0111340": {
+"entity_id": "CACC8F21-24A9-4EED-A011-A1D69CB09618",
+"name": "Sálvate si puedes",
+"via": "imdb-batch"
+},
+"tt0114589": {
+"entity_id": "0AFE0E16-E486-4C86-9E54-E19870B3C078",
+"name": "Suspiros de España (y Portugal)",
+"via": "imdb-batch"
+},
+"tt0120622": {
+"entity_id": "C72772D8-8CD1-418B-8E23-9B75FBF23A3A",
+"name": "Brácula. Condemor II",
+"via": "imdb-batch"
+},
+"tt0137203": {
+"entity_id": "FF575F41-5921-466E-83A3-516193BBEBC5",
+"name": "Santo Luzbel",
+"via": "imdb-batch"
+},
+"tt0146677": {
+"entity_id": "CB3A40C2-7C34-42EC-B11E-E5837CDCDFB5",
+"name": "Escrito en el agua",
+"via": "imdb-batch"
+},
+"tt0164722": {
+"entity_id": "5D287C00-8FD5-447E-B7AA-0D1434C7E720",
+"name": "Far from the Trees",
+"via": "imdb-batch"
+},
+"tt0166211": {
+"entity_id": "D3D9786C-D05A-42B3-9EF8-D5157A4F439B",
+"name": "Gregorio",
+"via": "imdb-batch"
+},
+"tt0169167": {
+"entity_id": "D15EE350-2F0D-4632-8B5A-115F2E13B0C7",
+"name": "Las ratas",
+"via": "imdb-batch"
+},
+"tt0185778": {
+"entity_id": "19F18108-E0A4-4C09-9B0B-57738877C000",
+"name": "Ya nunca más",
+"via": "imdb-batch"
+},
+"tt0189506": {
+"entity_id": "9BA6A8C1-F302-49E1-BD79-CF9D7ADDF4A7",
+"name": "Keep Waiting for Me",
+"via": "imdb-batch"
+},
+"tt0196502": {
+"entity_id": "97A25B8E-FE22-4364-89A7-0F7377A6C0E5",
+"name": "Dibu 2: La venganza de Nasty",
+"via": "imdb-batch"
+},
+"tt0199791": {
+"entity_id": "90326CA3-7415-4C12-86F6-5690556F562D",
+"name": "El muro del silencio",
+"via": "imdb-batch"
+},
+"tt0235665": {
+"entity_id": "3846250C-5CA3-4178-B478-AF97DE4DDB68",
+"name": "Peligros de juventud",
+"via": "imdb-batch"
+},
+"tt0247969": {
+"entity_id": "B07C840A-29DA-4167-9D33-392BE7B05025",
+"name": "El costo de la vida",
+"via": "imdb-batch"
+},
+"tt0277648": {
+"entity_id": "9368D135-0E03-43B6-BF2D-F10C99DA7498",
+"name": "Cronica roja",
+"via": "imdb-batch"
+},
+"tt0277692": {
+"entity_id": "D3AE3AB8-4A34-4537-8962-26CF990BFAAB",
+"name": "En la tormenta",
+"via": "imdb-batch"
+},
+"tt0288719": {
+"entity_id": "D44B1545-204D-4F15-9229-992C9FAA235D",
+"name": "The Lost Steps",
+"via": "imdb-batch"
+},
+"tt0294869": {
+"entity_id": "43C2D87F-907A-4C73-AFEC-70EB53C8E00B",
+"name": "Rencor",
+"via": "imdb-batch"
+},
+"tt0305902": {
+"entity_id": "9E919892-D645-444A-B1D8-D4ADE710CEB2",
+"name": "Noche de reyes",
+"via": "imdb-batch"
+},
+"tt0366544": {
+"entity_id": "393C80F2-84F0-4C7B-93B5-A36CEB6092AE",
+"name": "Geminis",
+"via": "imdb-batch"
+},
+"tt0387728": {
+"entity_id": "02AB902E-674A-4347-B050-36C7C556A986",
+"name": "El club de la comedia",
+"via": "imdb-batch"
+},
+"tt0414722": {
+"entity_id": "84CBBB10-FABE-481E-82D2-EC519CAB7127",
+"name": "Besos robados",
+"via": "imdb-batch"
+},
+"tt0433913": {
+"entity_id": "12106750-C1F7-4AE1-A111-E57C91BE0DE7",
+"name": "Cachimba",
+"via": "imdb-batch"
+},
+"tt0439860": {
+"entity_id": "6C25D1D6-659F-441D-BBE2-983113320C95",
+"name": "Your Life in 65 Minutes",
+"via": "imdb-batch"
+},
+"tt0454121": {
+"entity_id": "FCED4AAE-B4C5-427E-B9D9-C12639168475",
+"name": "Diario de un skin",
+"via": "imdb-batch"
+},
+"tt0459724": {
+"entity_id": "681AD2D5-8C7E-4806-8DA5-3962DD0FA275",
+"name": "Vientos de agua",
+"via": "imdb-batch"
+},
+"tt0462474": {
+"entity_id": "C9E162C0-FE5D-4F52-B033-AB49F0E408BD",
+"name": "Más que un hombre",
+"via": "imdb-batch"
+},
+"tt0477300": {
+"entity_id": "C45DE67C-8517-43E5-9FB7-9D75DDD01832",
+"name": "Días azules",
+"via": "imdb-batch"
+},
+"tt0479661": {
+"entity_id": "1B666F28-963E-406D-B1CB-130BE4A32FF2",
+"name": "14, Fabian Road",
+"via": "imdb-batch"
+},
+"tt0480892": {
+"entity_id": "C3E3716B-5C5F-4A8A-AD6F-4F924EE08CF3",
+"name": "Filmmakers vs. Tycoons",
+"via": "imdb-batch"
+},
+"tt0486090": {
+"entity_id": "6EE2CF1D-439B-4AE8-9598-B046335FF772",
+"name": "Filmmakers in Action",
+"via": "imdb-batch"
+},
+"tt0809942": {
+"entity_id": "40E02E6B-B3D8-47FF-964A-06F88A613E50",
+"name": "Santa Rogelia",
+"via": "imdb-batch"
+},
+"tt0827700": {
+"entity_id": "A5298915-02A6-4257-82BE-69999DC05188",
+"name": "Ciudad en celo",
+"via": "imdb-batch"
+},
+"tt1002581": {
+"entity_id": "EC3FFFF7-7372-46C1-9F49-E11AC1A11B96",
+"name": "Argentina latente",
+"via": "imdb-batch"
+},
+"tt10062634": {
+"entity_id": "8F146832-E365-4B6C-B398-EFC0A25B5F3C",
+"name": "The House Among the Cactuses",
+"via": "imdb-batch"
+},
+"tt10120734": {
+"entity_id": "20A76EC3-0375-4EC0-9479-B148D60BA423",
+"name": "Millennials",
+"via": "imdb-batch"
+},
+"tt1029154": {
+"entity_id": "EECCFCA2-0B6D-4C4A-9B71-D93215137C8D",
+"name": "El resultado del amor",
+"via": "imdb-batch"
+},
+"tt1127883": {
+"entity_id": "BC3AD331-E67F-4B58-A83C-07563E9F240F",
+"name": "The Girl",
+"via": "imdb-batch"
+},
+"tt11306932": {
+"entity_id": "0B4E10E0-22AB-4556-BA65-DCDCCF8AB889",
+"name": "Noise",
+"via": "imdb-batch"
+},
+"tt0122012": {
+"entity_id": "639067A8-560A-46CA-9D27-F6311297520F",
+"name": "Journey to the South",
+"via": "imdb-single"
+},
+"tt0128344": {
+"entity_id": "2A1B40C5-9C8E-4075-AC15-CA34174B8FB1",
+"name": "Mexico: The Frozen Revolution",
+"via": "imdb-single"
+},
+"tt0210626": {
+"entity_id": "3E4DF605-0274-405E-AADC-A51DFA7666D1",
+"name": "Coquette",
+"via": "imdb-single"
+},
+"tt0367046": {
+"entity_id": "DA274691-98C3-4B45-87CB-4F75427D0831",
+"name": "Without Rhyme or Reason",
+"via": "imdb-single"
+},
+"tt0462259": {
+"entity_id": "DAD2A8B2-EA38-4860-BF57-A16782E2A520",
+"name": "The Magicians",
+"via": "imdb-single"
+},
+"tt0470665": {
+"entity_id": "6355AA53-9E8C-4A94-A617-3A192E844A35",
+"name": "Veinte años no es nada",
+"via": "imdb-single"
+},
+"tt0996918": {
+"entity_id": "3D3C5A35-B5D4-405F-8147-26241F938821",
+"name": "Barcelona (A Map)",
+"via": "imdb-single"
+},
+"tt1145430": {
+"entity_id": "D2471A26-C87E-43FE-A481-2F1FED1D1CAF",
+"name": "By Day and by Night",
+"via": "imdb-batch"
+},
+"tt1160004": {
+"entity_id": "051FDC9B-46BD-4850-81FC-A5462DDA3646",
+"name": "Lovely Loneliness",
+"via": "imdb-batch"
+},
+"tt12358104": {
+"entity_id": "82FD4AD1-7435-4385-A929-2EFAC0004FD3",
+"name": "Two",
+"via": "imdb-batch"
+},
+"tt1236438": {
+"entity_id": "4F19B8C2-22C9-4205-87C9-D1216BBCDF42",
+"name": "La leyenda",
+"via": "imdb-batch"
+},
+"tt12536776": {
+"entity_id": "A46991F6-4D3D-43C3-8AB2-D739ACCC453E",
+"name": "Dark Forces",
+"via": "imdb-batch"
+},
+"tt1267494": {
+"entity_id": "17002D70-6600-4632-BEB0-B71971E299B3",
+"name": "A Distant Place",
+"via": "imdb-batch"
+},
+"tt12782398": {
+"entity_id": "BDA075A8-58BC-482A-82D2-372304B99C60",
+"name": "Reyes de la noche",
+"via": "imdb-batch"
+},
+"tt1284978": {
+"entity_id": "38AF8815-B34E-4044-907B-AC5A507AAA18",
+"name": "El cuerno de la abundancia",
+"via": "imdb-batch"
+},
+"tt13150080": {
+"entity_id": "A173D72C-4C62-43B4-8BE9-84463E232D97",
+"name": "¡A todo tren! Destino Asturias",
+"via": "imdb-batch"
+},
+"tt1331320": {
+"entity_id": "C2031AA7-E761-4120-A41F-202F704F5CDA",
+"name": "Northless",
+"via": "imdb-batch"
+},
+"tt1334466": {
+"entity_id": "87C1DD3D-E31E-4D42-BD9D-90F58ACECE8E",
+"name": "Paco",
+"via": "imdb-batch"
+},
+"tt1388388": {
+"entity_id": "9C63778A-9ADA-4D81-9FCA-CEA92F94850D",
+"name": "9 meses",
+"via": "imdb-batch"
+},
+"tt1397171": {
+"entity_id": "7B9A86F9-64EF-44D7-A49C-E8E9612ED5BB",
+"name": "Felicitas",
+"via": "imdb-batch"
+},
+"tt1458527": {
+"entity_id": "A4981CBB-B4E1-4E24-8C89-5ECF3423941A",
+"name": "Anita",
+"via": "imdb-batch"
+},
+"tt1546005": {
+"entity_id": "24C54A47-5801-48F5-A82C-30175E46AC79",
+"name": "La mosca en la ceniza",
+"via": "imdb-batch"
+},
+"tt15475536": {
+"entity_id": "4C9C441F-8CCF-419B-BD58-E0D06A138CB7",
+"name": "A Ravaging Wind",
+"via": "imdb-batch"
+},
+"tt15559540": {
+"entity_id": "1EB669E3-FCCE-4BF2-BC35-159CCCEC332E",
+"name": "The Low Tone Club",
+"via": "imdb-batch"
+},
+"tt17497836": {
+"entity_id": "08870ADA-9C12-4845-8FEC-BA2FF3D4FDFD",
+"name": "La manzana de oro",
+"via": "imdb-batch"
+},
+"tt1753670": {
+"entity_id": "0B58A5BE-0DF3-4DA4-B4BB-F53A307803EA",
+"name": "Clubbing",
+"via": "imdb-batch"
+},
+"tt1801804": {
+"entity_id": "C2966333-4288-4F5B-890C-FA366CFB73C8",
+"name": "Amigos...",
+"via": "imdb-batch"
+},
+"tt18072540": {
+"entity_id": "5BF968F1-7524-4455-84C2-09BF4CAF7D88",
+"name": "The Communion Girl",
+"via": "imdb-batch"
+},
+"tt1845504": {
+"entity_id": "7807F16B-BFC2-40AB-80F3-5321247F7CFE",
+"name": "Homicidios",
+"via": "imdb-batch"
+},
+"tt1886740": {
+"entity_id": "4BEA85C7-B48B-4881-A8AB-5712709602E4",
+"name": "Un amor",
+"via": "imdb-batch"
+},
+"tt19513160": {
+"entity_id": "6211CAB8-777D-47E9-99D8-A7E7CECEB823",
+"name": "Girlfriends and Girlfriends",
+"via": "imdb-batch"
+},
+"tt20112674": {
+"entity_id": "A4364A94-2B6A-444C-859F-C69CC6202C73",
+"name": "The Yellow Ceiling",
+"via": "imdb-batch"
+},
+"tt2248765": {
+"entity_id": "00874F99-F12D-4884-AE3C-899DCBE4F430",
+"name": "El Manzano Azul",
+"via": "imdb-batch"
+},
+"tt23037846": {
+"entity_id": "43601959-FDCA-4627-89A9-CEFF6F75D215",
+"name": "The Night My Dad Saved Christmas",
+"via": "imdb-batch"
+},
+"tt23555256": {
+"entity_id": "D837D76F-D526-4A42-AFF2-680CCF1C9EA5",
+"name": "Legions",
+"via": "imdb-batch"
+},
+"tt23808016": {
+"entity_id": "82DC2409-6ED1-4DB4-B160-EEF48A4142B9",
+"name": "A Not So Merry Christmas",
+"via": "imdb-batch"
+},
+"tt26739643": {
+"entity_id": "99FD360C-0686-4AA0-ADB0-21BE8DE0C3B2",
+"name": "Have a Nice Day!",
+"via": "imdb-batch"
+},
+"tt2701570": {
+"entity_id": "40587C60-8944-409D-A5DA-9B4C615D8C02",
+"name": "The Magnetic Tree",
+"via": "imdb-batch"
+},
+"tt3026824": {
+"entity_id": "4CA3FCDE-9A24-4904-97F2-310D505CED32",
+"name": "Solo",
+"via": "imdb-batch"
+},
+"tt3203890": {
+"entity_id": "44FCC628-2DCB-4218-8782-E465A10FCE6B",
+"name": "Pulling Strings",
+"via": "imdb-batch"
+},
+"tt3313740": {
+"entity_id": "24E3C816-B05E-4950-9EDE-8EA4A65D2ECE",
+"name": "Guadalquivir",
+"via": "imdb-batch"
+},
+"tt3379456": {
+"entity_id": "FEE02644-EAFD-42A6-84D5-D5E7A6E5896D",
+"name": "Redeemer",
+"via": "imdb-batch"
+},
+"tt3528756": {
+"entity_id": "9FF00D97-6D2C-423A-AFD8-303146E6A9C6",
+"name": "The Incident",
+"via": "imdb-batch"
+},
+"tt3662308": {
+"entity_id": "BEC458AA-3172-465A-B13C-91E7D85E9B0C",
+"name": "Belzebuth",
+"via": "imdb-batch"
+},
+"tt11719562": {
+"entity_id": "425E5667-7003-4E58-BA2B-CC243ED7FADC",
+"name": "Bandoleros",
+"via": "imdb-single"
+},
+"tt1397500": {
+"entity_id": "A5C26EF8-0535-4A18-881D-581D5F99CA77",
+"name": "A Matter of Principles",
+"via": "imdb-single"
+},
+"tt14404596": {
+"entity_id": "73A34D52-4F5F-4696-AC46-2260F031FD33",
+"name": "Backpackers",
+"via": "imdb-single"
+},
+"tt15189534": {
+"entity_id": "30B6D8E9-C8DB-4D94-B8B8-5DC592EA46D3",
+"name": "The Wrath of God",
+"via": "imdb-single"
+},
+"tt16156592": {
+"entity_id": "F1EE21A5-F60A-4753-8E56-A7F64131266A",
+"name": "Siege",
+"via": "imdb-single"
+},
+"tt16452664": {
+"entity_id": "BF1CDB46-4596-433E-99A8-7127A07E26E4",
+"name": "Father There Is Only One 3",
+"via": "imdb-single"
+},
+"tt1817385": {
+"entity_id": "4F2B417C-1BB9-46DE-B6CA-C9D89F4F23D2",
+"name": "El club de la comedia",
+"via": "imdb-single"
+},
+"tt18688184": {
+"entity_id": "81370954-CECD-474C-A2AF-783CB990549A",
+"name": "The Marriage App",
+"via": "imdb-single"
+},
+"tt2718462": {
+"entity_id": "0A3BA67B-C8B0-44DE-9675-FAA3774F529E",
+"name": "The Reconstruction",
+"via": "imdb-single"
+},
+"tt2876428": {
+"entity_id": "0FD391A6-0287-48EA-9C31-6A2487498416",
+"name": "Good Day, Ramon",
+"via": "imdb-single"
+},
+"tt3006814": {
+"entity_id": "1671296F-5C8A-4A8F-9874-2C22BD4F341A",
+"name": "Paulo Coelho's Best Story",
+"via": "imdb-single"
+},
+"tt3674018": {
+"entity_id": "1E345961-D75E-4DE9-83DC-015342E0365C",
+"name": "When You No Longer Love Me",
+"via": "imdb-batch"
+},
+"tt3962820": {
+"entity_id": "9C7EA97F-E428-4D0E-9A58-F890AD6D86EA",
+"name": "Borrando a papá",
+"via": "imdb-batch"
+},
+"tt4528386": {
+"entity_id": "3B8F7A12-CE48-4D77-9D28-805B5304DCB3",
+"name": "¡Asu Mare! 2",
+"via": "imdb-batch"
+},
+"tt4699534": {
+"entity_id": "F5C411A2-7D1B-451E-971B-3FFE2F5FE805",
+"name": "We Need to Talk",
+"via": "imdb-batch"
+},
+"tt4958426": {
+"entity_id": "0E3175B4-CCDC-4256-BD3D-A7FF1A47F416",
+"name": "Beauties of the Night",
+"via": "imdb-batch"
+},
+"tt5241380": {
+"entity_id": "1038CAA3-D0AA-40F9-9F57-F7F69211480D",
+"name": "Resurrection",
+"via": "imdb-batch"
+},
+"tt5507934": {
+"entity_id": "0AE3109A-9AC5-487A-8887-52130B0596D4",
+"name": "Lo más sencillo es complicarlo todo",
+"via": "imdb-batch"
+},
+"tt5707754": {
+"entity_id": "5BD7F9E0-3780-4BCE-8F91-267EC08AE743",
+"name": "The Eternal Feminine",
+"via": "imdb-batch"
+},
+"tt5900870": {
+"entity_id": "AF901ED9-5B5A-4E24-84E3-0AACC774BE02",
+"name": "Dying to Tell",
+"via": "imdb-batch"
+},
+"tt6084472": {
+"entity_id": "01851BDB-9F0E-424B-9678-94359789D875",
+"name": "Legends",
+"via": "imdb-batch"
+},
+"tt6472116": {
+"entity_id": "D87268D3-3599-44D5-8278-0DF7A0F02C73",
+"name": "Bayonet",
+"via": "imdb-batch"
+},
+"tt6522634": {
+"entity_id": "F998FA89-26E3-4B09-8CAB-3C64263B16FB",
+"name": "The Lost Brother",
+"via": "imdb-batch"
+},
+"tt6699860": {
+"entity_id": "1C4EAC1C-19CE-41FD-83CF-B8A92AB5DFCF",
+"name": "Solo",
+"via": "imdb-batch"
+},
+"tt6736198": {
+"entity_id": "4007ABA0-C31B-4821-BF01-EE7C502D6DC1",
+"name": "Ready to Mingle",
+"via": "imdb-batch"
+},
+"tt6984530": {
+"entity_id": "248F2D75-0E54-4BC3-8B01-C2ABC9E90FB6",
+"name": "Up Among the Stars",
+"via": "imdb-batch"
+},
+"tt7054868": {
+"entity_id": "7B902064-E0EC-4687-A93F-7CC48ECF99FC",
+"name": "No Me Digas Solterona",
+"via": "imdb-batch"
+},
+"tt7217826": {
+"entity_id": "DBE74A45-50A4-4F24-9B47-A425FF9A6173",
+"name": "Plan V",
+"via": "imdb-batch"
+},
+"tt7606620": {
+"entity_id": "336261E0-DE2A-431A-91A2-5522F3227BF9",
+"name": "The Last Runway",
+"via": "imdb-batch"
+},
+"tt8200456": {
+"entity_id": "D6697F43-18CF-4190-A50B-0955B1853B6D",
+"name": "Cindy La Regia",
+"via": "imdb-batch"
+},
+"tt9010900": {
+"entity_id": "B21D126D-7751-4946-B09B-7A46CF1F236A",
+"name": "Boi",
+"via": "imdb-batch"
+},
+"tt9154584": {
+"entity_id": "7839AE31-2421-4495-9034-88938B9E7884",
+"name": "Yo, Potro",
+"via": "imdb-batch"
+},
+"tt9737568": {
+"entity_id": "8E75E8FC-7D90-4716-AE61-EED9F40C1964",
+"name": "Amparo",
+"via": "imdb-batch"
+},
+"tt0030421": {
+"entity_id": "F89953EE-E592-4824-96F8-DFEA86116C07",
+"name": "Mariquilla Terremoto",
+"via": "imdb-batch"
+},
+"tt0034529": {
+"entity_id": "3EC1AD0C-7A2C-4616-B56A-215381DF265E",
+"name": "Boda accidentada",
+"via": "imdb-batch"
+},
+"tt0039813": {
+"entity_id": "7E85647D-FB9C-4E25-AC9F-E9ABE38739F4",
+"name": "Serenata española",
+"via": "imdb-batch"
+},
+"tt0040783": {
+"entity_id": "EC83513B-A3B7-40A6-9875-79C5221C2072",
+"name": "Si te hubieses casado conmigo",
+"via": "imdb-batch"
+},
+"tt0047838": {
+"entity_id": "B69962E7-74EE-4191-8CDD-45974ADA53A3",
+"name": "¡Aquí hay petróleo!",
+"via": "imdb-batch"
+},
+"tt0047965": {
+"entity_id": "B38BC32B-641C-48C2-8F1A-812DBB7B3E2B",
+"name": "Cuerda de presos",
+"via": "imdb-batch"
+},
+"tt0051428": {
+"entity_id": "EAE1B36E-C4E5-446E-8971-BB5876965292",
+"name": "Bombas para la paz",
+"via": "imdb-batch"
+},
+"tt0051729": {
+"entity_id": "31F62073-E280-419B-8A45-3F5386F24F44",
+"name": "Historias de Madrid",
+"via": "imdb-batch"
+},
+"tt0052748": {
+"entity_id": "0C5662B1-B844-4110-9564-36B56B084FF4",
+"name": "Don José, Pepe y Pepito",
+"via": "imdb-batch"
+},
+"tt0052833": {
+"entity_id": "54EAFFD0-5992-4010-B914-7B2A7D8FC8CC",
+"name": "Fulano y Mengano",
+"via": "imdb-batch"
+},
+"tt0053669": {
+"entity_id": "33C19F52-9EBF-43C5-BC13-512CFD97392E",
+"name": "Botón de ancla",
+"via": "imdb-batch"
+},
+"tt0054774": {
+"entity_id": "FBBD52D2-D695-4DFE-AFC4-0531F328658F",
+"name": "Los cuervos",
+"via": "imdb-batch"
+},
+"tt0055806": {
+"entity_id": "CDE56800-4D52-4319-814A-EB4D58BE830B",
+"name": "La boda era a las doce",
+"via": "imdb-batch"
+},
+"tt0056330": {
+"entity_id": "E6BF5BD1-7C62-4B27-BEDE-FFD34DE83BE6",
+"name": "La pandilla de los once",
+"via": "imdb-batch"
+},
+"tt4069316": {
+"entity_id": "0FEDCC4C-B377-439C-BE61-A44EC3C59413",
+"name": "Hazing",
+"via": "imdb-single"
+},
+"tt4097826": {
+"entity_id": "C169C133-FEA3-4894-BC65-61A5AB06D253",
+"name": "The Firefly",
+"via": "imdb-single"
+},
+"tt4108068": {
+"entity_id": "E230EC80-4CA2-4F9B-9545-ABCF10F0B64A",
+"name": "Wednesdays don't exist",
+"via": "imdb-single"
+},
+"tt4203284": {
+"entity_id": "20AAD9AD-84CB-461D-AA06-C1F23BF98CF3",
+"name": "Volley",
+"via": "imdb-single"
+},
+"tt5687236": {
+"entity_id": "0FDFDDE9-F68A-4B71-A2CD-6FCA28A8442F",
+"name": "Blood Will Tell",
+"via": "imdb-single"
+},
+"tt8026108": {
+"entity_id": "908D2536-221D-48D2-837E-A3BB463833D1",
+"name": "Pacíficum",
+"via": "imdb-single"
+},
+"tt8038148": {
+"entity_id": "A5B27944-5913-432A-BA32-F757DAABA5A6",
+"name": "The Countryside",
+"via": "imdb-single"
+},
+"tt0027949": {
+"entity_id": "76CAD3D5-A056-4107-9D32-C20C6A95F647",
+"name": "María de la O",
+"via": "imdb-single"
+},
+"tt0055541": {
+"entity_id": "DCA3A80B-11AF-4829-9B91-BC4E5C5B8727",
+"name": "Trampa para Catalina",
+"via": "imdb-single"
+},
+"tt0056434": {
+"entity_id": "75F620A9-5B75-4812-B1F3-83AC6BCA930D",
+"name": "Sabían demasiado",
+"via": "imdb-batch"
+},
+"tt0057000": {
+"entity_id": "EF33CB05-F944-4198-9606-2D52AEDAE927",
+"name": "Los dinamiteros",
+"via": "imdb-batch"
+},
+"tt0057483": {
+"entity_id": "9E045544-CCD3-456F-BA96-98BE170AE960",
+"name": "El secreto de Tomy",
+"via": "imdb-batch"
+},
+"tt0058244": {
+"entity_id": "939FE097-984B-460F-812E-C573EC2853E8",
+"name": "Jandro",
+"via": "imdb-batch"
+},
+"tt0058492": {
+"entity_id": "4157E20F-E113-491F-81C6-504281CABBD3",
+"name": "La primera aventura",
+"via": "imdb-batch"
+},
+"tt0058654": {
+"entity_id": "BF679745-3D73-4F60-B12F-9D5E7C2C0C44",
+"name": "Tiempo de amor",
+"via": "imdb-batch"
+},
+"tt0059446": {
+"entity_id": "826B80BD-6B9B-455C-B9F6-C743037FBE2B",
+"name": "Mi canción es para ti",
+"via": "imdb-batch"
+},
+"tt0059611": {
+"entity_id": "E4810945-531E-4233-BF6E-3407CAE371BB",
+"name": "Posición avanzada",
+"via": "imdb-batch"
+},
+"tt0060129": {
+"entity_id": "7754ECFD-F590-42F4-BE67-FB6CBF4795A3",
+"name": "El arte de casarse",
+"via": "imdb-batch"
+},
+"tt0060509": {
+"entity_id": "826AC74E-AF22-4569-8317-53D8E6EFF1CC",
+"name": "Una historia de amor",
+"via": "imdb-batch"
+},
+"tt0061551": {
+"entity_id": "5AAF2EF0-0E98-4E7E-B2DC-251A5DE08EB2",
+"name": "Dante no es únicamente severo",
+"via": "imdb-batch"
+},
+"tt0064786": {
+"entity_id": "F107AD5C-DC5C-433A-8C3E-1B7850855905",
+"name": "Las panteras se comen a los ricos",
+"via": "imdb-batch"
+},
+"tt0064933": {
+"entity_id": "B181EC9F-C440-4D53-8EFA-8A78084CFB65",
+"name": "The World of the Dead",
+"via": "imdb-batch"
+},
+"tt0065254": {
+"entity_id": "1DE48D27-FCE2-4261-AC92-57F5808AF90F",
+"name": "¿Por qué pecamos a los cuarenta?",
+"via": "imdb-batch"
+},
+"tt0067563": {
+"entity_id": "379289D5-1B4E-40D1-B07F-4F5B005513A6",
+"name": "A Cuban Fight Against Demons",
+"via": "imdb-batch"
+},
+"tt0068185": {
+"entity_id": "7A42CB41-FF75-4FA2-B0F9-6CB6BB9DA9F0",
+"name": "Al diablo, con amor",
+"via": "imdb-batch"
+},
+"tt0068848": {
+"entity_id": "FF494E3D-21AE-40A6-8477-F0DFF7128305",
+"name": "La leyenda del alcalde de Zalamea",
+"via": "imdb-batch"
+},
+"tt0069852": {
+"entity_id": "C4E8C455-3FAD-4535-B310-FD52F40F6154",
+"name": "Un casto varón español",
+"via": "imdb-batch"
+},
+"tt0070378": {
+"entity_id": "80AB602F-5CB7-4268-BC08-72E3BABC945F",
+"name": "Me has hecho perder el juicio",
+"via": "imdb-batch"
+},
+"tt0071444": {
+"entity_id": "6DD5DC56-8203-4330-AE1A-DD83A33E68F9",
+"name": "Duerme, duerme, mi amor",
+"via": "imdb-batch"
+},
+"tt0073027": {
+"entity_id": "E7631371-F93C-48B1-A7A8-F84232F02AAA",
+"name": "Furia española",
+"via": "imdb-batch"
+},
+"tt0074594": {
+"entity_id": "82F9F782-CF47-4488-822C-64D6125C9907",
+"name": "Guerreras verdes",
+"via": "imdb-batch"
+},
+"tt0078973": {
+"entity_id": "276026FA-F57A-417D-82AB-CE3AADCDD522",
+"name": "Cinco tenedores",
+"via": "imdb-batch"
+},
+"tt0079151": {
+"entity_id": "AFEFAC23-F0C1-47CE-BCEF-52B5CB6DFEF5",
+"name": "Los fieles sirvientes",
+"via": "imdb-batch"
+},
+"tt0080635": {
+"entity_id": "84C86975-2886-4E67-8B9A-01D7099C8809",
+"name": "El divorcio que viene",
+"via": "imdb-batch"
+},
+"tt0080651": {
+"entity_id": "DCADB20A-7CF4-4997-B95C-39D21DD73F31",
+"name": "Dos y dos, cinco",
+"via": "imdb-batch"
+},
+"tt0081119": {
+"entity_id": "57B8F4D1-343D-447E-8A8C-C3CE0183001C",
+"name": "La mano negra",
+"via": "imdb-batch"
+},
+"tt0081139": {
+"entity_id": "84EFF343-B182-4225-A434-29BBF1A83BCE",
+"name": "Mater amatísima",
+"via": "imdb-batch"
+},
+"tt0082653": {
+"entity_id": "62C32E2B-2067-4B9A-B83B-B186C33F6525",
+"name": "La leyenda del tambor",
+"via": "imdb-batch"
+},
+"tt0084473": {
+"entity_id": "9DD3B3E3-97D4-4F41-B47B-D8D43B1AC7B1",
+"name": "Pares y nones",
+"via": "imdb-batch"
+},
+"tt0084847": {
+"entity_id": "D1899E4E-7DA2-44A6-88D1-83285EA44405",
+"name": "Valentina",
+"via": "imdb-batch"
+},
+"tt0085617": {
+"entity_id": "C4F185FB-5C32-4207-B15F-9E4DF57C6479",
+"name": "Gracias por el fuego",
+"via": "imdb-batch"
+},
+"tt0088653": {
+"entity_id": "88629B2F-DB4D-4475-A87C-3DDEED3B25D8",
+"name": "A la pálida luz de la luna",
+"via": "imdb-batch"
+},
+"tt0091632": {
+"entity_id": "79BD96F7-AB63-4853-99C4-92EF49B57505",
+"name": "Pasajeros de una pesadilla",
+"via": "imdb-batch"
+},
+"tt0099167": {
+"entity_id": "856E1A7C-04F8-4F42-8599-9FE8B6C551E1",
+"name": "Boom Boom",
+"via": "imdb-batch"
+},
+"tt0102412": {
+"entity_id": "37D6E7B2-A0AF-4B39-9F6A-522375958C38",
+"name": "Martes de carnaval",
+"via": "imdb-batch"
+},
+"tt0103705": {
+"entity_id": "AE0244D9-95FF-4A30-8B03-BAA9D9B7DAEC",
+"name": "Dreaming About You",
+"via": "imdb-batch"
+},
+"tt0104207": {
+"entity_id": "D6EDF345-AAD4-48A6-A023-CA611BD4AE35",
+"name": "A Passing Season",
+"via": "imdb-batch"
+},
+"tt0106616": {
+"entity_id": "73BD0C4D-0253-424D-9C60-7EC00FE5FF9F",
+"name": "The Things of Love: Part 2",
+"via": "imdb-batch"
+},
+"tt0117302": {
+"entity_id": "5FD5DFB8-0321-4764-A621-E8DF7D714689",
+"name": "Pasajes",
+"via": "imdb-batch"
+},
+"tt0057972": {
+"entity_id": "6B7B9F22-A00C-4CC7-B26D-5F10FE57AA23",
+"name": "Double Edged Crime",
+"via": "imdb-single"
+},
+"tt0076967": {
+"entity_id": "C081BA68-BA72-4F74-A152-E3792B0BFA65",
+"name": "Oscar, Kina and the Laser",
+"via": "imdb-single"
+},
+"tt0080753": {
+"entity_id": "CD1B20DB-4F1B-4F5F-B265-BF8BD6B063EC",
+"name": "Friend",
+"via": "imdb-single"
+},
+"tt0083581": {
+"entity_id": "8A70AAE5-2750-47AF-A81A-E238649286B7",
+"name": "Bank Under Siege",
+"via": "imdb-single"
+},
+"tt0085966": {
+"entity_id": "DF644A42-D113-487C-823A-4793F50BC045",
+"name": "Berta's Motives",
+"via": "imdb-single"
+},
+"tt0094068": {
+"entity_id": "35EA6374-81B1-401F-83A7-6631DC749316",
+"name": "Suffer, You Prick",
+"via": "imdb-single"
+},
+"tt0119605": {
+"entity_id": "285E38E7-093F-48B0-8FDF-B0870E2AE71C",
+"name": "Mamá es boba",
+"via": "imdb-batch"
+},
+"tt0150789": {
+"entity_id": "4FAFBED7-4A31-43A1-8882-316C91071945",
+"name": "Gringuito",
+"via": "imdb-batch"
+},
+"tt0163617": {
+"entity_id": "C94D336F-B39B-4E3B-A21D-A0087A1B204A",
+"name": "En el balcón vacío",
+"via": "imdb-batch"
+},
+"tt0175243": {
+"entity_id": "BC4EE87C-1B83-4BB7-9A03-AB6EEFE93860",
+"name": "Tiro al aire",
+"via": "imdb-batch"
+},
+"tt0180608": {
+"entity_id": "50A37881-F7CD-44E4-B88C-16F29793B90B",
+"name": "La cobarde",
+"via": "imdb-batch"
+},
+"tt0183520": {
+"entity_id": "4437B32E-EF55-43BF-9C16-5D2C1D906100",
+"name": "Mingo y Aníbal contra los fantasmas",
+"via": "imdb-batch"
+},
+"tt0202362": {
+"entity_id": "753E5777-E537-4B5B-A81F-93EAF51A3636",
+"name": "La furia",
+"via": "imdb-batch"
+},
+"tt0236313": {
+"entity_id": "063B1E93-3F7E-46F9-9784-71D45CAC5E43",
+"name": "Never Too Young to Dream",
+"via": "imdb-batch"
+},
+"tt0263363": {
+"entity_id": "B0E902CC-681F-4A8C-BC35-FBC4E2436832",
+"name": "Fugitivas",
+"via": "imdb-batch"
+},
+"tt0277253": {
+"entity_id": "DAE9822F-C3DF-47B4-AF70-F92D1625E79A",
+"name": "Primera comunión",
+"via": "imdb-batch"
+},
+"tt0277597": {
+"entity_id": "627D8EA4-6031-4C98-AB0C-B36796E2C7F2",
+"name": "Barrio de campeones",
+"via": "imdb-batch"
+},
+"tt0277619": {
+"entity_id": "673FBFE7-700C-402F-8B32-80FAA0F86144",
+"name": "Cazadores de espías",
+"via": "imdb-batch"
+},
+"tt0283552": {
+"entity_id": "0427D8C4-1ADC-4EB1-8270-F7337052A37B",
+"name": "The Little Polish",
+"via": "imdb-batch"
+},
+"tt0287665": {
+"entity_id": "69F97850-B821-4B0B-8110-EB0F8AD5645D",
+"name": "Eternal Blood",
+"via": "imdb-batch"
+},
+"tt0309827": {
+"entity_id": "8785F862-CB0D-4541-A7C6-263413AEC770",
+"name": "Mafalda",
+"via": "imdb-batch"
+},
+"tt0328835": {
+"entity_id": "B2024160-2B62-4DB5-9A81-69538BF72F63",
+"name": "Aparte",
+"via": "imdb-batch"
+},
+"tt0338935": {
+"entity_id": "72EEE14D-D32F-4983-8F94-2B564ADD276B",
+"name": "Los dos carnales",
+"via": "imdb-batch"
+},
+"tt0339451": {
+"entity_id": "F688745A-B6EA-4A81-867E-FCF28112C274",
+"name": "La niña de la mochila azul 2",
+"via": "imdb-batch"
+},
+"tt0341484": {
+"entity_id": "58797D81-2D9F-45FB-A241-E0C1000079F4",
+"name": "La mugrosita",
+"via": "imdb-batch"
+},
+"tt0362080": {
+"entity_id": "2CAA0072-6CCB-4925-9503-023F40D0EBB3",
+"name": "Regresados",
+"via": "imdb-batch"
+},
+"tt0364270": {
+"entity_id": "0A385D93-4F4F-47DD-B351-694E515B28E7",
+"name": "Little Sky",
+"via": "imdb-batch"
+},
+"tt0414290": {
+"entity_id": "7CC79AA1-7FA3-4C2C-8962-C3F3686D03F6",
+"name": "Muertos comunes",
+"via": "imdb-batch"
+},
+"tt0424041": {
+"entity_id": "F7D43021-6DCB-4818-9718-DDF0B5383774",
+"name": "Deuda",
+"via": "imdb-batch"
+},
+"tt0468816": {
+"entity_id": "88B6386D-CA4C-4FEB-BED7-B88A7E0A369D",
+"name": "Born and Bred",
+"via": "imdb-batch"
+},
+"tt0483759": {
+"entity_id": "73796FFF-64FB-496D-8539-5A234CCC5F25",
+"name": "¿Quién dice que es fácil?",
+"via": "imdb-batch"
+},
+"tt0492714": {
+"entity_id": "5BFFFFD8-39E3-4F98-83B3-C9A10C715A58",
+"name": "Our Brand Is Crisis",
+"via": "imdb-batch"
+},
+"tt0791270": {
+"entity_id": "354BAD12-D8DC-42BC-ABB4-3F88537F504E",
+"name": "Zulo",
+"via": "imdb-batch"
+},
+"tt0796926": {
+"entity_id": "A9C2F3F6-3947-4CE4-B9DB-6EF1420CE436",
+"name": "Cara de queso - Mi primer ghetto -",
+"via": "imdb-batch"
+},
+"tt0815459": {
+"entity_id": "DFA43189-F276-47DC-8D53-B11007EE7785",
+"name": "Dos rivales casi iguales",
+"via": "imdb-batch"
+},
+"tt0835468": {
+"entity_id": "F9CE7473-CF1F-4B87-AC9A-FA24053715E2",
+"name": "Un buen día lo tiene cualquiera",
+"via": "imdb-batch"
+},
+"tt0846015": {
+"entity_id": "039C9925-B6ED-4EDD-A6D5-29F8FF41329E",
+"name": "I Love Miami",
+"via": "imdb-batch"
+},
+"tt0925230": {
+"entity_id": "950BF7B6-B3E0-4E45-895B-6DADF1714EBA",
+"name": "Cocalero",
+"via": "imdb-batch"
+},
+"tt0976099": {
+"entity_id": "6DB9BF18-BE51-41A2-9CA7-B5863D2419F2",
+"name": "La cáscara",
+"via": "imdb-batch"
+},
+"tt1077349": {
+"entity_id": "B6B3F0C1-CFB6-43C1-850A-DA184F7003CA",
+"name": "Incorregibles",
+"via": "imdb-batch"
+},
+"tt1090200": {
+"entity_id": "C72B4F5D-4AE9-4701-8CCD-60F42426B64A",
+"name": "Encarnación",
+"via": "imdb-batch"
+},
+"tt11167742": {
+"entity_id": "9F95631F-0867-40C7-A7AF-F3DC1F19707E",
+"name": "Supernormal",
+"via": "imdb-batch"
+},
+"tt11348498": {
+"entity_id": "34BB2031-E489-4603-A90B-481F295EF22B",
+"name": "Una jauría llamada Ernesto",
+"via": "imdb-batch"
+},
+"tt1185589": {
+"entity_id": "12D8A38E-73A6-413D-90BA-9ACC57A0C874",
+"name": "Café de los maestros",
+"via": "imdb-batch"
+},
+"tt12025688": {
+"entity_id": "FE6724B0-10EC-476E-A919-5B3297640A93",
+"name": "Asphalt Goddess",
+"via": "imdb-batch"
+},
+"tt12629752": {
+"entity_id": "E0E24167-0C12-4BFD-98AB-0D72D78180FB",
+"name": "Doblemente embarazada",
+"via": "imdb-batch"
+},
+"tt12630014": {
+"entity_id": "F738F73A-A2B6-4283-9A42-9E70210A2E5A",
+"name": "Busco novia",
+"via": "imdb-batch"
+},
+"tt0188244": {
+"entity_id": "B4ECC062-7E24-41E0-B0A6-4475EAFF6650",
+"name": "Total",
+"via": "imdb-single"
+},
+"tt0208429": {
+"entity_id": "123E3307-7C50-4F23-A116-F9AAFA92836B",
+"name": "Santo in the Vengeance of the Mummy",
+"via": "imdb-single"
+},
+"tt0259730": {
+"entity_id": "40D4B7E4-3E25-498B-9795-58A6246ACCA6",
+"name": "His Master's Voice",
+"via": "imdb-single"
+},
+"tt0285791": {
+"entity_id": "F7CE4DD2-A62D-4613-A8AD-61E050470272",
+"name": "The Girl of the Blue Backpack",
+"via": "imdb-single"
+},
+"tt0321950": {
+"entity_id": "EA869BB6-BBAF-4556-9083-650C9F7DFEAB",
+"name": "What Color Is the Wind?",
+"via": "imdb-single"
+},
+"tt0940789": {
+"entity_id": "9415895F-6B75-4C61-8A46-A9B23EB22810",
+"name": "Teo's Journey",
+"via": "imdb-single"
+},
+"tt10722406": {
+"entity_id": "C22CFBD6-6393-4D80-B531-30CDAB0EA225",
+"name": "Come Play with Me",
+"via": "imdb-single"
+},
+"tt11568878": {
+"entity_id": "D4F86F39-420C-4F26-A7B3-3C148A1D26DB",
+"name": "Residue",
+"via": "imdb-single"
+},
+"tt12888220": {
+"entity_id": "2A088882-61B8-41ED-B3DE-B6BF706FD778",
+"name": "La reina del pueblo",
+"via": "imdb-batch"
+},
+"tt1400529": {
+"entity_id": "73D1071B-AA7C-4E33-9A97-4CDCE67CF9BC",
+"name": "Mundo alas",
+"via": "imdb-batch"
+},
+"tt15909848": {
+"entity_id": "3D1E853B-53E5-469C-84F2-CDB6A02A9B70",
+"name": "Causality",
+"via": "imdb-batch"
+},
+"tt15943258": {
+"entity_id": "08BC1E4C-67DF-48C0-88CA-5E6450591C21",
+"name": "Pipa",
+"via": "imdb-batch"
+},
+"tt1638327": {
+"entity_id": "4B1C9E19-52D0-42ED-8CC9-0CCF7225208F",
+"name": "Liniers, el trazo simple de las cosas",
+"via": "imdb-batch"
+},
+"tt1732518": {
+"entity_id": "4F57106A-AE59-4E1A-B0F2-81D03FA751F5",
+"name": "April in New York",
+"via": "imdb-batch"
+},
+"tt1846671": {
+"entity_id": "23C4A9B5-BED7-42A1-AD12-56FDBB28F6F9",
+"name": "Más amaneceres",
+"via": "imdb-batch"
+},
+"tt19731714": {
+"entity_id": "84E2F3D6-EB65-4567-84D9-C8F5C0C925C5",
+"name": "The Photographer: Murder in Pinamar",
+"via": "imdb-batch"
+},
+"tt2054740": {
+"entity_id": "6A75765B-43DC-4017-BE0C-6FB8277B5B4D",
+"name": "Como Si Fueramos Novios",
+"via": "imdb-batch"
+},
+"tt2112258": {
+"entity_id": "1C4744C7-2D82-4762-97E4-00B0A1BF0E37",
+"name": "Serie B",
+"via": "imdb-batch"
+},
+"tt2345539": {
+"entity_id": "89CA18A1-E068-449E-A36B-6EC929A342B9",
+"name": "Extraños en la noche",
+"via": "imdb-batch"
+},
+"tt27351936": {
+"entity_id": "688C5E2B-4611-4559-B423-B20E545915C6",
+"name": "Sayen: Desert Road",
+"via": "imdb-batch"
+},
+"tt2896952": {
+"entity_id": "4E18CDF2-B985-4667-A497-825616C8E19D",
+"name": "Barefoot in the Kitchen",
+"via": "imdb-batch"
+},
+"tt29464977": {
+"entity_id": "FD437FD1-B4B1-425D-BFCA-D9253D2955A8",
+"name": "Norma",
+"via": "imdb-batch"
+},
+"tt3398808": {
+"entity_id": "EF416638-53A9-4153-87C1-15B3E5C0B5FF",
+"name": "El club de los buenos infieles",
+"via": "imdb-batch"
+},
+"tt3511124": {
+"entity_id": "C6B7E067-B460-46D6-BFE0-F448F5ED6FEF",
+"name": "The Last Shaman",
+"via": "imdb-batch"
+},
+"tt3616724": {
+"entity_id": "5BEE5F37-6839-4252-BF2B-85F2BCB38664",
+"name": "Semana Santa",
+"via": "imdb-batch"
+},
+"tt3730650": {
+"entity_id": "9A692C64-76EA-460C-870D-56E39F63D3C4",
+"name": "Maracaná",
+"via": "imdb-batch"
+},
+"tt3822170": {
+"entity_id": "2E2CB6A5-D911-4AFC-BC4A-F46684DE0D43",
+"name": "Matar el tiempo",
+"via": "imdb-batch"
+},
+"tt3901962": {
+"entity_id": "6ED54B9B-56F0-4C6E-86C7-AA3B9AC74477",
+"name": "Path",
+"via": "imdb-batch"
+},
+"tt4060006": {
+"entity_id": "6899693C-A102-4269-AEDB-78755BCBA6D4",
+"name": "No estoy loca",
+"via": "imdb-batch"
+},
+"tt4076126": {
+"entity_id": "F8CE2F89-00D1-40D9-A087-F8064C3551A0",
+"name": "Un día vi 10.000 elefantes",
+"via": "imdb-batch"
+},
+"tt4508542": {
+"entity_id": "CBF17548-4B7B-4862-88A6-6899DCA45B58",
+"name": "Born to Win",
+"via": "imdb-batch"
+},
+"tt4811564": {
+"entity_id": "47D76644-759E-41F6-BF17-BE07D80298AD",
+"name": "The Furies",
+"via": "imdb-batch"
+},
+"tt4944682": {
+"entity_id": "4E74423E-B6FF-4A0F-AE19-B466C1C57732",
+"name": "Re-emigrantes",
+"via": "imdb-batch"
+},
+"tt5003186": {
+"entity_id": "F52D8F26-8986-4911-A908-AB9255C54B7A",
+"name": "Plan de fuga",
+"via": "imdb-batch"
+},
+"tt5070076": {
+"entity_id": "C61B8140-A0C9-4FE7-B09A-63EBE7279265",
+"name": "El candidato",
+"via": "imdb-batch"
+},
+"tt5271772": {
+"entity_id": "AE196C8A-A019-4DA2-BE5E-5BDB4107086F",
+"name": "The Red Thread",
+"via": "imdb-batch"
+},
+"tt5786588": {
+"entity_id": "D940525E-DC0D-482D-8EFD-E29F9352BE08",
+"name": "Hypersomnia",
+"via": "imdb-batch"
+},
+"tt6197484": {
+"entity_id": "CF2036D1-B942-45B3-8631-6B62C4900CC9",
+"name": "Holy Goalie",
+"via": "imdb-batch"
+},
+"tt6229030": {
+"entity_id": "F8A723DF-2D6D-4C63-9B7D-40C4640260AC",
+"name": "Killing God",
+"via": "imdb-batch"
+},
+"tt6580972": {
+"entity_id": "FE70C274-A73D-4171-98C2-4A55BDD6F1B3",
+"name": "Despido procedente",
+"via": "imdb-batch"
+},
+"tt6596630": {
+"entity_id": "7D5E1B7E-64E2-421D-BB94-5F1AC6F48F7B",
+"name": "Invisible",
+"via": "imdb-batch"
+},
+"tt7690762": {
+"entity_id": "2E782D26-920F-40BF-A2A8-815D5A0AC679",
+"name": "The Pact",
+"via": "imdb-batch"
+},
+"tt8007436": {
+"entity_id": "DAF49D86-EE43-4B43-8E6D-CAE25EA66C10",
+"name": "Tuya, mía... te la apuesto",
+"via": "imdb-batch"
+},
+"tt8422146": {
+"entity_id": "F0DB5A24-D51C-4A3C-9DF3-1209B79D5540",
+"name": "Abrakadabra",
+"via": "imdb-batch"
+},
+"tt8976664": {
+"entity_id": "4B0A2C05-E3FA-4B38-B44A-59B796DBFA75",
+"name": "My Boyfriend's Meds",
+"via": "imdb-batch"
+},
+"tt9339850": {
+"entity_id": "B39C74AD-8B58-4068-B464-7A8050CED35A",
+"name": "Jezabel",
+"via": "imdb-batch"
+},
+"tt9660666": {
+"entity_id": "4AD9DF56-5041-4342-A069-018A6A31BFD0",
+"name": "Wishlist",
+"via": "imdb-batch"
+},
+"tt0057983": {
+"entity_id": "B8A61CBA-D218-4270-A1B1-0BF4847F76C2",
+"name": "Cumbite",
+"via": "imdb-batch"
+},
+"tt0062784": {
+"entity_id": "63A6C4CF-E08D-46A4-98AF-BF9E41879044",
+"name": "El certificado",
+"via": "imdb-batch"
+},
+"tt0064578": {
+"entity_id": "F45EFE21-46F6-4ACD-BB49-70FB59C4563E",
+"name": "Las Leandras",
+"via": "imdb-batch"
+},
+"tt0068783": {
+"entity_id": "7F234BC4-9644-42DD-9D0F-51F26BA74B22",
+"name": "El juez de la soga",
+"via": "imdb-batch"
+},
+"tt3644570": {
+"entity_id": "10DC961E-1627-4087-B167-EDC4964A8119",
+"name": "The Princess and the Magic Mirror",
+"via": "imdb-single"
+},
+"tt5707304": {
+"entity_id": "0ACD55CC-FE88-4A97-BB85-764F95E3D279",
+"name": "Mother",
+"via": "imdb-single"
+},
+"tt5803868": {
+"entity_id": "C50CE21B-434D-4411-B8E0-F9475641AD66",
+"name": "Bosch: The Garden of Dreams",
+"via": "imdb-single"
+},
+"tt6511676": {
+"entity_id": "2055EEBF-729F-4D47-9C1E-35BEB7AC6BA4",
+"name": "Operation Goldenshell",
+"via": "imdb-single"
+},
+"tt8469890": {
+"entity_id": "9C29E12B-3B5A-42E6-B20F-2D7EF8B24F63",
+"name": "For Better, for Worse",
+"via": "imdb-single"
+},
+"tt0060373": {
+"entity_id": "9E39B01A-267C-46DB-A48F-68B5E5B4FE3B",
+"name": "Only a Coffin",
+"via": "imdb-single"
+},
+"tt0068922": {
+"entity_id": "BC85005A-CB39-4D30-BFDE-8F8FA131F3AB",
+"name": "Marianela",
+"via": "imdb-batch"
+},
+"tt0077832": {
+"entity_id": "417AD81A-FF5D-4991-BA2A-9EC263ABA4F5",
+"name": "La larga noche de los bastones blancos",
+"via": "imdb-batch"
+},
+"tt0079851": {
+"entity_id": "77B1D029-7264-4C0B-814B-57F6FACAC3CE",
+"name": "El oreja rajada",
+"via": "imdb-batch"
+},
+"tt0083758": {
+"entity_id": "92A0C70C-D627-4957-999E-97D21B1207DD",
+"name": "Corazón de papel",
+"via": "imdb-batch"
+},
+"tt0093536": {
+"entity_id": "B9583F45-1E87-4BC4-8569-B31D6255A86F",
+"name": "Mientras haya luz",
+"via": "imdb-batch"
+},
+"tt0103948": {
+"entity_id": "62EF4F27-CF40-4842-AFB5-AFDC96F76B5D",
+"name": "Chechu y familia",
+"via": "imdb-batch"
+},
+"tt0109608": {
+"entity_id": "699743C1-D415-4482-88F6-A6157175BDF1",
+"name": "Después de tantos años",
+"via": "imdb-batch"
+},
+"tt0122578": {
+"entity_id": "FE6EBD89-B95D-4D5B-B489-B70AFF6BA027",
+"name": "La gran fiesta",
+"via": "imdb-batch"
+},
+"tt0226587": {
+"entity_id": "F78A5BCD-6C00-43BA-966C-F8261CDEFEDF",
+"name": "La venganza",
+"via": "imdb-batch"
+},
+"tt0232492": {
+"entity_id": "66F026F7-0AF5-46E1-BAA2-2600509FAEC2",
+"name": "Pídele cuentas al rey",
+"via": "imdb-batch"
+},
+"tt0264555": {
+"entity_id": "33F3F3E5-F605-4F21-8C62-18370E7784F3",
+"name": "Dos fantasmas y una muchacha",
+"via": "imdb-batch"
+},
+"tt0270674": {
+"entity_id": "5255ECFF-76CF-4AC2-8032-4F8DAD274C32",
+"name": "Street Love",
+"via": "imdb-batch"
+},
+"tt0272216": {
+"entity_id": "AC49DB5D-1A39-4EE5-8F88-5DDE07555A20",
+"name": "La niña de los hoyitos",
+"via": "imdb-batch"
+},
+"tt0283742": {
+"entity_id": "A3274689-96E9-4887-90FF-AC4BE72C681D",
+"name": "Inspiración",
+"via": "imdb-batch"
+},
+"tt0324625": {
+"entity_id": "AEDA80B1-378D-489C-AAFB-CA723FC7434F",
+"name": "Yo no sé qué me han hecho tus ojos",
+"via": "imdb-batch"
+},
+"tt0360521": {
+"entity_id": "64B6A448-BD3B-483D-A35B-DDE84BFB1D50",
+"name": "2 ilusiones",
+"via": "imdb-batch"
+},
+"tt0382978": {
+"entity_id": "D31909DB-4112-4F3D-AF5E-E46A036A2392",
+"name": "Buenos Aires Zero Degree: The Making of Happy Together",
+"via": "imdb-batch"
+},
+"tt10035478": {
+"entity_id": "908C8260-362C-4C66-A204-9814B3C0286C",
+"name": "Piola",
+"via": "imdb-batch"
+},
+"tt1020906": {
+"entity_id": "F110ACF8-E5BD-4172-B602-4982B2885360",
+"name": "Tres de corazones",
+"via": "imdb-batch"
+},
+"tt1087899": {
+"entity_id": "E4C33666-42D6-44D4-BA10-0400EB4F8DF7",
+"name": "Rancho aparte",
+"via": "imdb-batch"
+},
+"tt11584724": {
+"entity_id": "3D39AF9D-C905-4B4F-9166-C7C21C1DD00F",
+"name": "Loco Por Vos",
+"via": "imdb-batch"
+},
+"tt1194615": {
+"entity_id": "4E099D73-C85D-4297-843C-58A26E74F7C5",
+"name": "Rain",
+"via": "imdb-batch"
+},
+"tt12610584": {
+"entity_id": "23B68A6F-E37C-4825-A5C2-A8B44D6AB566",
+"name": "Descarrilados",
+"via": "imdb-batch"
+},
+"tt12785060": {
+"entity_id": "0192F6EE-F49C-478F-AEF3-C64A8C5C192C",
+"name": "Sin hijos",
+"via": "imdb-batch"
+},
+"tt13022120": {
+"entity_id": "6766D503-BA2D-47D2-9607-D215CA64161F",
+"name": "A Deadly Invitation",
+"via": "imdb-batch"
+},
+"tt1313256": {
+"entity_id": "F0AD5C72-8173-4732-8AF6-DD6383CB3572",
+"name": "Sangre del Pacífico",
+"via": "imdb-batch"
+},
+"tt1315901": {
+"entity_id": "0E270AFB-4B7F-4CDF-818E-A03E2E6BE62C",
+"name": "Tres deseos",
+"via": "imdb-batch"
+},
+"tt13920194": {
+"entity_id": "0871CC4D-78FE-48B1-AE61-B2CF6D3457B2",
+"name": "El Niño de Fuego",
+"via": "imdb-batch"
+},
+"tt15348152": {
+"entity_id": "FD381A7A-63B8-40E5-B2FA-F39294477D63",
+"name": "Las paredes hablan",
+"via": "imdb-batch"
+},
+"tt15384346": {
+"entity_id": "0EE073FE-30F9-48ED-B348-CAB3F03D7263",
+"name": "Money Heist: From Tokyo to Berlin",
+"via": "imdb-batch"
+},
+"tt20412894": {
+"entity_id": "01837C55-9D6A-4F00-BF45-F3027B6AEE46",
+"name": "What the Waters Left Behind: Scars",
+"via": "imdb-batch"
+},
+"tt21226774": {
+"entity_id": "9417A568-561F-4C7C-AE92-C9CA6CB4E36C",
+"name": "Don't Blame Karma!",
+"via": "imdb-batch"
+},
+"tt21374322": {
+"entity_id": "38420720-AC62-42E5-B647-715E534A6B50",
+"name": "Honor",
+"via": "imdb-batch"
+},
+"tt2365576": {
+"entity_id": "B0A4CAD5-F780-4666-B5A1-138DB967D1BB",
+"name": "Murieron por encima de sus posibilidades",
+"via": "imdb-batch"
+},
+"tt26081688": {
+"entity_id": "D4205350-89A0-4AAB-AF65-F4388EDE205F",
+"name": "La sudestada",
+"via": "imdb-batch"
+},
+"tt2642228": {
+"entity_id": "CD29ED3E-8E53-4C5F-BDEF-A43DA186647E",
+"name": "Pensé que iba a haber fiesta",
+"via": "imdb-batch"
+},
+"tt28455910": {
+"entity_id": "0ED5B888-0852-45B0-8610-0054B0D9841D",
+"name": "Doble Discurso",
+"via": "imdb-batch"
+},
+"tt4832378": {
+"entity_id": "371C6E5A-4AC9-4A0B-8991-77D725CC22E8",
+"name": "Socios por accidente 2",
+"via": "imdb-batch"
+},
+"tt4935746": {
+"entity_id": "DA6705C0-F789-48F7-94E6-96E3EB1F68C3",
+"name": "The Darkness",
+"via": "imdb-batch"
+},
+"tt5149030": {
+"entity_id": "D5CBF8A1-EF37-480F-9F3A-2A83FF2A7843",
+"name": "Rooster's Blood",
+"via": "imdb-batch"
+},
+"tt5858968": {
+"entity_id": "E3C563DA-DEFE-42C2-8722-5F32305483F0",
+"name": "A Trip to the Moon",
+"via": "imdb-batch"
+},
+"tt5923788": {
+"entity_id": "13B24C96-2EB4-444E-B284-0B3786B27038",
+"name": "El techo",
+"via": "imdb-batch"
+},
+"tt0074898": {
+"entity_id": "F6FC2217-CA68-4BDB-9C08-60003C45F7D8",
+"name": "Charlie and the Hooker",
+"via": "imdb-single"
+},
+"tt0166487": {
+"entity_id": "0F1AE5C1-A1D7-4008-BD27-7E7AE8AA55C3",
+"name": "The Cherry Tree",
+"via": "imdb-single"
+},
+"tt0448119": {
+"entity_id": "AA81BF16-A016-4748-A816-712F78CA7F80",
+"name": "Without You",
+"via": "imdb-single"
+},
+"tt1397495": {
+"entity_id": "C69E06E6-8746-411A-B45B-2830290128F0",
+"name": "Andres Doesn't Want to Take a Nap",
+"via": "imdb-single"
+},
+"tt3494676": {
+"entity_id": "236EA553-00D7-494E-82CE-39FBAF2052CA",
+"name": "Decadencia",
+"via": "imdb-single"
+},
+"tt5674698": {
+"entity_id": "42D2B421-F2C0-4FBB-A294-7C4BFB904788",
+"name": "Something Huge",
+"via": "imdb-single"
+},
+"tt8296660": {
+"entity_id": "BC654ECC-E1CC-485E-BA3E-A6E0C4EAC689",
+"name": "A Remarkable Tale",
+"via": "imdb-batch"
+},
+"tt0109108": {
+"entity_id": "B21475FA-9D20-4D86-8AB6-AF72A99A1608",
+"name": "Amorosos fantasmas",
+"via": "imdb-batch"
+},
+"tt0314474": {
+"entity_id": "33E23C30-0FC2-4D79-819C-35770CA2D226",
+"name": "Otilia Rauda",
+"via": "imdb-batch"
+},
+"tt0338683": {
+"entity_id": "99621294-833C-46F2-8CAE-F19561556D0C",
+"name": "Tres lancheros muy picudos",
+"via": "imdb-batch"
+},
+"tt13607632": {
+"entity_id": "CFB9BF38-A38D-4050-A554-7CF5D40C05DE",
+"name": "An Unremarkable Christmas",
+"via": "imdb-batch"
+},
+"tt23867800": {
+"entity_id": "F9B55334-AA40-414D-99A6-08AB4076EE99",
+"name": "The Three Wise Men: The Truth",
+"via": "imdb-batch"
+},
+"tt3548664": {
+"entity_id": "FBB04AAA-E097-4B08-98E8-876256EA4DDF",
+"name": "Guaraní",
+"via": "imdb-batch"
+},
+"tt3664008": {
+"entity_id": "EA863783-64C4-41CB-B50B-95F685230500",
+"name": "Sicarivs: La noche y el silencio",
+"via": "imdb-batch"
+},
+"tt4596248": {
+"entity_id": "16980074-5B58-43C3-9D9D-DD208465BB0B",
+"name": "Corazón de León",
+"via": "imdb-batch"
+},
+"tt4696502": {
+"entity_id": "203DC551-6DE7-4282-954D-3D2EBF3A45E9",
+"name": "No estamos solos",
+"via": "imdb-batch"
+},
+"tt4769064": {
+"entity_id": "34F9EF8C-64AA-4B5E-B512-187ACF7B5BF3",
+"name": "La española inglesa",
+"via": "imdb-batch"
+},
+"tt9346782": {
+"entity_id": "0C7C417D-0BD4-4332-87E8-9508AF7F221F",
+"name": "A Wild Stream",
+"via": "imdb-batch"
+}
+}

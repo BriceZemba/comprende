@@ -1,20 +1,20 @@
 {
- "titles": 1513,
+ "titles": 1483,
  "median_vocab_for_95": 3000,
  "p25_vocab_for_95": 2500,
  "p75_vocab_for_95": 4000,
  "median_vocab_for_98": 8000,
  "p25_vocab_for_98": 6500,
  "p75_vocab_for_98": 11000,
- "median_coverage_at_1000": 0.8976,
+ "median_coverage_at_1000": 0.8975,
  "median_coverage_at_2000": 0.9343,
- "median_coverage_at_3000": 0.951,
- "median_coverage_at_5000": 0.9684,
+ "median_coverage_at_3000": 0.9511,
+ "median_coverage_at_5000": 0.9685,
  "genre_check": {
   "hypothesis": "animation/family titles need fewer words than dramas",
   "result": "not supported",
-  "animation_family": 0.9403,
+  "animation_family": 0.9406,
   "drama": 0.9541,
-  "animation_family_titles": 25
+  "animation_family_titles": 24
  }
 }

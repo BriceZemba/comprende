@@ -23,6 +23,7 @@ class Measured:
     vocab_for_95: int | None
     vocab_for_98: int | None
     qloo_id: str | None = None
+    taste_baseline: float | None = None  # mean Qloo affinity across reference tastes (see build_taste_baseline.py)
 
     def coverage_for(self, vocab_size: float) -> float:
         return coverage_at(self.coverage, vocab_size)
@@ -31,9 +32,16 @@ class Measured:
         return fit_for(self.coverage_for(vocab_size))
 
 
+# Country names as Qloo writes them in country_of_origin.
+SPANISH_SPEAKING = {"Spain", "Mexico", "Argentina", "Colombia", "Chile", "Peru", "Uruguay", "Venezuela", "Cuba",
+                    "Ecuador", "Bolivia", "Paraguay", "Guatemala", "Honduras", "El Salvador", "Nicaragua",
+                    "Costa Rica", "Panama", "Dominican Republic", "Puerto Rico", "Equatorial Guinea"}
+
+
 class Catalog:
-    def __init__(self, titles: list[Measured]):
+    def __init__(self, titles: list[Measured], spanish_ids: set[str] | None = None):
         self.titles = titles
+        self.spanish_ids = spanish_ids or set()
         self.by_imdb = {t.imdb: t for t in titles}
         self.by_qloo = {t.qloo_id: t for t in titles if t.qloo_id}
 
@@ -51,7 +59,21 @@ class Catalog:
             )
             for t in cat["titles"]
         ]
-        return cls(titles)
+        base_file = data_dir / "taste_baseline_es.json"
+        base = json.loads(base_file.read_text(encoding="utf-8")) if base_file.exists() else {}
+        for t in titles:
+            if t.imdb in base:
+                t.taste_baseline = base[t.imdb]["mean"]
+        ids_file = data_dir / "spanish_originals.json"
+        spanish_ids = set(json.loads(ids_file.read_text(encoding="utf-8"))) if ids_file.exists() else set()
+        return cls(titles, spanish_ids)
+
+    def is_spanish_original(self, imdb_ids: list[str], countries: list[str]) -> bool:
+        """Qloo's release-country filter also returns co-productions in English (Enemy: Canada/Spain/France).
+        Keep a title only if Wikidata lists it as Spanish-original, or every production country speaks Spanish."""
+        if any(i in self.spanish_ids or i in self.by_imdb for i in imdb_ids):
+            return True
+        return bool(countries) and all(c in SPANISH_SPEAKING for c in countries)
 
     def match(self, qloo_id: str | None, imdb_ids: list[str] | None = None) -> Measured | None:
         if qloo_id and qloo_id in self.by_qloo:

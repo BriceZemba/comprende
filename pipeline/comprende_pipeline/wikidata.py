@@ -98,14 +98,11 @@ IBERIAN_AND_INDIGENOUS = {"es", "ca", "gl", "eu", "la", "qu", "gn", "ay", "nah"}
 
 
 def is_spanish_original(row: dict) -> bool:
-    """Wikidata lists Spanish as an original language of some English or Italian films with
-    Spanish scenes (Predator, Il Postino). Keep a title when Spanish is its only original
-    language, or when a Spanish-speaking country produced it and its other languages are
-    Iberian or indigenous. Strict on purpose: a few genuine titles are lost, none are wrong."""
+    """Wikidata lists Spanish as an original language of some films that are not in Spanish
+    (Predator, Il Postino, and even some with Spanish as the only listed language, such as
+    Operation Finale). Keep a title only when a Spanish-speaking country produced it and its
+    other original languages, if any, are Iberian or indigenous. Strict on purpose: a few
+    genuine titles are lost (US Spanish-language productions), none are wrong."""
     langs = set(row.get("languages", []))
     hispanic = bool(set(row.get("countries", [])) & HISPANIC_COUNTRIES)
-    if not langs:
-        return hispanic
-    if langs == {"es"}:
-        return True
     return hispanic and langs <= IBERIAN_AND_INDIGENOUS

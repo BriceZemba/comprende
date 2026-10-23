@@ -22,6 +22,8 @@ FREQ_ROWS_KEPT = 25000
 
 def main():
     titles = {t["imdb"]: t for t in json.loads((DATA_DIR / "titles_es.json").read_text(encoding="utf-8"))}
+    # Spanish-original IMDb ids, used at run time to keep English co-productions out of recommendations.
+    (DATA_DIR / "spanish_originals.json").write_text(json.dumps(sorted(titles), separators=(",", ":")), encoding="utf-8")
     records = [json.loads(p.read_text(encoding="utf-8")) for p in sorted((CACHE_DIR / "lemmas").glob("*.json"))]
     records = [r for r in records if r["imdb"] in titles]
     print(f"{len(records)} lemmatised titles")

@@ -9,7 +9,9 @@ Metrics, per system:
     (0 = every profile gets different titles, 1 = everyone gets the same list).
   - Most repeated titles.
   - Level fit: for titles whose dialogue we measured, the share the learner would follow at
-    >= 95% coverage given the profile's vocabulary size, and the share below 90%.
+    >= 95% coverage given the profile's vocabulary size, and the share below 90%; over all ten
+    picks, and over the first five picks shown (Comprende's later picks include labelled
+    "stretch" titles on purpose, so the first five are the like-for-like comparison).
 """
 import itertools
 import json
@@ -22,7 +24,9 @@ ROOT = HERE.parent
 sys.path.insert(0, str(ROOT / "pipeline"))
 from comprende_pipeline.coverage import coverage_at  # noqa: E402
 
-SYSTEMS = {"llm_only": "Gemini alone (no Qloo, no subtitles)", "comprende": "Comprende (Qloo + subtitle coverage)"}
+SYSTEMS = {"llm_only": "Gemini alone (no Qloo, no subtitles)",
+           "no_qloo": "Comprende without Qloo (popularity instead of taste)",
+           "comprende": "Comprende (Qloo + subtitle coverage)"}
 
 
 def key(t: dict) -> str:
@@ -41,12 +45,15 @@ def analyse(run: dict, profiles: dict, catalog: dict) -> dict:
     for t in titles:
         names.setdefault(key(t), t.get("matched") or t["title"])
     repeated = Counter(key(t) for t in titles).most_common(8)
-    fits = []
+    fits, first5 = [], []
     for r in rows:
         v = profiles[r["id"]]["vocab_size"]
-        for t in r["titles"]:
+        for i, t in enumerate(r["titles"]):
             if t.get("imdb") in catalog:
-                fits.append(coverage_at(catalog[t["imdb"]], v))
+                c = coverage_at(catalog[t["imdb"]], v)
+                fits.append(c)
+                if i < 5:  # the first five picks the learner sees
+                    first5.append(c)
     return {
         "titles": n,
         "spanish_original": (cls["spanish_original"] + cls["measured"]) / n if n else 0,
@@ -59,6 +66,9 @@ def analyse(run: dict, profiles: dict, catalog: dict) -> dict:
         "fit_n": len(fits),
         "fit_95": sum(f >= 0.95 for f in fits) / len(fits) if fits else None,
         "fit_below_90": sum(f < 0.90 for f in fits) / len(fits) if fits else None,
+        "first5_n": len(first5),
+        "first5_95": sum(f >= 0.95 for f in first5) / len(first5) if first5 else None,
+        "first5_below_90": sum(f < 0.90 for f in first5) / len(first5) if first5 else None,
         "unverified_titles": sorted({t["title"] for t in titles if t["class"] == "unverified"}),
         "not_spanish_titles": sorted({t["title"] for t in titles if t["class"] == "not_spanish"}),
     }
@@ -92,6 +102,9 @@ def main():
         ("Titles with measured dialogue", lambda a: str(a["fit_n"])),
         ("…of which followable (≥ 95% coverage at the profile's level)", lambda a: pct(a["fit_95"])),
         ("…of which too hard (< 90% coverage)", lambda a: pct(a["fit_below_90"])),
+        ("First five picks with measured dialogue", lambda a: str(a["first5_n"])),
+        ("…of which followable (≥ 95%)", lambda a: pct(a["first5_95"])),
+        ("…of which too hard (< 90%)", lambda a: pct(a["first5_below_90"])),
     ]
     for label, fn in rows:
         lines.append(f"| {label} | " + " | ".join(fn(a) for _, a in found.values()) + " |")

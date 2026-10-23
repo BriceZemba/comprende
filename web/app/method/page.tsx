@@ -26,6 +26,9 @@ interface SystemSummary {
   fit_n: number;
   fit_95: number | null;
   fit_below_90: number | null;
+  first5_n: number;
+  first5_95: number | null;
+  first5_below_90: number | null;
   repeated: [string, number][];
 }
 
@@ -101,8 +104,9 @@ export default function Method() {
       <section className="mt-10 space-y-4">
         <h2 className="font-display text-2xl">Compared with asking a language model</h2>
         <p className="leading-relaxed">
-          We gave the same 20 fixed taste profiles (three favourites and a vocabulary size each) to a language model
-          on its own and checked every title it named against Wikidata and against our measured dialogue.
+          The same 20 fixed taste profiles (three favourites and a vocabulary size each) went to three systems: a
+          language model on its own; Comprende without Qloo, ranking by general popularity instead of taste; and
+          Comprende. Every title was checked against Wikidata and against our measured dialogue.
         </p>
         {systems.length > 0 && (
           <div className="overflow-x-auto">
@@ -117,6 +121,9 @@ export default function Method() {
                   ["Titles with measured dialogue", (s: SystemSummary) => String(s.fit_n)],
                   ["…followable at the learner's level (≥ 95%)", (s: SystemSummary) => pct(s.fit_95)],
                   ["…too hard (< 90%)", (s: SystemSummary) => pct(s.fit_below_90)],
+                  ["First five picks with measured dialogue", (s: SystemSummary) => String(s.first5_n)],
+                  ["…followable (≥ 95%)", (s: SystemSummary) => pct(s.first5_95)],
+                  ["…too hard (< 90%)", (s: SystemSummary) => pct(s.first5_below_90)],
                 ] as [string, (s: SystemSummary) => string][]).map(([label, f]) => (
                   <tr key={label} className="border-b border-line/60"><td className="py-2 pr-4">{label}</td>{systems.map((s) => <td key={s.label} className="py-2 pr-4 tabular-nums">{f(s)}</td>)}</tr>
                 ))}
@@ -126,8 +133,9 @@ export default function Method() {
         )}
         <p className="text-sm text-muted">
           &ldquo;Not verified automatically&rdquo; means no Wikidata film or series matched the exact title. Several of these
-          are real titles, so this is not a count of invented ones. The comparison with Comprende is added once it has run on
-          the live Qloo API.
+          are real titles, so this is not a count of invented ones. Without Qloo, learners at the same level get almost the
+          same list; with Qloo each list is personal. Comprende&apos;s later picks include labelled &ldquo;stretch&rdquo; titles on
+          purpose, so the first five picks are the like-for-like comparison of level fit.
         </p>
       </section>
 

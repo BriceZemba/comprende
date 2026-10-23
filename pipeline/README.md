@@ -15,20 +15,20 @@ Subtitle text is never committed: only counts derived from it.
 
 ## Method
 
-1. **Titles.** Wikidata items that are films or TV series with Spanish as an original language. English-language films with Spanish scenes are dropped unless a Spanish-speaking country produced them, since their Spanish subtitles are a translation, not what you hear.
+1. **Titles.** Wikidata items that are films or TV series with Spanish as an original language, produced in a Spanish-speaking country, with any other original language Iberian or indigenous. Wikidata lists Spanish for some films that are not in Spanish (*Predator*, *Operation Finale*); their Spanish subtitles are a translation, not what you hear. The rule is strict on purpose: a few US Spanish-language productions are lost.
 2. **Subtitles.** OPUS OpenSubtitles v2024, Spanish (Lison & Tiedemann 2016, data from [opensubtitles.org](https://www.opensubtitles.org/)). The 18 GB archive is not downloaded: its central directory is read once and each title's subtitle file is fetched by HTTP byte range. For each title the largest upload is used.
 3. **Lemmas.** spaCy `es_core_news_sm`. Punctuation and numbers are ignored. Proper nouns and interjections count as known, as in coverage studies of film (Webb & Rodgers 2009). The tagger leaves some verbs inflected or with attached pronouns (*déjalo*, *acompañarte*, *quieras*); these are repaired with the dictionary-based lemmatiser simplemma, used only for forms its dictionary knows, after stripping clitic pronouns (*dímelo* → *decir*). Without this repair the median title appeared to need 4,500 lemmas for 95% coverage instead of 3,000. Cases are in `tests/test_lexicon.py`.
 4. **Frequency.** Lemmas ranked by contextual diversity (how many titles use them), then by count (Adelman, Brown & Quesada 2006; Cuetos et al. 2011 for SUBTLEX-ESP).
 5. **Coverage.** A learner who knows the V most frequent lemmas knows that share of a title's running words. Stored for V from 250 to 20,000. Thresholds: 95% for adequate comprehension, 98% for comfortable comprehension (Hu & Nation 2000; Nation 2006).
-6. **Vocabulary check.** 48 real words (8 from each of 6 frequency bands up to rank 12,000) and 16 pseudowords. Real words must be dictionary base forms; pseudowords are generated from a character model and rejected if any Spanish form matches them. The final list was read by hand and four items removed (`REVIEWED_OUT` in `vocab_test.py`). Hit rates are corrected for guessing with the false-alarm rate (Meara & Buxton 1987) and scaled by band width.
+6. **Vocabulary check.** 48 real words (8 from each of 6 frequency bands up to rank 12,000) and 16 pseudowords. Real words must be dictionary base forms; pseudowords are generated from a character model and rejected if any Spanish form matches them. The final list was read by hand and 11 items removed (`REVIEWED_OUT` in `vocab_test.py`). Hit rates are corrected for guessing with the false-alarm rate (Meara & Buxton 1987) and scaled by band width.
 
 ## Validation
 
-From `data/validation_es.md` (1,513 titles):
+From `data/validation_es.md` (1,483 titles):
 
 - The median title needs **3,000 lemmas for 95% coverage** (middle half: 2,500–4,000) and 8,000 for 98%. Webb & Rodgers (2009) found about 3,000 word families plus proper nouns give 95% coverage of English film dialogue, so the measure lands where published research predicts.
 - Knowing 3,000 lemmas covers 95.1% of the words in the median title; 1,000 lemmas cover 89.8%.
-- **A hypothesis that did not hold:** we expected animation and family titles to need fewer words than dramas. They need slightly more (94.0% vs 95.4% coverage at 3,000 lemmas; only 25 animated titles). We have not tested why.
+- **A hypothesis that did not hold:** we expected animation and family titles to need fewer words than dramas. They need slightly more (94.1% vs 95.4% coverage at 3,000 lemmas; only 25 animated titles). We have not tested why.
 
 ## Known limits
 

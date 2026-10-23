@@ -44,7 +44,112 @@
   "fit_n": 88,
   "fit_95": 0.6136363636363636,
   "fit_below_90": 0.14772727272727273,
+  "first5_n": 50,
+  "first5_95": 0.6,
+  "first5_below_90": 0.14,
   "label": "Gemini alone (no Qloo, no subtitles)",
   "run_at": "2026-10-22T17:28:36+00:00"
+ },
+ "no_qloo": {
+  "titles": 200,
+  "spanish_original": 1.0,
+  "measured": 200,
+  "not_spanish": 0.0,
+  "unverified": 0.0,
+  "distinct_share": 0.08,
+  "mean_jaccard": 0.6646616541353383,
+  "repeated": [
+   [
+    "Hable con ella",
+    20
+   ],
+   [
+    "Volver",
+    20
+   ],
+   [
+    "Mar adentro",
+    20
+   ],
+   [
+    "La casa de papel",
+    20
+   ],
+   [
+    "El laberinto del fauno",
+    20
+   ],
+   [
+    "El secreto de sus ojos",
+    15
+   ],
+   [
+    "La mala educación",
+    15
+   ],
+   [
+    "Relatos salvajes",
+    15
+   ]
+  ],
+  "fit_n": 200,
+  "fit_95": 0.48,
+  "fit_below_90": 0.06,
+  "first5_n": 100,
+  "first5_95": 0.82,
+  "first5_below_90": 0.0,
+  "label": "Comprende without Qloo (popularity instead of taste)",
+  "run_at": "2026-10-23T01:12:18+00:00"
+ },
+ "comprende": {
+  "titles": 200,
+  "spanish_original": 0.95,
+  "measured": 176,
+  "not_spanish": 0.01,
+  "unverified": 0.04,
+  "distinct_share": 0.685,
+  "mean_jaccard": 0.032187279343870515,
+  "repeated": [
+   [
+    "Mar adentro",
+    6
+   ],
+   [
+    "Nueve reinas",
+    5
+   ],
+   [
+    "Sin nombre",
+    5
+   ],
+   [
+    "El aura",
+    4
+   ],
+   [
+    "El topo",
+    4
+   ],
+   [
+    "Los cronocrímenes",
+    4
+   ],
+   [
+    "7 días en La Habana",
+    4
+   ],
+   [
+    "El Perro",
+    4
+   ]
+  ],
+  "fit_n": 176,
+  "fit_95": 0.4772727272727273,
+  "fit_below_90": 0.0,
+  "first5_n": 100,
+  "first5_95": 0.7,
+  "first5_below_90": 0.0,
+  "label": "Comprende (Qloo + subtitle coverage)",
+  "run_at": "2026-10-23T01:10:37+00:00"
  }
 }

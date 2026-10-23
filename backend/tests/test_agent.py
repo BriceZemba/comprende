@@ -53,7 +53,8 @@ def handler(request: httpx.Request):
         return httpx.Response(200, json={"results": {"entities": [
             ent("Q-EASY", "Easy", 0.7, [{"entity_id": "FAV-Breaking Bad", "score": 0.8}]),
             ent("Q-HARD", "Hard", 0.95, [{"entity_id": "FAV-Radiohead", "score": 0.6}]),
-            ent("Q-NEW", "Not measured", 0.9),
+            {**ent("Q-NEW", "Not measured", 0.9), "properties": {"country_of_origin": ["Mexico"]}},
+            ent("Q-UNKNOWN", "No language evidence", 0.99),  # unverifiable: dropped
         ]}})
     return httpx.Response(200, json={"results": {"entities": []}})
 
@@ -77,11 +78,11 @@ def test_fixed_plan_end_to_end(monkeypatch):
     assert out["buckets"]["watch_now"][0]["because"] == ["Breaking Bad"]
     assert [p["imdb"] for p in out["buckets"]["stretch"]] == ["tt3"]
     assert out["held_back"]["imdb"] == "tt2" and out["held_back"]["because"] == ["Radiohead"]
-    assert out["buckets"]["unmeasured"][0]["name"] == "Not measured"
+    assert [p["name"] for p in out["buckets"]["unmeasured"]] == ["Not measured"]
     assert any("Breaking Bad" in e["text"] for e in events if e["type"] == "step")
     # 2 searches + films (recommend, score) + series (recommend); no measured series, so no series scoring call;
-    # audio: tag lookups for artists (10 queries) and podcasts (3 queries) + 1 artist recommendation
-    assert out["qloo_calls"] == 5 + 10 + 3 + 1
+    # audio: tag lookups for artists (10 queries) + 1 artist recommendation; podcasts are off (no queries)
+    assert out["qloo_calls"] == 5 + 10 + 1
 
 
 def test_audio_lane_uses_only_tags_that_match_and_stays_empty_without_them(monkeypatch):
@@ -169,3 +170,40 @@ def test_qloo_outage_is_reported_not_disguised_as_no_match(monkeypatch):
 
     out = asyncio.run(go())
     assert out["qloo_unavailable"] is True and out["qloo_errors"] == ["QLOO_NO_KEY"]
+
+
+def test_english_coproductions_are_dropped_but_spanish_ones_kept(monkeypatch):
+    monkeypatch.setattr(agent_mod.config, "GEMINI_API_KEY", "")
+    agent_mod._AUDIO_TAG_CACHE.clear()
+
+    def h(request: httpx.Request):
+        p = dict(request.url.params)
+        if request.url.path == "/search":
+            return httpx.Response(200, json={"results": [{"entity_id": "FAV", "name": "Radiohead", "subtype": "urn:entity:artist"}]})
+        if request.url.path == "/v2/tags":
+            return httpx.Response(200, json={"results": {"tags": []}})
+        if p.get("filter.type") != "urn:entity:movie":
+            return httpx.Response(200, json={"results": {"entities": []}})
+        return httpx.Response(200, json={"results": {"entities": [
+            # English-language co-production with Spain: must be dropped
+            {"entity_id": "ENEMY", "name": "Enemy", "subtype": "urn:entity:movie", "query": {"affinity": 0.92},
+             "properties": {"country_of_origin": ["Canada", "Spain", "France"]}, "external": {"imdb": [{"id": "tt2316411"}]}},
+            # Spanish-original per Wikidata list, multinational: kept
+            {"entity_id": "MONOS", "name": "Monos", "subtype": "urn:entity:movie", "query": {"affinity": 0.86},
+             "properties": {"country_of_origin": ["Colombia", "Netherlands"]}, "external": {"imdb": [{"id": "tt6062774"}]}},
+            # Not in the list but every country is Spanish-speaking: kept
+            {"entity_id": "TOPO", "name": "El Topo", "subtype": "urn:entity:movie", "query": {"affinity": 0.86},
+             "properties": {"country_of_origin": ["Mexico"]}, "external": {"imdb": [{"id": "tt0067866"}]}},
+        ]}})
+
+    async def emit(e):
+        return None
+
+    async def go():
+        q = QlooClient(api_key="k", cache_dir=None, transport=httpx.MockTransport(h))
+        cat = Catalog([], spanish_ids={"tt6062774"})
+        return await agent_mod.ComprendeAgent(q, cat, emit).run("Radiohead", {}, 3000)
+
+    out = asyncio.run(go())
+    shown = {p["name"] for b in out["buckets"].values() for p in b}
+    assert shown == {"Monos", "El Topo"}

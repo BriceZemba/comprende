@@ -24,9 +24,13 @@ BLOCKLIST = {
     "pelotudez", "pelotudo", "boludo", "boludez", "huevón", "weón", "carajo",
 }
 
-# Removed after reading the generated list: an interjection ("chist"), and pseudowords that look
-# English or too close to a real form (a learner could rightly think they know them).
-REVIEWED_OUT = {"clang", "querillo", "camete", "chist"}
+# Removed after reading the generated list: an interjection ("chist"), forms that double as
+# conjugated verbs ("pisa", "remite"), an English word ("heavy"), a politically loaded term
+# ("montonero"), an outdated term considered offensive ("sordomudo"), and pseudowords that look
+# English, are real elsewhere ("sercial", a grape) or read as real words ("demismo"): a learner
+# could rightly think they know them.
+REVIEWED_OUT = {"clang", "querillo", "camete", "chist", "pisa", "remite", "heavy", "montonero",
+                "sordomudo", "sercial", "demismo"}
 
 
 def build_items(freq_rows, main_pos: dict[str, str], known_forms: set[str], seed: int = 7,
@@ -46,10 +50,12 @@ def build_items(freq_rows, main_pos: dict[str, str], known_forms: set[str], seed
             and lemma.isalpha()
             and lemma in known_forms  # the lemma itself is attested as a word, not a lemmatiser artefact
             and lemma not in BLOCKLIST
-            and lemma not in REVIEWED_OUT
             and (is_dictionary_word is None or is_word(lemma))
         ]
-        for lemma in rng.sample(pool, WORDS_PER_BAND):
+        # Shuffle the whole pool, then skip reviewed-out words: excluding one word replaces only that
+        # word instead of reshuffling the band.
+        chosen = [w for w in rng.sample(pool, len(pool)) if w not in REVIEWED_OUT][:WORDS_PER_BAND]
+        for lemma in chosen:
             real.append({"word": lemma, "real": True, "band": [lo, hi]})
     lexicon = {r[0] for r in freq_rows} | known_forms
     training = [r[0] for r in freq_rows[:8000] if r[0].isalpha() and len(r[0]) >= 4]

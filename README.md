@@ -33,9 +33,9 @@ The agent (Google Gemini with tool calling) plans these calls; a deterministic r
 
 | Claim | Result | Where |
 |---|---|---|
-| Titles measured from real subtitles | 1,513 Spanish-original films and series | `data/catalog_es.json` |
+| Titles measured from real subtitles | 1,483 Spanish-original films and series | `data/catalog_es.json` |
 | The difficulty measure behaves as published research predicts | Median title needs 3,000 lemmas for 95% coverage (Webb & Rodgers 2009: ~3,000 word families + proper nouns for English film) | `data/validation_es.md` |
-| A hypothesis that did not hold | Animation/family titles are **not** easier than dramas (94.0% vs 95.4% coverage at 3,000 lemmas) | `data/validation_es.md` |
+| A hypothesis that did not hold | Animation/family titles are **not** easier than dramas (94.1% vs 95.4% coverage at 3,000 lemmas) | `data/validation_es.md` |
 | A language model alone ignores level | Gemini, no Qloo, no subtitles, 20 profiles: of its 88 measured picks, 61.4% followable at the learner's level, 14.8% below 90% coverage | `eval/results/report.md` |
 | Comprende on the same profiles | `[FILL: after the live Qloo run]` | `eval/results/report.md` |
 
@@ -50,7 +50,7 @@ flowchart LR
   A -->|search, insights, tags, entities| Q[(Qloo API)]
   A -->|plans tool calls| G[Gemini]
   A --> R[Ranker: taste x comprehension]
-  C[(Coverage catalog: 1,513 titles)] --> R
+  C[(Coverage catalog: 1,483 titles)] --> R
   P[Offline pipeline: Wikidata titles + OPUS subtitles + lemmas] --> C
 ```
 

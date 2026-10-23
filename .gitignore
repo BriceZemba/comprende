@@ -25,3 +25,6 @@ Thumbs.db
 
 # Vercel CLI project links
 .vercel/
+
+# Raw Qloo responses from live checks (not redistributed)
+backend/tests/fixtures/live/

@@ -2,17 +2,20 @@
 
 20 fixed taste profiles (`eval/profiles.json`), 10 titles requested per profile.
 
-| Metric | Gemini alone (no Qloo, no subtitles) |
-|---|---|
-| Titles returned | 200 |
-| Verified Spanish-original | 86.5% |
-| Real title, not originally Spanish | 1.5% |
-| Not verified automatically (not proof of invention) | 12.0% |
-| Distinct titles / all titles | 56.0% |
-| Mean overlap between profiles (Jaccard) | 0.08 |
-| Titles with measured dialogue | 88 |
-| …of which followable (≥ 95% coverage at the profile's level) | 61.4% |
-| …of which too hard (< 90% coverage) | 14.8% |
+| Metric | Gemini alone (no Qloo, no subtitles) | Comprende without Qloo (popularity instead of taste) | Comprende (Qloo + subtitle coverage) |
+|---|---|---|---|
+| Titles returned | 200 | 200 | 200 |
+| Verified Spanish-original | 86.5% | 100.0% | 95.0% |
+| Real title, not originally Spanish | 1.5% | 0.0% | 1.0% |
+| Not verified automatically (not proof of invention) | 12.0% | 0.0% | 4.0% |
+| Distinct titles / all titles | 56.0% | 8.0% | 68.5% |
+| Mean overlap between profiles (Jaccard) | 0.08 | 0.66 | 0.03 |
+| Titles with measured dialogue | 88 | 200 | 176 |
+| …of which followable (≥ 95% coverage at the profile's level) | 61.4% | 48.0% | 47.7% |
+| …of which too hard (< 90% coverage) | 14.8% | 6.0% | 0.0% |
+| First five picks with measured dialogue | 50 | 100 | 100 |
+| …of which followable (≥ 95%) | 60.0% | 82.0% | 70.0% |
+| …of which too hard (< 90%) | 14.0% | 0.0% | 0.0% |
 
 ## Gemini alone (no Qloo, no subtitles)
 
@@ -23,3 +26,20 @@ Most repeated titles: La casa de papel (12/20); Gran Hotel (8/20); El secreto de
 Not originally Spanish: Atrapa la bandera; La Rueda del Tiempo; Los Otros.
 
 Not verified automatically (a title being here does not mean it is invented; still to check by hand): Amor con fianza; América Salvaje; Ana y los siete; Bronca; Cantajuego; Crimen organizado; El Camino de Santiago; El marginal; España Salvaje; Flow Calle; Narcos: Mexico; Narcos: México; Nuestra Tierra; OT: El Reencuentro; Otro Trago; Pacífico; Panama; Patagonia; Platino; Ritmo Salvaje; Señor dame paciencia; Sucesor; Superlópez; Zip y Zape y el club de la canica.
+
+## Comprende without Qloo (popularity instead of taste)
+
+Run at 2026-10-23T01:12:18+00:00; model(s): -.
+
+Most repeated titles: Hable con ella (20/20); Volver (20/20); Mar adentro (20/20); La casa de papel (20/20); El laberinto del fauno (20/20); El secreto de sus ojos (15/20); La mala educación (15/20); Relatos salvajes (15/20).
+
+
+## Comprende (Qloo + subtitle coverage)
+
+Run at 2026-10-23T01:10:37+00:00; model(s): -.
+
+Most repeated titles: Mar adentro (6/20); Nueve reinas (5/20); Sin nombre (5/20); El aura (4/20); El topo (4/20); Los cronocrímenes (4/20); 7 días en La Habana (4/20); El Perro (4/20).
+
+Not originally Spanish: MasterChef Junior; Welcome to the Family.
+
+Not verified automatically (a title being here does not mean it is invented; still to check by hand): Crystal Fairy & the Magical Cactus; David the Gnome; FC Barcelona: A New Era; Matchday: Inside FC Barcelona; O sabor das margaridas; Society of the Snow: Who Were We on the Mountain?; Villainous; Wild Angel.

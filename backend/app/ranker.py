@@ -31,8 +31,19 @@ def _bucket(fit: str | None) -> str:
         fit or "", "unmeasured")
 
 
+def _lift(c: Candidate, typical: float | None) -> float | None:
+    """How much more this title fits this learner than it fits a typical taste. Qloo gives some
+    titles a high affinity for almost everyone; ranking by lift keeps lists personal."""
+    if c.affinity is None:
+        return None
+    base = c.measured.taste_baseline if c.measured and c.measured.taste_baseline is not None else typical
+    return round(c.affinity - base, 4) if base is not None else None
+
+
 def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) -> dict:
-    """Group candidates by how much of the dialogue the learner can follow, best taste match first."""
+    """Group candidates by how much of the dialogue the learner can follow, most personal taste match first."""
+    bases = [c.measured.taste_baseline for c in candidates if c.measured and c.measured.taste_baseline is not None]
+    typical = sum(bases) / len(bases) if bases else None
     seen, picks = set(), []
     for c in candidates:
         key = c.measured.imdb if c.measured else (c.qloo_id or c.name.lower())
@@ -52,6 +63,7 @@ def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) ->
             "image": c.image,
             "description": c.description,
             "affinity": c.affinity,
+            "lift": _lift(c, typical),
             "popularity": c.popularity,
             "because": c.because,
             "coverage": round(cov, 4) if cov is not None else None,
@@ -63,12 +75,13 @@ def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) ->
         })
 
     def taste(p):
-        return (p["affinity"] if p["affinity"] is not None else -1, p["popularity"] or 0)
+        key = p["lift"] if p["lift"] is not None else (p["affinity"] - 1 if p["affinity"] is not None else -9)
+        return (key, p["affinity"] or 0)
 
     # Every measured candidate with a taste score goes on the map; the browser recomputes coverage
     # from the stored curve as the learner moves the vocabulary slider.
     taste_map = [{"key": p["imdb"], "name": p["name"], "kind": p["kind"], "year": p["year"],
-                  "affinity": p["affinity"], "because": p["because"], "curve": p["_curve"]}
+                  "affinity": p["affinity"], "lift": p["lift"], "because": p["because"], "curve": p["_curve"]}
                  for p in picks if p["_curve"] is not None and p["affinity"] is not None]
     for p in picks:
         p.pop("_curve")
@@ -78,8 +91,8 @@ def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) ->
     # Only when it is a genuinely strong match (affinity at or above the median of all candidates).
     later = [p for p in picks if p["bucket"] == "later"]
     held_back = max(later, key=taste) if later else None
-    affinities = sorted(p["affinity"] for p in picks if p["affinity"] is not None)
-    if held_back and affinities and (held_back["affinity"] or 0) < affinities[len(affinities) // 2]:
+    keys = sorted(taste(p) for p in picks)
+    if held_back and keys and taste(held_back) < keys[len(keys) // 2]:
         held_back = None
     measured = [p for p in picks if p["coverage"] is not None]
     return {

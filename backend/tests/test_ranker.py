@@ -69,3 +69,14 @@ def test_map_holds_every_measured_scored_title_with_its_curve():
     assert len(keys) == 20 and "tt99" not in keys          # uncapped, but only titles Qloo scored
     assert all(len(t["curve"]) == len(out["map"]["grid"]) for t in out["map"]["titles"])
     assert all("_curve" not in p for b in out["buckets"].values() for p in b)
+
+
+def test_lift_ranks_personal_match_above_generically_high_title():
+    generic = measured("tt1", 0.97, 2000)
+    generic.taste_baseline = 0.85        # scores ~0.85 for almost everyone
+    personal = measured("tt2", 0.97, 2000)
+    personal.taste_baseline = 0.60       # usually low, high for this learner
+    out = rank([Candidate("g", "Generic", "film", affinity=0.86, measured=generic),
+                Candidate("p", "Personal", "film", affinity=0.80, measured=personal)], vocab_size=3000)
+    assert [p["imdb"] for p in out["buckets"]["watch_now"]] == ["tt2", "tt1"]
+    assert out["buckets"]["watch_now"][0]["lift"] == 0.2

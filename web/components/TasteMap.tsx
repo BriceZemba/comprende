@@ -9,6 +9,7 @@ export interface MapTitle {
   kind: "film" | "series";
   year: number | null;
   affinity: number;
+  lift: number | null; // affinity for this learner minus the title's average across reference tastes
   because: string[];
   curve: number[];
 }
@@ -40,8 +41,11 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
   const [v, setV] = useState(vocab);
   const [focus, setFocus] = useState<string | null>(null);
 
+  // Horizontal position: how much more the title fits this learner than a typical taste (lift);
+  // raw affinity would put the same generally liked titles on the right for everyone.
+  const tasteOf = (t: MapTitle) => t.lift ?? t.affinity;
   const [aMin, aMax] = useMemo(() => {
-    const a = titles.map((t) => t.affinity);
+    const a = titles.map(tasteOf);
     const lo = Math.min(...a), hi = Math.max(...a);
     const pad = Math.max(0.01, (hi - lo) * 0.08);
     return [lo - pad, hi + pad];
@@ -58,7 +62,7 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
   points.forEach((p) => counts[p.zone]++);
   // Direct labels for the three strongest taste matches, staggered so they do not collide, and
   // anchored leftwards near the right edge so they stay inside the plot.
-  const topTaste = new Map([...points].sort((a, b) => b.affinity - a.affinity).slice(0, 3).map((p, i) => [p.key, i]));
+  const topTaste = new Map([...points].sort((a, b) => tasteOf(b) - tasteOf(a)).slice(0, 3).map((p, i) => [p.key, i]));
   const focused = points.find((p) => p.key === focus);
 
   if (titles.length < 3) return null;
@@ -67,8 +71,8 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
     <section className="rise mt-10" aria-labelledby="map-title">
       <h3 id="map-title" className="font-display text-2xl">Taste × comprehension</h3>
       <p className="mt-1 max-w-2xl text-sm text-muted">
-        Each dot is a Spanish title we measured. Right means a stronger match for your taste (Qloo). Up means more of the
-        words you&apos;d know. Move the slider to see what opens up as your vocabulary grows.
+        Each dot is a Spanish title we measured. Right means it fits your taste more than it fits most people&apos;s
+        (Qloo). Up means more of the words you&apos;d know. Move the slider to see what opens up as your vocabulary grows.
       </p>
 
       <div className="relative mt-4 rounded-3xl border border-line bg-card p-3 sm:p-5">
@@ -93,20 +97,20 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
           <text x={14} y={T + (H - T - B) / 2} transform={`rotate(-90 14 ${T + (H - T - B) / 2})`} textAnchor="middle" className="fill-muted text-[11px]">Words you&apos;d know</text>
           {/* x axis */}
           <line x1={L} x2={W - R} y1={H - B} y2={H - B} className="stroke-line" />
-          <text x={L} y={H - B + 18} className="fill-muted text-[11px]">weaker match</text>
-          <text x={W - R} y={H - B + 18} textAnchor="end" className="fill-muted text-[11px]">stronger match</text>
-          <text x={L + (W - L - R) / 2} y={H - 12} textAnchor="middle" className="fill-muted text-[11px]">Taste match (Qloo affinity)</text>
+          <text x={L} y={H - B + 18} className="fill-muted text-[11px]">less yours</text>
+          <text x={W - R} y={H - B + 18} textAnchor="end" className="fill-muted text-[11px]">more yours</text>
+          <text x={L + (W - L - R) / 2} y={H - 12} textAnchor="middle" className="fill-muted text-[11px]">Match for you, compared with a typical viewer (Qloo)</text>
           {/* dots */}
           {points.map((p) => (
             <g key={p.key} className="cursor-pointer outline-none transition-transform duration-300 ease-out motion-reduce:transition-none"
-              style={{ transform: `translate(${x(p.affinity)}px, ${y(p.c)}px)` }}
+              style={{ transform: `translate(${x(tasteOf(p))}px, ${y(p.c)}px)` }}
               tabIndex={0} role="button" aria-label={`${p.name}: ${pctFloor(p.c)} of words, ${ZONE_LABEL[p.zone]}`}
               onMouseEnter={() => setFocus(p.key)} onFocus={() => setFocus(p.key)} onClick={() => setFocus(p.key)}>
               <circle r={14} fill="transparent" />
               <Marker zone={p.zone} />
               {topTaste.has(p.key) && (() => {
                 const i = topTaste.get(p.key) ?? 0;
-                const right = x(p.affinity) > L + (W - L - R) * 0.6;
+                const right = x(tasteOf(p)) > L + (W - L - R) * 0.6;
                 return (
                   <text x={right ? -10 : 10} y={[-12, 20, -26][i]} textAnchor={right ? "end" : "start"}
                     className="pointer-events-none fill-ink stroke-card text-[11px] font-medium [paint-order:stroke] [stroke-width:3px]">

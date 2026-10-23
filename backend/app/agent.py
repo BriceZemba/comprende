@@ -29,8 +29,12 @@ KINDS = {"movie": "urn:entity:movie", "tv_show": "urn:entity:tv_show", "artist":
 AUDIO_TAG_QUERIES = {
     "artist": ["latin", "reggaeton", "spanish", "flamenco", "salsa", "cumbia", "bachata", "en español",
                "regional mexican", "rock en espanol"],
-    "podcast": ["spanish", "español", "latino"],
+    # Podcasts: Qloo's "Spanish" podcast tags are topics (Spanish history, Spanish civil war), not the
+    # language of the show, so podcasts are left out rather than risk English shows about Spain.
+    "podcast": [],
 }
+# Instrumental genres do not help listening practice.
+INSTRUMENTAL_WORDS = ("guitar", "jazz", "house", "chill", "instrumental")
 AUDIO_TAG_TYPES = {"artist": ["urn:tag:genre:music"], "podcast": ["urn:tag:genre:media"]}
 MAX_TURNS = 10
 # Latency budget for the model: per call, and for the whole planning phase. Past it, the run
@@ -119,6 +123,17 @@ TOOLS = [
 _AUDIO_TAG_CACHE: dict[str, list[dict]] = {}
 
 
+def _because(e: Entity, favourites: dict[str, str]) -> list[str]:
+    """The one or two favourites Qloo says contributed most to this pick (explainability score)."""
+    scored = sorted(((x.get("score") or 0, favourites[x["entity_id"]]) for x in e.explainability
+                     if x.get("entity_id") in favourites and (x.get("score") or 0) >= 0.1), reverse=True)
+    return [name for _, name in scored[:2] if name]
+
+
+def _imdb_ids(e: Entity) -> list[str]:
+    return [x.get("id") for x in (e.external.get("imdb") or []) if isinstance(x, dict) and x.get("id")]
+
+
 @dataclass
 class Session:
     vocab_size: int
@@ -159,10 +174,12 @@ class ComprendeAgent:
             "filter.release_country": SPANISH_RELEASE_COUNTRIES, "operator.filter.release_country": "union",
             "feature.explainability": True, "take": 40,
         })
-        added = self._add(s, rows, kind)
+        spanish = [r for r in rows if self.catalog.match(r.entity_id, _imdb_ids(r))
+                   or self.catalog.is_spanish_original(_imdb_ids(r), r.countries)]
+        added = self._add(s, spanish, kind)
         measured = sum(1 for c in added if c.measured)
-        return {"returned": len(rows), "with_measured_difficulty": measured,
-                "top": [c.name for c in added[:8]]}
+        return {"returned": len(rows), "dropped_not_spanish_original": len(rows) - len(spanish),
+                "with_measured_difficulty": measured, "top": [c.name for c in added[:8]]}
 
     async def score_measured_titles(self, s: Session, signal_entity_ids: list[str], kind: str) -> dict:
         label = "films" if kind == "movie" else "series"
@@ -200,8 +217,7 @@ class ComprendeAgent:
         for r in rows:
             if r.entity_id in seen or r.entity_id in s.excluded or r.entity_id in s.favourites                     or r.name.lower() in {n.lower() for n in s.favourites.values()}:
                 continue  # never hand a favourite back as a recommendation
-            because = [s.favourites.get(e.get("entity_id"), "") for e in r.explainability
-                       if (e.get("score") or 0) >= 0.1 and e.get("entity_id") in s.favourites]
+            because = _because(r, s.favourites)
             s.listen.append({"qloo_id": r.entity_id, "name": r.name, "kind": kind, "image": r.image,
                              "description": r.description, "affinity": r.affinity, "because": [b for b in because if b],
                              "spanish_tags": [tag_names[t["id"]] for t in r.tags if t.get("id") in tag_names]})
@@ -215,7 +231,7 @@ class ComprendeAgent:
             for t in await self.qloo.tags(q, AUDIO_TAG_TYPES[kind], take=10):
                 words = q.replace("ñ", "n").split()
                 name = t["name"].lower().replace("ñ", "n")
-                if all(w.replace("ñ", "n") in name for w in words):
+                if all(w.replace("ñ", "n") in name for w in words) and not any(x in name for x in INSTRUMENTAL_WORDS):
                     found[t["id"]] = t
         _AUDIO_TAG_CACHE[kind] = list(found.values())
         return _AUDIO_TAG_CACHE[kind]
@@ -241,9 +257,8 @@ class ComprendeAgent:
     def _add(self, s: Session, rows: list[Entity], kind: str) -> list[Candidate]:
         out = []
         for r in rows:
-            imdb = [x.get("id") for x in (r.external.get("imdb") or []) if isinstance(x, dict)]
-            because = [s.favourites.get(e.get("entity_id"), "") for e in r.explainability
-                       if (e.get("score") or 0) >= 0.1 and e.get("entity_id") in s.favourites]
+            imdb = _imdb_ids(r)
+            because = _because(r, s.favourites)
             c = Candidate(qloo_id=r.entity_id, name=r.name, kind="film" if kind == "movie" else "series",
                           year=r.year, image=r.image, description=r.description, affinity=r.affinity,
                           popularity=r.popularity, because=[b for b in because if b],
