@@ -155,7 +155,8 @@ class ComprendeAgent:
     # ---- tools ---------------------------------------------------------------
 
     async def find_entity(self, s: Session, query: str, kind: str | None = None) -> dict:
-        await self.emit({"type": "step", "tool": "find_entity", "text": f"Looking up “{query}” in Qloo"})
+        await self.emit({"type": "step", "tool": "find_entity", "text": f"Looking up “{query}” in Qloo",
+                         "data": {"query": query}})
         types = [KINDS[kind]] if kind in KINDS else None
         rows = await self.qloo.search(query, types, take=5)
         if not rows and types:
@@ -168,7 +169,8 @@ class ComprendeAgent:
     async def recommend_spanish_titles(self, s: Session, signal_entity_ids: list[str], kind: str) -> dict:
         label = "films" if kind == "movie" else "series"
         await self.emit({"type": "step", "tool": "recommend_spanish_titles",
-                         "text": f"Asking Qloo for Spanish-language {label} that match your taste"})
+                         "text": f"Asking Qloo for Spanish-language {label} that match your taste",
+                         "data": {"kind": kind}})
         self._remember(s, signal_entity_ids)
         rows = await self.qloo.insights(**{
             "filter.type": KINDS[kind], "signal.interests.entities": signal_entity_ids,
@@ -190,7 +192,8 @@ class ComprendeAgent:
         if not ids:
             return {"scored": 0, "top": [], "note": f"no measured {label} are mapped to Qloo yet"}
         await self.emit({"type": "step", "tool": "score_measured_titles",
-                         "text": f"Scoring {len(ids)} {label} with measured dialogue against your taste"})
+                         "text": f"Scoring {len(ids)} {label} with measured dialogue against your taste",
+                         "data": {"kind": kind, "count": len(ids)}})
         self._remember(s, signal_entity_ids)
         rows: list[Entity] = []
         for i in range(0, len(ids), 50):
@@ -206,7 +209,8 @@ class ComprendeAgent:
             return {"returned": 0, "note": f"{kind} recommendations are not available"}
         label = "music" if kind == "artist" else "podcasts"
         await self.emit({"type": "step", "tool": "recommend_spanish_audio",
-                         "text": f"Asking Qloo for Spanish-language {label} that {'matches' if kind == 'artist' else 'match'} your taste"})
+                         "text": f"Asking Qloo for Spanish-language {label} that {'matches' if kind == 'artist' else 'match'} your taste",
+                         "data": {"kind": kind}})
         self._remember(s, signal_entity_ids)
         tags = await self._audio_tags(kind)
         if not tags:
@@ -242,7 +246,8 @@ class ComprendeAgent:
 
     async def rank_for_learner(self, s: Session) -> dict:
         await self.emit({"type": "step", "tool": "rank_for_learner",
-                         "text": f"Checking each title's dialogue against your ~{s.vocab_size:,} words"})
+                         "text": f"Checking each title's dialogue against your ~{s.vocab_size:,} words",
+                         "data": {"vocab": s.vocab_size}})
         s.result = rank([c for c in s.candidates if (c.qloo_id or "") not in s.excluded], s.vocab_size)
         b = s.result["buckets"]
         return {
@@ -281,7 +286,8 @@ class ComprendeAgent:
             return await fn(s, **args)
         except QlooError as e:
             self.qloo_errors.append(e.code)
-            await self.emit({"type": "warning", "text": f"Qloo did not answer ({e.code})"})
+            await self.emit({"type": "warning", "code": "qloo", "data": {"code": e.code},
+                             "text": f"Qloo did not answer ({e.code})"})
             return {"error": e.code, "retryable": e.retryable}
 
     # ---- runs ----------------------------------------------------------------
@@ -289,6 +295,8 @@ class ComprendeAgent:
     async def run(self, favourites_text: str, favourite_ids: dict[str, str], vocab_size: int,
                   exclude_ids: list[str] | None = None) -> dict:
         s = Session(vocab_size=vocab_size, favourites=dict(favourite_ids), excluded=set(exclude_ids or []))
+        # The client is shared by all runs in this process; count only this run's requests.
+        requests_before = self.qloo.calls + self.qloo.cached
         mode = "agent"
         if config.GEMINI_API_KEY:
             try:
@@ -296,7 +304,8 @@ class ComprendeAgent:
             except Exception as e:  # outage, quota or too slow: fall back, never leave the learner with nothing
                 why = ("is slow right now" if isinstance(e, TimeoutError)
                        else f"is unavailable ({type(e).__name__})")
-                await self.emit({"type": "warning", "text": f"The language model {why}; finishing with the fixed plan"})
+                await self.emit({"type": "warning", "code": "fallback", "data": {"slow": isinstance(e, TimeoutError)},
+                                 "text": f"The language model {why}; finishing with the fixed plan"})
                 mode = "fallback"
                 await self._run_fixed(s, favourites_text)
         else:
@@ -305,7 +314,8 @@ class ComprendeAgent:
         if s.result is None:
             await self.rank_for_learner(s)
         listen = sorted(s.listen, key=lambda x: -(x["affinity"] or 0))
-        return {"mode": mode, "model": self.model_used, "favourites": s.favourites, "qloo_calls": self.qloo.calls,
+        return {"mode": mode, "model": self.model_used, "favourites": s.favourites,
+                "qloo_calls": self.qloo.calls + self.qloo.cached - requests_before,
                 "qloo_errors": sorted(set(self.qloo_errors)), "qloo_unavailable": bool(self.qloo_errors) and not s.candidates,
                 "listen": {"artists": [x for x in listen if x["kind"] == "artist"][:8],
                            "podcasts": [x for x in listen if x["kind"] == "podcast"][:6]},
@@ -343,13 +353,15 @@ class ComprendeAgent:
                 return resp
             except asyncio.TimeoutError:
                 if len(models) > 1 and self.deadline - time.monotonic() > 3:
-                    await self.emit({"type": "warning", "text": f"{models[0]} is slow, switching to {models[1]}"})
+                    await self.emit({"type": "warning", "code": "model_slow", "data": {"from": models[0], "to": models[1]},
+                                      "text": f"{models[0]} is slow, switching to {models[1]}"})
                     models.pop(0)
                     continue
                 raise TimeoutError("model too slow") from None
             except errors.APIError as e:
                 if e.code in (429, 503) and len(models) > 1:
-                    await self.emit({"type": "warning", "text": f"{models[0]} is busy, switching to {models[1]}"})
+                    await self.emit({"type": "warning", "code": "model_busy", "data": {"from": models[0], "to": models[1]},
+                                      "text": f"{models[0]} is busy, switching to {models[1]}"})
                     models.pop(0)
                     continue
                 raise

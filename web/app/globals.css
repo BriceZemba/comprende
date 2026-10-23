@@ -18,10 +18,34 @@
   --dot-watch: #0b8068;
   --dot-stretch: #b4720f;
   --dot-later: #b0306f;
+  color-scheme: light;
+}
+
+/* Dark theme: chosen explicitly (data-theme="dark"), or by the device when nothing was chosen.
+   The two blocks hold the same values; keep them in sync. */
+:root[data-theme="dark"] {
+  --paper: #15120f;
+  --card: #1f1a16;
+  --ink: #f3ece3;
+  --muted: #a89c90;
+  --line: #342c25;
+  --accent: #e0674b;
+  --accent-ink: #15120f;
+  --good: #6fbfa9;
+  --good-soft: #1f302b;
+  --warn: #e2a64a;
+  --warn-soft: #33281a;
+  --later: #d495b5;
+  --later-soft: #33222b;
+  /* validated on --card (dark) */
+  --dot-watch: #25a07f;
+  --dot-stretch: #c27f14;
+  --dot-later: #cc5c98;
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --paper: #15120f;
     --card: #1f1a16;
     --ink: #f3ece3;
@@ -39,6 +63,7 @@
     --dot-watch: #25a07f;
     --dot-stretch: #c27f14;
     --dot-later: #cc5c98;
+    color-scheme: dark;
   }
 }
 

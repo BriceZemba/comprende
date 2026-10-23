@@ -6,16 +6,18 @@ import HeroPreview from "@/components/HeroPreview";
 import FavouritesStep, { type Favourite } from "@/components/FavouritesStep";
 import LevelStep from "@/components/LevelStep";
 import Results, { pickKey, type Feedback } from "@/components/Results";
+import Header from "@/components/Header";
 import { runAgent, type AgentEvent, type RunResult } from "@/lib/api";
+import { useI18n } from "@/lib/i18n";
 
 type Stage = "intro" | "favourites" | "level" | "run" | "results";
 interface Proof { titles: number; ours: number; llm: number; personal: number; noQloo: number }
-const pct1 = (x: number) => `${(x * 100).toFixed(1)}%`;
 const EXAMPLE: Favourite[] = [
   { id: null, name: "Breaking Bad" }, { id: null, name: "Bad Bunny" }, { id: null, name: "The Legend of Zelda" },
 ];
 
 export default function Home() {
+  const { t, f } = useI18n();
   const [stage, setStage] = useState<Stage>("intro");
   const [favourites, setFavourites] = useState<Favourite[]>([]);
   const [events, setEvents] = useState<AgentEvent[]>([]);
@@ -78,9 +80,9 @@ export default function Home() {
     const exclude = [...new Set([...excluded, ...Object.keys(feedback)])];
     const v = hard.length ? Math.round((vocab * 0.8) / 50) * 50 : vocab;
     const parts = [];
-    if (loved.length) parts.push(`added ${loved.map((p) => p.name).join(", ")} to your taste`);
-    if (hard.length) parts.push(`lowered your level from about ${vocab.toLocaleString()} to ${v.toLocaleString()} words because ${hard.map((p) => p.name).join(", ")} felt too hard`);
-    setNote(parts.length ? `Updated: ${parts.join("; ")}.` : null);
+    if (loved.length) parts.push(t.res.added(loved.map((p) => p.name).join(", ")));
+    if (hard.length) parts.push(t.res.lowered(f.int(vocab), f.int(v), hard.map((p) => p.name).join(", ")));
+    setNote(parts.length ? t.res.updated(parts) : null);
     setFavourites(favs); setExcluded(exclude);
     start(v, favs, exclude);
   };
@@ -89,18 +91,13 @@ export default function Home() {
     <main className="mx-auto max-w-5xl px-4 pb-24 sm:px-8">
       {fake && (
         <p className="mt-3 rounded-xl bg-accent px-4 py-2 text-center text-sm font-medium text-accent-ink">
-          Development mode: taste scores are fake placeholders, not Qloo data.
+          {t.devBanner}
         </p>
       )}
-      <header className="flex items-center justify-between py-6">
-        <button type="button" onClick={() => go("intro")} className="font-display text-2xl">comprende</button>
-        <nav className="flex gap-5 whitespace-nowrap text-sm text-muted">
-          <a href="#how" className="hidden hover:text-ink sm:inline">How it works</a>
-          <a href="/method" className="hover:text-ink">
-            Method<span className="hidden sm:inline"> &amp; evidence</span>
-          </a>
-        </nav>
-      </header>
+      <Header onLogo={() => go("intro")} nav={<>
+        <a href="#how" className="hover:text-ink">{t.nav.how}</a>
+        <a href="/method" className="hover:text-ink">{t.nav.method}</a>
+      </>} />
       <div ref={top} className="scroll-mt-4" />
 
       {stage === "intro" && (
@@ -108,43 +105,41 @@ export default function Home() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.25fr_1fr]">
             <div>
               <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
-                Spanish you&apos;ll <em className="text-accent">love</em>, at a level you&apos;ll <em className="text-accent">understand</em>.
+                {t.intro.title((s) => <em className="text-accent">{s}</em>, (s) => <em className="text-accent">{s}</em>)}
               </h1>
               <p className="mt-6 max-w-2xl text-lg text-muted">
-                Learners quit native shows when they are boring or impossible to follow. Comprende starts from what you
-                already love, uses the Qloo taste graph to find Spanish films and series with the same feel, and checks
-                each one&apos;s dialogue against the words you know.
+                {t.intro.lead}
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <button type="button" onClick={() => go("favourites")}
                   className="rounded-full bg-accent px-7 py-4 text-lg font-medium text-accent-ink shadow-sm hover:brightness-110">
-                  Find my first Spanish show →
+                  {t.intro.start}
                 </button>
                 <button type="button" onClick={() => { setFavourites(EXAMPLE); setExcluded([]); setNote(null); start(3000, EXAMPLE, []); }}
                   className="rounded-full border border-line bg-card px-6 py-4 text-lg hover:border-accent">
-                  Try an example
+                  {t.intro.example}
                 </button>
               </div>
-              <p className="mt-3 text-sm text-muted">Two minutes. No sign-up. The example runs for a fan of Breaking Bad, Bad Bunny and Zelda.</p>
+              <p className="mt-3 text-sm text-muted">{t.intro.sub}</p>
             </div>
             <HeroPreview />
           </div>
           {proof && (
             <dl className="mt-14 grid gap-4 border-t border-line pt-8 sm:grid-cols-3">
               <div>
-                <dt className="text-sm text-muted">Spanish films and series measured from real subtitles</dt>
-                <dd className="font-display text-4xl">{proof.titles.toLocaleString()}</dd>
+                <dt className="text-sm text-muted">{t.intro.proofTitles}</dt>
+                <dd className="font-display text-4xl">{f.int(proof.titles)}</dd>
               </div>
               <div>
-                <dt className="text-sm text-muted">First picks the learner could barely follow (a chatbot alone: {pct1(proof.llm)})</dt>
-                <dd className="font-display text-4xl">{pct1(proof.ours)}</dd>
+                <dt className="text-sm text-muted">{t.intro.proofFirst(f.pct1(proof.llm))}</dt>
+                <dd className="font-display text-4xl">{f.pct1(proof.ours)}</dd>
               </div>
               <div>
-                <dt className="text-sm text-muted">Different titles across 20 learners (without Qloo: {pct1(proof.noQloo)})</dt>
-                <dd className="font-display text-4xl">{pct1(proof.personal)}</dd>
+                <dt className="text-sm text-muted">{t.intro.proofPersonal(f.pct1(proof.noQloo))}</dt>
+                <dd className="font-display text-4xl">{f.pct1(proof.personal)}</dd>
               </div>
               <p className="text-xs text-muted sm:col-span-3">
-                From our evaluation on 20 fixed taste profiles. <a href="/method" className="underline">How we measured it</a>.
+                {t.intro.proofFoot} <a href="/method" className="underline">{t.intro.proofLink}</a>.
               </p>
             </dl>
           )}
@@ -159,7 +154,7 @@ export default function Home() {
           {error && (
             <div className="mt-6 max-w-xl rounded-2xl bg-warn-soft p-5">
               <p>{error}</p>
-              <button type="button" onClick={() => go("level")} className="mt-3 underline">Try again</button>
+              <button type="button" onClick={() => go("level")} className="mt-3 underline">{t.run.tryAgain}</button>
             </div>
           )}
         </>
@@ -167,7 +162,7 @@ export default function Home() {
       {stage === "results" && result && (
         <>
           <details className="mb-8 max-w-xl text-sm text-muted">
-            <summary className="cursor-pointer">What the agent did ({events.filter((e) => e.type === "step").length} steps)</summary>
+            <summary className="cursor-pointer">{t.run.steps(events.filter((e) => e.type === "step").length)}</summary>
             <AgentRun events={events} running={false} />
           </details>
           <Results
@@ -187,42 +182,25 @@ export default function Home() {
       )}
 
       <section id="how" className="mt-28 border-t border-line pt-12">
-        <h2 className="font-display text-3xl">How it works</h2>
+        <h2 className="font-display text-3xl">{t.how.title}</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-3">
-          <div>
-            <p className="font-display text-xl">1 · Taste, from Qloo</p>
-            <p className="mt-2 text-muted">
-              Your favourites, from any domain, become signals in Qloo&apos;s taste graph. Qloo returns films and series
-              released in Spanish-speaking countries that people with your taste love, and says which favourite drove
-              each match.
-            </p>
-          </div>
-          <div>
-            <p className="font-display text-xl">2 · Difficulty, from real subtitles</p>
-            <p className="mt-2 text-muted">
-              For each Spanish-original title we have subtitles for, we measured the share of words a learner with a
-              given vocabulary would know. Research on listening and reading puts comfortable comprehension near 95–98%.
-            </p>
-          </div>
-          <div>
-            <p className="font-display text-xl">3 · An agent that holds back</p>
-            <p className="mt-2 text-muted">
-              The agent ranks by both, and keeps the title you&apos;d love most but can&apos;t follow yet for later,
-              instead of setting you up to quit.
-            </p>
-          </div>
+          {([[t.how.c1t, t.how.c1], [t.how.c2t, t.how.c2], [t.how.c3t, t.how.c3]] as const).map(([title, body]) => (
+            <div key={title}>
+              <p className="font-display text-xl">{title}</p>
+              <p className="mt-2 text-muted">{body}</p>
+            </div>
+          ))}
         </div>
         <p className="mt-8 text-sm text-muted">
-          Taste data: Qloo. Titles: Wikidata. Subtitles: OPUS OpenSubtitles corpus (Lison &amp; Tiedemann 2016), from{" "}
-          <a className="underline" href="https://www.opensubtitles.org/">opensubtitles.org</a>. Only word counts are kept.
+          {t.how.credits(<a className="underline" href="https://www.opensubtitles.org/">opensubtitles.org</a>)}
         </p>
       </section>
 
       <footer className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6 text-sm text-muted">
-        <p>Comprende · built for the Qloo Agentic Hackathon 2026</p>
+        <p>{t.footer.built}</p>
         <nav className="flex gap-5">
-          <a href="/method" className="hover:text-ink">Method &amp; evidence</a>
-          <a href="https://github.com/BriceZemba/comprende" className="hover:text-ink">Source code</a>
+          <a href="/method" className="hover:text-ink">{t.nav.method}</a>
+          <a href="https://github.com/BriceZemba/comprende" className="hover:text-ink">{t.footer.source}</a>
         </nav>
       </footer>
     </main>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { searchEntities, type SearchHit } from "@/lib/api";
+import { useI18n } from "@/lib/i18n";
 
 export interface Favourite {
   id: string | null; // Qloo entity id when picked from search; null when typed freely
@@ -10,16 +11,14 @@ export interface Favourite {
 }
 
 const EXAMPLES = ["Breaking Bad", "Bad Bunny", "The Legend of Zelda", "Taylor Swift", "Harry Potter", "Stranger Things"];
-const KIND_LABEL: Record<string, string> = {
-  tv_show: "TV show", movie: "Film", artist: "Music", book: "Book", videogame: "Game",
-  podcast: "Podcast", brand: "Brand", person: "Person", place: "Place",
-};
 
 export default function FavouritesStep({ value, onChange, onNext }: {
   value: Favourite[];
   onChange: (f: Favourite[]) => void;
   onNext: () => void;
 }) {
+  const { t } = useI18n();
+  const KIND_LABEL = t.fav.kinds;
   const [query, setQuery] = useState("");
   const [hits, setHits] = useState<SearchHit[]>([]);
   const [open, setOpen] = useState(false);
@@ -47,11 +46,10 @@ export default function FavouritesStep({ value, onChange, onNext }: {
 
   return (
     <section className="rise">
-      <p className="text-sm font-medium uppercase tracking-wider text-accent">Step 1 of 2</p>
-      <h2 className="font-display mt-1 text-3xl sm:text-4xl">What do you already love?</h2>
+      <p className="text-sm font-medium uppercase tracking-wider text-accent">{t.fav.step}</p>
+      <h2 className="font-display mt-1 text-3xl sm:text-4xl">{t.fav.title}</h2>
       <p className="mt-2 max-w-xl text-muted">
-        Shows, films, music, books, games, in any language. Three is enough. Comprende uses them to find Spanish
-        titles with the same feel.
+        {t.fav.lead}
       </p>
 
       <div className="relative mt-6 max-w-xl">
@@ -66,8 +64,8 @@ export default function FavouritesStep({ value, onChange, onNext }: {
               add(hits[0] ? { id: hits[0].id, name: hits[0].name, kind: hits[0].kind } : { id: null, name: query.trim() });
             }
           }}
-          placeholder="Try “Succession”, “Rosalía”, “Zelda”…"
-          aria-label="Search for something you love"
+          placeholder={t.fav.placeholder}
+          aria-label={t.fav.searchAria}
           className="w-full rounded-2xl border border-line bg-card px-5 py-4 text-lg shadow-sm outline-none focus:border-accent"
         />
         {open && hits.length > 0 && (
@@ -93,17 +91,17 @@ export default function FavouritesStep({ value, onChange, onNext }: {
           </ul>
         )}
         {searchDown && query.trim().length >= 2 && (
-          <p className="mt-2 text-sm text-muted">Search is unavailable right now. Press Enter to add it as typed; the agent will look it up.</p>
+          <p className="mt-2 text-sm text-muted">{t.fav.searchDown}</p>
         )}
       </div>
 
       {value.length > 0 && (
-        <ul className="mt-5 flex flex-wrap gap-2" aria-label="Your favourites">
+        <ul className="mt-5 flex flex-wrap gap-2" aria-label={t.fav.yours}>
           {value.map((f) => (
             <li key={f.name} className="rise flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-paper">
               <span>{f.name}</span>
               {f.kind && <span className="text-xs opacity-70">{KIND_LABEL[f.kind] ?? f.kind}</span>}
-              <button type="button" aria-label={`Remove ${f.name}`} onClick={() => onChange(value.filter((v) => v !== f))}
+              <button type="button" aria-label={t.fav.remove(f.name)} onClick={() => onChange(value.filter((v) => v !== f))}
                 className="ml-1 opacity-70 hover:opacity-100">×</button>
             </li>
           ))}
@@ -112,7 +110,7 @@ export default function FavouritesStep({ value, onChange, onNext }: {
 
       {value.length < 8 && (
         <div className="mt-5 flex flex-wrap items-center gap-2 text-sm">
-          <span className="text-muted">{value.length === 0 ? "Or start with:" : "More ideas:"}</span>
+          <span className="text-muted">{value.length === 0 ? t.fav.startWith : t.fav.moreIdeas}</span>
           {EXAMPLES.filter((e) => !value.some((v) => v.name.toLowerCase() === e.toLowerCase())).map((e) => (
             <button key={e} type="button" onClick={() => add({ id: null, name: e })}
               className="rounded-full border border-line bg-card px-3 py-1.5 hover:border-accent">{e}</button>
@@ -126,7 +124,7 @@ export default function FavouritesStep({ value, onChange, onNext }: {
         onClick={onNext}
         className="mt-8 rounded-full bg-accent px-7 py-3.5 text-lg font-medium text-accent-ink shadow-sm transition enabled:hover:brightness-110 disabled:opacity-40"
       >
-        Next: your level →
+        {t.fav.next}
       </button>
     </section>
   );

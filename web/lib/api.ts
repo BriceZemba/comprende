@@ -57,8 +57,9 @@ export interface RunResult {
 }
 
 export type AgentEvent =
-  | { type: "step"; tool: string; text: string }
-  | { type: "warning"; text: string }
+  // `text` is the English fallback; `data` lets the client say the same thing in the learner's language.
+  | { type: "step"; tool: string; text: string; data?: Record<string, string | number | boolean> }
+  | { type: "warning"; text: string; code?: string; data?: Record<string, string | number | boolean> }
   | { type: "message"; text: string }
   | { type: "error"; code: string; text: string }
   | { type: "result"; result: RunResult };

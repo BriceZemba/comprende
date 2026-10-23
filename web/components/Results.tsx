@@ -1,26 +1,14 @@
 "use client";
 
 import type { ListenPick, Pick, RunResult } from "@/lib/api";
+import { useI18n } from "@/lib/i18n";
 import TasteMap from "./TasteMap";
 
 export type Feedback = "loved" | "not_for_me" | "too_hard";
 export const pickKey = (p: Pick) => p.qloo_id ?? p.imdb ?? p.name;
 
-const FEEDBACK: { kind: Feedback; label: string }[] = [
-  { kind: "loved", label: "Loved it" },
-  { kind: "too_hard", label: "Too hard" },
-  { kind: "not_for_me", label: "Not for me" },
-];
-
-const SECTIONS: { key: Pick["bucket"]; title: string; blurb: string }[] = [
-  { key: "watch_now", title: "Watch now", blurb: "You'd know at least 95% of the words: enough to follow and enjoy." },
-  { key: "stretch", title: "A good stretch", blurb: "90–95% of the words. Doable with Spanish subtitles on." },
-];
-
-// Floor, never round: 94.9% must not display as 95% while sitting below the 95% threshold.
-function pct(x: number) {
-  return `${Math.floor(x * 100)}%`;
-}
+const FEEDBACK: Feedback[] = ["loved", "too_hard", "not_for_me"];
+const SECTIONS: Pick["bucket"][] = ["watch_now", "stretch"];
 
 function CoverageBar({ coverage }: { coverage: number }) {
   // Scale 80–100% so the thresholds that matter (95%, 98%) are visible.
@@ -35,20 +23,12 @@ function CoverageBar({ coverage }: { coverage: number }) {
   );
 }
 
-const FIT_BADGE: Record<string, { label: string; cls: string }> = {
-  comfortable: { label: "Watch now", cls: "bg-good-soft text-good" },
-  watchable: { label: "Watch now", cls: "bg-good-soft text-good" },
-  stretch: { label: "Stretch", cls: "bg-warn-soft text-warn" },
-  later: { label: "Later", cls: "bg-later-soft text-later" },
+const FIT_CLASS: Record<string, string> = {
+  comfortable: "bg-good-soft text-good",
+  watchable: "bg-good-soft text-good",
+  stretch: "bg-warn-soft text-warn",
+  later: "bg-later-soft text-later",
 };
-
-// Plain-language reading of Qloo's lift: affinity for this learner minus the title's typical affinity.
-function tasteSentence(lift: number | null) {
-  if (lift === null) return "Qloo matched it to your taste.";
-  if (lift >= 0.05) return "Qloo says it fits your taste clearly more than it fits most people's.";
-  if (lift > 0) return "Qloo says it fits your taste a little more than it fits most people's.";
-  return "Qloo says it fits your taste about as well as it fits most people's: a broadly liked pick.";
-}
 
 function PickCard({ p, vocab, feedback, onFeedback }: {
   p: Pick;
@@ -56,14 +36,20 @@ function PickCard({ p, vocab, feedback, onFeedback }: {
   feedback?: Feedback;
   onFeedback: (p: Pick, f: Feedback | undefined) => void;
 }) {
-  const badge = p.fit ? FIT_BADGE[p.fit] : null;
+  const { t, f, lang } = useI18n();
+  // Floor, never round: 94.9% must not display as 95% while sitting below the 95% threshold.
+  const pct = f.pctFloor;
+  // Plain-language reading of Qloo's lift: affinity for this learner minus the title's typical affinity.
+  const taste = p.lift === null ? t.card.tasteNone
+    : p.lift >= 0.05 ? t.card.tasteClear : p.lift > 0 ? t.card.tasteBit : t.card.tasteSame;
+  const badge = p.fit && FIT_CLASS[p.fit] ? { label: t.card.fit[p.fit], cls: FIT_CLASS[p.fit] } : null;
   const watch = `https://www.justwatch.com/us/search?q=${encodeURIComponent(p.name_en || p.name)}`;
   return (
     <article className="rise flex gap-4 rounded-2xl border border-line bg-card p-3 shadow-sm sm:p-4">
       <div className="aspect-[2/3] w-24 shrink-0 overflow-hidden rounded-xl bg-line sm:w-28">
         {/* Posters come from Qloo's image CDN at a fixed small size; next/image would add nothing here. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        {p.image ? <img src={p.image} alt={`Poster: ${p.name}`} className="h-full w-full object-cover" loading="lazy" /> : (
+        {p.image ? <img src={p.image} alt={t.card.poster(p.name)} className="h-full w-full object-cover" loading="lazy" /> : (
           <div className="grid h-full place-items-center p-2 text-center font-display text-sm text-muted">{p.name}</div>
         )}
       </div>
@@ -77,44 +63,43 @@ function PickCard({ p, vocab, feedback, onFeedback }: {
           )}
         </div>
         <p className="text-sm text-muted">
-          {p.name_en && p.name_en !== p.name ? `${p.name_en} · ` : ""}{p.kind === "series" ? "Series" : "Film"}{p.year ? ` · ${p.year}` : ""}
+          {p.name_en && p.name_en !== p.name ? `${p.name_en} · ` : ""}{p.kind === "series" ? t.card.series : t.card.film}{p.year ? ` · ${p.year}` : ""}
         </p>
         {p.coverage !== null && (
           <>
-            <p className="mt-2 text-sm">You&apos;d know <strong>{pct(p.coverage)}</strong> of the words</p>
+            <p className="mt-2 text-sm">{t.card.youdKnow(pct(p.coverage))}</p>
             <CoverageBar coverage={p.coverage} />
           </>
         )}
         {p.because.length > 0 && (
           <div className="mt-2 flex flex-wrap items-center gap-1.5 text-xs text-muted">
-            <span>Because you like</span>
+            <span>{t.res.becauseYouLike}</span>
             {p.because.map((b) => <span key={b} className="rounded-full bg-paper px-2 py-0.5 text-ink">{b}</span>)}
           </div>
         )}
         <details className="mt-2 text-sm">
-          <summary className="cursor-pointer text-muted hover:text-ink">Why this pick?</summary>
+          <summary className="cursor-pointer text-muted hover:text-ink">{t.card.why}</summary>
           <div className="mt-1 space-y-1 text-muted">
-            <p>{tasteSentence(p.lift)}{p.affinity !== null ? ` (affinity ${p.affinity.toFixed(2)})` : ""}</p>
-            {p.coverage !== null && (
-              <p>
-                From its subtitles, someone who knows about {vocab.toLocaleString()} words would recognise {pct(p.coverage)} of
-                the dialogue.
-                Comfortable listening starts around 95–98%.
-              </p>
-            )}
+            <p>
+              {taste}
+              {p.affinity !== null
+                ? t.card.affinity(p.affinity.toLocaleString(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
+                : ""}
+            </p>
+            {p.coverage !== null && <p>{t.card.coverage(f.int(vocab), pct(p.coverage))}</p>}
           </div>
         </details>
-        <div className="mt-3 flex flex-wrap items-center gap-1.5">
-          {p.qloo_id && FEEDBACK.map((f) => (
-            <button key={f.kind} type="button" aria-pressed={feedback === f.kind}
-              onClick={() => onFeedback(p, feedback === f.kind ? undefined : f.kind)}
-              className={`rounded-full border px-2.5 py-1 text-xs transition ${feedback === f.kind
+        <div className="mt-3 flex flex-wrap items-center gap-1.5" role="group" aria-label={t.card.feedbackAria(p.name)}>
+          {p.qloo_id && FEEDBACK.map((k) => (
+            <button key={k} type="button" aria-pressed={feedback === k}
+              onClick={() => onFeedback(p, feedback === k ? undefined : k)}
+              className={`rounded-full border px-2.5 py-1 text-xs transition ${feedback === k
                 ? "border-ink bg-ink text-paper" : "border-line text-muted hover:border-ink hover:text-ink"}`}>
-              {f.label}
+              {t.card.feedback[k]}
             </button>
           ))}
           <a href={watch} target="_blank" rel="noopener noreferrer"
-            className="ml-auto text-xs text-muted underline hover:text-ink">Where to watch ↗</a>
+            className="ml-auto text-xs text-muted underline hover:text-ink">{t.card.watch}</a>
         </div>
       </div>
     </article>
@@ -122,6 +107,7 @@ function PickCard({ p, vocab, feedback, onFeedback }: {
 }
 
 function ListenLane({ artists, podcasts }: { artists: ListenPick[]; podcasts: ListenPick[] }) {
+  const { t } = useI18n();
   if (artists.length + podcasts.length === 0) return null;
   const row = (items: ListenPick[], label: string) => items.length > 0 && (
     <div className="mt-4">
@@ -137,7 +123,7 @@ function ListenLane({ artists, podcasts }: { artists: ListenPick[]; podcasts: Li
               <a href={`https://open.spotify.com/search/${encodeURIComponent(a.name)}`} target="_blank"
                 rel="noopener noreferrer" className="block truncate font-medium hover:underline">{a.name}</a>
               <p className="truncate text-xs text-muted">
-                {a.because.length > 0 ? `Because you like ${a.because.join(", ")}` : a.spanish_tags.join(", ")}
+                {a.because.length > 0 ? `${t.res.becauseYouLike} ${a.because.join(", ")}` : a.spanish_tags.join(", ")}
               </p>
             </div>
           </li>
@@ -147,13 +133,10 @@ function ListenLane({ artists, podcasts }: { artists: ListenPick[]; podcasts: Li
   );
   return (
     <div className="mt-10">
-      <h3 className="font-display text-2xl">Listen in Spanish</h3>
-      <p className="text-sm text-muted">
-        Spanish-language and Latin {podcasts.length ? "artists and podcasts" : "artists"} Qloo matches to your taste, for
-        listening practice. Found through Qloo genre tags; lyrics and episodes are not measured for difficulty.
-      </p>
-      {row(artists, "Music")}
-      {row(podcasts, "Podcasts")}
+      <h3 className="font-display text-2xl">{t.res.listenTitle}</h3>
+      <p className="text-sm text-muted">{t.res.listenBlurb}</p>
+      {row(artists, t.res.music)}
+      {row(podcasts, t.fav.kinds.podcast)}
     </div>
   );
 }
@@ -169,42 +152,40 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
   onUpdate: () => void;
   note: string | null;
 }) {
+  const { t, f } = useI18n();
+  const pct = f.pctFloor;
   const changes = Object.keys(feedback).length;
   const b = result.buckets;
-  const empty = SECTIONS.every((s) => b[s.key].length === 0) && !result.held_back;
+  const held = result.held_back;
+  const empty = SECTIONS.every((s) => b[s].length === 0) && !held;
   return (
     <section className="rise">
-      <p className="text-sm font-medium uppercase tracking-wider text-accent">Your picks</p>
-      <h2 className="font-display mt-1 text-3xl sm:text-4xl">Spanish you&apos;ll love, at your level</h2>
+      <p className="text-sm font-medium uppercase tracking-wider text-accent">{t.res.eyebrow}</p>
+      <h2 className="font-display mt-1 text-3xl sm:text-4xl">{t.res.title}</h2>
       <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
-        <span className="text-muted">For fans of</span>
-        {Object.values(result.favourites).map((f) => (
-          <span key={f} className="rounded-full bg-ink px-3 py-1 text-paper">{f}</span>
+        <span className="text-muted">{t.res.fansOf}</span>
+        {Object.values(result.favourites).map((name) => (
+          <span key={name} className="rounded-full bg-ink px-3 py-1 text-paper">{name}</span>
         ))}
       </div>
-      <div className="mt-3 flex flex-wrap items-center gap-2 text-sm" role="group" aria-label="Change level">
-        <span className="text-muted">At about <strong className="text-ink">{result.vocab_size.toLocaleString()}</strong> words. Try</span>
+      <div className="mt-3 flex flex-wrap items-center gap-2 text-sm" role="group" aria-label={t.res.changeLevel}>
+        <span className="text-muted">{t.res.atAbout(f.int(result.vocab_size))}</span>
         {LEVELS.filter((v) => v !== result.vocab_size).map((v) => (
           <button key={v} type="button" onClick={() => onChangeLevel(v)}
             className="rounded-full border border-line bg-card px-3 py-1 hover:border-accent">
-            {v.toLocaleString()} words
+            {t.res.nWords(f.int(v))}
           </button>
         ))}
       </div>
 
       {note && <p className="rise mt-4 max-w-2xl rounded-2xl bg-good-soft p-4 text-sm">{note}</p>}
 
-      {result.held_back && (
+      {held && (
         <div className="rise mt-6 max-w-2xl rounded-3xl bg-later-soft p-5">
-          <p className="text-sm font-medium uppercase tracking-wider text-later">Held back on purpose</p>
-          <p className="font-display mt-1 text-2xl">{result.held_back.name}</p>
+          <p className="text-sm font-medium uppercase tracking-wider text-later">{t.res.heldEyebrow}</p>
+          <p className="font-display mt-1 text-2xl">{held.name}</p>
           <p className="mt-2">
-            A strong match for your taste
-            {result.held_back.because.length > 0 ? ` (because you like ${result.held_back.because.join(", ")})` : ""},
-            but you&apos;d follow only <strong>{pct(result.held_back.coverage ?? 0)}</strong> of its words today.
-            {result.held_back.words_to_go
-              ? ` About ${result.held_back.words_to_go.toLocaleString()} more words and it reaches 95%.`
-              : ""}{" "}Start with the picks below and come back to it.
+            {t.res.held(held.because.join(", "), pct(held.coverage ?? 0), held.words_to_go ? f.int(held.words_to_go) : null)}
           </p>
         </div>
       )}
@@ -212,43 +193,31 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
       {result.map && <TasteMap titles={result.map.titles} grid={result.map.grid} vocab={result.vocab_size} />}
 
       {b.watch_now.length === 0 && b.stretch.length > 0 && (
-        <p className="mt-8 max-w-2xl rounded-2xl bg-warn-soft p-4 text-sm">
-          At about {result.vocab_size.toLocaleString()} words, no native title we measured is comfortable yet: these
-          stretches are the closest. Watch with Spanish subtitles on, and use the slider above to see what opens up next.
-        </p>
+        <p className="mt-8 max-w-2xl rounded-2xl bg-warn-soft p-4 text-sm">{t.res.beginner(f.int(result.vocab_size))}</p>
       )}
 
-      {SECTIONS.map((s) => b[s.key].length > 0 && (
-        <div key={s.key} className="mt-10">
-          <h3 className="font-display text-2xl">{s.title}</h3>
-          <p className="text-sm text-muted">{s.blurb}</p>
+      {SECTIONS.map((s) => b[s].length > 0 && (
+        <div key={s} className="mt-10">
+          <h3 className="font-display text-2xl">{t.res.sections[s][0]}</h3>
+          <p className="text-sm text-muted">{t.res.sections[s][1]}</p>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-            {b[s.key].map((p) => (
+            {b[s].map((p) => (
               <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
             ))}
           </div>
         </div>
       ))}
 
-      {result.qloo_unavailable && (
-        <p className="mt-8 max-w-xl rounded-2xl bg-warn-soft p-5">
-          Qloo&apos;s taste graph could not be reached just now, so we can&apos;t match titles to your taste. Please try
-          again in a minute.
-        </p>
-      )}
+      {result.qloo_unavailable && <p className="mt-8 max-w-xl rounded-2xl bg-warn-soft p-5">{t.res.qlooDown}</p>}
 
-      {empty && !result.qloo_unavailable && (
-        <p className="mt-8 max-w-xl rounded-2xl bg-card p-5">
-          None of the titles we measured fit both your taste and your level yet. Try adding a different favourite.
-        </p>
-      )}
+      {empty && !result.qloo_unavailable && <p className="mt-8 max-w-xl rounded-2xl bg-card p-5">{t.res.empty}</p>}
 
       {result.listen && <ListenLane artists={result.listen.artists} podcasts={result.listen.podcasts} />}
 
       {b.unmeasured.length > 0 && (
         <div className="mt-10">
-          <h3 className="font-display text-xl">Strong taste matches, difficulty not measured</h3>
-          <p className="text-sm text-muted">Qloo matched these to your taste, but we have no subtitles to measure them yet.</p>
+          <h3 className="font-display text-xl">{t.res.unmeasuredTitle}</h3>
+          <p className="text-sm text-muted">{t.res.unmeasuredBlurb}</p>
           <ul className="mt-3 flex flex-wrap gap-2">
             {b.unmeasured.map((p) => (
               <li key={p.qloo_id ?? p.name} className="rounded-full border border-line bg-card px-3 py-1.5 text-sm">
@@ -259,17 +228,14 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
         </div>
       )}
 
-      <p className="mt-10 text-xs text-muted">
-        {result.qloo_calls} Qloo API calls · {pct(result.measured_share)} of candidates had measured dialogue ·{" "}
-        {result.mode === "agent" ? "planned by the agent" : "fixed plan (language model unavailable)"}
-      </p>
-      <button type="button" onClick={onRestart} className="mt-4 text-muted underline">Start over</button>
+      <p className="mt-10 text-xs text-muted">{t.res.stats(result.qloo_calls, pct(result.measured_share), result.mode === "agent")}</p>
+      <button type="button" onClick={onRestart} className="mt-4 text-muted underline">{t.res.restart}</button>
 
       {changes > 0 && (
         <div className="rise fixed inset-x-0 bottom-4 z-20 mx-auto flex w-[min(92%,32rem)] items-center justify-between gap-3 rounded-full bg-ink py-2 pl-5 pr-2 text-paper shadow-lg">
-          <span className="text-sm">{changes} {changes === 1 ? "reaction" : "reactions"} noted</span>
+          <span className="text-sm">{t.res.reactions(changes)}</span>
           <button type="button" onClick={onUpdate} className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-ink">
-            Update my picks
+            {t.res.update}
           </button>
         </div>
       )}

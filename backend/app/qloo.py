@@ -86,6 +86,7 @@ class QlooClient:
         self.base_url = (base_url or config.QLOO_BASE_URL).rstrip("/")
         self.cache_dir = cache_dir
         self.calls = 0  # live requests made, for the agent trace and quota tracking
+        self.cached = 0  # requests answered from the disk cache (same Qloo data, no quota used)
         self._http = httpx.AsyncClient(
             base_url=self.base_url, timeout=httpx.Timeout(20.0, connect=10.0), transport=transport,
             headers={"X-Api-Key": self.api_key, "Accept": "application/json"},
@@ -106,6 +107,7 @@ class QlooClient:
         flat = _flatten(params)
         cache = self._cache_file(path, flat)
         if cache and cache.exists() and time.time() - cache.stat().st_mtime < CACHE_TTL_S:
+            self.cached += 1
             return json.loads(cache.read_text(encoding="utf-8"))
         if not self.api_key:
             raise QlooError("QLOO_NO_KEY", 0, "QLOO_API_KEY is not set")
