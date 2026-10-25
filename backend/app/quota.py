@@ -20,6 +20,8 @@ def note_error(model: str, error: BaseException) -> bool:
     text = str(error)
     if not any(k in text.lower() for k in ("perday", "per day", "per-day")):  # Gemini, OpenRouter wordings
         return False
-    m = re.search(r"retryDelay\W+(\d+)s", text)
-    _until[model] = time.monotonic() + (int(m.group(1)) if m else 3600)
+    m = re.search(r"retryDelay\W+(\d+)s", text)  # Gemini: seconds until reset
+    reset = re.search(r"X-RateLimit-Reset\W+(\d{12,})", text)  # OpenRouter: reset time, epoch milliseconds
+    wait = int(m.group(1)) if m else (int(reset.group(1)) / 1000 - time.time() if reset else 3600)
+    _until[model] = time.monotonic() + max(60.0, wait)
     return True

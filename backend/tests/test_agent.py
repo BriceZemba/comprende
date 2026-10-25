@@ -341,6 +341,12 @@ def test_daily_quota_refusal_skips_the_model_until_reset():
     assert quota.note_error("m-flash", daily) and not quota.available("m-flash")
     assert not quota.note_error("m-lite", Exception("429 too many requests per minute"))
     assert quota.available("m-lite")
+    import time as _t
+    reset_ms = int((_t.time() + 7200) * 1000)
+    openrouter_daily = Exception("429 Rate limit exceeded: free-models-per-day "
+                                 f"{{'X-RateLimit-Limit': '50', 'X-RateLimit-Reset': '{reset_ms}'}}")
+    assert quota.note_error("or-model", openrouter_daily)
+    assert 7000 < quota._until["or-model"] - _t.monotonic() < 7300  # waits until OpenRouter's stated reset
     quota._until.clear()
 
 

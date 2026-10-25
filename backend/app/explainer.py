@@ -94,7 +94,7 @@ def validate(raw: object, wanted: set[str]) -> dict[str, dict[str, str]]:
 async def explain(picks: list[dict], candidates: dict[str, object], favourites: list[str]) -> dict:
     """{pick key: {"en": ..., "fr": ..., "es": ...}} for the picks the model explained well; {} on any failure."""
     sheet = facts(picks, candidates, favourites)
-    if not sheet or not config.GEMINI_API_KEY:
+    if not sheet or not (config.GEMINI_API_KEY or config.OPENROUTER_API_KEY):
         return {}
     from google import genai
 
@@ -105,7 +105,7 @@ async def explain(picks: list[dict], candidates: dict[str, object], favourites: 
     todo = [f for f in sheet if f["key"] not in out]
     if not todo:
         return out
-    client = genai.Client(api_key=config.GEMINI_API_KEY)
+    client = genai.Client(api_key=config.GEMINI_API_KEY) if config.GEMINI_API_KEY else None
     groups = [todo[i:i + GROUP] for i in range(0, len(todo), GROUP)]
     for part in await asyncio.gather(*(_explain_group(client, g, favourites) for g in groups)):
         out.update(part)
@@ -125,7 +125,7 @@ async def _explain_group(client, sheet: list[dict], favourites: list[str]) -> di
         properties={"key": types.Schema(type=types.Type.STRING),
                     **{lang: types.Schema(type=types.Type.STRING) for lang in LANGS}}))
     prompt = json.dumps({"favourites": favourites, "items": sheet}, ensure_ascii=False)
-    for model in MODELS:
+    for model in MODELS if config.GEMINI_API_KEY else []:
         if not quota.available(model):
             continue
         level = config.GEMINI_THINKING.get(model)
@@ -153,7 +153,7 @@ async def _explain_group_openrouter(sheet: list[dict], prompt: str) -> dict:
             continue
         try:
             msg = await openrouter.chat(model, [{"role": "system", "content": SYSTEM}, {"role": "user", "content": ask}],
-                                        json_mode=True, timeout=TIMEOUT_S + 5)
+                                        json_mode=True, timeout=30)
             data = json.loads(msg.get("content") or "{}")
             return validate(data.get("items") if isinstance(data, dict) else data, {f["key"] for f in sheet})
         except Exception as e:

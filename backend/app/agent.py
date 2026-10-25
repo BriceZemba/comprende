@@ -340,7 +340,7 @@ class ComprendeAgent:
         shown = [p for b in ("watch_now", "stretch") for p in result["buckets"][b]]
         if result.get("held_back"):
             shown.append(result["held_back"])
-        if not shown or not config.GEMINI_API_KEY:
+        if not shown or not (config.GEMINI_API_KEY or config.OPENROUTER_API_KEY):
             return {}
         await self.emit({"type": "step", "tool": "explain_picks", "text": "Writing a reason for each pick",
                          "data": {"count": len(shown)}})
@@ -471,7 +471,7 @@ class ComprendeAgent:
         models = [m for m in config.OPENROUTER_MODELS if quota.available(m)]
         messages = [{"role": "system", "content": SYSTEM},
                     {"role": "user", "content": self._prompt(s, favourites_text)}]
-        time_left = MODEL_BUDGET_S
+        time_left = config.OPENROUTER_BUDGET_S
         for _ in range(MAX_TURNS):
             msg = None
             while msg is None:
@@ -479,7 +479,7 @@ class ComprendeAgent:
                     raise TimeoutError("backup models unavailable or too slow")
                 started = time.monotonic()
                 try:
-                    msg = await openrouter.chat(models[0], messages, tools=TOOLS, timeout=min(15.0, time_left))
+                    msg = await openrouter.chat(models[0], messages, tools=TOOLS, timeout=min(20.0, time_left))
                     self.model_used = f"openrouter:{models[0]}"
                 except Exception as e:  # refused, rate limited or slow: next backup model
                     quota.note_error(models[0], e)

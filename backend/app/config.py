@@ -28,10 +28,14 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_MODELS = [m.strip() for m in os.environ.get(
     "GEMINI_MODELS", "gemini-3.5-flash-lite,gemini-3.5-flash").split(",") if m.strip()]
 # Backup planners when Gemini is down or out of quota: open models through OpenRouter (free tier has its own
-# daily limit). Used only when OPENROUTER_API_KEY is set; chosen on 2026-10-25 among free models with tool calls.
+# daily limit). Used only when OPENROUTER_API_KEY is set. Chosen on 2026-10-25 by probing every free model with
+# tool calls: these answered with correct tool calls in 5-8 s; Gemma (rate-limited upstream) and Nemotron 3 Super
+# (provider error) did not. Free pools change: override with OPENROUTER_MODELS.
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 OPENROUTER_MODELS = [m.strip() for m in os.environ.get(
-    "OPENROUTER_MODELS", "google/gemma-4-31b-it:free,nvidia/nemotron-3-super-120b-a12b:free").split(",") if m.strip()]
+    "OPENROUTER_MODELS", "nvidia/nemotron-3-ultra-550b-a55b:free,nvidia/nemotron-3.5-super-vl:free,"
+                         "cohere/north-mini-code:free").split(",") if m.strip()]
+OPENROUTER_BUDGET_S = float(os.environ.get("OPENROUTER_BUDGET_S", "45"))  # free models answer in 5-8 s per turn
 # Thinking level per model family; "minimal" keeps tool planning fast. Models not listed use their default.
 GEMINI_THINKING = {"gemini-3.5-flash-lite": "minimal", "gemini-3.5-flash": "minimal"}
 GEMINI_MODEL = GEMINI_MODELS[0]
