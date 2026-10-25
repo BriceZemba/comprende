@@ -18,7 +18,7 @@ def available(model: str) -> bool:
 def note_error(model: str, error: BaseException) -> bool:
     """Record a daily-quota refusal; True if it was one. Per-minute limits are not recorded."""
     text = str(error)
-    if "PerDay" not in text and "per day" not in text.lower():
+    if not any(k in text.lower() for k in ("perday", "per day", "per-day")):  # Gemini, OpenRouter wordings
         return False
     m = re.search(r"retryDelay\W+(\d+)s", text)
     _until[model] = time.monotonic() + (int(m.group(1)) if m else 3600)

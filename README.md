@@ -28,7 +28,7 @@ Built for the Qloo Agentic Hackathon (2026).
 | Spanish-language music | `GET /v2/tags` (genre tag discovery: Latin, Reggaeton, Rock En Español, Flamenco…) + `GET /v2/insights` with `filter.tags` | Listening practice from the same taste |
 | Personal, not just popular | Mean affinity of each title over 10 reference tastes (`backend/scripts/build_taste_baseline.py`) | Ranking by lift (your affinity minus the typical one) stops generally liked titles topping every list |
 
-The agent (Google Gemini with tool calling) plans these calls; a deterministic ranker orders the results. **Every number a learner sees comes from Qloo (affinity) or from subtitle data (coverage), never from the language model.** If the model is slow or unavailable, the same tools run as a fixed plan.
+The agent (Google Gemini with tool calling) plans these calls; a deterministic ranker orders the results. **Every number a learner sees comes from Qloo (affinity) or from subtitle data (coverage), never from the language model.** If Gemini is unavailable, an open model through OpenRouter (Gemma, Nemotron) can plan instead when `OPENROUTER_API_KEY` is set; if no model answers, the same tools run as a fixed plan. A second agent, the explainer, then writes one reason per pick from Qloo's own description of the title.
 
 ## Evidence
 

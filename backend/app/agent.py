@@ -14,7 +14,7 @@ import time
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
 
-from . import config, quota
+from . import config, openrouter, quota
 from .catalog import Catalog
 from .explainer import explain, tag_names
 from .qloo import Entity, QlooClient, QlooError
@@ -355,19 +355,31 @@ class ComprendeAgent:
         self.session = s
         # The client is shared by all runs in this process; count only this run's requests.
         requests_before = self.qloo.calls + self.qloo.cached
-        mode = "agent"
-        if config.GEMINI_API_KEY:
+        planners = [p for p, key in (("gemini", config.GEMINI_API_KEY), ("openrouter", config.OPENROUTER_API_KEY))
+                    if key]
+        planned, last_error = False, None
+        for provider in planners:
+            # A backup model only starts a run from scratch; a run the first model left half done is
+            # finished by the fixed plan, which resumes from the calls already made.
+            if s.done and provider != planners[0]:
+                break
             try:
-                await self._run_llm(s, favourites_text)
-            except Exception as e:  # outage, quota or too slow: fall back, never leave the learner with nothing
-                why = ("is slow right now" if isinstance(e, TimeoutError)
-                       else f"is unavailable ({type(e).__name__})")
-                await self.emit({"type": "warning", "code": "fallback", "data": {"slow": isinstance(e, TimeoutError)},
-                                 "text": f"The language model {why}; finishing with the fixed plan"})
-                mode = "fallback"
-                await self._run_fixed(s, favourites_text)
-        else:
-            mode = "fallback"
+                await (self._run_llm(s, favourites_text) if provider == "gemini"
+                       else self._run_openrouter(s, favourites_text))
+                planned = True
+                break
+            except Exception as e:  # outage, quota or too slow: try the next provider
+                last_error = e
+                if provider != planners[-1] and not s.done:
+                    await self.emit({"type": "warning", "code": "model_busy", "data": {"from": provider, "to": "backup"},
+                                     "text": f"{provider} is unavailable, switching to a backup model"})
+        mode = "agent" if planned else "fallback"
+        if not planned:
+            if planners:  # never leave the learner with nothing
+                slow = isinstance(last_error, TimeoutError)
+                state = "slow right now" if slow else "unavailable"
+                await self.emit({"type": "warning", "code": "fallback", "data": {"slow": slow},
+                                 "text": f"The language model is {state}; finishing with the fixed plan"})
             await self._run_fixed(s, favourites_text)
         if s.result is None:
             await self.rank_for_learner(s)
@@ -438,16 +450,68 @@ class ComprendeAgent:
                 self.model_time_left -= time.monotonic() - started
         raise RuntimeError("no model available")
 
+    def _prompt(self, s: Session, favourites_text: str) -> str:
+        known = "; ".join(f"{name} (id {i})" for i, name in s.favourites.items()) or "none"
+        return (f"Learner's favourites (free text): {favourites_text or '(none)'}\n"
+                f"Already resolved favourites: {known}\n"
+                f"Estimated Spanish vocabulary: {s.vocab_size} lemmas.")
+
+    async def _run_tools(self, s: Session, calls: list[tuple[str, dict]]) -> list[dict]:
+        """Calls asked for in one turn are independent Qloo requests: run them together. Ranking reads
+        what the others found, so it always runs after them. Results come back in the order asked."""
+        now = [i for i, (name, _) in enumerate(calls) if name != "rank_for_learner"]
+        later = [i for i, (name, _) in enumerate(calls) if name == "rank_for_learner"]
+        results = dict(zip(now, await asyncio.gather(*(self._call(s, *calls[i]) for i in now))))
+        for i in later:
+            results[i] = await self._call(s, *calls[i])
+        return [results[i] for i in range(len(calls))]
+
+    async def _run_openrouter(self, s: Session, favourites_text: str) -> None:
+        """Same plan-and-call loop as Gemini, with an open model through OpenRouter."""
+        models = [m for m in config.OPENROUTER_MODELS if quota.available(m)]
+        messages = [{"role": "system", "content": SYSTEM},
+                    {"role": "user", "content": self._prompt(s, favourites_text)}]
+        time_left = MODEL_BUDGET_S
+        for _ in range(MAX_TURNS):
+            msg = None
+            while msg is None:
+                if not models or time_left <= 0:
+                    raise TimeoutError("backup models unavailable or too slow")
+                started = time.monotonic()
+                try:
+                    msg = await openrouter.chat(models[0], messages, tools=TOOLS, timeout=min(15.0, time_left))
+                    self.model_used = f"openrouter:{models[0]}"
+                except Exception as e:  # refused, rate limited or slow: next backup model
+                    quota.note_error(models[0], e)
+                    models.pop(0)
+                finally:
+                    time_left -= time.monotonic() - started
+            calls = msg.get("tool_calls") or []
+            if not calls:
+                if msg.get("content"):
+                    await self.emit({"type": "message", "text": str(msg["content"]).strip()})
+                break
+            messages.append({"role": "assistant", "content": msg.get("content") or "", "tool_calls": calls})
+            parsed = []
+            for c in calls:
+                try:
+                    args = json.loads(c["function"].get("arguments") or "{}")
+                except json.JSONDecodeError:
+                    args = {}
+                parsed.append((c["function"]["name"], args if isinstance(args, dict) else {}))
+            for c, result in zip(calls, await self._run_tools(s, parsed)):
+                messages.append({"role": "tool", "tool_call_id": c.get("id", ""),
+                                 "content": json.dumps(result, default=str)})
+            if s.result is not None:
+                break
+
     async def _run_llm(self, s: Session, favourites_text: str) -> None:
         from google import genai
         from google.genai import types
 
         client = genai.Client(api_key=config.GEMINI_API_KEY)
         tools = [types.Tool(function_declarations=[types.FunctionDeclaration(**t) for t in TOOLS])]
-        known = "; ".join(f"{name} (id {i})" for i, name in s.favourites.items()) or "none"
-        prompt = (f"Learner's favourites (free text): {favourites_text or '(none)'}\n"
-                  f"Already resolved favourites: {known}\n"
-                  f"Estimated Spanish vocabulary: {s.vocab_size} lemmas.")
+        prompt = self._prompt(s, favourites_text)
         contents: list = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
         cfg = types.GenerateContentConfig(
             system_instruction=SYSTEM, tools=tools, temperature=0.2,
@@ -462,14 +526,9 @@ class ComprendeAgent:
                     await self.emit({"type": "message", "text": resp.text.strip()})
                 break
             contents.append(resp.candidates[0].content)
-            # Calls the model asks for in the same turn are independent Qloo requests: run them together.
-            # Ranking reads what the others found, so it always runs after them.
-            later = [c for c in calls if c.name == "rank_for_learner"]
-            now = [c for c in calls if c.name != "rank_for_learner"]
-            results = list(await asyncio.gather(*(self._call(s, c.name, dict(c.args or {})) for c in now)))
-            results += [await self._call(s, c.name, dict(c.args or {})) for c in later]
+            results = await self._run_tools(s, [(c.name, dict(c.args or {})) for c in calls])
             parts = [types.Part.from_function_response(name=c.name, response={"result": json.loads(
-                json.dumps(r, default=str))}) for c, r in zip(now + later, results)]
+                json.dumps(r, default=str))}) for c, r in zip(calls, results)]
             contents.append(types.Content(role="user", parts=parts))  # the API rejects role "tool"
             if s.result is not None:
                 break  # ranked: the learner sees the result now; no closing message is needed

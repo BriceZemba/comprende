@@ -342,3 +342,47 @@ def test_daily_quota_refusal_skips_the_model_until_reset():
     assert not quota.note_error("m-lite", Exception("429 too many requests per minute"))
     assert quota.available("m-lite")
     quota._until.clear()
+
+
+def test_openrouter_plans_the_run_when_gemini_is_unavailable(monkeypatch):
+    import json as _json
+    from app import openrouter, quota
+    quota._until.clear()
+    monkeypatch.setattr(agent_mod.config, "GEMINI_API_KEY", "")
+    monkeypatch.setattr(agent_mod.config, "OPENROUTER_API_KEY", "test-key")
+    monkeypatch.setattr(agent_mod.config, "OPENROUTER_MODELS", ["busy/model:free", "open/model:free"])
+    agent_mod._AUDIO_TAG_CACHE.clear()
+    catalog = Catalog([m("tt1", "Q-EASY", 0.97, 2000), m("tt2", "Q-HARD", 0.86, 9000)])
+    turns = []
+
+    def call(name, **args):
+        return {"id": f"c{len(turns)}{name}", "type": "function",
+                "function": {"name": name, "arguments": _json.dumps(args)}}
+
+    def router(request: httpx.Request):
+        body = _json.loads(request.content)
+        if body["model"] == "busy/model:free":  # first backup refuses: out of its daily quota
+            return httpx.Response(429, json={"error": {"message": "Rate limit exceeded: free-models-per-day"}})
+        turns.append(body["messages"])
+        script = [[call("find_entity", query="Breaking Bad")],
+                  [call("recommend_spanish_titles", signal_entity_ids=["FAV-Breaking Bad"], kind="movie"),
+                   call("score_measured_titles", signal_entity_ids=["FAV-Breaking Bad"], kind="movie"),
+                   call("rank_for_learner")]]
+        msg = {"role": "assistant", "content": None, "tool_calls": script[len(turns) - 1]}
+        return httpx.Response(200, json={"choices": [{"message": msg}]})
+
+    monkeypatch.setattr(openrouter, "TRANSPORT", httpx.MockTransport(router))
+
+    async def emit(e):
+        return None
+
+    async def go():
+        q = QlooClient(api_key="k", cache_dir=None, transport=httpx.MockTransport(handler))
+        return await agent_mod.ComprendeAgent(q, catalog, emit).run("Breaking Bad", {}, vocab_size=3000)
+
+    out = asyncio.run(go())
+    assert out["mode"] == "agent" and out["model"] == "openrouter:open/model:free"
+    assert len(turns) == 2 and turns[1][-1]["role"] == "tool"  # tool results went back to the model
+    assert out["buckets"]["watch_now"][0]["imdb"] == "tt1"
+    assert not quota.available("busy/model:free")  # its daily refusal is remembered
+    quota._until.clear()

@@ -27,6 +27,11 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 # 2026-10-25: flash-lite 0.5-1.5 s per call, flash 2-11 s, gemini-3.8-flash timeouts and 503s.
 GEMINI_MODELS = [m.strip() for m in os.environ.get(
     "GEMINI_MODELS", "gemini-3.5-flash-lite,gemini-3.5-flash").split(",") if m.strip()]
+# Backup planners when Gemini is down or out of quota: open models through OpenRouter (free tier has its own
+# daily limit). Used only when OPENROUTER_API_KEY is set; chosen on 2026-10-25 among free models with tool calls.
+OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+OPENROUTER_MODELS = [m.strip() for m in os.environ.get(
+    "OPENROUTER_MODELS", "google/gemma-4-31b-it:free,nvidia/nemotron-3-super-120b-a12b:free").split(",") if m.strip()]
 # Thinking level per model family; "minimal" keeps tool planning fast. Models not listed use their default.
 GEMINI_THINKING = {"gemini-3.5-flash-lite": "minimal", "gemini-3.5-flash": "minimal"}
 GEMINI_MODEL = GEMINI_MODELS[0]

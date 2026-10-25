@@ -10,7 +10,7 @@ import asyncio
 import json
 import re
 
-from . import config, quota
+from . import config, openrouter, quota
 
 LANGS = ("en", "fr", "es")
 # The lite model writes these well enough and is the fastest; the larger one is the backup. Titles are
@@ -137,7 +137,26 @@ async def _explain_group(client, sheet: list[dict], favourites: list[str]) -> di
             resp = await asyncio.wait_for(
                 client.aio.models.generate_content(model=model, contents=prompt, config=cfg), timeout=TIMEOUT_S)
             return validate(json.loads(resp.text or "[]"), {f["key"] for f in sheet})
-        except Exception as e:  # slow, busy, out of quota or malformed: try the next model, then give up quietly
+        except Exception as e:  # slow, busy, out of quota or malformed: try the next model
+            quota.note_error(model, e)
+            continue
+    return await _explain_group_openrouter(sheet, prompt)
+
+
+async def _explain_group_openrouter(sheet: list[dict], prompt: str) -> dict:
+    """Backup when both Gemini models fail: an open model through OpenRouter, asked for the same JSON."""
+    if not config.OPENROUTER_API_KEY:
+        return {}
+    ask = (prompt + '\nAnswer with JSON only: {"items": [{"key": ..., "en": ..., "fr": ..., "es": ...}, ...]}')
+    for model in config.OPENROUTER_MODELS:
+        if not quota.available(model):
+            continue
+        try:
+            msg = await openrouter.chat(model, [{"role": "system", "content": SYSTEM}, {"role": "user", "content": ask}],
+                                        json_mode=True, timeout=TIMEOUT_S + 5)
+            data = json.loads(msg.get("content") or "{}")
+            return validate(data.get("items") if isinstance(data, dict) else data, {f["key"] for f in sheet})
+        except Exception as e:
             quota.note_error(model, e)
             continue
     return {}
