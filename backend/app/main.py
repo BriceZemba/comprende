@@ -63,6 +63,7 @@ def health():
     return {
         "qloo_key": bool(config.QLOO_API_KEY),
         "fake_qloo": dev_fake.ENABLED,
+        "backup_models": bool(config.OPENROUTER_API_KEY),  # OpenRouter configured (never the key)
         "model": config.GEMINI_MODEL if config.GEMINI_API_KEY else None,
         "measured_titles": len(cat.titles),
         "measured_titles_mapped_to_qloo": len(cat.by_qloo),
