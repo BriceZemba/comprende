@@ -80,3 +80,14 @@ def test_lift_ranks_personal_match_above_generically_high_title():
                 Candidate("p", "Personal", "film", affinity=0.80, measured=personal)], vocab_size=3000)
     assert [p["imdb"] for p in out["buckets"]["watch_now"]] == ["tt2", "tt1"]
     assert out["buckets"]["watch_now"][0]["lift"] == 0.2
+
+
+def test_dialogue_density_reaches_the_pick():
+    from app.catalog import Measured
+    from app.ranker import Candidate, rank
+    m = Measured(imdb="tt9", wikidata="Q", kind="film", title_es="Peli", title_en=None, year=2010,
+                 countries=["ESP"], coverage=[0.97] * 32, vocab_for_95=2000, vocab_for_98=None, qloo_id="Q9",
+                 words_per_minute=92, dialogue="dense")
+    out = rank([Candidate(qloo_id="Q9", name="Peli", kind="film", affinity=0.8, measured=m)], 3000)
+    pick = out["buckets"]["watch_now"][0]
+    assert pick["words_per_minute"] == 92 and pick["dialogue"] == "dense"

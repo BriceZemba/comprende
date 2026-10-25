@@ -16,6 +16,9 @@ export interface Pick {
   name_en: string | null;
   kind: "film" | "series";
   year: number | null;
+  // Dialogue density (subtitle words per minute of runtime); films with reliable metadata only.
+  words_per_minute?: number | null;
+  dialogue?: "light" | "average" | "dense" | null;
   image: string | null;
   description: string | null;
   affinity: number | null;

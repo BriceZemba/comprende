@@ -17,6 +17,7 @@ from comprende_pipeline.config import CACHE_DIR, DATA_DIR  # noqa: E402
 from comprende_pipeline.lexicon import normalize_counts, normalize_lemma  # noqa: E402
 from comprende_pipeline.coverage import GRID, coverage_curve, frequency_ranks, vocab_needed  # noqa: E402
 from comprende_pipeline.vocab_test import build_items  # noqa: E402
+from comprende_pipeline.pace import bands, words_per_minute  # noqa: E402
 from comprende_pipeline.wikipedia import is_spanish_language  # noqa: E402
 
 FREQ_ROWS_KEPT = 25000
@@ -84,6 +85,7 @@ def main():
             "countries": t.get("countries", []),
             "sitelinks": t["sitelinks"],
             "tokens": r["tokens"],
+            "words_per_minute": words_per_minute(r["tokens"], (r.get("meta") or {}).get("duration"), t["type"]),
             "distinct_lemmas": len(r["lemmas"]),
             "vocab_for_95": vocab_needed(curve, 0.95),
             "vocab_for_98": vocab_needed(curve, 0.98),
@@ -91,9 +93,12 @@ def main():
             "source_file": r["source_file"],
         })
     catalog.sort(key=lambda c: -c["sitelinks"])
+    pace_bands = bands([c["words_per_minute"] for c in catalog if c["words_per_minute"] is not None])
     (DATA_DIR / "catalog_es.json").write_text(
-        json.dumps({"grid": GRID, "titles": catalog}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
+        json.dumps({"grid": GRID, "pace_bands": pace_bands, "titles": catalog}, ensure_ascii=False,
+                   separators=(",", ":")), encoding="utf-8"
     )
+    print(f"dialogue density for {sum(c['words_per_minute'] is not None for c in catalog)} titles, bands {pace_bands}")
 
     import simplemma
 

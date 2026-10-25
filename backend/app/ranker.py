@@ -25,6 +25,7 @@ class Candidate:
     because: list[str] = field(default_factory=list)  # names of the learner's favourites that drove the pick
     tags: list[str] = field(default_factory=list)  # typed Qloo tags (genre, theme...), for the explainer
     traits: dict = field(default_factory=dict)  # Qloo's genre / themes / tone descriptions, for the explainer
+    pace: tuple = (None, None)  # (words per minute, light|average|dense), see Catalog.pace
     measured: Measured | None = None
 
 
@@ -71,6 +72,8 @@ def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) ->
             "coverage": round(cov, 4) if cov is not None else None,
             "fit": fit,
             "vocab_for_95": need,
+            "words_per_minute": (c.pace[0] or (c.measured.words_per_minute if c.measured else None)),
+            "dialogue": (c.pace[1] or (c.measured.dialogue if c.measured else None)),
             "words_to_go": max(0, int(need - vocab_size)) if need else None,
             "bucket": _bucket(fit),
             "_curve": c.measured.coverage if c.measured else None,

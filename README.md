@@ -76,7 +76,7 @@ Tests: `python -m pytest -q pipeline/tests`, `cd backend && python -m pytest -q 
 
 ## Limits
 
-- Coverage counts words, not speech rate, accents or slang. A learner can follow 95% of the words of a fast Andalusian thriller and still struggle.
+- Coverage counts words, not speech rate, accents or slang. As a rough guide to pace, films whose running time is known (from the subtitle metadata or from Qloo) also show their dialogue density: subtitle words per minute of running time, in thirds (under 60, 60-80, over 80). It is not speech rate: silent scenes count in the minutes and subtitles condense speech. Accents and slang are not measured; a learner can follow 95% of the words of a fast Andalusian thriller and still struggle.
 - Only titles in the open subtitle corpus are measured; others are labelled "difficulty not measured", never guessed. Series coverage is thin (the corpus files episodes separately, so only 40 of the 1,464 measured titles are series).
 - The word check is short (64 items) and approximate. Spanish words that look like English or French ones (cognates, false friends) were left out of it because they can be recognised without knowing Spanish, so the estimate may be a little low for those learners.
 - The music lane depends on Qloo genre tags: an artist must carry a genre sung in Spanish (reggaeton, cumbia, flamenco, Latin pop, Spanish rap...) and none sung in another language. Lyrics are not measured. Podcasts are left out: Qloo's "Spanish" podcast tags describe topics (Spanish history), not the language of the show.

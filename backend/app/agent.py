@@ -308,12 +308,14 @@ class ComprendeAgent:
         for r in rows:
             imdb = _imdb_ids(r)
             because = _because(r, s.favourites)
+            measured = self.catalog.match(r.entity_id, imdb)
             c = Candidate(qloo_id=r.entity_id, name=self.catalog.spanish_name(imdb) or r.name,
                           kind="film" if kind == "movie" else "series",
                           year=r.year, image=r.image, description=r.description, affinity=r.affinity,
                           popularity=r.popularity, because=[b for b in because if b],
                           tags=tag_names(r.tags), traits=r.traits,
-                          measured=self.catalog.match(r.entity_id, imdb))
+                          measured=measured,
+                          pace=self.catalog.pace(measured, r.duration) if measured else (None, None))
             s.candidates.append(c)
             out.append(c)
         return out

@@ -76,6 +76,9 @@ function PickCard({ p, vocab, blend, reason, feedback, onFeedback }: {
           <>
             <p className="mt-2 text-sm">{t.card.youdKnow(pct(p.coverage))}</p>
             <CoverageBar coverage={p.coverage} />
+            {p.dialogue && p.words_per_minute && (
+              <p className="mt-1.5 text-xs text-muted">{t.card.dialogue[p.dialogue]} · {t.card.wpm(f.int(p.words_per_minute))}</p>
+            )}
           </>
         )}
         {p.because.length > 0 ? (

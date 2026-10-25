@@ -39,6 +39,7 @@ class Entity:
     tags: list[dict] = field(default_factory=list)
     traits: dict = field(default_factory=dict)  # Qloo's own genre / themes / tone descriptions
     akas_es: list[str] = field(default_factory=list)  # titles Qloo lists for Spanish
+    duration: float | None = None  # running time in minutes, for films
     explainability: list[dict] = field(default_factory=list)
     external: dict = field(default_factory=dict)
 
@@ -76,6 +77,7 @@ class Entity:
             explainability=expl if isinstance(expl, list) else [],
             traits={k: get(f"{k}_description") for k in ("genre", "plot_themes", "emotional_tone")
                     if get(f"{k}_description")},
+            duration=get("duration") if isinstance(get("duration"), (int, float)) else None,
             akas_es=[str(a.get("value", "")).strip('"') for a in (get("akas") or [])
                      if isinstance(a, dict) and "es" in (a.get("languages") or [a.get("language")])],
             external=get("external") or {},  # top level in insights rows, under properties in search

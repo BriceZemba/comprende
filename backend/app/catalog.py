@@ -8,6 +8,7 @@ from . import config
 
 sys.path.insert(0, str(config.REPO_ROOT / "pipeline"))
 from comprende_pipeline.coverage import coverage_at, fit_for  # noqa: E402
+from comprende_pipeline.pace import level as pace_level, words_per_minute  # noqa: E402
 
 
 @dataclass
@@ -23,6 +24,9 @@ class Measured:
     vocab_for_95: int | None
     vocab_for_98: int | None
     qloo_id: str | None = None
+    tokens: int = 0  # running words in the subtitle file
+    words_per_minute: int | None = None  # dialogue density, films with reliable metadata only (pipeline/pace.py)
+    dialogue: str | None = None  # light | average | dense, by thirds of the measured films
     taste_baseline: float | None = None  # mean Qloo affinity across reference tastes (see build_taste_baseline.py)
 
     def coverage_for(self, vocab_size: float) -> float:
@@ -43,6 +47,7 @@ class Catalog:
                  spanish_names: dict[str, str] | None = None, not_spanish: set[str] | None = None):
         self.titles = titles
         self.spanish_ids = spanish_ids or set()
+        self.pace_bands: list[float] = []
         self.not_spanish = not_spanish or set()  # Wikidata says Spanish, Wikipedia says another main language
         self.spanish_names = spanish_names or {}  # imdb id -> original Spanish title (Wikidata)
         self._spanish_titles = {t.lower(): t for t in self.spanish_names.values()}
@@ -60,6 +65,9 @@ class Catalog:
                 title_en=t.get("title_en"), year=t.get("year"), countries=t.get("countries", []),
                 coverage=t["coverage"], vocab_for_95=t.get("vocab_for_95"), vocab_for_98=t.get("vocab_for_98"),
                 qloo_id=(qmap.get(t["imdb"]) or {}).get("entity_id"),
+                tokens=t.get("tokens", 0),
+                words_per_minute=t.get("words_per_minute"),
+                dialogue=pace_level(t.get("words_per_minute"), cat.get("pace_bands") or []),
             )
             for t in cat["titles"]
         ]
@@ -74,7 +82,14 @@ class Catalog:
         names = json.loads(names_file.read_text(encoding="utf-8")) if names_file.exists() else {}
         not_file = data_dir / "not_spanish_es.json"
         not_spanish = set(json.loads(not_file.read_text(encoding="utf-8"))) if not_file.exists() else set()
-        return cls(titles, spanish_ids, names, not_spanish)
+        catalog = cls(titles, spanish_ids, names, not_spanish)
+        catalog.pace_bands = cat.get("pace_bands") or []
+        return catalog
+
+    def pace(self, m: "Measured", qloo_minutes: float | None) -> tuple[int | None, str | None]:
+        """Dialogue density from the subtitle metadata, or else from Qloo's running time, same rule."""
+        wpm = m.words_per_minute or words_per_minute(m.tokens, qloo_minutes, m.kind)
+        return wpm, pace_level(wpm, self.pace_bands)
 
     def spanish_name(self, imdb_ids: list[str], akas_es: list[str] | None = None) -> str | None:
         """Qloo names titles in English ("Cable Girls"); learners should see "Las chicas del cable".
