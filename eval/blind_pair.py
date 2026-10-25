@@ -21,7 +21,7 @@ from app import config  # noqa: E402
 from app.agent import ComprendeAgent  # noqa: E402
 from app.catalog import load_catalog  # noqa: E402
 from app.qloo import QlooClient  # noqa: E402
-from run_llm_baseline import PROMPT, ask  # noqa: E402
+from run_llm_baseline import BASELINE_MODEL, PROMPT, ask  # noqa: E402
 
 N = 5
 
@@ -47,8 +47,7 @@ def llm_list(favs: list[str], vocab: int) -> list[str]:
     from google import genai
 
     client = genai.Client(api_key=config.GEMINI_API_KEY)
-    titles = ask(client, config.GEMINI_MODELS[-2] if len(config.GEMINI_MODELS) > 1 else config.GEMINI_MODELS[0],
-                 PROMPT.format(vocab=f"{vocab:,}", favs=", ".join(favs)))
+    titles = ask(client, BASELINE_MODEL, PROMPT.format(vocab=f"{vocab:,}", favs=", ".join(favs)))
     return [f"{t['title']} ({t['year']})" for t in titles[:N]]
 
 

@@ -4,6 +4,7 @@ would love and understand. Same inputs Comprende gets: three favourites and a vo
     python eval/run_llm_baseline.py            # writes eval/results/llm_only.json
 """
 import json
+import os
 import sys
 import time
 from datetime import datetime, timezone
@@ -15,6 +16,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from app import config  # noqa: E402
 from titles import classify  # noqa: E402
+
+# The baseline must be a strong model, not the app's fast planner: a weak baseline would flatter Comprende.
+# It is pinned and never downgraded; when it is busy the run waits and retries.
+BASELINE_MODEL = os.environ.get("BASELINE_MODEL", "gemini-3.5-flash")
 
 PROMPT = """I am learning Spanish and know about {vocab} Spanish words.
 I love: {favs}.
@@ -45,25 +50,22 @@ def main():
 
     client = genai.Client(api_key=config.GEMINI_API_KEY)
     profiles = json.loads((Path(__file__).parent / "profiles.json").read_text(encoding="utf-8"))["profiles"]
-    out, models = [], list(config.GEMINI_MODELS)
+    out = []
     for p in profiles:
         prompt = PROMPT.format(vocab=f"{p['vocab_size']:,}", favs=", ".join(p["favourites"]))
         while True:
             try:
-                titles = ask(client, models[0], prompt)
+                titles = ask(client, BASELINE_MODEL, prompt)
                 break
             except errors.APIError as e:
-                if e.code in (429, 503) and len(models) > 1:
-                    models.pop(0)
-                    continue
                 if e.code in (429, 503):
                     time.sleep(20)
                     continue
                 raise
         for t in titles:
             t.update(classify(t["title"], t.get("year")))
-        out.append({"id": p["id"], "model": models[0], "titles": titles})
-        print(p["id"], models[0], [f"{t['title']} [{t['class']}]" for t in titles][:4], flush=True)
+        out.append({"id": p["id"], "model": BASELINE_MODEL, "titles": titles})
+        print(p["id"], BASELINE_MODEL, [f"{t['title']} [{t['class']}]" for t in titles][:4], flush=True)
     path = Path(__file__).parent / "results" / "llm_only.json"
     path.write_text(json.dumps({"run_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                                 "prompt": PROMPT, "results": out}, ensure_ascii=False, indent=1), encoding="utf-8")

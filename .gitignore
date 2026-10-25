@@ -28,3 +28,6 @@ Thumbs.db
 
 # Raw Qloo responses from live checks (not redistributed)
 backend/tests/fixtures/live/
+
+# Blind-test answer key: which list is which, plus testers' favourites. Kept local, never published.
+eval/results/blind_key.csv

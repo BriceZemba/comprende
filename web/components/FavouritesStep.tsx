@@ -39,13 +39,33 @@ export default function FavouritesStep({ value, onChange, onNext }: {
     return () => { clearTimeout(timer); ctrl.abort(); };
   }, [query, t]);
 
-  const add = (f: Favourite) => {
-    const dup = value.some((v) => (f.id && v.id === f.id) || v.name.toLowerCase() === f.name.toLowerCase());
-    if (value.length >= 8 && !dup) return;
-    if (!dup) onChange([...value, f]);
-    setStatus(dup ? t.fav.already(f.name) : t.fav.added(f.name));
-    setQuery(""); setHits([]); setOpen(false);
+  // Adds favourites (skipping duplicates, at most 8) and keeps `rest` in the box for the next search.
+  const merge = (items: Favourite[], rest = "") => {
+    let next = value;
+    const said: string[] = [];
+    for (const f of items) {
+      const dup = next.some((v) => (f.id && v.id === f.id) || v.name.toLowerCase() === f.name.toLowerCase());
+      if (dup) said.push(t.fav.already(f.name));
+      else if (next.length < 8) { next = [...next, f]; said.push(t.fav.added(f.name)); }
+    }
+    if (next !== value) onChange(next);
+    setStatus(said.join(". "));
+    setQuery(rest); setHits([]); setSearched(""); setOpen(false);
     inputRef.current?.focus();
+  };
+  const add = (f: Favourite) => merge([f]);
+  // The top search result, but only if it was found for exactly this text; otherwise the text as typed
+  // (the agent looks it up).
+  const best = (text: string): Favourite => {
+    const h = searched === text ? hits[0] : undefined;
+    return h ? { id: h.id, name: h.name, kind: h.kind } : { id: null, name: text };
+  };
+  // "La casa de papel, Breaking Bad": a comma ends one favourite; pasting a whole list adds them all.
+  const onType = (text: string) => {
+    if (!text.includes(",")) { setQuery(text); return; }
+    const parts = text.split(",");
+    const done = parts.slice(0, -1).map((x) => x.trim()).filter(Boolean);
+    merge(done.map(best), parts[parts.length - 1].trimStart());
   };
 
   return (
@@ -60,13 +80,14 @@ export default function FavouritesStep({ value, onChange, onNext }: {
         <input
           ref={inputRef}
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => onType(e.target.value)}
           onFocus={() => hits.length && setOpen(true)}
+          onBlur={() => setOpen(false)}
           onKeyDown={(e) => {
             if (e.key === "Escape") setOpen(false);
             if (e.key === "Enter" && query.trim()) {
               e.preventDefault();
-              add(hits[0] ? { id: hits[0].id, name: hits[0].name, kind: hits[0].kind } : { id: null, name: query.trim() });
+              add(best(query.trim()));
             }
           }}
           placeholder={t.fav.placeholder}
@@ -74,7 +95,8 @@ export default function FavouritesStep({ value, onChange, onNext }: {
           className="w-full rounded-2xl border border-line bg-card px-5 py-4 text-lg shadow-sm outline-none focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
         />
         {open && hits.length > 0 && (
-          <ul className="absolute z-10 mt-2 w-full overflow-hidden rounded-2xl border border-line bg-card shadow-lg">
+          <ul className="absolute z-10 mt-2 w-full overflow-hidden rounded-2xl border border-line bg-card shadow-lg"
+            onMouseDown={(e) => e.preventDefault() /* keep focus in the box so blur does not close it first */}>
             {hits.map((h) => (
               <li key={h.id}>
                 <button

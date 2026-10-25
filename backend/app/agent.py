@@ -25,6 +25,9 @@ SPANISH_RELEASE_COUNTRIES = ["Spain", "Mexico", "Argentina", "Colombia", "Chile"
 KINDS = {"movie": "urn:entity:movie", "tv_show": "urn:entity:tv_show", "artist": "urn:entity:artist",
          "book": "urn:entity:book", "videogame": "urn:entity:videogame", "podcast": "urn:entity:podcast",
          "brand": "urn:entity:brand", "person": "urn:entity:person"}
+# What a learner means by "something you love": searching every Qloo type returned bars and shops first
+# ("casa del papel" -> Casa del Mitreo, a place), so favourites are looked up among these unless asked otherwise.
+MEDIA_TYPES = [KINDS[k] for k in ("tv_show", "movie", "artist", "videogame", "book", "podcast")]
 # Genre tags that mark Spanish-language or Latin music and podcasts. Qloo has no language field for
 # artists or podcasts, so the lane relies on tags found at run time; with no match it stays empty.
 AUDIO_TAG_QUERIES = {
@@ -183,7 +186,7 @@ class ComprendeAgent:
     async def find_entity(self, s: Session, query: str, kind: str | None = None) -> dict:
         await self.emit({"type": "step", "tool": "find_entity", "text": f"Looking up “{query}” in Qloo",
                          "data": {"query": query}})
-        types = [KINDS[kind]] if kind in KINDS else None
+        types = [KINDS[kind]] if kind in KINDS else MEDIA_TYPES
         rows = await self.qloo.search(query, types, take=5)
         if not rows and types:
             rows = await self.qloo.search(query, None, take=5)

@@ -14,7 +14,7 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from . import config, dev_fake
-from .agent import KINDS, ComprendeAgent
+from .agent import KINDS, MEDIA_TYPES, ComprendeAgent
 from .catalog import load_catalog
 from .qloo import QlooClient, QlooError
 
@@ -88,7 +88,7 @@ async def search(q: str, kind: str | None = None):
     if len(q.strip()) < 2:
         return {"results": []}
     try:
-        rows = await qloo.search(q.strip(), [KINDS[kind]] if kind in KINDS else None, take=8)
+        rows = await qloo.search(q.strip(), [KINDS[kind]] if kind in KINDS else MEDIA_TYPES, take=8)
     except QlooError as e:
         raise HTTPException(502, detail={"code": e.code}) from e
     return {"results": [{"id": r.entity_id, "name": r.name, "kind": r.subtype.rsplit(":", 1)[-1], "year": r.year,
