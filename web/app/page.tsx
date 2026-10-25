@@ -107,6 +107,18 @@ export default function Home() {
                 favourites: favs, excluded: exclude }));
             } catch { /* not saved: results still show */ }
           }
+          if (e.type === "explanations") {
+            // The explainer's reasons arrive after the cards: merge them into the shown result.
+            setResult((prev) => {
+              if (!prev) return prev;
+              const next = { ...prev, explanations: e.explanations };
+              try {
+                const saved = JSON.parse(sessionStorage.getItem(SAVED) ?? "null");
+                if (saved?.result) sessionStorage.setItem(SAVED, JSON.stringify({ ...saved, result: next }));
+              } catch { /* not saved */ }
+              return next;
+            });
+          }
           collected.push(e);
           if (e.type === "error") setError(e.text);
         },

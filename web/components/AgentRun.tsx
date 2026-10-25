@@ -11,6 +11,7 @@ const SOURCE: Record<string, keyof Messages["run"]["source"]> = {
   score_measured_titles: "insights",
   recommend_spanish_audio: "tags",
   rank_for_learner: "subtitles",
+  explain_picks: "explainer",
 };
 const EXPECTED_STEPS = 9; // three favourites, films, series, two scoring passes, music, ranking
 
@@ -27,6 +28,7 @@ function describe(e: AgentEvent, t: Messages, int: (x: number) => string): strin
       case "score_measured_titles": return t.run.score(series, int(Number(d.count)));
       case "recommend_spanish_audio": return t.run.music;
       case "rank_for_learner": return t.run.rank(int(Number(d.vocab)));
+      case "explain_picks": return t.run.explain;
     }
     return e.text;
   }

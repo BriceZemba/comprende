@@ -32,10 +32,11 @@ const FIT_CLASS: Record<string, string> = {
 
 const JUSTWATCH: Record<string, string> = { en: "us", fr: "fr", es: "es" };
 
-function PickCard({ p, vocab, blend, feedback, onFeedback }: {
+function PickCard({ p, vocab, blend, reason, feedback, onFeedback }: {
   p: Pick;
   vocab: number;
   blend: boolean;
+  reason?: string;
   feedback?: Feedback;
   onFeedback: (p: Pick, f: Feedback | undefined) => void;
 }) {
@@ -70,6 +71,7 @@ function PickCard({ p, vocab, blend, feedback, onFeedback }: {
         <p className="text-sm text-muted">
           {p.name_en && p.name_en.toLowerCase() !== p.name.toLowerCase() ? `${p.name_en} · ` : ""}{p.kind === "series" ? t.card.series : t.card.film}{p.year ? ` · ${p.year}` : ""}
         </p>
+        {reason && <p className="rise mt-2 text-sm leading-snug">{reason}</p>}
         {p.coverage !== null && (
           <>
             <p className="mt-2 text-sm">{t.card.youdKnow(pct(p.coverage))}</p>
@@ -159,8 +161,9 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
   onUpdate: () => void;
   note: string | null;
 }) {
-  const { t, f } = useI18n();
+  const { t, f, lang } = useI18n();
   const pct = f.pctFloor;
+  const reason = (p: Pick) => result.explanations?.[pickKey(p)]?.[lang];
   const changes = Object.keys(feedback).length;
   const b = result.buckets;
   const held = result.held_back;
@@ -191,7 +194,8 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
       {held && (
         <div className="rise mt-6 max-w-2xl rounded-3xl bg-later-soft p-5">
           <p className="text-sm font-medium uppercase tracking-wider text-later">{t.res.heldEyebrow}</p>
-          <p className="font-display mt-1 text-2xl">{held.name}</p>
+          <p className="font-display mt-1 text-2xl" lang="es">{held.name}</p>
+          {reason(held) && <p className="rise mt-1 text-sm leading-snug">{reason(held)}</p>}
           <p className="mt-2">
             {t.res.held(held.because.join(", "), pct(held.coverage ?? 0), held.words_to_go ? f.int(held.words_to_go) : null)}
           </p>
@@ -210,7 +214,7 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
           <p className="text-sm text-muted">{t.res.sections[s][1]}</p>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
             {b[s].map((p) => (
-              <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} blend={blend} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
+              <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} blend={blend} reason={reason(p)} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
             ))}
           </div>
         </div>

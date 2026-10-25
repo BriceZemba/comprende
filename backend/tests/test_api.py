@@ -51,8 +51,9 @@ def test_recommend_streams_steps_then_result(monkeypatch):
     assert r.status_code == 200 and r.headers["content-type"].startswith("text/event-stream")
     ev = events(r)
     assert ev[0]["type"] == "step"
-    assert ev[-1]["type"] == "result"
-    res = ev[-1]["result"]
+    kinds = [e["type"] for e in ev]
+    assert "result" in kinds and set(kinds[:kinds.index("result")]) <= {"step", "warning"}
+    res = ev[kinds.index("result")]["result"]
     assert res["buckets"]["watch_now"][0]["imdb"] == "tt1"
     assert res["held_back"]["imdb"] == "tt2"
 

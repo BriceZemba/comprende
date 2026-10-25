@@ -16,6 +16,7 @@ from dataclasses import dataclass, field
 
 from . import config
 from .catalog import Catalog
+from .explainer import explain, tag_names
 from .qloo import Entity, QlooClient, QlooError
 from .ranker import Candidate, rank
 
@@ -304,6 +305,7 @@ class ComprendeAgent:
                           kind="film" if kind == "movie" else "series",
                           year=r.year, image=r.image, description=r.description, affinity=r.affinity,
                           popularity=r.popularity, because=[b for b in because if b],
+                          tags=tag_names(r.tags), traits=r.traits,
                           measured=self.catalog.match(r.entity_id, imdb))
             s.candidates.append(c)
             out.append(c)
@@ -325,11 +327,25 @@ class ComprendeAgent:
                              "text": f"Qloo did not answer ({e.code})"})
             return {"error": e.code, "retryable": e.retryable}
 
+    async def explain_picks(self, result: dict) -> dict:
+        """Second agent: one specific, translated reason per pick shown, from Qloo's description of it."""
+        s = self.session
+        shown = [p for b in ("watch_now", "stretch") for p in result["buckets"][b]]
+        if result.get("held_back"):
+            shown.append(result["held_back"])
+        if not shown or not config.GEMINI_API_KEY:
+            return {}
+        await self.emit({"type": "step", "tool": "explain_picks", "text": "Writing a reason for each pick",
+                         "data": {"count": len(shown)}})
+        by_id = {c.qloo_id: c for c in s.candidates if c.qloo_id}
+        return await explain(shown, by_id, list(s.favourites.values()))
+
     # ---- runs ----------------------------------------------------------------
 
     async def run(self, favourites_text: str, favourite_ids: dict[str, str], vocab_size: int,
                   exclude_ids: list[str] | None = None) -> dict:
         s = Session(vocab_size=vocab_size, favourites=dict(favourite_ids), excluded=set(exclude_ids or []))
+        self.session = s
         # The client is shared by all runs in this process; count only this run's requests.
         requests_before = self.qloo.calls + self.qloo.cached
         mode = "agent"

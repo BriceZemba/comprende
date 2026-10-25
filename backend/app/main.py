@@ -119,6 +119,12 @@ async def recommend(body: RecommendRequest, request: Request):
             agent = ComprendeAgent(qloo, load_catalog(), emit)
             result = await agent.run(body.favourites_text, body.favourite_ids, body.vocab_size, body.exclude_ids)
             await queue.put({"type": "result", "result": result})
+            # The learner sees the picks now; the explainer's sentences follow a second or two later.
+            try:
+                if (explanations := await agent.explain_picks(result)):
+                    await queue.put({"type": "explanations", "explanations": explanations})
+            except Exception:  # the cards keep their standard text
+                pass
         except QlooError as e:
             await queue.put({"type": "error", "code": e.code, "text": "Qloo could not answer right now."})
         except Exception as e:  # report, do not hang the stream

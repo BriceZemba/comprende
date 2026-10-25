@@ -23,6 +23,8 @@ class Candidate:
     affinity: float | None = None
     popularity: float | None = None
     because: list[str] = field(default_factory=list)  # names of the learner's favourites that drove the pick
+    tags: list[str] = field(default_factory=list)  # typed Qloo tags (genre, theme...), for the explainer
+    traits: dict = field(default_factory=dict)  # Qloo's genre / themes / tone descriptions, for the explainer
     measured: Measured | None = None
 
 

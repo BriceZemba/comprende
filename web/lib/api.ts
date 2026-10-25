@@ -54,7 +54,11 @@ export interface RunResult {
   measured_share: number;
   map: { grid: number[]; titles: MapTitle[] };
   listen?: { artists: ListenPick[]; podcasts: ListenPick[] };
+  // From the explainer agent, a moment after the result: one reason per pick, keyed like pickKey().
+  explanations?: Record<string, Reason>;
 }
+
+export type Reason = { en: string; fr: string; es: string };
 
 export type AgentEvent =
   // `text` is the English fallback; `data` lets the client say the same thing in the learner's language.
@@ -62,7 +66,8 @@ export type AgentEvent =
   | { type: "warning"; text: string; code?: string; data?: Record<string, string | number | boolean> }
   | { type: "message"; text: string }
   | { type: "error"; code: string; text: string }
-  | { type: "result"; result: RunResult };
+  | { type: "result"; result: RunResult }
+  | { type: "explanations"; explanations: Record<string, Reason> };
 
 export interface VocabItemsFile {
   language: string;

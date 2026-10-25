@@ -37,6 +37,7 @@ class Entity:
     popularity: float | None = None
     affinity: float | None = None
     tags: list[dict] = field(default_factory=list)
+    traits: dict = field(default_factory=dict)  # Qloo's own genre / themes / tone descriptions
     explainability: list[dict] = field(default_factory=list)
     external: dict = field(default_factory=dict)
 
@@ -72,6 +73,8 @@ class Entity:
             affinity=query.get("affinity", raw.get("affinity")),
             tags=[{"id": t.get("id") or t.get("tag_id"), "name": t.get("name")} for t in (raw.get("tags") or [])],
             explainability=expl if isinstance(expl, list) else [],
+            traits={k: get(f"{k}_description") for k in ("genre", "plot_themes", "emotional_tone")
+                    if get(f"{k}_description")},
             external=raw.get("external") or {},
         )
 

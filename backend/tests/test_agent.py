@@ -304,3 +304,26 @@ def test_model_budget_counts_model_time_only():
     after_model, after_tool = asyncio.run(go())
     assert 0.8 < after_model < 0.96   # the model call was charged
     assert after_tool == after_model  # the tool time was not
+
+
+def test_explainer_keeps_only_well_formed_reasons():
+    from app import explainer
+    good = {"key": "Q1", "en": "A tense prison thriller about survival.", "fr": "Un thriller carcéral tendu.",
+            "es": "Un thriller carcelario tenso."}
+    raw = [good,
+           {"key": "UNKNOWN", "en": "x", "fr": "x", "es": "x"},                        # not a shown pick
+           {"key": "Q2", "en": "Fits you 95% of the way", "fr": "x", "es": "x"},      # numbers are the app's job
+           {"key": "Q3", "en": "Qloo says so", "fr": "x", "es": "x"},
+           {"key": "Q4", "en": "Fine", "fr": "", "es": "Bien"},                       # a language is missing
+           {"key": "Q5", "en": "x" * 300, "fr": "x", "es": "x"}]                      # too long
+    out = explainer.validate(raw, {"Q1", "Q2", "Q3", "Q4", "Q5"})
+    assert out == {"Q1": {k: good[k] for k in ("en", "fr", "es")}}
+    assert explainer.validate("not a list", {"Q1"}) == {}
+
+
+def test_explainer_uses_typed_tags_not_keywords():
+    from app import explainer
+    tags = [{"id": "urn:tag:keyword:media:telephone_call", "name": "Telephone call"},
+            {"id": "urn:tag:genre:media:thriller", "name": "Thriller"},
+            {"id": "urn:tag:theme:media:corruption", "name": "Corruption"}]
+    assert explainer.tag_names(tags) == ["Thriller", "Corruption"]
