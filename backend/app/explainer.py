@@ -10,13 +10,17 @@ import asyncio
 import json
 import re
 
-from . import config
+from . import config, quota
 
 LANGS = ("en", "fr", "es")
 # The lite model writes these well enough and is the fastest; the larger one is the backup. Titles are
 # explained in small groups written in parallel: one call for 13 titles in 3 languages took 8-20 s.
 MODELS = ["gemini-3.5-flash-lite", "gemini-3.5-flash"]
-GROUP = 4
+GROUP = 7  # 2 requests for a usual 13 picks: the free tier counts requests, not tokens
+# Reasons already written, by (title, credited favourite): re-running the same example costs no model call
+# while the server stays warm. Bounded so it cannot grow without limit.
+_CACHE: dict[tuple, dict] = {}
+_CACHE_MAX = 3000
 MAX_CHARS = 200
 TIMEOUT_S = 10.0
 # Typed Qloo tags worth naming. "keyword" tags are left out: they are noisy ("Telephone call") and
@@ -92,11 +96,22 @@ async def explain(picks: list[dict], candidates: dict[str, object], favourites: 
         return {}
     from google import genai
 
+    def cache_key(f: dict) -> tuple:
+        return f["key"], f["credited_favourite"]
+
+    out = {f["key"]: _CACHE[cache_key(f)] for f in sheet if cache_key(f) in _CACHE}
+    todo = [f for f in sheet if f["key"] not in out]
+    if not todo:
+        return out
     client = genai.Client(api_key=config.GEMINI_API_KEY)
-    groups = [sheet[i:i + GROUP] for i in range(0, len(sheet), GROUP)]
-    out: dict = {}
+    groups = [todo[i:i + GROUP] for i in range(0, len(todo), GROUP)]
     for part in await asyncio.gather(*(_explain_group(client, g, favourites) for g in groups)):
         out.update(part)
+    if len(_CACHE) > _CACHE_MAX:
+        _CACHE.clear()
+    for f in todo:
+        if f["key"] in out:
+            _CACHE[cache_key(f)] = out[f["key"]]
     return out
 
 
@@ -109,6 +124,8 @@ async def _explain_group(client, sheet: list[dict], favourites: list[str]) -> di
                     **{lang: types.Schema(type=types.Type.STRING) for lang in LANGS}}))
     prompt = json.dumps({"favourites": favourites, "items": sheet}, ensure_ascii=False)
     for model in MODELS:
+        if not quota.available(model):
+            continue
         level = config.GEMINI_THINKING.get(model)
         cfg = types.GenerateContentConfig(
             system_instruction=SYSTEM, temperature=0.4, response_mime_type="application/json",
@@ -118,6 +135,7 @@ async def _explain_group(client, sheet: list[dict], favourites: list[str]) -> di
             resp = await asyncio.wait_for(
                 client.aio.models.generate_content(model=model, contents=prompt, config=cfg), timeout=TIMEOUT_S)
             return validate(json.loads(resp.text or "[]"), {f["key"] for f in sheet})
-        except Exception:  # slow, busy or malformed: try the next model, then give up quietly
+        except Exception as e:  # slow, busy, out of quota or malformed: try the next model, then give up quietly
+            quota.note_error(model, e)
             continue
     return {}

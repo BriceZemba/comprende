@@ -14,7 +14,7 @@ import time
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
 
-from . import config
+from . import config, quota
 from .catalog import Catalog
 from .explainer import explain, tag_names
 from .qloo import Entity, QlooClient, QlooError
@@ -397,6 +397,8 @@ class ComprendeAgent:
 
         from google.genai import types
 
+        while models and not quota.available(models[0]):
+            models.pop(0)  # daily quota spent: skip it without trying
         while models:
             if self.model_time_left <= 0:
                 raise TimeoutError("model budget spent")
@@ -417,6 +419,8 @@ class ComprendeAgent:
                     continue
                 raise TimeoutError("model too slow") from None
             except errors.APIError as e:
+                if e.code == 429:
+                    quota.note_error(models[0], e)
                 if e.code in (429, 503) and len(models) > 1:
                     await self.emit({"type": "warning", "code": "model_busy", "data": {"from": models[0], "to": models[1]},
                                       "text": f"{models[0]} is busy, switching to {models[1]}"})

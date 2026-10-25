@@ -327,3 +327,14 @@ def test_explainer_uses_typed_tags_not_keywords():
             {"id": "urn:tag:genre:media:thriller", "name": "Thriller"},
             {"id": "urn:tag:theme:media:corruption", "name": "Corruption"}]
     assert explainer.tag_names(tags) == ["Thriller", "Corruption"]
+
+
+def test_daily_quota_refusal_skips_the_model_until_reset():
+    from app import quota
+    quota._until.clear()
+    daily = Exception("429 RESOURCE_EXHAUSTED {'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', "
+                      "'retryDelay': '45256s'}")
+    assert quota.note_error("m-flash", daily) and not quota.available("m-flash")
+    assert not quota.note_error("m-lite", Exception("429 too many requests per minute"))
+    assert quota.available("m-lite")
+    quota._until.clear()

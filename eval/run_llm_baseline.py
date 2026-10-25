@@ -57,9 +57,16 @@ def main():
     out = json.loads(partial.read_text(encoding="utf-8")) if partial.exists() else []
     done = {r["id"] for r in out if r.get("model") == BASELINE_MODEL}
     out = [r for r in out if r["id"] in done]
+    # --max N: stop after N new profiles. On Gemini's free tier (20 requests a day for this model) the
+    # 20 profiles are spread over two days so the blind tests keep some quota.
+    limit = int(sys.argv[sys.argv.index("--max") + 1]) if "--max" in sys.argv else len(profiles)
     for p in profiles:
         if p["id"] in done:
             continue
+        if limit <= 0:
+            print(f"stopped at --max; {len(out)} of {len(profiles)} profiles done, rerun to continue")
+            return
+        limit -= 1
         prompt = PROMPT.format(vocab=f"{p['vocab_size']:,}", favs=", ".join(p["favourites"]))
         for attempt in range(8):  # busy model: wait and retry, but never forever
             try:
