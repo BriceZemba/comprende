@@ -51,8 +51,8 @@ MAX_TURNS = 10
 MAX_SCORED_PER_TYPE = 400
 # Latency budget for the model: per call, and for the whole planning phase. Past it, the run
 # finishes with the fixed plan from wherever the model got to.
-MODEL_CALL_TIMEOUT_S = float(os.environ.get("MODEL_CALL_TIMEOUT_S", "12"))
-MODEL_BUDGET_S = float(os.environ.get("MODEL_BUDGET_S", "25"))
+MODEL_CALL_TIMEOUT_S = float(os.environ.get("MODEL_CALL_TIMEOUT_S", "8"))
+MODEL_BUDGET_S = float(os.environ.get("MODEL_BUDGET_S", "25"))  # model time only; Qloo tool time is not counted
 
 Emit = Callable[[dict], Awaitable[None]]
 
@@ -175,7 +175,7 @@ class ComprendeAgent:
     def __init__(self, qloo: QlooClient, catalog: Catalog, emit: Emit):
         self.qloo, self.catalog, self.emit = qloo, catalog, emit
         self.model_used: str | None = None
-        self.deadline = float("inf")
+        self.model_time_left = float("inf")
         self.qloo_errors: list[str] = []
 
     # ---- tools ---------------------------------------------------------------
@@ -221,12 +221,12 @@ class ComprendeAgent:
                          "text": f"Scoring {len(ids)} {label} with measured dialogue against your taste",
                          "data": {"kind": kind, "count": len(ids)}})
         self._remember(s, signal_entity_ids)
-        rows: list[Entity] = []
-        for i in range(0, len(ids), 50):
-            rows += await self.qloo.insights(**{
-                "filter.type": KINDS[kind], "signal.interests.entities": signal_entity_ids,
-                "filter.results.entities": ids[i:i + 50], "feature.explainability": True, "take": 50,
-            })
+        # Batches of 50 are independent requests: send them together (8 sequential calls took 5-7 s).
+        batches = await asyncio.gather(*(self.qloo.insights(**{
+            "filter.type": KINDS[kind], "signal.interests.entities": signal_entity_ids,
+            "filter.results.entities": ids[i:i + 50], "feature.explainability": True, "take": 50,
+        }) for i in range(0, len(ids), 50)))
+        rows: list[Entity] = [r for batch in batches for r in batch]
         added = self._add(s, rows, kind)
         return {"scored": len(rows), "top": [c.name for c in sorted(added, key=lambda c: -(c.affinity or 0))[:8]]}
 
@@ -376,18 +376,22 @@ class ComprendeAgent:
         """Call the first available model; drop overloaded or rate-limited ones for the rest of the run."""
         from google.genai import errors
 
+        from google.genai import types
+
         while models:
-            remaining = self.deadline - time.monotonic()
-            if remaining <= 0:
+            if self.model_time_left <= 0:
                 raise TimeoutError("model budget spent")
+            level = config.GEMINI_THINKING.get(models[0])
+            call_cfg = cfg.model_copy(update={"thinking_config": types.ThinkingConfig(thinking_level=level)}) if level else cfg
+            started = time.monotonic()
             try:
                 resp = await asyncio.wait_for(
-                    client.aio.models.generate_content(model=models[0], contents=contents, config=cfg),
-                    timeout=min(MODEL_CALL_TIMEOUT_S, remaining))
+                    client.aio.models.generate_content(model=models[0], contents=contents, config=call_cfg),
+                    timeout=min(MODEL_CALL_TIMEOUT_S, self.model_time_left))
                 self.model_used = models[0]
                 return resp
             except asyncio.TimeoutError:
-                if len(models) > 1 and self.deadline - time.monotonic() > 3:
+                if len(models) > 1 and self.model_time_left - (time.monotonic() - started) > 3:
                     await self.emit({"type": "warning", "code": "model_slow", "data": {"from": models[0], "to": models[1]},
                                       "text": f"{models[0]} is slow, switching to {models[1]}"})
                     models.pop(0)
@@ -400,6 +404,8 @@ class ComprendeAgent:
                     models.pop(0)
                     continue
                 raise
+            finally:
+                self.model_time_left -= time.monotonic() - started
         raise RuntimeError("no model available")
 
     async def _run_llm(self, s: Session, favourites_text: str) -> None:
@@ -417,7 +423,7 @@ class ComprendeAgent:
             system_instruction=SYSTEM, tools=tools, temperature=0.2,
             automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True))
         models = list(config.GEMINI_MODELS)
-        self.deadline = time.monotonic() + MODEL_BUDGET_S
+        self.model_time_left = MODEL_BUDGET_S
         for _ in range(MAX_TURNS):
             resp = await self._generate(client, models, contents, cfg)
             calls = resp.function_calls or []
@@ -426,11 +432,14 @@ class ComprendeAgent:
                     await self.emit({"type": "message", "text": resp.text.strip()})
                 break
             contents.append(resp.candidates[0].content)
-            parts = []
-            for call in calls:
-                result = await self._call(s, call.name, dict(call.args or {}))
-                parts.append(types.Part.from_function_response(name=call.name, response={"result": json.loads(
-                    json.dumps(result, default=str))}))
+            # Calls the model asks for in the same turn are independent Qloo requests: run them together.
+            # Ranking reads what the others found, so it always runs after them.
+            later = [c for c in calls if c.name == "rank_for_learner"]
+            now = [c for c in calls if c.name != "rank_for_learner"]
+            results = list(await asyncio.gather(*(self._call(s, c.name, dict(c.args or {})) for c in now)))
+            results += [await self._call(s, c.name, dict(c.args or {})) for c in later]
+            parts = [types.Part.from_function_response(name=c.name, response={"result": json.loads(
+                json.dumps(r, default=str))}) for c, r in zip(now + later, results)]
             contents.append(types.Content(role="user", parts=parts))  # the API rejects role "tool"
             if s.result is not None:
                 break  # ranked: the learner sees the result now; no closing message is needed

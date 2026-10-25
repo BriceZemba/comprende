@@ -152,7 +152,7 @@ def test_slow_model_switches_then_gives_up_within_budget(monkeypatch):
 
     async def go():
         ag = agent_mod.ComprendeAgent(None, Catalog([]), emit)
-        ag.deadline = time.monotonic() + 5
+        ag.model_time_left = 5
         await ag._generate(FakeClient(), ["fast-model", "backup-model"], [], None)
 
     import pytest
@@ -278,3 +278,29 @@ def test_sings_spanish_needs_a_spanish_genre_and_no_other_language_genre():
     assert not agent_mod.sings_spanish(["Latin Pop", "MPB"])  # Brazilian, sung in Portuguese
     assert not agent_mod.sings_spanish(["French", "Salsa", "French Caribbean Zouk"])  # Zouk Machine
     assert not agent_mod.sings_spanish(["Reggaeton", "Dub", "Downtempo", "Trip Hop"])  # Flox: mostly instrumental
+
+
+def test_model_budget_counts_model_time_only():
+    class QuickModels:
+        async def generate_content(self, model, contents, config):
+            await asyncio.sleep(0.05)
+            return "response"
+
+    class FakeClient:
+        class aio:
+            models = QuickModels()
+
+    async def emit(e):
+        return None
+
+    async def go():
+        ag = agent_mod.ComprendeAgent(None, Catalog([]), emit)
+        ag.model_time_left = 1.0
+        await ag._generate(FakeClient(), ["any-model"], [], None)
+        after_model = ag.model_time_left
+        await asyncio.sleep(0.2)  # a Qloo tool running between model turns
+        return after_model, ag.model_time_left
+
+    after_model, after_tool = asyncio.run(go())
+    assert 0.8 < after_model < 0.96   # the model call was charged
+    assert after_tool == after_model  # the tool time was not
