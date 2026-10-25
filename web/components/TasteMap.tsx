@@ -71,6 +71,14 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
     <section className="rise mt-10" aria-labelledby="map-title">
       <h3 id="map-title" className="font-display text-2xl">{t.map.title}</h3>
       <p className="mt-1 max-w-2xl text-sm text-muted">{t.map.lead}</p>
+      <ul className="mt-3 grid max-w-3xl gap-2 text-sm sm:grid-cols-3">
+        {t.map.howTo.map(([icon, text]) => (
+          <li key={icon} className="flex gap-2 rounded-xl bg-card px-3 py-2">
+            <span aria-hidden className="font-display text-lg leading-5 text-accent">{icon}</span>
+            <span>{text}</span>
+          </li>
+        ))}
+      </ul>
 
       <div className="relative mt-4 rounded-3xl border border-line bg-card p-3 sm:p-5">
         <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full" role="img"

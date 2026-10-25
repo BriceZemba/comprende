@@ -205,8 +205,6 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
         </div>
       )}
 
-      {result.map && <TasteMap titles={result.map.titles} grid={result.map.grid} vocab={result.vocab_size} />}
-
       {b.watch_now.length === 0 && b.stretch.length > 0 && (
         <p className="mt-8 max-w-2xl rounded-2xl bg-warn-soft p-4 text-sm">{t.res.beginner(f.int(result.vocab_size))}</p>
       )}
@@ -222,6 +220,8 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
           </div>
         </div>
       ))}
+
+      {result.map && <TasteMap titles={result.map.titles} grid={result.map.grid} vocab={result.vocab_size} />}
 
       {result.qloo_unavailable && <p className="mt-8 max-w-xl rounded-2xl bg-warn-soft p-5">{t.res.qlooDown}</p>}
 
