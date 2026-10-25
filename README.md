@@ -76,12 +76,15 @@ Tests: `python -m pytest -q pipeline/tests`, `cd backend && python -m pytest -q 
 
 ## Limits
 
-- Coverage counts words, not speech rate, accents or slang.
-- Only titles in the open subtitle corpus are measured; others are labelled "difficulty not measured", never guessed. Series coverage is thin (episodes are filed separately in the corpus).
-- The music lane depends on Qloo genre tags; lyrics are not measured. Podcasts are left out: Qloo's "Spanish" podcast tags describe topics (Spanish history), not the language of the show.
-- Qloo's language filter is by release country, which also returns co-productions in English; those are removed using the Wikidata list of Spanish-original titles, or when every production country is Spanish-speaking (this can still let a Catalan or Galician title through).
-- Qloo returned taste scores for 657 of our measured titles; the others cannot be ranked by taste.
-- Qloo describes what groups of people tend to like; it does not predict what one person will do. No personal data is sent to Qloo: only the ids of things the learner says they like.
+- Coverage counts words, not speech rate, accents or slang. A learner can follow 95% of the words of a fast Andalusian thriller and still struggle.
+- Only titles in the open subtitle corpus are measured; others are labelled "difficulty not measured", never guessed. Series coverage is thin (the corpus files episodes separately, so only 40 of the 1,464 measured titles are series).
+- The word check is short (64 items) and approximate. Spanish words that look like English or French ones (cognates, false friends) were left out of it because they can be recognised without knowing Spanish, so the estimate may be a little low for those learners.
+- The music lane depends on Qloo genre tags: an artist must carry a genre sung in Spanish (reggaeton, cumbia, flamenco, Latin pop, Spanish rap...) and none sung in another language. Lyrics are not measured. Podcasts are left out: Qloo's "Spanish" podcast tags describe topics (Spanish history), not the language of the show.
+- Qloo's language filter is by release country, which also returns co-productions in English. Titles are kept only if Wikidata lists them as Spanish-original or every production country is Spanish-speaking, and dropped when their English Wikipedia infobox leaves Spanish out or lists English first (52 titles). Titles without an English Wikipedia article are not checked this way, so a rare Catalan- or English-language title can still get through.
+- Qloo returned taste scores for 657 of our 1,438 Qloo-matched titles; the others cannot be ranked by taste.
+- Two language-model agents plan the calls and write each pick's reason. The reasons are written only from Qloo's description of the title and checked before they are shown, but they are still generated text. Every number shown (affinity, coverage, vocabulary) comes from Qloo or the subtitles, never from a model.
+- The hosted demo runs on free model quotas (Gemini, with open models through OpenRouter as backup). When all of them are used up for the day, the same tools run as a fixed plan and the cards keep their standard text.
+- Qloo describes what groups of people tend to like; it does not predict what one person will do. No personal data is sent to Qloo or to the language models: only the names and ids of things the learner says they like.
 
 ## Data and credits
 

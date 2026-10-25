@@ -208,8 +208,9 @@ const en = {
     limits: [
       "Coverage counts words, not speech rate, accents, slang or visual help, which also affect understanding.",
       "Subtitles condense speech, and we use one subtitle file per title.",
-      "Only titles in the open subtitle corpus can be measured; others are shown as “difficulty not measured”, never guessed. Qloo returned taste scores for 657 of our measured titles.",
+      "Only titles in the open subtitle corpus can be measured; others are shown as “difficulty not measured”, never guessed. Qloo returned taste scores for 657 of the 1,438 measured titles it knows; the others cannot be ranked by taste.",
       "The vocabulary check is short (64 items), so the estimate is approximate. If a pick feels too hard, say so and the agent adjusts.",
+      "The reason under each pick is written by a language model, only from Qloo's description of the title, and checked before it is shown; it is still generated text. Every number comes from Qloo or the subtitles, never from a model.",
     ],
     data: (link: ReactNode): ReactNode => <>Data: Qloo Insights API; Wikidata (CC0); OPUS OpenSubtitles v2024 (Lison &amp; Tiedemann 2016), from {link}. Only word counts derived from subtitles are stored.</>,
   },
@@ -398,8 +399,9 @@ const fr: Messages = {
     limits: [
       "La couverture compte les mots, pas le débit, les accents, l'argot ni l'aide visuelle, qui jouent aussi sur la compréhension.",
       "Les sous-titres condensent la parole, et nous utilisons un seul fichier de sous-titres par titre.",
-      "Seuls les titres présents dans le corpus ouvert peuvent être mesurés ; les autres sont affichés « difficulté non mesurée », jamais devinés. Qloo a renvoyé des scores de goût pour 657 de nos titres mesurés.",
+      "Seuls les titres présents dans le corpus ouvert peuvent être mesurés ; les autres sont affichés « difficulté non mesurée », jamais devinés. Qloo a renvoyé des scores de goût pour 657 des 1 438 titres mesurés qu'il connaît ; les autres ne peuvent pas être classés par goût.",
       "Le test de vocabulaire est court (64 éléments) : l'estimation est approximative. Si une suggestion semble trop difficile, dites-le et l'agent s'ajuste.",
+      "La raison sous chaque suggestion est écrite par un modèle de langage, uniquement à partir de la description du titre par Qloo, et vérifiée avant d'être affichée ; cela reste du texte généré. Chaque chiffre vient de Qloo ou des sous-titres, jamais d'un modèle.",
     ],
     data: (link) => <>Données : API Insights de Qloo ; Wikidata (CC0) ; OPUS OpenSubtitles v2024 (Lison &amp; Tiedemann 2016), issu de {link}. Seuls des décomptes de mots tirés des sous-titres sont conservés.</>,
   },
@@ -586,8 +588,9 @@ const es: Messages = {
     limits: [
       "La cobertura cuenta palabras, no la velocidad del habla, los acentos, la jerga ni la ayuda visual, que también influyen en la comprensión.",
       "Los subtítulos condensan el habla, y usamos un solo archivo de subtítulos por título.",
-      "Solo se pueden medir los títulos del corpus abierto; los demás aparecen como «dificultad sin medir», nunca adivinados. Qloo devolvió puntuaciones de gusto para 657 de nuestros títulos medidos.",
+      "Solo se pueden medir los títulos del corpus abierto; los demás aparecen como «dificultad sin medir», nunca adivinados. Qloo devolvió puntuaciones de gusto para 657 de los 1438 títulos medidos que conoce; los demás no se pueden ordenar por gusto.",
       "La prueba de vocabulario es corta (64 elementos), así que la estimación es aproximada. Si una sugerencia te resulta demasiado difícil, dilo y el agente se ajusta.",
+      "El motivo bajo cada sugerencia lo escribe un modelo de lenguaje, solo a partir de la descripción del título en Qloo, y se comprueba antes de mostrarlo; sigue siendo texto generado. Cada cifra viene de Qloo o de los subtítulos, nunca de un modelo.",
     ],
     data: (link) => <>Datos: API Insights de Qloo; Wikidata (CC0); OPUS OpenSubtitles v2024 (Lison &amp; Tiedemann 2016), de {link}. Solo se guardan recuentos de palabras derivados de los subtítulos.</>,
   },
