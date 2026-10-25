@@ -35,6 +35,8 @@ Write ONE sentence per item, at most 22 words, saying what the title is like and
 - If a credited favourite is given, connect the title to it through a shared quality (tone, theme, mood).
   Favourites may be games, singers or books: then link through mood or theme ("the same eerie, quest-like
   atmosphere"), never "like <favourite>" as if it were a film. Write the favourite's name exactly as given.
+- If several favourites are credited, the title fits them together: link it through what they share
+  (for a heist series and a crime drama: tension, crime, moral greys), without singling one out.
 - If no favourite is credited, connect the title to the learner's taste as a whole, without naming one.
 - Never mention vocabulary, difficulty, percentages, Spanish level or the word "Qloo".
 - Do not start with the title. No quotation marks, no emoji.

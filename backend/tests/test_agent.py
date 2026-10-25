@@ -223,8 +223,12 @@ def test_because_names_a_favourite_only_when_it_stands_out():
     def e(scores):
         return Entity.from_api(ent("x", "X", 0.8, [{"entity_id": k, "score": v} for k, v in scores.items()]))
 
-    # An even split across three favourites is not a reason to name any one of them.
-    assert agent_mod._because(e({"a": 0.35, "b": 0.34, "c": 0.31}), favs) == []
+    # An even split: every favourite counted, strongest first, none singled out.
+    assert agent_mod._because(e({"a": 0.35, "b": 0.34, "c": 0.31}), favs) == ["Breaking Bad", "Bad Bunny", "Zelda"]
+    # Two favourites near 50/50 (La casa de papel + Breaking Bad): both named.
+    assert agent_mod._because(e({"a": 0.46, "b": 0.54}), favs) == ["Bad Bunny", "Breaking Bad"]
+    # A favourite with a negligible share is left out.
+    assert agent_mod._because(e({"a": 0.55, "b": 0.40, "c": 0.05}), favs) == ["Breaking Bad"]
     # A clearly dominant favourite is named.
     assert agent_mod._because(e({"b": 0.52, "a": 0.24, "c": 0.24}), favs) == ["Bad Bunny"]
     # With a single favourite it is always the reason.

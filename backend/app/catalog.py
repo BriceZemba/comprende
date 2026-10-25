@@ -45,6 +45,7 @@ class Catalog:
         self.spanish_ids = spanish_ids or set()
         self.not_spanish = not_spanish or set()  # Wikidata says Spanish, Wikipedia says another main language
         self.spanish_names = spanish_names or {}  # imdb id -> original Spanish title (Wikidata)
+        self._spanish_titles = {t.lower(): t for t in self.spanish_names.values()}
         self.by_imdb = {t.imdb: t for t in titles}
         self.by_qloo = {t.qloo_id: t for t in titles if t.qloo_id}
 
@@ -75,9 +76,13 @@ class Catalog:
         not_spanish = set(json.loads(not_file.read_text(encoding="utf-8"))) if not_file.exists() else set()
         return cls(titles, spanish_ids, names, not_spanish)
 
-    def spanish_name(self, imdb_ids: list[str]) -> str | None:
-        """Qloo names titles in English ("Cable Girls"); learners should see "Las chicas del cable"."""
-        return next((self.spanish_names[i] for i in imdb_ids if i in self.spanish_names), None)
+    def spanish_name(self, imdb_ids: list[str], akas_es: list[str] | None = None) -> str | None:
+        """Qloo names titles in English ("Cable Girls"); learners should see "Las chicas del cable".
+        By IMDb id, or else by a Spanish alternate title that is a known Spanish-original title (so an
+        American favourite is not renamed "El origen")."""
+        by_id = next((self.spanish_names[i] for i in imdb_ids if i in self.spanish_names), None)
+        return by_id or next((self._spanish_titles[a.lower()] for a in akas_es or [] if a.lower() in self._spanish_titles),
+                             None)
 
     def is_spanish_original(self, imdb_ids: list[str], countries: list[str]) -> bool:
         """Qloo's release-country filter also returns co-productions in English (Enemy: Canada/Spain/France).

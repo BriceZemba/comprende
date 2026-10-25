@@ -14,7 +14,7 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from . import config, dev_fake
-from .agent import KINDS, MEDIA_TYPES, ComprendeAgent
+from .agent import KINDS, MEDIA_TYPES, ComprendeAgent, _imdb_ids
 from .catalog import load_catalog
 from .qloo import QlooClient, QlooError
 
@@ -91,8 +91,10 @@ async def search(q: str, kind: str | None = None):
         rows = await qloo.search(q.strip(), [KINDS[kind]] if kind in KINDS else MEDIA_TYPES, take=8)
     except QlooError as e:
         raise HTTPException(502, detail={"code": e.code}) from e
-    return {"results": [{"id": r.entity_id, "name": r.name, "kind": r.subtype.rsplit(":", 1)[-1], "year": r.year,
-                         "image": r.image} for r in rows]}
+    cat = load_catalog()
+    # Spanish originals under their Spanish title ("La casa de papel", not "Money Heist").
+    return {"results": [{"id": r.entity_id, "name": cat.spanish_name(_imdb_ids(r), r.akas_es) or r.name,
+                         "kind": r.subtype.rsplit(":", 1)[-1], "year": r.year, "image": r.image} for r in rows]}
 
 
 class RecommendRequest(BaseModel):

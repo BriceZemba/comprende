@@ -140,18 +140,21 @@ _AUDIO_TAG_CACHE: dict[str, list[dict]] = {}
 
 
 def _because(e: Entity, favourites: dict[str, str]) -> list[str]:
-    """The favourites Qloo says drove this pick, but only when they clearly stand out.
+    """The favourites Qloo credits for this pick, strongest first.
 
-    Qloo's explainability scores sum to about 1 across the signals. With three favourites they are
-    usually near 0.33 each, and naming the "top two" would be noise ("because you like Zelda" on a
-    prison drama). A favourite is named only if its share is well above an even split; an empty
-    list means the pick comes from all favourites together."""
+    Qloo's explainability scores sum to about 1 across the signals. When one favourite clearly stands
+    out (well above an even split) it alone is named. Otherwise every favourite that contributes a real
+    share is named, so a learner who gave "La casa de papel" and "Breaking Bad" sees both counted rather
+    than an arbitrary one ("because you like Zelda" on a prison drama). Empty when Qloo gave no scores."""
     scored = sorted(((x.get("score") or 0, favourites[x["entity_id"]]) for x in e.explainability
-                     if x.get("entity_id") in favourites), reverse=True)
-    if len(scored) == 1:
-        return [scored[0][1]] if scored[0][1] else []
-    even = 1 / max(1, len(scored))
-    return [name for score, name in scored[:2] if name and score >= max(0.42, 1.3 * even)]
+                     if x.get("entity_id") in favourites and favourites[x["entity_id"]]), reverse=True)
+    if len(scored) <= 1:
+        return [name for _, name in scored]
+    even = 1 / len(scored)
+    dominant = [name for score, name in scored if score >= max(0.42, 1.3 * even)]
+    if dominant:
+        return dominant[:2]
+    return [name for score, name in scored if score >= 0.6 * even][:3]
 
 
 def sings_spanish(tag_names: list[str]) -> bool:
@@ -161,7 +164,9 @@ def sings_spanish(tag_names: list[str]) -> bool:
 
 
 def _imdb_ids(e: Entity) -> list[str]:
-    return [x.get("id") for x in (e.external.get("imdb") or []) if isinstance(x, dict) and x.get("id")]
+    imdb = e.external.get("imdb") or []
+    imdb = [imdb] if isinstance(imdb, dict) else imdb  # a list in insights rows, one object in search results
+    return [x.get("id") for x in imdb if isinstance(x, dict) and x.get("id")]
 
 
 @dataclass
@@ -192,7 +197,9 @@ class ComprendeAgent:
         if not rows and types:
             rows = await self.qloo.search(query, None, take=5)
         if rows:
-            s.favourites.setdefault(rows[0].entity_id, rows[0].name)
+            # A Spanish favourite is shown by its original title: "La casa de papel", not "Money Heist".
+            s.favourites.setdefault(rows[0].entity_id, self.catalog.spanish_name(_imdb_ids(rows[0]), rows[0].akas_es)
+                                    or rows[0].name)
         return {"matches": [{"id": r.entity_id, "name": r.name, "kind": r.subtype.rsplit(":", 1)[-1], "year": r.year}
                             for r in rows]}
 
