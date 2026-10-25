@@ -48,27 +48,37 @@ def main():
     from google import genai
     from google.genai import errors
 
-    client = genai.Client(api_key=config.GEMINI_API_KEY)
+    from google.genai import types
+
+    client = genai.Client(api_key=config.GEMINI_API_KEY, http_options=types.HttpOptions(timeout=90_000))
     profiles = json.loads((Path(__file__).parent / "profiles.json").read_text(encoding="utf-8"))["profiles"]
-    out = []
+    # Saved after every profile, so an interrupted run resumes instead of starting over.
+    partial = Path(__file__).parent / "results" / "llm_only.partial.json"
+    out = json.loads(partial.read_text(encoding="utf-8")) if partial.exists() else []
+    done = {r["id"] for r in out if r.get("model") == BASELINE_MODEL}
+    out = [r for r in out if r["id"] in done]
     for p in profiles:
+        if p["id"] in done:
+            continue
         prompt = PROMPT.format(vocab=f"{p['vocab_size']:,}", favs=", ".join(p["favourites"]))
-        while True:
+        for attempt in range(8):  # busy model: wait and retry, but never forever
             try:
                 titles = ask(client, BASELINE_MODEL, prompt)
                 break
             except errors.APIError as e:
-                if e.code in (429, 503):
-                    time.sleep(20)
+                if e.code in (429, 500, 503, 504) and attempt < 7:
+                    time.sleep(15 * (attempt + 1))
                     continue
                 raise
         for t in titles:
             t.update(classify(t["title"], t.get("year")))
         out.append({"id": p["id"], "model": BASELINE_MODEL, "titles": titles})
         print(p["id"], BASELINE_MODEL, [f"{t['title']} [{t['class']}]" for t in titles][:4], flush=True)
+        partial.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     path = Path(__file__).parent / "results" / "llm_only.json"
     path.write_text(json.dumps({"run_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                                 "prompt": PROMPT, "results": out}, ensure_ascii=False, indent=1), encoding="utf-8")
+    partial.unlink(missing_ok=True)
     print(f"wrote {path}")
 
 

@@ -31,3 +31,4 @@ backend/tests/fixtures/live/
 
 # Blind-test answer key: which list is which, plus testers' favourites. Kept local, never published.
 eval/results/blind_key.csv
+eval/results/llm_only.partial.json
