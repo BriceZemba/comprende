@@ -13,10 +13,12 @@ import re
 from . import config
 
 LANGS = ("en", "fr", "es")
-# Language quality matters more than speed here: the cards are already on screen when these arrive.
-MODELS = ["gemini-3.5-flash", "gemini-3.5-flash-lite"]
+# The lite model writes these well enough and is the fastest; the larger one is the backup. Titles are
+# explained in small groups written in parallel: one call for 13 titles in 3 languages took 8-20 s.
+MODELS = ["gemini-3.5-flash-lite", "gemini-3.5-flash"]
+GROUP = 4
 MAX_CHARS = 200
-TIMEOUT_S = 12.0
+TIMEOUT_S = 10.0
 # Typed Qloo tags worth naming. "keyword" tags are left out: they are noisy ("Telephone call") and
 # sometimes inappropriate for a card.
 TAG_TYPES = ("genre", "subgenre", "theme", "plot", "audience", "interests")
@@ -89,6 +91,16 @@ async def explain(picks: list[dict], candidates: dict[str, object], favourites: 
     if not sheet or not config.GEMINI_API_KEY:
         return {}
     from google import genai
+
+    client = genai.Client(api_key=config.GEMINI_API_KEY)
+    groups = [sheet[i:i + GROUP] for i in range(0, len(sheet), GROUP)]
+    out: dict = {}
+    for part in await asyncio.gather(*(_explain_group(client, g, favourites) for g in groups)):
+        out.update(part)
+    return out
+
+
+async def _explain_group(client, sheet: list[dict], favourites: list[str]) -> dict:
     from google.genai import types
 
     schema = types.Schema(type=types.Type.ARRAY, items=types.Schema(
@@ -96,7 +108,6 @@ async def explain(picks: list[dict], candidates: dict[str, object], favourites: 
         properties={"key": types.Schema(type=types.Type.STRING),
                     **{lang: types.Schema(type=types.Type.STRING) for lang in LANGS}}))
     prompt = json.dumps({"favourites": favourites, "items": sheet}, ensure_ascii=False)
-    client = genai.Client(api_key=config.GEMINI_API_KEY)
     for model in MODELS:
         level = config.GEMINI_THINKING.get(model)
         cfg = types.GenerateContentConfig(
