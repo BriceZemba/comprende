@@ -62,7 +62,29 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
   points.forEach((p) => counts[p.zone]++);
   // Direct labels for the three strongest taste matches, staggered so they do not collide, and
   // anchored leftwards near the right edge so they stay inside the plot.
-  const topTaste = new Map([...points].sort((a, b) => tasteOf(b) - tasteOf(a)).slice(0, 3).map((p, i) => [p.key, i]));
+  // Name the three strongest taste matches, but never let two names (or a name and the plot edge) overlap:
+  // try a few spots around each dot and drop the name rather than collide. Widths are estimated from 11px text.
+  const labels: { key: string; name: string; x: number; y: number; anchor: "start" | "end" }[] = [];
+  const boxes: [number, number, number, number][] = (["watch", "stretch", "later"] as Zone[]).map((z) => {
+    const yy = (z === "watch" ? y(1) : z === "stretch" ? y(0.95) : y(0.9)) + 14, w = ZONE_LABEL[z].length * 6.2 + 4;
+    return [W - R - 6 - w, yy - 11, W - R, yy + 3];  // the zone names in the top-right of each band
+  });
+  for (const p of [...points].sort((a, b) => tasteOf(b) - tasteOf(a)).slice(0, 3)) {
+    const px = x(tasteOf(p)), py = y(p.c), w = p.name.length * 6.2 + 4, h = 14;
+    const spots: [number, number, "start" | "end"][] = [[10, -10, "start"], [-10, -10, "end"], [10, 20, "start"],
+      [-10, 20, "end"], [10, -26, "start"], [-10, -26, "end"]];
+    for (const [dx, dy, anchor] of spots) {
+      const left = anchor === "start" ? px + dx : px + dx - w, top = py + dy - h + 3;
+      const box: [number, number, number, number] = [left, top, left + w, top + h];
+      const inside = box[0] >= L && box[2] <= W - R && box[1] >= T && box[3] <= H - B;
+      const clear = boxes.every((o) => box[2] < o[0] || box[0] > o[2] || box[3] < o[1] || box[1] > o[3]);
+      if (inside && clear) {
+        boxes.push(box);
+        labels.push({ key: p.key, name: p.name, x: px + dx, y: py + dy, anchor });
+        break;
+      }
+    }
+  }
   const focused = points.find((p) => p.key === focus);
 
   if (titles.length < 3) return null;
@@ -113,17 +135,14 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
               onMouseEnter={() => setFocus(p.key)} onFocus={() => setFocus(p.key)} onClick={() => setFocus(p.key)}>
               <circle r={14} fill="transparent" />
               <Marker zone={p.zone} />
-              {topTaste.has(p.key) && (() => {
-                const i = topTaste.get(p.key) ?? 0;
-                const right = x(tasteOf(p)) > L + (W - L - R) * 0.6;
-                return (
-                  <text x={right ? -10 : 10} y={[-12, 20, -26][i]} textAnchor={right ? "end" : "start"}
-                    className="pointer-events-none fill-ink stroke-card text-[11px] font-medium [paint-order:stroke] [stroke-width:3px] max-sm:hidden">
-                    {p.name}
-                  </text>
-                );
-              })()}
             </g>
+          ))}
+          {/* names drawn after every dot, so no dot covers them */}
+          {labels.map((l) => (
+            <text key={l.key} x={l.x} y={l.y} textAnchor={l.anchor}
+              className="pointer-events-none fill-ink stroke-card text-[11px] font-medium [paint-order:stroke] [stroke-width:3px] max-sm:hidden">
+              {l.name}
+            </text>
           ))}
         </svg>
 
