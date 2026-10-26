@@ -73,6 +73,9 @@ def main():
                 titles = ask(client, BASELINE_MODEL, prompt)
                 break
             except errors.APIError as e:
+                if e.code == 429 and "perday" in str(e).lower():  # daily quota spent: retrying only wastes time
+                    print(f"daily quota reached; {len(out)} of {len(profiles)} profiles done, rerun after the reset")
+                    return
                 if e.code in (429, 500, 503, 504) and attempt < 7:
                     time.sleep(15 * (attempt + 1))
                     continue
