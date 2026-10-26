@@ -38,7 +38,7 @@ export default function HeroPreview({ onTry }: { onTry: () => void }) {
       </div>
 
       {/* fixed height so the page does not jump between steps */}
-      <div className="relative mt-4 h-60 overflow-hidden" aria-hidden>
+      <div className="relative mt-4 h-64 overflow-hidden" aria-hidden>
         {step === 0 && (
           <div key="s0" className="rise">
             <p className="font-display text-xl">{p.s1}</p>
