@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { getVocabItems, type VocabItemsFile } from "@/lib/api";
+import { getVocabItems, type Variety, type VocabItemsFile } from "@/lib/api";
 import { estimateVocab, type VocabEstimate, type VocabItem } from "@/lib/comprehension";
 import { useI18n } from "@/lib/i18n";
 
@@ -20,9 +20,13 @@ function shuffled<T>(xs: T[], seed = 11): T[] {
   return a;
 }
 
-export default function LevelStep({ onDone, onBack }: {
+const VARIETY_OPTIONS: Variety[] = ["any", "spain", "latam"];
+
+export default function LevelStep({ onDone, onBack, variety, onVariety }: {
   onDone: (vocab: number, how: "check" | "preset", estimate?: VocabEstimate) => void;
   onBack: () => void;
+  variety: Variety;
+  onVariety: (v: Variety) => void;
 }) {
   const { t, f } = useI18n();
   const [data, setData] = useState<VocabItemsFile | null>(null);
@@ -60,6 +64,18 @@ export default function LevelStep({ onDone, onBack }: {
           <p className="mt-2 max-w-xl text-muted">
             {t.level.lead}
           </p>
+          <div className="mt-5" role="group" aria-labelledby="variety-q">
+            <p id="variety-q" className="text-sm font-medium">{t.level.varietyQ}</p>
+            <div className="mt-2 inline-flex flex-wrap rounded-full border border-line bg-card p-1 text-sm">
+              {VARIETY_OPTIONS.map((v) => (
+                <button key={v} type="button" aria-pressed={variety === v} onClick={() => onVariety(v)}
+                  className={`rounded-full px-4 py-1.5 transition ${variety === v ? "bg-ink text-paper" : "text-muted hover:text-ink"}`}>
+                  {t.level.varieties[v]}
+                </button>
+              ))}
+            </div>
+            <p className="mt-1.5 text-xs text-muted">{t.level.varietyNote}</p>
+          </div>
           <div className="mt-6 grid max-w-2xl gap-3 sm:grid-cols-2">
             <button type="button" disabled={!data} onClick={() => setMode("check")}
               className="rounded-2xl border-2 border-accent bg-card p-5 text-left shadow-sm transition hover:brightness-105 disabled:opacity-50 sm:row-span-3">

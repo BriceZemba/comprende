@@ -9,7 +9,7 @@ import Results, { pickKey, type Feedback } from "@/components/Results";
 import Header from "@/components/Header";
 import MyList from "@/components/MyList";
 import WelcomeBack from "@/components/WelcomeBack";
-import { AgentStartError, runAgent, type AgentEvent, type RunResult } from "@/lib/api";
+import { AgentStartError, runAgent, type AgentEvent, type RunResult, type Variety } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
 import { afterRun, listKey, loadProfile, saveProfile, toggleSaved, type Profile } from "@/lib/profile";
 
@@ -66,6 +66,7 @@ export default function Home() {
   const [feedback, setFeedback] = useState<Record<string, Feedback>>({});
   const [excluded, setExcluded] = useState<string[]>([]);
   const [note, setNote] = useState<string | null>(null);
+  const [variety, setVariety] = useState<Variety>("any");
   // Progress kept on this device (lib/profile.ts): read after mount, since the server cannot see it.
   const [profile, setProfileState] = useState<Profile | null>(null);
   useEffect(() => { setProfileState(loadProfile()); }, []);
@@ -89,18 +90,20 @@ export default function Home() {
   }, [result]);
 
   // A shared link (?f=Breaking Bad|Bad Bunny&v=3000) proposes the same search; nothing runs until asked.
-  const [shared, setShared] = useState<{ favs: Favourite[]; v: number } | null>(null);
+  const [shared, setShared] = useState<{ favs: Favourite[]; v: number; variety: Variety } | null>(null);
   useEffect(() => {
     const q = new URLSearchParams(location.search);
     const names = (q.get("f") ?? "").split("|").map((x) => x.trim()).filter(Boolean).slice(0, 8);
     const v = Math.min(12000, Math.max(500, Number(q.get("v")) || 3000));
+    const sv = (["spain", "latam"] as const).find((x) => x === q.get("s")) ?? "any";
     if (names.length) {
-      setShared({ favs: names.map((name) => ({ id: null, name })), v });
+      setShared({ favs: names.map((name) => ({ id: null, name })), v, variety: sv });
       history.replaceState(history.state, "", location.pathname);
     }
   }, []);
   const share = async (): Promise<boolean> => {
-    const url = `${location.origin}/?f=${encodeURIComponent(favourites.map((x) => x.name).join("|"))}&v=${vocab}`;
+    const url = `${location.origin}/?f=${encodeURIComponent(favourites.map((x) => x.name).join("|"))}&v=${vocab}`
+      + (variety !== "any" ? `&s=${variety}` : "");
     try {
       if (navigator.share) { await navigator.share({ title: "Comprende", text: t.res.shareText, url }); return false; }
       await navigator.clipboard.writeText(url);
@@ -155,7 +158,7 @@ export default function Home() {
     setEvents([]); setResult(null); setError(null); setFeedback({});
   };
 
-  const start = async (v: number, favs: Favourite[] = favourites, exclude: string[] = excluded) => {
+  const start = async (v: number, favs: Favourite[] = favourites, exclude: string[] = excluded, spanish: Variety = variety) => {
     begin(v);
     setRecordedAt(null);
     const collected: AgentEvent[] = [];
@@ -166,6 +169,7 @@ export default function Home() {
           favourite_ids: Object.fromEntries(favs.filter((f) => f.id).map((f) => [f.id as string, f.name])),
           vocab_size: v,
           exclude_ids: exclude,
+          variety: spanish,
         },
         (e) => onEvent(e, favs, v, exclude, collected),
       );
@@ -236,7 +240,7 @@ export default function Home() {
             <div className="mb-10 rounded-3xl border border-accent/40 bg-card p-5 sm:p-6">
               <p className="font-display text-2xl">{t.shared.title}</p>
               <p className="mt-2">{t.shared.body(shared.favs.map((x) => x.name).join(" · "), f.int(shared.v))}</p>
-              <button type="button" onClick={() => { const s = shared; setShared(null); setFavourites(s.favs); setExcluded([]); setNote(null); start(s.v, s.favs, []); }}
+              <button type="button" onClick={() => { const s = shared; setShared(null); setFavourites(s.favs); setExcluded([]); setNote(null); setVariety(s.variety); start(s.v, s.favs, [], s.variety); }}
                 className="mt-4 rounded-full bg-accent px-6 py-3 font-medium text-accent-ink shadow-sm hover:brightness-110">
                 {t.shared.go}
               </button>
@@ -249,7 +253,8 @@ export default function Home() {
                 onFresh={() => {
                   const seen = profile.list.filter((s) => s.watched).map((s) => s.key);
                   setFavourites(profile.favourites); setExcluded(seen); setNote(null);
-                  start(profile.vocab, profile.favourites, seen);
+                  setVariety(profile.variety ?? "any");
+                  start(profile.vocab, profile.favourites, seen, profile.variety ?? "any");
                 }}
                 onForget={() => setProfile(null)} />
             </div>
@@ -308,7 +313,8 @@ export default function Home() {
         setFavourites(v);
         try { sessionStorage.setItem(SAVED, JSON.stringify({ favourites: v })); } catch { /* not saved */ }
       }} onNext={() => go("level")} />}
-      {stage === "level" && <LevelStep onBack={() => go("favourites")} onDone={(v) => { setNote(null); start(v); }} />}
+      {stage === "level" && <LevelStep variety={variety} onVariety={setVariety}
+        onBack={() => go("favourites")} onDone={(v) => { setNote(null); start(v); }} />}
       {stage === "run" && (
         <>
           <AgentRun events={events} running={!error} />

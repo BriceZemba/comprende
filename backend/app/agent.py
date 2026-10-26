@@ -23,6 +23,24 @@ from .ranker import Candidate, rank
 SPANISH_RELEASE_COUNTRIES = ["Spain", "Mexico", "Argentina", "Colombia", "Chile", "Peru", "Uruguay",
                              "Venezuela", "Cuba", "Ecuador", "Bolivia", "Paraguay", "Guatemala",
                              "Dominican Republic", "Puerto Rico", "Costa Rica", "Panama"]
+# Which Spanish the learner wants to hear. Accents and vocabulary differ between Spain and Latin America,
+# so the choice narrows Qloo's release-country filter and the measured titles alike. Co-productions count
+# for every country that produced them.
+VARIETIES = {"any": SPANISH_RELEASE_COUNTRIES, "spain": ["Spain"],
+             "latam": [c for c in SPANISH_RELEASE_COUNTRIES if c != "Spain"]}
+LATAM_ISO3 = {"MEX", "ARG", "COL", "CHL", "PER", "URY", "VEN", "CUB", "ECU", "BOL", "PRY", "GTM", "HND", "SLV",
+              "NIC", "CRI", "PAN", "DOM", "PRI"}
+
+
+def in_variety(countries: list[str], variety: str) -> bool:
+    """Production countries (ISO 3166 alpha-3, as in the catalog) match the chosen Spanish."""
+    if variety == "spain":
+        return "ESP" in countries
+    if variety == "latam":
+        return bool(LATAM_ISO3 & set(countries))
+    return True
+
+
 KINDS = {"movie": "urn:entity:movie", "tv_show": "urn:entity:tv_show", "artist": "urn:entity:artist",
          "book": "urn:entity:book", "videogame": "urn:entity:videogame", "podcast": "urn:entity:podcast",
          "brand": "urn:entity:brand", "person": "urn:entity:person"}
@@ -178,6 +196,7 @@ class Session:
     listen: list[dict] = field(default_factory=list)
     result: dict | None = None
     done: set[tuple[str, str]] = field(default_factory=set)  # (tool, kind) calls that completed
+    variety: str = "any"  # any | spain | latam, see VARIETIES
 
 
 class ComprendeAgent:
@@ -211,7 +230,8 @@ class ComprendeAgent:
         self._remember(s, signal_entity_ids)
         rows = await self.qloo.insights(**{
             "filter.type": KINDS[kind], "signal.interests.entities": signal_entity_ids,
-            "filter.release_country": SPANISH_RELEASE_COUNTRIES, "operator.filter.release_country": "union",
+            "filter.release_country": VARIETIES.get(s.variety, SPANISH_RELEASE_COUNTRIES),
+            "operator.filter.release_country": "union",
             "feature.explainability": True, "take": 40,
         })
         spanish = [r for r in rows if self.catalog.match(r.entity_id, _imdb_ids(r))
@@ -225,7 +245,8 @@ class ComprendeAgent:
         label = "films" if kind == "movie" else "series"
         want = "film" if kind == "movie" else "series"
         # The best-known measured titles (catalog order), capped to keep a run within ~8 Qloo calls per type.
-        ids = [t.qloo_id for t in self.catalog.titles if t.qloo_id and t.kind == want][:MAX_SCORED_PER_TYPE]
+        ids = [t.qloo_id for t in self.catalog.titles
+               if t.qloo_id and t.kind == want and in_variety(t.countries, s.variety)][:MAX_SCORED_PER_TYPE]
         if not ids:
             return {"scored": 0, "top": [], "note": f"no measured {label} are mapped to Qloo yet"}
         await self.emit({"type": "step", "tool": "score_measured_titles",
@@ -352,8 +373,9 @@ class ComprendeAgent:
     # ---- runs ----------------------------------------------------------------
 
     async def run(self, favourites_text: str, favourite_ids: dict[str, str], vocab_size: int,
-                  exclude_ids: list[str] | None = None) -> dict:
-        s = Session(vocab_size=vocab_size, favourites=dict(favourite_ids), excluded=set(exclude_ids or []))
+                  exclude_ids: list[str] | None = None, variety: str = "any") -> dict:
+        s = Session(vocab_size=vocab_size, favourites=dict(favourite_ids), excluded=set(exclude_ids or []),
+                    variety=variety if variety in VARIETIES else "any")
         self.session = s
         # The client is shared by all runs in this process; count only this run's requests.
         requests_before = self.qloo.calls + self.qloo.cached
@@ -386,7 +408,7 @@ class ComprendeAgent:
         if s.result is None:
             await self.rank_for_learner(s)
         listen = sorted(s.listen, key=lambda x: -(x["affinity"] or 0))
-        return {"mode": mode, "model": self.model_used, "favourites": s.favourites,
+        return {"mode": mode, "model": self.model_used, "favourites": s.favourites, "variety": s.variety,
                 "qloo_calls": self.qloo.calls + self.qloo.cached - requests_before,
                 "qloo_errors": sorted(set(self.qloo_errors)), "qloo_unavailable": bool(self.qloo_errors) and not s.candidates,
                 "listen": {"artists": [x for x in listen if x["kind"] == "artist"][:8],

@@ -43,7 +43,11 @@ export interface ListenPick {
   spanish_tags: string[];
 }
 
+// Which Spanish the learner wants to hear: from Spain, from Latin America, or both.
+export type Variety = "any" | "spain" | "latam";
+
 export interface RunResult {
+  variety?: Variety;
   mode: "agent" | "fallback";
   model: string | null;
   vocab_size: number;
@@ -102,6 +106,7 @@ export async function runAgent(
     favourite_ids: Record<string, string>;
     vocab_size: number;
     exclude_ids?: string[];
+    variety?: Variety;
   },
   onEvent: (e: AgentEvent) => void,
   signal?: AbortSignal,

@@ -8,6 +8,7 @@ import os
 import re
 import time
 from collections import defaultdict, deque
+from typing import Literal
 
 import httpx
 from fastapi import FastAPI, HTTPException, Request
@@ -129,6 +130,7 @@ class RecommendRequest(BaseModel):
     favourite_ids: dict[str, str] = Field(default_factory=dict, max_length=10)
     vocab_size: int = Field(ge=0, le=20000)
     exclude_ids: list[str] = Field(default_factory=list, max_length=50)  # titles the learner said "not for me"
+    variety: Literal["any", "spain", "latam"] = "any"  # which Spanish the learner wants to hear
 
 
 @app.post("/api/recommend")
@@ -146,7 +148,8 @@ async def recommend(body: RecommendRequest, request: Request):
     async def work():
         try:
             agent = ComprendeAgent(qloo, load_catalog(), emit)
-            result = await agent.run(body.favourites_text, body.favourite_ids, body.vocab_size, body.exclude_ids)
+            result = await agent.run(body.favourites_text, body.favourite_ids, body.vocab_size, body.exclude_ids,
+                                     body.variety)
             await queue.put({"type": "result", "result": result})
             # The learner sees the picks now; the explainer's sentences follow a second or two later.
             try:

@@ -2,7 +2,7 @@
 // what they watched. It is what makes a second visit useful: as the level grows, titles that were too hard
 // come within reach, and the app can say so. No account, nothing sent anywhere.
 import type { Favourite } from "@/components/FavouritesStep";
-import type { Pick, RunResult } from "./api";
+import type { Pick, RunResult, Variety } from "./api";
 import { coverageAt } from "./comprehension.ts";  // with the extension so node can run lib/profile.test.ts
 
 export type Verdict = "easy" | "ok" | "hard";
@@ -22,6 +22,7 @@ export interface Profile {
   favourites: Favourite[];
   vocab: number;
   shownAtVocab: number; // the level the last picks were made for: titles unlocked since are counted from it
+  variety?: Variety;
   list: SavedTitle[];
   heldBack: { name: string; vocab_for_95: number | null } | null;
   map: { grid: number[]; titles: { key: string; curve: number[] }[] } | null;
@@ -52,6 +53,7 @@ export function afterRun(prev: Profile | null, favourites: Favourite[], vocab: n
   return {
     favourites,
     vocab,
+    variety: result.variety ?? "any",
     shownAtVocab: vocab,
     list: prev?.list ?? [],
     heldBack: result.held_back ? { name: result.held_back.name, vocab_for_95: result.held_back.vocab_for_95 } : null,

@@ -113,6 +113,9 @@ const en = {
     unreliable: " That is a lot of guesses: treat this number as rough.",
     ceiling: "or more: you reached the top of the check",
     findPicks: "Find my Spanish picks →", retake: "Retake",
+    varietyQ: "Which Spanish do you want to hear?",
+    varieties: { any: "Both", spain: "Spain", latam: "Latin America" } as Record<string, string>,
+    varietyNote: "Accents and words differ. Qloo then looks for titles released there.",
     early: "Few words so far, and that is fine: you can stop here.",
   },
   run: {
@@ -156,6 +159,7 @@ const en = {
     music: "Music",
     lyrics: "Songs with lyrics on YouTube",
     recorded: (d: string) => `This example is a real run recorded on ${d}, replayed so it loads instantly. Your own search runs live.`,
+    from: (place: string) => `Spanish from ${place}`,
     recent: (y: number) => `Only since ${y}`,
     noRecent: (y: number) => `None of these picks is from ${y} or later. Turn off the filter to see them.`,
     share: "Share my picks", copied: "Link copied", shareText: "My Spanish films and series, at my level:",
@@ -366,6 +370,9 @@ const fr: Messages = {
     unreliable: " Cela fait beaucoup de suppositions : considérez ce chiffre comme approximatif.",
     ceiling: "ou plus : vous avez atteint le maximum du test",
     findPicks: "Trouver mes titres en espagnol →", retake: "Recommencer",
+    varietyQ: "Quel espagnol voulez-vous entendre ?",
+    varieties: { any: "Les deux", spain: "Espagne", latam: "Amérique latine" },
+    varietyNote: "Les accents et les mots diffèrent. Qloo cherche alors des titres sortis là-bas.",
     early: "Peu de mots jusqu'ici, et c'est normal : vous pouvez vous arrêter là.",
   },
   run: {
@@ -409,6 +416,7 @@ const fr: Messages = {
     music: "Musique",
     lyrics: "Chansons avec paroles sur YouTube",
     recorded: (d) => `Cet exemple est un vrai run enregistré le ${d}, rejoué pour s'afficher tout de suite. Votre propre recherche se fait en direct.`,
+    from: (place) => `Espagnol d'${place}`,  // "d'Espagne", "d'Amérique latine"
     recent: (y) => `Seulement depuis ${y}`,
     noRecent: (y) => `Aucune de ces suggestions ne date de ${y} ou après. Désactivez le filtre pour les voir.`,
     share: "Partager mes suggestions", copied: "Lien copié", shareText: "Mes films et séries en espagnol, à mon niveau :",
@@ -617,6 +625,9 @@ const es: Messages = {
     unreliable: " Son muchas suposiciones: toma esta cifra como aproximada.",
     ceiling: "o más: has llegado al máximo de la prueba",
     findPicks: "Encontrar mis títulos en español →", retake: "Repetir",
+    varietyQ: "¿Qué español quieres escuchar?",
+    varieties: { any: "Ambos", spain: "España", latam: "Latinoamérica" },
+    varietyNote: "Los acentos y las palabras cambian. Qloo busca entonces títulos estrenados allí.",
     early: "Pocas palabras por ahora, y es normal: puedes parar aquí.",
   },
   run: {
@@ -660,6 +671,7 @@ const es: Messages = {
     music: "Música",
     lyrics: "Canciones con letra en YouTube",
     recorded: (d) => `Este ejemplo es una ejecución real grabada el ${d}, repetida para que cargue al instante. Tu propia búsqueda se hace en directo.`,
+    from: (place) => `Español de ${place}`,
     recent: (y) => `Solo desde ${y}`,
     noRecent: (y) => `Ninguna de estas sugerencias es de ${y} o posterior. Quita el filtro para verlas.`,
     share: "Compartir mis sugerencias", copied: "Enlace copiado", shareText: "Mis películas y series en español, a mi nivel:",

@@ -430,3 +430,43 @@ def test_where_to_watch_reads_tmdb_providers_for_the_country(monkeypatch):
     assert out["stream"] == ["Netflix"] and out["rent"] == ["Apple TV"] and out["link"].endswith("locale=FR")
     assert asyncio.run(watch.providers("tt1235166", "MA"))["stream"] == []  # no data for that country
     watch._cache.clear()
+
+
+def test_spanish_variety_narrows_countries_and_measured_titles():
+    assert agent_mod.in_variety(["ESP", "ARG"], "spain") and agent_mod.in_variety(["ESP", "ARG"], "latam")
+    assert agent_mod.in_variety(["MEX"], "latam") and not agent_mod.in_variety(["MEX"], "spain")
+    assert not agent_mod.in_variety(["ESP"], "latam") and agent_mod.in_variety(["ESP"], "any")
+    assert agent_mod.VARIETIES["spain"] == ["Spain"] and "Spain" not in agent_mod.VARIETIES["latam"]
+
+
+def test_variety_reaches_qloo_and_the_result(monkeypatch):
+    monkeypatch.setattr(agent_mod.config, "GEMINI_API_KEY", "")
+    agent_mod._AUDIO_TAG_CACHE.clear()
+    seen_countries, scored = [], []
+
+    def h(request: httpx.Request):
+        p = dict(request.url.params)
+        if "filter.release_country" in p:
+            seen_countries.append(p["filter.release_country"])
+            return httpx.Response(200, json={"results": {"entities": []}})
+        if p.get("filter.results.entities"):
+            scored.extend(p["filter.results.entities"].split(","))
+        return handler(request)
+
+    spain = Measured(imdb="tt1", wikidata="Q", kind="film", title_es="Peli ES", title_en=None, year=2010,
+                     countries=["ESP"], coverage=[0.97] * GRID_LEN, vocab_for_95=2000, vocab_for_98=None, qloo_id="Q-ES")
+    mexico = Measured(imdb="tt2", wikidata="Q", kind="film", title_es="Peli MX", title_en=None, year=2010,
+                      countries=["MEX"], coverage=[0.97] * GRID_LEN, vocab_for_95=2000, vocab_for_98=None, qloo_id="Q-MX")
+
+    async def emit(e):
+        return None
+
+    async def go():
+        q = QlooClient(api_key="k", cache_dir=None, transport=httpx.MockTransport(h))
+        return await agent_mod.ComprendeAgent(q, Catalog([spain, mexico]), emit).run(
+            "Breaking Bad", {}, 3000, variety="latam")
+
+    out = asyncio.run(go())
+    assert out["variety"] == "latam"
+    assert seen_countries and all("Spain" not in c for c in seen_countries)
+    assert "Q-MX" in scored and "Q-ES" not in scored  # only Latin American measured titles are scored

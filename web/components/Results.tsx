@@ -251,7 +251,10 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
         ))}
       </div>
       <div className="mt-3 flex flex-wrap items-center gap-2 text-sm" role="group" aria-label={t.res.changeLevel}>
-        <span className="text-muted">{t.res.atAbout(f.int(result.vocab_size))}</span>
+        <span className="text-muted">
+          {result.variety && result.variety !== "any" && <>{t.res.from(t.level.varieties[result.variety])} · </>}
+          {t.res.atAbout(f.int(result.vocab_size))}
+        </span>
         {LEVELS.filter((v) => v !== result.vocab_size).map((v) => (
           <button key={v} type="button" onClick={() => onChangeLevel(v)}
             className="rounded-full border border-line bg-card px-3 py-1 hover:border-accent">
