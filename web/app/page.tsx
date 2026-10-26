@@ -180,6 +180,18 @@ export default function Home() {
 
       {stage === "intro" && (
         <section className="rise pt-4 sm:pt-10">
+          {/* a returning learner sees where they stand first */}
+          {profile && (
+            <div className="mb-10">
+              <WelcomeBack profile={profile}
+                onFresh={() => {
+                  const seen = profile.list.filter((s) => s.watched).map((s) => s.key);
+                  setFavourites(profile.favourites); setExcluded(seen); setNote(null);
+                  start(profile.vocab, profile.favourites, seen);
+                }}
+                onForget={() => setProfile(null)} />
+            </div>
+          )}
           <div className="grid items-center gap-10 lg:grid-cols-[1.25fr_1fr]">
             <div>
               <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
@@ -200,20 +212,14 @@ export default function Home() {
               </div>
               <p className="mt-3 text-sm text-muted">{t.intro.sub}</p>
             </div>
-            <HeroPreview />
+            <HeroPreview onTry={() => { setFavourites(EXAMPLE); setExcluded([]); setNote(null); start(3000, EXAMPLE, []); }} />
           </div>
           {profile && (
             <>
-              <WelcomeBack profile={profile}
-                onFresh={() => {
-                  const seen = profile.list.filter((s) => s.watched).map((s) => s.key);
-                  setFavourites(profile.favourites); setExcluded(seen); setNote(null);
-                  start(profile.vocab, profile.favourites, seen);
-                }}
-                onForget={() => setProfile(null)} />
               <MyList profile={profile} onChange={setProfile} />
             </>
           )}
+
           {proof && (
             <dl className="mt-14 grid gap-4 border-t border-line pt-8 sm:grid-cols-3">
               <div>
