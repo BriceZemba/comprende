@@ -84,6 +84,7 @@ Tests: `python -m pytest -q pipeline/tests`, `cd backend && python -m pytest -q 
 - Qloo returned taste scores for 657 of our 1,438 Qloo-matched titles; the others cannot be ranked by taste.
 - Two language-model agents plan the calls and write each pick's reason. The reasons are written only from Qloo's description of the title and checked before they are shown, but they are still generated text. Every number shown (affinity, coverage, vocabulary) comes from Qloo or the subtitles, never from a model.
 - The hosted demo runs on free model quotas (Gemini, with open models through OpenRouter as backup). When all of them are used up for the day, the same tools run as a fixed plan and the cards keep their standard text.
+- Subtitle data comes from the OPUS OpenSubtitles corpus, distributed for research; only word counts derived from it are stored. A commercial version would need licensed subtitle text (from OpenSubtitles or from streaming partners).
 - Qloo describes what groups of people tend to like; it does not predict what one person will do. No personal data is sent to Qloo or to the language models: only the names and ids of things the learner says they like.
 
 ## Data and credits

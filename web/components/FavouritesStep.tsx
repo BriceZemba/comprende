@@ -71,7 +71,7 @@ export default function FavouritesStep({ value, onChange, onNext }: {
   return (
     <section className="rise">
       <p className="text-sm font-medium uppercase tracking-wider text-accent">{t.fav.step}</p>
-      <h2 className="font-display mt-1 text-3xl sm:text-4xl">{t.fav.title}</h2>
+      <h1 className="font-display mt-1 text-3xl sm:text-4xl">{t.fav.title}</h1>
       <p className="mt-2 max-w-xl text-muted">
         {t.fav.lead}
       </p>

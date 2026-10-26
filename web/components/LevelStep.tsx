@@ -53,7 +53,7 @@ export default function LevelStep({ onDone, onBack }: {
   return (
     <section className="rise scroll-mt-4" ref={sectionRef}>
       <p className="text-sm font-medium uppercase tracking-wider text-accent">{t.level.step}</p>
-      <h2 className="font-display mt-1 text-3xl sm:text-4xl">{t.level.title}</h2>
+      <h1 className="font-display mt-1 text-3xl sm:text-4xl">{t.level.title}</h1>
 
       {mode === "choose" && (
         <>
@@ -101,6 +101,12 @@ export default function LevelStep({ onDone, onBack }: {
               );
             })}
           </div>
+          {page >= 1 && page < pages - 1 && items.slice(0, page * PAGE).filter((i) => i.real && known[i.word]).length <= 2 && (
+            <p className="mt-4 max-w-xl rounded-2xl bg-good-soft p-3 text-sm">
+              {t.level.early}{" "}
+              <button type="button" onClick={finish} className="font-medium underline">{t.level.seeEstimate}</button>
+            </p>
+          )}
           <div className="mt-6 flex items-center gap-4">
             {page > 0 && <button type="button" onClick={() => turn(page - 1)} className="text-muted underline">{t.level.previous}</button>}
             {page < pages - 1 ? (

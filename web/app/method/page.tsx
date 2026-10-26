@@ -53,8 +53,9 @@ export default function Method() {
   const opensubs = <a className="underline" href="https://www.opensubtitles.org/">opensubtitles.org</a>;
 
   return (
-    <main className="mx-auto max-w-3xl px-4 pb-24 sm:px-8">
+    <div className="mx-auto max-w-3xl px-4 pb-24 sm:px-8">
       <Header nav={<Link href="/" className="hover:text-ink">{t.nav.tryIt}</Link>} />
+      <main>
       <h1 className="font-display text-4xl sm:text-5xl">{t.method.title}</h1>
 
       <section className="mt-10 space-y-4 leading-relaxed">
@@ -119,6 +120,7 @@ export default function Method() {
       </section>
 
       <p className="mt-12 text-sm text-muted">{t.method.data(opensubs)}</p>
-    </main>
+      </main>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { ListenPick, Pick, RunResult } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
 import TasteMap from "./TasteMap";
@@ -92,12 +93,7 @@ function PickCard({ p, vocab, blend, reason, saved, onSave, feedback, onFeedback
         <details className="mt-2 text-sm">
           <summary className="cursor-pointer text-muted hover:text-ink">{t.card.why}</summary>
           <div className="mt-1 space-y-1 text-muted">
-            <p>
-              {taste}
-              {p.affinity !== null
-                ? t.card.affinity(p.affinity.toLocaleString(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
-                : ""}
-            </p>
+            <p>{taste}</p>
             {p.coverage !== null && <p>{t.card.coverage(f.int(vocab), pct(p.coverage))}</p>}
           </div>
         </details>
@@ -144,6 +140,10 @@ function ListenLane({ artists, podcasts, blend }: { artists: ListenPick[]; podca
               <p className="truncate text-xs text-muted">
                 {a.because.length > 0 ? `${t.res.becauseYouLike} ${a.because.join(", ")}` : blend ? t.res.blend : a.spanish_tags.join(", ")}
               </p>
+              <a href={`https://www.youtube.com/results?search_query=${encodeURIComponent(`${a.name} letra`)}`} target="_blank"
+                rel="noopener noreferrer" className="text-xs text-accent underline">
+                {t.res.lyrics}<span className="sr-only"> {t.card.newTab}</span>
+              </a>
             </div>
           </li>
         ))}
@@ -162,8 +162,20 @@ function ListenLane({ artists, podcasts, blend }: { artists: ListenPick[]; podca
 
 const LEVELS = [1000, 3000, 6000];
 
-export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note, isSaved, onSave }: {
+function ShareButton({ onShare }: { onShare: () => Promise<boolean> }) {
+  const { t } = useI18n();
+  const [copied, setCopied] = useState(false);
+  return (
+    <button type="button" onClick={async () => { if (await onShare()) { setCopied(true); setTimeout(() => setCopied(false), 2500); } }}
+      className="rounded-full border border-line bg-card px-4 py-2 text-sm hover:border-accent" aria-live="polite">
+      {copied ? t.res.copied : t.res.share}
+    </button>
+  );
+}
+
+export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note, isSaved, onSave, onShare }: {
   result: RunResult;
+  onShare: () => Promise<boolean>;
   isSaved: (p: Pick) => boolean;
   onSave: (p: Pick) => void;
   onRestart: () => void;
@@ -184,7 +196,10 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
   return (
     <section className="rise">
       <p className="text-sm font-medium uppercase tracking-wider text-accent">{t.res.eyebrow}</p>
-      <h2 className="font-display mt-1 text-3xl sm:text-4xl">{t.res.title}</h2>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <h1 className="font-display mt-1 text-3xl sm:text-4xl">{t.res.title}</h1>
+        <ShareButton onShare={onShare} />
+      </div>
       <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
         <span className="text-muted">{t.res.fansOf}</span>
         {Object.values(result.favourites).map((name) => (

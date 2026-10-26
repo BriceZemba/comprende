@@ -56,7 +56,7 @@ export default function Home() {
     // New step: start at its top and move keyboard and screen-reader focus to its heading.
     const el = top.current;
     if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ block: "start" });
-    const h = el?.parentElement?.querySelector<HTMLElement>("main section h1, main section h2");
+    const h = document.querySelector<HTMLElement>("main section h1, main section h2");
     if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
   }, [stage]);
 
@@ -85,6 +85,26 @@ export default function Home() {
     addEventListener("popstate", onPop);
     return () => removeEventListener("popstate", onPop);
   }, [result]);
+
+  // A shared link (?f=Breaking Bad|Bad Bunny&v=3000) proposes the same search; nothing runs until asked.
+  const [shared, setShared] = useState<{ favs: Favourite[]; v: number } | null>(null);
+  useEffect(() => {
+    const q = new URLSearchParams(location.search);
+    const names = (q.get("f") ?? "").split("|").map((x) => x.trim()).filter(Boolean).slice(0, 8);
+    const v = Math.min(12000, Math.max(500, Number(q.get("v")) || 3000));
+    if (names.length) {
+      setShared({ favs: names.map((name) => ({ id: null, name })), v });
+      history.replaceState(history.state, "", location.pathname);
+    }
+  }, []);
+  const share = async (): Promise<boolean> => {
+    const url = `${location.origin}/?f=${encodeURIComponent(favourites.map((x) => x.name).join("|"))}&v=${vocab}`;
+    try {
+      if (navigator.share) { await navigator.share({ title: "Comprende", text: t.res.shareText, url }); return false; }
+      await navigator.clipboard.writeText(url);
+      return true;
+    } catch { return false; }
+  };
 
   useEffect(() => {
     try {
@@ -166,7 +186,7 @@ export default function Home() {
   };
 
   return (
-    <main className="mx-auto max-w-5xl px-4 pb-24 sm:px-8">
+    <div className="mx-auto max-w-5xl px-4 pb-24 sm:px-8">
       {fake && (
         <p className="mt-3 rounded-xl bg-accent px-4 py-2 text-center text-sm font-medium text-accent-ink">
           {t.devBanner}
@@ -176,10 +196,21 @@ export default function Home() {
         <a href="#how" className="hover:text-ink">{t.nav.how}</a>
         <a href="/method" className="hover:text-ink">{t.nav.method}</a>
       </>} />
+      <main>
       <div ref={top} className="scroll-mt-4" />
 
       {stage === "intro" && (
         <section className="rise pt-4 sm:pt-10">
+          {shared && (
+            <div className="mb-10 rounded-3xl border border-accent/40 bg-card p-5 sm:p-6">
+              <p className="font-display text-2xl">{t.shared.title}</p>
+              <p className="mt-2">{t.shared.body(shared.favs.map((x) => x.name).join(" · "), f.int(shared.v))}</p>
+              <button type="button" onClick={() => { const s = shared; setShared(null); setFavourites(s.favs); setExcluded([]); setNote(null); start(s.v, s.favs, []); }}
+                className="mt-4 rounded-full bg-accent px-6 py-3 font-medium text-accent-ink shadow-sm hover:brightness-110">
+                {t.shared.go}
+              </button>
+            </div>
+          )}
           {/* a returning learner sees where they stand first */}
           {profile && (
             <div className="mb-10">
@@ -262,7 +293,7 @@ export default function Home() {
         <>
           <details className="mb-8 max-w-xl text-sm text-muted">
             <summary className="cursor-pointer">{t.run.steps(events.filter((e) => e.type === "step").length)}</summary>
-            <AgentRun events={events} running={false} />
+            <AgentRun events={events} running={false} level={2} />
           </details>
           <Results
             result={result}
@@ -278,6 +309,7 @@ export default function Home() {
             onRestart={() => { setFavourites([]); setExcluded([]); setNote(null); go("favourites"); }}
             isSaved={(p) => !!profile?.list.some((s) => s.key === listKey(p))}
             onSave={(p) => updateProfile((prof) => toggleSaved(prof, p))}
+            onShare={share}
           />
           {profile && <MyList profile={profile} onChange={setProfile} />}
         </>
@@ -298,6 +330,8 @@ export default function Home() {
         </p>
       </section>
 
+      </main>
+
       <footer className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6 text-sm text-muted">
         <p>{t.footer.built}</p>
         <nav className="flex gap-5">
@@ -305,6 +339,6 @@ export default function Home() {
           <a href="https://github.com/BriceZemba/comprende" className="hover:text-ink">{t.footer.source}</a>
         </nav>
       </footer>
-    </main>
+    </div>
   );
 }

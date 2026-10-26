@@ -41,7 +41,7 @@ function describe(e: AgentEvent, t: Messages, int: (x: number) => string): strin
   return e.text;
 }
 
-export default function AgentRun({ events, running }: { events: AgentEvent[]; running: boolean }) {
+export default function AgentRun({ events, running, level = 1 }: { events: AgentEvent[]; running: boolean; level?: 1 | 2 }) {
   const { t, f } = useI18n();
   // Model failover is plumbing, not something a learner needs to read.
   const steps = events.filter((e) => e.type === "step"
@@ -60,7 +60,9 @@ export default function AgentRun({ events, running }: { events: AgentEvent[]; ru
 
   return (
     <section className="rise max-w-xl">
-      <h2 className="font-display text-3xl">{running ? t.run.running : t.run.done}</h2>
+      {level === 1
+        ? <h1 className="font-display text-3xl">{running ? t.run.running : t.run.done}</h1>
+        : <h2 className="font-display text-3xl">{running ? t.run.running : t.run.done}</h2>}
       {running && (
         <>
           <p className="mt-2 text-sm text-muted">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { coverageAt, fitFor } from "@/lib/comprehension";
 import { useI18n } from "@/lib/i18n";
 
@@ -34,12 +34,13 @@ function Marker({ zone }: { zone: Zone }) {
 }
 
 export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; grid: number[]; vocab: number }) {
-  const { t, f, lang } = useI18n();
+  const { t, f } = useI18n();
   const ZONE_LABEL = t.map.zones as Record<Zone, string>;
   const pctFloor = f.pctFloor;
-  const aff = (a: number) => a.toLocaleString(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const [v, setV] = useState(vocab);
   const [focus, setFocus] = useState<string | null>(null);
+  const [open, setOpen] = useState(true);
+  useEffect(() => { if (window.matchMedia("(max-width: 639px)").matches) setOpen(false); }, []);
 
   // Horizontal position: how much more the title fits this learner than a typical taste (lift);
   // raw affinity would put the same generally liked titles on the right for everyone.
@@ -102,6 +103,11 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
         ))}
       </ul>
 
+      <button type="button" onClick={() => setOpen(!open)} aria-expanded={open}
+        className="mt-3 rounded-full border border-line bg-card px-4 py-2 text-sm hover:border-accent sm:hidden">
+        {open ? t.map.hide : t.map.show}
+      </button>
+      {open && (
       <div className="relative mt-4 rounded-3xl border border-line bg-card p-3 sm:p-5">
         <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full" role="img"
           aria-label={t.map.aria(titles.length, f.int(v), counts.watch, counts.stretch, counts.later)}
@@ -151,7 +157,6 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
             <p className="font-medium">{focused.name}{focused.year ? <span className="text-muted"> · {focused.year}</span> : null}</p>
             <p>{t.map.tipKnow(pctFloor(focused.c), ZONE_LABEL[focused.zone])}</p>
             {focused.because.length > 0 && <p className="text-muted">{t.res.becauseYouLike} {focused.because.join(", ")}</p>}
-            <p className="text-xs text-muted">{t.map.cols[3]} {aff(focused.affinity)}</p>
           </div>
         )}
 
@@ -178,13 +183,14 @@ export default function TasteMap({ titles, grid, vocab }: { titles: MapTitle[]; 
             aria-valuetext={t.map.sliderValue(f.int(v))} />
         </label>
       </div>
+      )}
 
       {/* sr-only on the wrapper: a table ignores the 1px width and would widen the page */}
       <div className="sr-only">
       <table>
         <caption>{t.map.caption(f.int(v))}</caption>
-        <thead><tr>{t.map.cols.map((c) => <th key={c}>{c}</th>)}</tr></thead>
-        <tbody>{points.map((p) => <tr key={p.key}><td>{p.name}</td><td>{pctFloor(p.c)}</td><td>{ZONE_LABEL[p.zone]}</td><td>{aff(p.affinity)}</td></tr>)}</tbody>
+        <thead><tr>{t.map.cols.slice(0, 3).map((c) => <th key={c}>{c}</th>)}</tr></thead>
+        <tbody>{points.map((p) => <tr key={p.key}><td>{p.name}</td><td>{pctFloor(p.c)}</td><td>{ZONE_LABEL[p.zone]}</td></tr>)}</tbody>
       </table>
       </div>
     </section>
