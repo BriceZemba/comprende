@@ -5,6 +5,8 @@ Free models have their own daily request limit and may be slower, so they are th
 first, then these, then the fixed plan, which needs no model at all. Without OPENROUTER_API_KEY this
 module is never called.
 """
+import asyncio
+
 import httpx
 
 from . import config
@@ -29,8 +31,10 @@ async def chat(model: str, messages: list[dict], *, tools: list[dict] | None = N
         body["response_format"] = {"type": "json_object"}
     headers = {"Authorization": f"Bearer {config.OPENROUTER_API_KEY}",
                "HTTP-Referer": "https://comprende.vercel.app", "X-Title": "Comprende"}
+    # A hard limit on the whole request: OpenRouter keeps a slow free model's connection alive with
+    # comments, so httpx's per-read timeout alone let one explainer request run for minutes.
     async with httpx.AsyncClient(timeout=timeout, transport=TRANSPORT) as client:
-        r = await client.post(URL, json=body, headers=headers)
+        r = await asyncio.wait_for(client.post(URL, json=body, headers=headers), timeout)
     data = r.json() if r.headers.get("content-type", "").startswith("application/json") else {}
     if r.status_code != 200 or "error" in data or not data.get("choices"):
         raise OpenRouterError(f"{r.status_code} {data.get('error') or r.text[:200]}")

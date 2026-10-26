@@ -392,3 +392,20 @@ def test_openrouter_plans_the_run_when_gemini_is_unavailable(monkeypatch):
     assert out["buckets"]["watch_now"][0]["imdb"] == "tt1"
     assert not quota.available("busy/model:free")  # its daily refusal is remembered
     quota._until.clear()
+
+
+def test_openrouter_request_has_a_hard_time_limit(monkeypatch):
+    from app import openrouter
+
+    class SlowTransport(httpx.AsyncBaseTransport):
+        async def handle_async_request(self, request):  # a model that keeps the line open
+            await asyncio.sleep(5)
+            return httpx.Response(200, json={"choices": [{"message": {"content": "late"}}]})
+
+    monkeypatch.setattr(openrouter, "TRANSPORT", SlowTransport())
+    import time as _t
+    started = _t.monotonic()
+    import pytest
+    with pytest.raises(asyncio.TimeoutError):
+        asyncio.run(openrouter.chat("m:free", [{"role": "user", "content": "hi"}], timeout=0.2))
+    assert _t.monotonic() - started < 1.5

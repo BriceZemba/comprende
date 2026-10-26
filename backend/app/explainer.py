@@ -153,7 +153,7 @@ async def _explain_group_openrouter(sheet: list[dict], prompt: str) -> dict:
             continue
         try:
             msg = await openrouter.chat(model, [{"role": "system", "content": SYSTEM}, {"role": "user", "content": ask}],
-                                        json_mode=True, timeout=30)
+                                        json_mode=True, timeout=25)
             data = json.loads(msg.get("content") or "{}")
             return validate(data.get("items") if isinstance(data, dict) else data, {f["key"] for f in sheet})
         except Exception as e:
