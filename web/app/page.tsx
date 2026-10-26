@@ -68,6 +68,13 @@ export default function Home() {
   const [profile, setProfileState] = useState<Profile | null>(null);
   useEffect(() => { setProfileState(loadProfile()); }, []);
   const setProfile = (p: Profile | null) => { setProfileState(p); saveProfile(p); };
+  // Changes built from the latest profile, so two quick clicks both count.
+  const updateProfile = (change: (p: Profile) => Profile) => setProfileState((prev) => {
+    if (!prev) return prev;
+    const next = change(prev);
+    saveProfile(next);
+    return next;
+  });
 
   useEffect(() => {
     const onPop = (e: PopStateEvent) => {
@@ -264,7 +271,7 @@ export default function Home() {
             note={note}
             onRestart={() => { setFavourites([]); setExcluded([]); setNote(null); go("favourites"); }}
             isSaved={(p) => !!profile?.list.some((s) => s.key === listKey(p))}
-            onSave={(p) => profile && setProfile(toggleSaved(profile, p))}
+            onSave={(p) => updateProfile((prof) => toggleSaved(prof, p))}
           />
           {profile && <MyList profile={profile} onChange={setProfile} />}
         </>
