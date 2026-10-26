@@ -51,7 +51,8 @@ function WatchOffers({ imdb, fallback }: { imdb: string; fallback: string }) {
     fetch(`/api/watch?imdb=${imdb}&country=${country(lang)}`).then((r) => (r.ok ? r.json() : Promise.reject()))
       .then(setOffers).catch(() => setFailed(true));
   }, [imdb, lang]);
-  if (failed) return <a href={fallback} target="_blank" rel="noopener noreferrer" className="ml-auto py-2 text-xs text-muted underline hover:text-ink">{t.card.watch}</a>;
+  // No data at all for this country (common outside the US and Europe): "not streaming" would be a guess.
+  if (failed || (offers && !offers.link)) return <a href={fallback} target="_blank" rel="noopener noreferrer" className="ml-auto py-2 text-xs text-muted underline hover:text-ink">{t.card.watch}</a>;
   if (!offers) return null;
   const any = offers.stream.length + offers.rent.length + offers.buy.length > 0;
   return (
