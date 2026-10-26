@@ -409,3 +409,24 @@ def test_openrouter_request_has_a_hard_time_limit(monkeypatch):
     with pytest.raises(asyncio.TimeoutError):
         asyncio.run(openrouter.chat("m:free", [{"role": "user", "content": "hi"}], timeout=0.2))
     assert _t.monotonic() - started < 1.5
+
+
+def test_where_to_watch_reads_tmdb_providers_for_the_country(monkeypatch):
+    from app import config, watch
+    monkeypatch.setattr(config, "TMDB_API_KEY", "test")
+    watch._cache.clear()
+
+    def tmdb(request: httpx.Request):
+        if request.url.path == "/3/find/tt1235166":
+            return httpx.Response(200, json={"movie_results": [{"id": 33273}], "tv_results": []})
+        if request.url.path == "/3/movie/33273/watch/providers":
+            return httpx.Response(200, json={"results": {"FR": {
+                "link": "https://www.themoviedb.org/movie/33273/watch?locale=FR",
+                "flatrate": [{"provider_name": "Netflix"}], "rent": [{"provider_name": "Apple TV"}]}}})
+        return httpx.Response(404, json={})
+
+    monkeypatch.setattr(watch, "TRANSPORT", httpx.MockTransport(tmdb))
+    out = asyncio.run(watch.providers("tt1235166", "FR"))
+    assert out["stream"] == ["Netflix"] and out["rent"] == ["Apple TV"] and out["link"].endswith("locale=FR")
+    assert asyncio.run(watch.providers("tt1235166", "MA"))["stream"] == []  # no data for that country
+    watch._cache.clear()

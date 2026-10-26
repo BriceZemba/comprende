@@ -89,7 +89,7 @@ Tests: `python -m pytest -q pipeline/tests`, `cd backend && python -m pytest -q 
 
 ## Data and credits
 
-Taste data: Qloo Insights API. Titles: Wikidata (CC0). Subtitles: OPUS OpenSubtitles v2024 (Lison & Tiedemann 2016), from [opensubtitles.org](https://www.opensubtitles.org/); only word counts derived from subtitles are stored. Lemmas: spaCy, simplemma. Full references in [pipeline/README.md](pipeline/README.md).
+Taste data: Qloo Insights API. Titles: Wikidata (CC0). Subtitles: OPUS OpenSubtitles v2024 (Lison & Tiedemann 2016), from [opensubtitles.org](https://www.opensubtitles.org/); only word counts derived from subtitles are stored. Lemmas: spaCy, simplemma. Full references in [pipeline/README.md](pipeline/README.md). Where to watch (when `TMDB_API_KEY` is set): streaming data by JustWatch via TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.
 
 ## License
 

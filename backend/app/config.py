@@ -32,6 +32,8 @@ GEMINI_MODELS = [m.strip() for m in os.environ.get(
 # tool calls: these answered with correct tool calls in 5-8 s; Gemma (rate-limited upstream) and Nemotron 3 Super
 # (provider error) did not. Free pools change: override with OPENROUTER_MODELS.
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+# Where-to-watch by country (TMDB watch providers, data by JustWatch). Optional; free key at themoviedb.org.
+TMDB_API_KEY = os.environ.get("TMDB_API_KEY", "")
 OPENROUTER_MODELS = [m.strip() for m in os.environ.get(
     "OPENROUTER_MODELS", "nvidia/nemotron-3-ultra-550b-a55b:free,nvidia/nemotron-3.5-super-vl:free,"
                          "cohere/north-mini-code:free").split(",") if m.strip()]

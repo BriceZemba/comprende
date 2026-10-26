@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ListenPick, Pick, RunResult } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
 import TasteMap from "./TasteMap";
@@ -33,8 +33,44 @@ const FIT_CLASS: Record<string, string> = {
 
 const JUSTWATCH: Record<string, string> = { en: "us", fr: "fr", es: "es" };
 
-function PickCard({ p, vocab, blend, reason, saved, onSave, feedback, onFeedback }: {
+// The viewer's country for streaming offers: the region of their browser language if it has one
+// (fr-MA -> MA), else the usual country of the interface language.
+function country(lang: string): string {
+  const region = navigator.languages?.map((l) => l.split("-")[1]).find((r) => r && /^[A-Za-z]{2}$/.test(r));
+  return (region ?? { en: "US", fr: "FR", es: "ES" }[lang] ?? "US").toUpperCase();
+}
+
+type Offers = { link: string | null; stream: string[]; rent: string[]; buy: string[] };
+
+// Where to watch this title in the viewer's country (TMDB, data by JustWatch), when the server has it on.
+function WatchOffers({ imdb, fallback }: { imdb: string; fallback: string }) {
+  const { t, lang } = useI18n();
+  const [offers, setOffers] = useState<Offers | null>(null);
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    fetch(`/api/watch?imdb=${imdb}&country=${country(lang)}`).then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then(setOffers).catch(() => setFailed(true));
+  }, [imdb, lang]);
+  if (failed) return <a href={fallback} target="_blank" rel="noopener noreferrer" className="ml-auto py-2 text-xs text-muted underline hover:text-ink">{t.card.watch}</a>;
+  if (!offers) return null;
+  const any = offers.stream.length + offers.rent.length + offers.buy.length > 0;
+  return (
+    <p className="w-full text-xs text-muted">
+      {any ? (
+        <>
+          {offers.stream.length > 0 && <span className="font-medium text-ink">{t.card.onStream(offers.stream.join(" · "))} </span>}
+          {offers.rent.length > 0 && <span>{t.card.onRent(offers.rent.join(" · "))} </span>}
+          {offers.link && <a href={offers.link} target="_blank" rel="noopener noreferrer" className="underline hover:text-ink">{t.card.details}<span className="sr-only"> {t.card.newTab}</span></a>}
+        </>
+      ) : t.card.notStreaming(country(lang))}
+      <span className="block text-[10px]">{t.card.justwatch}</span>
+    </p>
+  );
+}
+
+function PickCard({ p, vocab, blend, reason, saved, onSave, feedback, onFeedback, watchOn }: {
   p: Pick;
+  watchOn: boolean;
   vocab: number;
   blend: boolean;
   reason?: string;
@@ -111,10 +147,12 @@ function PickCard({ p, vocab, blend, reason, saved, onSave, feedback, onFeedback
               ? "border-good bg-good-soft text-good" : "border-accent text-accent hover:bg-accent hover:text-accent-ink"}`}>
             {saved ? t.card.saved : t.card.save}
           </button>
-          <a href={watch} target="_blank" rel="noopener noreferrer"
-            className="ml-auto py-2 text-xs text-muted underline hover:text-ink">
-            {t.card.watch}<span className="sr-only"> {t.card.newTab}</span>
-          </a>
+          {watchOn && p.imdb ? <WatchOffers imdb={p.imdb} fallback={watch} /> : (
+            <a href={watch} target="_blank" rel="noopener noreferrer"
+              className="ml-auto py-2 text-xs text-muted underline hover:text-ink">
+              {t.card.watch}<span className="sr-only"> {t.card.newTab}</span>
+            </a>
+          )}
         </div>
       </div>
     </article>
@@ -174,8 +212,9 @@ function ShareButton({ onShare }: { onShare: () => Promise<boolean> }) {
   );
 }
 
-export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note, isSaved, onSave, onShare, recordedAt }: {
+export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note, isSaved, onSave, onShare, recordedAt, watchOn }: {
   result: RunResult;
+  watchOn: boolean;
   recordedAt: string | null;
   onShare: () => Promise<boolean>;
   isSaved: (p: Pick) => boolean;
@@ -253,7 +292,7 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
           {shown(s).length === 0 && <p className="mt-3 text-sm text-muted">{t.res.noRecent(RECENT_FROM)}</p>}
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
             {shown(s).map((p) => (
-              <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} blend={blend} reason={reason(p)} saved={isSaved(p)} onSave={onSave} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
+              <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} blend={blend} reason={reason(p)} saved={isSaved(p)} onSave={onSave} watchOn={watchOn} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
             ))}
           </div>
         </div>

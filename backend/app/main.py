@@ -5,15 +5,17 @@
 import asyncio
 import json
 import os
+import re
 import time
 from collections import defaultdict, deque
 
+import httpx
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
-from . import config, dev_fake
+from . import config, dev_fake, watch
 from .agent import KINDS, MEDIA_TYPES, ComprendeAgent, _imdb_ids
 from .catalog import load_catalog
 from .qloo import QlooClient, QlooError
@@ -64,6 +66,7 @@ def health():
         "qloo_key": bool(config.QLOO_API_KEY),
         "fake_qloo": dev_fake.ENABLED,
         "backup_models": bool(config.OPENROUTER_API_KEY),  # OpenRouter configured (never the key)
+        "watch_providers": bool(config.TMDB_API_KEY),
         "model": config.GEMINI_MODEL if config.GEMINI_API_KEY else None,
         "measured_titles": len(cat.titles),
         "measured_titles_mapped_to_qloo": len(cat.by_qloo),
@@ -87,6 +90,19 @@ def example():
     if not path.exists():
         raise HTTPException(404, detail="no recorded example")
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+@app.get("/api/watch")
+async def where_to_watch(imdb: str, country: str = "US"):
+    """Streaming, rental and purchase options for one title in one country (TMDB, data by JustWatch)."""
+    if not config.TMDB_API_KEY:
+        raise HTTPException(404, detail="where-to-watch is not configured")
+    if not re.fullmatch(r"tt\d{5,10}", imdb) or not re.fullmatch(r"[A-Z]{2}", country):
+        raise HTTPException(400, detail="bad imdb id or country")
+    try:
+        return await watch.providers(imdb, country)
+    except httpx.HTTPError as e:
+        raise HTTPException(502, detail="TMDB did not answer") from e
 
 
 @app.get("/api/vocab/items")

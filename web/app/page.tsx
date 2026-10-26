@@ -29,9 +29,11 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const top = useRef<HTMLDivElement>(null);
   const [fake, setFake] = useState(false);
+  const [watchOn, setWatchOn] = useState(false);
   const [proof, setProof] = useState<Proof | null>(null);
   useEffect(() => {
-    fetch("/api/health").then((r) => r.json()).then((h) => setFake(!!h.fake_qloo)).catch(() => {});
+    fetch("/api/health").then((r) => r.json()).then((h) => { setFake(!!h.fake_qloo); setWatchOn(!!h.watch_providers); })
+      .catch(() => {});
     fetch("/api/method").then((r) => r.json()).then((m) => {
       const e = m.evaluation ?? {};
       if (m.validation && e.comprende && e.llm_only && e.no_qloo) {
@@ -340,6 +342,7 @@ export default function Home() {
             onSave={(p) => updateProfile((prof) => toggleSaved(prof, p))}
             onShare={share}
             recordedAt={recordedAt}
+            watchOn={watchOn}
           />
           {profile && <MyList profile={profile} onChange={setProfile} />}
         </>
