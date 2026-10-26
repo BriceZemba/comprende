@@ -86,3 +86,11 @@ def test_rate_limit_counts_forwarded_client_only_from_trusted_proxy(monkeypatch)
     main._runs.clear()
     assert c.post("/api/recommend", json=body, headers={"X-Forwarded-For": "9.9.9.9"}).status_code == 200
     assert c.post("/api/recommend", json=body, headers={"X-Forwarded-For": "8.8.8.8"}).status_code == 429
+
+
+def test_recorded_example_is_served(monkeypatch):
+    c = setup(monkeypatch)
+    r = c.get("/api/example")
+    assert r.status_code == 200
+    data = r.json()
+    assert data["recorded_at"] and any(e["event"]["type"] == "result" for e in data["events"])

@@ -161,6 +161,7 @@ function ListenLane({ artists, podcasts, blend }: { artists: ListenPick[]; podca
 }
 
 const LEVELS = [1000, 3000, 6000];
+const RECENT_FROM = 2010;  // "recent only" keeps titles from this year on; it filters the shown lists only
 
 function ShareButton({ onShare }: { onShare: () => Promise<boolean> }) {
   const { t } = useI18n();
@@ -173,8 +174,9 @@ function ShareButton({ onShare }: { onShare: () => Promise<boolean> }) {
   );
 }
 
-export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note, isSaved, onSave, onShare }: {
+export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note, isSaved, onSave, onShare, recordedAt }: {
   result: RunResult;
+  recordedAt: string | null;
   onShare: () => Promise<boolean>;
   isSaved: (p: Pick) => boolean;
   onSave: (p: Pick) => void;
@@ -193,6 +195,8 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
   const held = result.held_back;
   const blend = Object.keys(result.favourites).length > 1;
   const empty = SECTIONS.every((s) => b[s].length === 0) && !held;
+  const [recentOnly, setRecentOnly] = useState(false);
+  const shown = (s: Pick["bucket"]) => (recentOnly ? b[s].filter((p) => (p.year ?? 0) >= RECENT_FROM) : b[s]);
   return (
     <section className="rise">
       <p className="text-sm font-medium uppercase tracking-wider text-accent">{t.res.eyebrow}</p>
@@ -214,8 +218,17 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
             {t.res.nWords(f.int(v))}
           </button>
         ))}
+        <button type="button" aria-pressed={recentOnly} onClick={() => setRecentOnly(!recentOnly)}
+          className={`rounded-full border px-3 py-1 ${recentOnly ? "border-ink bg-ink text-paper" : "border-line bg-card hover:border-accent"}`}>
+          {t.res.recent(RECENT_FROM)}
+        </button>
       </div>
 
+      {recordedAt && (
+        <p className="mt-4 max-w-2xl rounded-2xl border border-line bg-card p-3 text-sm text-muted">
+          {t.res.recorded(new Date(recordedAt).toLocaleDateString(lang, { day: "numeric", month: "long", year: "numeric" }))}
+        </p>
+      )}
       {note && <p className="rise mt-4 max-w-2xl rounded-2xl bg-good-soft p-4 text-sm">{note}</p>}
 
       {held && (
@@ -237,8 +250,9 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
         <div key={s} className="mt-10">
           <h3 className="font-display text-2xl">{t.res.sections[s][0]}</h3>
           <p className="text-sm text-muted">{t.res.sections[s][1]}</p>
+          {shown(s).length === 0 && <p className="mt-3 text-sm text-muted">{t.res.noRecent(RECENT_FROM)}</p>}
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-            {b[s].map((p) => (
+            {shown(s).map((p) => (
               <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} blend={blend} reason={reason(p)} saved={isSaved(p)} onSave={onSave} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
             ))}
           </div>

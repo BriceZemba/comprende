@@ -119,20 +119,8 @@ export default function Home() {
     } catch { /* nothing saved, or storage blocked */ }
   }, []);
 
-  const start = async (v: number, favs: Favourite[] = favourites, exclude: string[] = excluded) => {
-    go("run");
-    setVocab(v);
-    setEvents([]); setResult(null); setError(null); setFeedback({});
-    const collected: AgentEvent[] = [];
-    try {
-      await runAgent(
-        {
-          favourites_text: favs.filter((f) => !f.id).map((f) => f.name).join(", "),
-          favourite_ids: Object.fromEntries(favs.filter((f) => f.id).map((f) => [f.id as string, f.name])),
-          vocab_size: v,
-          exclude_ids: exclude,
-        },
-        (e) => {
+  // One handler for live runs and for the recorded example's replay.
+  const onEvent = (e: AgentEvent, favs: Favourite[], v: number, exclude: string[], collected: AgentEvent[]) => {
           setEvents((prev) => [...prev, e]);
           if (e.type === "result") {
             setResult(e.result); go("results", "replace");
@@ -156,12 +144,53 @@ export default function Home() {
           }
           collected.push(e);
           if (e.type === "error") setError(e.text);
+  };
+
+  const [recordedAt, setRecordedAt] = useState<string | null>(null);
+  const begin = (v: number) => {
+    go("run");
+    setVocab(v);
+    setEvents([]); setResult(null); setError(null); setFeedback({});
+  };
+
+  const start = async (v: number, favs: Favourite[] = favourites, exclude: string[] = excluded) => {
+    begin(v);
+    setRecordedAt(null);
+    const collected: AgentEvent[] = [];
+    try {
+      await runAgent(
+        {
+          favourites_text: favs.filter((f) => !f.id).map((f) => f.name).join(", "),
+          favourite_ids: Object.fromEntries(favs.filter((f) => f.id).map((f) => [f.id as string, f.name])),
+          vocab_size: v,
+          exclude_ids: exclude,
         },
+        (e) => onEvent(e, favs, v, exclude, collected),
       );
     } catch (e) {
       setError(e instanceof AgentStartError && e.status === 429 ? t.run.tooMany
         : e instanceof AgentStartError && e.status >= 500 ? t.run.unreachable
         : e instanceof Error && e.name !== "TypeError" ? e.message : t.run.unreachable);
+    }
+  };
+
+  // The home-page example replays a recorded real run (backend/scripts/record_example.py), labelled with
+  // its date: the most-clicked path then costs none of the hosted demo's free model quota. A learner's own
+  // search always runs live; if no recording is available, the example runs live too.
+  const playExample = async () => {
+    setFavourites(EXAMPLE); setExcluded([]); setNote(null);
+    let rec: { recorded_at: string; vocab: number; events: { event: AgentEvent }[] } | null = null;
+    try {
+      const r = await fetch("/api/example");
+      if (r.ok) rec = await r.json();
+    } catch { /* replay unavailable: run live */ }
+    if (!rec) { start(3000, EXAMPLE, []); return; }
+    begin(rec.vocab);
+    setRecordedAt(rec.recorded_at);
+    const collected: AgentEvent[] = [];
+    for (const { event } of rec.events) {
+      await new Promise((ok) => setTimeout(ok, event.type === "step" ? 320 : event.type === "explanations" ? 900 : 200));
+      onEvent(event, EXAMPLE, rec.vocab, [], collected);
     }
   };
 
@@ -236,14 +265,14 @@ export default function Home() {
                   className="rounded-full bg-accent px-7 py-4 text-lg font-medium text-accent-ink shadow-sm hover:brightness-110">
                   {t.intro.start}
                 </button>
-                <button type="button" onClick={() => { setFavourites(EXAMPLE); setExcluded([]); setNote(null); start(3000, EXAMPLE, []); }}
+                <button type="button" onClick={playExample}
                   className="rounded-full border border-line bg-card px-6 py-4 text-lg hover:border-accent">
                   {t.intro.example}
                 </button>
               </div>
               <p className="mt-3 text-sm text-muted">{t.intro.sub}</p>
             </div>
-            <HeroPreview onTry={() => { setFavourites(EXAMPLE); setExcluded([]); setNote(null); start(3000, EXAMPLE, []); }} />
+            <HeroPreview onTry={playExample} />
           </div>
           {profile && (
             <>
@@ -310,6 +339,7 @@ export default function Home() {
             isSaved={(p) => !!profile?.list.some((s) => s.key === listKey(p))}
             onSave={(p) => updateProfile((prof) => toggleSaved(prof, p))}
             onShare={share}
+            recordedAt={recordedAt}
           />
           {profile && <MyList profile={profile} onChange={setProfile} />}
         </>

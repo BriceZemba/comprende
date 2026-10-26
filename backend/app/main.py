@@ -79,6 +79,16 @@ def method():
             "evaluation": read(config.REPO_ROOT / "eval" / "results" / "summary.json")}
 
 
+@app.get("/api/example")
+def example():
+    """A recorded real run of the home-page example (scripts/record_example.py), replayed by the web app
+    with its date, so the most-clicked path costs no model quota. 404 until one is recorded."""
+    path = config.DATA_DIR / "example_run.json"
+    if not path.exists():
+        raise HTTPException(404, detail="no recorded example")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 @app.get("/api/vocab/items")
 def vocab_items():
     return json.loads((config.DATA_DIR / "vocab_items_es.json").read_text(encoding="utf-8"))
