@@ -14,7 +14,7 @@ Learners are told to watch shows in Spanish. They pick something famous, get los
 ## Try it in 60 seconds
 
 1. Open https://comprende.vercel.app. **Try an example** replays a recorded real run in a few seconds.
-2. For your own picks, give three favourites and take the 64-word check or choose a level.
+2. For your own picks, give three favourites, choose which Spanish you want to hear (Spain, Latin America or both), and take the 64-word check or choose a level.
 3. Watch the agent's steps live, then read your picks:
    - **Watch now:** at least 95% of the words known.
    - **A good stretch:** 90–95%.
@@ -31,6 +31,7 @@ Learners are told to watch shows in Spanish. They pick something famous, get los
 |---|---|---|
 | Resolve favourites from any domain | `GET /search` (films, series, artists, games, books, podcasts) | "Breaking Bad", "Rosalía", "Zelda" become Qloo entities |
 | Spanish-language films and series for your taste | `GET /v2/insights` with `filter.type`, `signal.interests.entities`, `filter.release_country` (Spanish-speaking countries) | Cross-domain taste becomes Spanish titles |
+| The Spanish you want to hear | `filter.release_country` narrowed to Spain or to Latin America, at the learner's choice | Accents and words differ; a learner of Mexican Spanish gets Mexican and Argentine titles |
 | Score the titles we measured | `GET /v2/insights` with `filter.results.entities` (parallel batches of 50) | A taste score for every title whose difficulty we know |
 | Explain each pick | `feature.explainability`, plus Qloo's genre, themes and tone descriptions | "Because you like…" and the explainer's reason come from Qloo's data, not the model's memory |
 | Map our catalog to Qloo | `GET /entities` with `external.imdb.ids`, `external.wikidata.ids` | Exact ids (1,438 of 1,464 titles), no fuzzy matching |
