@@ -7,8 +7,11 @@ import FavouritesStep, { type Favourite } from "@/components/FavouritesStep";
 import LevelStep from "@/components/LevelStep";
 import Results, { pickKey, type Feedback } from "@/components/Results";
 import Header from "@/components/Header";
+import MyList from "@/components/MyList";
+import WelcomeBack from "@/components/WelcomeBack";
 import { AgentStartError, runAgent, type AgentEvent, type RunResult } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
+import { afterRun, listKey, loadProfile, saveProfile, toggleSaved, type Profile } from "@/lib/profile";
 
 type Stage = "intro" | "favourites" | "level" | "run" | "results";
 interface Proof { titles: number; ours: number; llm: number; personal: number; noQloo: number }
@@ -61,6 +64,10 @@ export default function Home() {
   const [feedback, setFeedback] = useState<Record<string, Feedback>>({});
   const [excluded, setExcluded] = useState<string[]>([]);
   const [note, setNote] = useState<string | null>(null);
+  // Progress kept on this device (lib/profile.ts): read after mount, since the server cannot see it.
+  const [profile, setProfileState] = useState<Profile | null>(null);
+  useEffect(() => { setProfileState(loadProfile()); }, []);
+  const setProfile = (p: Profile | null) => { setProfileState(p); saveProfile(p); };
 
   useEffect(() => {
     const onPop = (e: PopStateEvent) => {
@@ -102,6 +109,7 @@ export default function Home() {
           setEvents((prev) => [...prev, e]);
           if (e.type === "result") {
             setResult(e.result); go("results", "replace");
+            setProfile(afterRun(loadProfile(), favs, v, e.result));
             try {
               sessionStorage.setItem(SAVED, JSON.stringify({ result: e.result, events: [...collected, e], vocab: v,
                 favourites: favs, excluded: exclude }));
@@ -187,6 +195,18 @@ export default function Home() {
             </div>
             <HeroPreview />
           </div>
+          {profile && (
+            <>
+              <WelcomeBack profile={profile}
+                onFresh={() => {
+                  const seen = profile.list.filter((s) => s.watched).map((s) => s.key);
+                  setFavourites(profile.favourites); setExcluded(seen); setNote(null);
+                  start(profile.vocab, profile.favourites, seen);
+                }}
+                onForget={() => setProfile(null)} />
+              <MyList profile={profile} onChange={setProfile} />
+            </>
+          )}
           {proof && (
             <dl className="mt-14 grid gap-4 border-t border-line pt-8 sm:grid-cols-3">
               <div>
@@ -243,7 +263,10 @@ export default function Home() {
             onChangeLevel={(v) => { setNote(null); start(v); }}
             note={note}
             onRestart={() => { setFavourites([]); setExcluded([]); setNote(null); go("favourites"); }}
+            isSaved={(p) => !!profile?.list.some((s) => s.key === listKey(p))}
+            onSave={(p) => profile && setProfile(toggleSaved(profile, p))}
           />
+          {profile && <MyList profile={profile} onChange={setProfile} />}
         </>
       )}
 

@@ -28,3 +28,5 @@ jobs:
           node-version: "22.19.0"
       - name: TypeScript port matches Python
         run: node --experimental-strip-types web/lib/comprehension.parity.test.ts
+      - name: Learner progress logic (web/lib/profile.ts)
+        run: node --experimental-strip-types web/lib/profile.test.ts

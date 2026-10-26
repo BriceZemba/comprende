@@ -32,11 +32,13 @@ const FIT_CLASS: Record<string, string> = {
 
 const JUSTWATCH: Record<string, string> = { en: "us", fr: "fr", es: "es" };
 
-function PickCard({ p, vocab, blend, reason, feedback, onFeedback }: {
+function PickCard({ p, vocab, blend, reason, saved, onSave, feedback, onFeedback }: {
   p: Pick;
   vocab: number;
   blend: boolean;
   reason?: string;
+  saved: boolean;
+  onSave: (p: Pick) => void;
   feedback?: Feedback;
   onFeedback: (p: Pick, f: Feedback | undefined) => void;
 }) {
@@ -108,6 +110,11 @@ function PickCard({ p, vocab, blend, reason, feedback, onFeedback }: {
               {t.card.feedback[k]}
             </button>
           ))}
+          <button type="button" aria-pressed={saved} onClick={() => onSave(p)}
+            className={`min-h-9 rounded-full border px-3 py-1.5 text-xs transition ${saved
+              ? "border-good bg-good-soft text-good" : "border-accent text-accent hover:bg-accent hover:text-accent-ink"}`}>
+            {saved ? t.card.saved : t.card.save}
+          </button>
           <a href={watch} target="_blank" rel="noopener noreferrer"
             className="ml-auto py-2 text-xs text-muted underline hover:text-ink">
             {t.card.watch}<span className="sr-only"> {t.card.newTab}</span>
@@ -155,8 +162,10 @@ function ListenLane({ artists, podcasts, blend }: { artists: ListenPick[]; podca
 
 const LEVELS = [1000, 3000, 6000];
 
-export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note }: {
+export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note, isSaved, onSave }: {
   result: RunResult;
+  isSaved: (p: Pick) => boolean;
+  onSave: (p: Pick) => void;
   onRestart: () => void;
   onChangeLevel: (vocab: number) => void;
   feedback: Record<string, Feedback>;
@@ -215,7 +224,7 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
           <p className="text-sm text-muted">{t.res.sections[s][1]}</p>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
             {b[s].map((p) => (
-              <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} blend={blend} reason={reason(p)} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
+              <PickCard key={pickKey(p)} p={p} vocab={result.vocab_size} blend={blend} reason={reason(p)} saved={isSaved(p)} onSave={onSave} feedback={feedback[pickKey(p)]} onFeedback={onFeedback} />
             ))}
           </div>
         </div>
