@@ -1,6 +1,8 @@
 """Measured titles: coverage curves from the pipeline, plus their Qloo entity ids."""
 import json
+import re
 import sys
+import unicodedata
 from dataclasses import dataclass
 from functools import lru_cache
 
@@ -28,6 +30,7 @@ class Measured:
     words_per_minute: int | None = None  # dialogue density, films with reliable metadata only (pipeline/pace.py)
     dialogue: str | None = None  # light | average | dense, by thirds of the measured films
     taste_baseline: float | None = None  # mean Qloo affinity across reference tastes (see build_taste_baseline.py)
+    sitelinks: int = 0  # Wikipedia editions with an article on it: how well known the title is
 
     def coverage_for(self, vocab_size: float) -> float:
         return coverage_at(self.coverage, vocab_size)
@@ -66,6 +69,7 @@ class Catalog:
                 coverage=t["coverage"], vocab_for_95=t.get("vocab_for_95"), vocab_for_98=t.get("vocab_for_98"),
                 qloo_id=(qmap.get(t["imdb"]) or {}).get("entity_id"),
                 tokens=t.get("tokens", 0),
+                sitelinks=t.get("sitelinks") or 0,
                 words_per_minute=t.get("words_per_minute"),
                 dialogue=pace_level(t.get("words_per_minute"), cat.get("pace_bands") or []),
             )
@@ -109,6 +113,37 @@ class Catalog:
             return True
         return bool(countries) and all(c in SPANISH_SPEAKING for c in countries)
 
+    def search(self, query: str, limit: int = 6) -> list[Measured]:
+        """Titles whose Spanish or English name matches what the learner typed, ignoring case, accents and
+        punctuation: exact names first, then names that start with it, then any word that does, then any
+        other match, then names holding every typed word in any order; the best-known titles first within each."""
+        q = _fold(query)
+        if len(q) < 2:
+            return []
+        words = q.split()
+
+        def rank_of(n: str) -> int:
+            if n == q:
+                return 0
+            if n.startswith(q):
+                return 1
+            if f" {q}" in f" {n}":
+                return 2
+            if q in n:
+                return 3
+            name_words = n.split()
+            if len(words) > 1 and all(any(w.startswith(x) for w in name_words) for x in words):
+                return 4
+            return 9
+
+        scored = []
+        for t in self.titles:
+            names = [_fold(n) for n in (t.title_es, t.title_en) if n]
+            rank = min(rank_of(n) for n in names) if names else 9
+            if rank < 9:
+                scored.append((rank, -t.sitelinks, t.title_es or t.title_en or "", t))
+        return [s[-1] for s in sorted(scored, key=lambda s: s[:3])[:limit]]
+
     def match(self, qloo_id: str | None, imdb_ids: list[str] | None = None) -> Measured | None:
         if qloo_id and qloo_id in self.by_qloo:
             return self.by_qloo[qloo_id]
@@ -116,6 +151,13 @@ class Catalog:
             if i in self.by_imdb:
                 return self.by_imdb[i]
         return None
+
+
+def _fold(text: str) -> str:
+    """Lowercase, no accents, punctuation as spaces: "¿Qué pasó, Élite?" -> "que paso elite"."""
+    text = unicodedata.normalize("NFKD", text.lower())
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    return " ".join(re.sub(r"[^\w]+", " ", text).split())
 
 
 @lru_cache(maxsize=1)

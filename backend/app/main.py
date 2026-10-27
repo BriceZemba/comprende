@@ -93,6 +93,19 @@ def example():
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+@app.get("/api/title")
+def find_title(q: str = "", limit: int = 6):
+    """"Can I follow it?": measured titles matching a name, each with its coverage curve so the browser can
+    show the share of words known at any vocabulary size. Only our subtitle measurements; no Qloo call."""
+    from comprende_pipeline.coverage import GRID
+    hits = load_catalog().search(q[:80], max(1, min(limit, 10)))
+    return {"grid": GRID, "titles": [
+        {"imdb": t.imdb, "qloo_id": t.qloo_id, "title_es": t.title_es, "title_en": t.title_en, "year": t.year,
+         "kind": t.kind, "countries": t.countries, "curve": t.coverage, "vocab_for_95": t.vocab_for_95,
+         "words_per_minute": t.words_per_minute, "dialogue": t.dialogue}
+        for t in hits]}
+
+
 @app.get("/api/watch")
 async def where_to_watch(imdb: str, country: str = "US"):
     """Streaming, rental and purchase options for one title in one country (TMDB, data by JustWatch)."""

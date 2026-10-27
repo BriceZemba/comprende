@@ -5,14 +5,23 @@ import { useI18n } from "@/lib/i18n";
 
 // A looping demo of what the app does, in three steps: what you love, what the agent does, what you get.
 // Everything in it comes from the recorded example run (data/example_run.json: Breaking Bad + Bad Bunny +
-// The Legend of Zelda at ~3,000 words): the two films, their posters from Qloo, their coverage and the
-// explainer's reason. The tabs jump between steps; hovering pauses. With reduced motion it shows the last
-// step, still.
+// The Legend of Zelda at ~3,000 words): one title from each list (watch now, a good stretch, later), their
+// posters from Qloo, their coverage, the words still to learn and the explainer's reason. The tabs jump
+// between steps; hovering pauses. With reduced motion it shows the last step, still.
 const STEP_MS = 4200;
 const MEASURED = 1464;
 const POSTER = "https://images.qloo.com/i/";
-const PICK = { name: "Sin nombre", year: 2009, coverage: 0.972, image: `${POSTER}D6C5195F-9A65-47E5-85A5-C942E390765A-420x-auto.jpg` };
-const HELD = { name: "Balada triste de trompeta", year: 2010, coverage: 0.8923, image: `${POSTER}CF56D60B-B707-47E1-9195-B267917669D3-420x-auto.jpg` };
+const PICKS = [
+  { name: "Hogar", year: 2020, coverage: 0.9532, tone: "good", image: `${POSTER}755051F8-D604-4E93-89E0-04897E4B93F7-420x-auto.jpg` },
+  { name: "El hoyo", year: 2019, coverage: 0.9381, tone: "warn", image: `${POSTER}985F6F9D-FE97-41AF-BDC7-A2EFC513BEA7-420x-auto.jpg` },
+  { name: "La sociedad de la nieve", year: 2023, coverage: 0.8998, tone: "later", image: `${POSTER}D3939768-1816-4F23-9AD7-E6E27254A321-420x-auto.jpg` },
+] as const;
+const LATER_TO_GO = 3500; // words to learn before La sociedad de la nieve reaches 95%
+const TONE = {
+  good: { bar: "bg-good", badge: "bg-good text-paper" },
+  warn: { bar: "bg-warn", badge: "bg-warn text-paper" },
+  later: { bar: "bg-later", badge: "bg-later text-paper" },
+};
 
 const ICONS: ReactNode[] = [
   // series: a screen
@@ -24,10 +33,10 @@ const ICONS: ReactNode[] = [
 ];
 const FAVS = ["Breaking Bad", "Bad Bunny", "The Legend of Zelda"];
 
-function Bar({ value, tone }: { value: number; tone: "good" | "later" }) {
+function Bar({ value, tone }: { value: number; tone: keyof typeof TONE }) {
   return (
     <div className="relative mt-2 h-2 rounded-full bg-line">
-      <div className={`grow h-full rounded-full ${tone === "good" ? "bg-good" : "bg-later"}`}
+      <div className={`grow h-full rounded-full ${TONE[tone].bar}`}
         style={{ width: `${value * 100}%`, animationDelay: "250ms" }} />
       {/* the 95% line a title must reach to be "watch now" */}
       <span className="absolute -top-1 h-4 w-0.5 rounded bg-ink/60" style={{ left: "95%" }} />
@@ -91,7 +100,7 @@ export default function HeroPreview({ onTry }: { onTry: () => void }) {
         </div>
 
         {/* fixed height so the page does not jump between steps */}
-        <div className="relative h-[24.5rem] overflow-hidden px-5 pb-2 pt-5 lg:h-[27rem] lg:px-6">
+        <div className="relative h-[33rem] overflow-hidden px-5 pb-2 pt-5 sm:h-[30rem] lg:h-[32rem] lg:px-6">
           {step === 0 && (
             <div key="s0" className="rise">
               <p className="font-display text-2xl">{p.s1}</p>
@@ -154,28 +163,28 @@ export default function HeroPreview({ onTry }: { onTry: () => void }) {
           {step === 2 && (
             <div key="s2" className="rise">
               <p className="font-display text-2xl">{p.s3}</p>
-              <ul className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                {[
-                  { ...PICK, badge: `${p.watchNow} · ${f.pct0(PICK.coverage)}`, tone: "good" as const, text: p.reason },
-                  { ...HELD, badge: `${p.heldBack} · ${f.pctFloor(HELD.coverage)}`, tone: "later" as const, text: p.heldWhy },
-                ].map((c, i) => (
-                  <li key={c.name} className="rise min-w-0" style={{ animationDelay: `${i * 450}ms` }}>
-                    <div className="relative h-36 overflow-hidden rounded-xl bg-line sm:h-44 lg:h-52">
+              <ul className="mt-4 grid grid-cols-3 gap-2.5 text-sm sm:gap-3">
+                {PICKS.map((c, i) => (
+                  <li key={c.name} className="rise min-w-0" style={{ animationDelay: `${i * 400}ms` }}>
+                    <div className="relative h-32 overflow-hidden rounded-xl bg-line sm:h-40">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={c.image} alt="" className={`h-full w-full object-cover ${c.tone === "later" ? "opacity-70 saturate-50" : ""}`} />
-                      <span className={`absolute left-2 top-2 rounded-full px-2 py-0.5 text-[11px] font-semibold shadow-sm ${c.tone === "good" ? "bg-good text-paper" : "bg-later text-paper"}`}>
-                        {c.badge}
+                      <img src={c.image} alt="" className={`h-full w-full object-cover ${c.tone === "later" ? "opacity-75 saturate-50" : ""}`} />
+                      <span className={`absolute left-1.5 top-1.5 rounded-full px-2 py-0.5 text-[11px] font-semibold tabular-nums shadow-sm ${TONE[c.tone].badge}`}>
+                        {f.pctFloor(c.coverage)}
                       </span>
                     </div>
-                    <p className="mt-2 line-clamp-2 font-display text-base leading-tight" lang="es">
-                      {c.name} <span className="font-sans text-xs text-muted">{c.year}</span>
-                    </p>
+                    <p className="mt-2 text-[11px] font-semibold uppercase tracking-wide text-muted">{p.lists[i]}</p>
+                    <p className="truncate font-display text-base leading-tight" lang="es" title={c.name}>{c.name}</p>
+                    <p className="text-xs text-muted">{c.year}</p>
                     <Bar value={c.coverage} tone={c.tone} />
-                    <p className="mt-1 text-[11px] text-muted">{p.words(f.pctFloor(c.coverage))} · {p.need}</p>
-                    <p className="mt-1.5 line-clamp-3 text-xs leading-snug">{c.text}</p>
                   </li>
                 ))}
               </ul>
+              <p className="mt-1.5 text-right text-[11px] text-muted">{p.need}</p>
+              <div className="rise mt-2 space-y-1.5 rounded-2xl border border-line bg-paper p-3 text-xs leading-snug" style={{ animationDelay: "1300ms" }}>
+                <p><span className="font-semibold text-good">{p.why(PICKS[0].name)}</span> {p.reason}</p>
+                <p><span className="font-semibold text-later" lang="es">{PICKS[2].name}:</span> {p.notYet(f.pctFloor(PICKS[2].coverage), f.int(LATER_TO_GO))}</p>
+              </div>
             </div>
           )}
         </div>

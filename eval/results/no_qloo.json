@@ -1,18 +1,10 @@
 {
- "run_at": "2026-10-23T01:12:18+00:00",
+ "run_at": "2026-10-27T02:56:25+00:00",
  "results": [
   {
    "id": "p01",
    "model": null,
    "titles": [
-    {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
     {
      "title": "Volver",
      "year": 2006,
@@ -20,6 +12,14 @@
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -38,20 +38,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -108,20 +108,20 @@
      "matched": "Zulo"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -140,20 +140,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -194,20 +194,20 @@
      "matched": "Zulo"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -226,20 +226,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -288,20 +288,20 @@
      "matched": "Roma"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -350,20 +350,20 @@
    "model": null,
    "titles": [
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -382,20 +382,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -436,20 +436,20 @@
    "model": null,
    "titles": [
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -468,20 +468,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -546,20 +546,20 @@
      "matched": "Roma"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -608,20 +608,20 @@
    "model": null,
    "titles": [
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -640,20 +640,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -694,20 +694,20 @@
    "model": null,
    "titles": [
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -726,20 +726,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -796,20 +796,20 @@
      "matched": "Zulo"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -828,20 +828,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -882,20 +882,20 @@
      "matched": "Zulo"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -914,20 +914,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -952,20 +952,20 @@
    "model": null,
    "titles": [
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -984,20 +984,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -1062,20 +1062,20 @@
      "matched": "Roma"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -1124,20 +1124,20 @@
    "model": null,
    "titles": [
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -1156,20 +1156,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -1210,20 +1210,20 @@
    "model": null,
    "titles": [
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -1242,20 +1242,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -1312,20 +1312,20 @@
      "matched": "Zulo"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -1344,20 +1344,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -1406,20 +1406,20 @@
      "matched": "Roma"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -1468,20 +1468,20 @@
    "model": null,
    "titles": [
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -1500,20 +1500,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",
@@ -1578,20 +1578,20 @@
      "matched": "Roma"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -1656,20 +1656,20 @@
      "matched": "Zulo"
     },
     {
-     "title": "Hable con ella",
-     "year": 2002,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0287467",
-     "matched": "Hable con ella"
-    },
-    {
      "title": "Volver",
      "year": 2006,
      "kind": "film",
      "class": "measured",
      "imdb": "tt0441909",
      "matched": "Volver"
+    },
+    {
+     "title": "Hable con ella",
+     "year": 2002,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0287467",
+     "matched": "Hable con ella"
     },
     {
      "title": "Mar adentro",
@@ -1688,20 +1688,20 @@
      "matched": "El secreto de sus ojos"
     },
     {
-     "title": "La mala educación",
-     "year": 2004,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0275491",
-     "matched": "La mala educación"
-    },
-    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
      "class": "measured",
      "imdb": "tt3011894",
      "matched": "Relatos salvajes"
+    },
+    {
+     "title": "La mala educación",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0275491",
+     "matched": "La mala educación"
     },
     {
      "title": "La casa de papel",

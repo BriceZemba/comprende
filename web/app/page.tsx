@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import AgentRun from "@/components/AgentRun";
+import CanIFollow from "@/components/CanIFollow";
 import HeroPreview from "@/components/HeroPreview";
 import FavouritesStep, { type Favourite } from "@/components/FavouritesStep";
 import LevelStep from "@/components/LevelStep";
@@ -228,6 +229,12 @@ export default function Home() {
         </p>
       )}
       <Header onLogo={() => go("intro")} nav={<>
+        <a href="#check" className="hover:text-ink" onClick={(e) => {
+          if (stage === "intro") return; // the section is on this page: the link scrolls to it
+          e.preventDefault();
+          go("intro");
+          setTimeout(() => document.getElementById("check")?.scrollIntoView({ block: "start" }), 60);
+        }}>{t.nav.check}</a>
         <a href="#how" className="hover:text-ink">{t.nav.how}</a>
         <a href="/method" className="hover:text-ink">{t.nav.method}</a>
       </>} />
@@ -291,6 +298,8 @@ export default function Home() {
               <MyList profile={profile} onChange={setProfile} />
             </>
           )}
+
+          <CanIFollow vocab={profile?.vocab ?? 3000} onCheck={() => go("level")} />
 
           {proof && (
             <dl className="mt-16 grid gap-3 sm:grid-cols-3">

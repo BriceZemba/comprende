@@ -1,6 +1,6 @@
 {
- "run_at": "2026-10-23T01:10:37+00:00",
- "qloo_calls": 0,
+ "run_at": "2026-10-27T02:56:23+00:00",
+ "qloo_calls": 270,
  "results": [
   {
    "id": "p01",
@@ -21,15 +21,6 @@
      "matched": "El aura"
     },
     {
-     "title": "Nueve reinas",
-     "year": 2000,
-     "kind": "film",
-     "affinity": 0.8332150207862292,
-     "class": "measured",
-     "imdb": "tt0247586",
-     "matched": "Nueve reinas"
-    },
-    {
      "title": "El club",
      "year": 2015,
      "kind": "film",
@@ -48,13 +39,13 @@
      "matched": "Magical Girl"
     },
     {
-     "title": "Mar adentro",
-     "year": 2004,
+     "title": "Nueve reinas",
+     "year": 2000,
      "kind": "film",
-     "affinity": 0.8426882814380117,
+     "affinity": 0.8332150207862292,
      "class": "measured",
-     "imdb": "tt0369702",
-     "matched": "Mar adentro"
+     "imdb": "tt0247586",
+     "matched": "Nueve reinas"
     },
     {
      "title": "Sin nombre",
@@ -64,6 +55,15 @@
      "class": "measured",
      "imdb": "tt1127715",
      "matched": "Sin nombre"
+    },
+    {
+     "title": "Mar adentro",
+     "year": 2004,
+     "kind": "film",
+     "affinity": 0.8426882814380117,
+     "class": "measured",
+     "imdb": "tt0369702",
+     "matched": "Mar adentro"
     },
     {
      "title": "El topo",
@@ -113,88 +113,94 @@
    ],
    "titles": [
     {
-     "title": "Sin nombre",
-     "year": 2009,
-     "kind": "film",
-     "affinity": 0.778674093249179,
-     "class": "measured",
-     "imdb": "tt1127715",
-     "matched": "Sin nombre"
-    },
-    {
-     "title": "Reyes de la noche",
-     "year": 2021,
-     "kind": "series",
-     "affinity": 0.8619686467404003,
-     "class": "measured",
-     "imdb": "tt12782398",
-     "matched": "Reyes de la noche"
-    },
-    {
-     "title": "El olvido que seremos",
+     "title": "Hogar",
      "year": 2020,
      "kind": "film",
-     "affinity": 0.7750220935981932,
+     "affinity": 0.8488027906113688,
      "class": "measured",
-     "imdb": "tt11385336",
-     "matched": "El olvido que seremos"
+     "imdb": "tt9345754",
+     "matched": "Hogar"
     },
     {
-     "title": "El Clan",
-     "year": 2015,
+     "title": "Cerdita",
+     "year": 2022,
      "kind": "film",
-     "affinity": 0.7832573885366172,
+     "affinity": 0.8157479740217649,
      "class": "measured",
-     "imdb": "tt4411504",
-     "matched": "El Clan"
+     "imdb": "tt10399608",
+     "matched": "Cerdita"
     },
     {
-     "title": "Una mujer fantástica",
-     "year": 2017,
-     "kind": "film",
-     "affinity": 0.8117079461657687,
-     "class": "measured",
-     "imdb": "tt5639354",
-     "matched": "Una mujer fantástica"
-    },
-    {
-     "title": "Las herederas",
+     "title": "Durante la tormenta",
      "year": 2018,
      "kind": "film",
-     "affinity": 0.7689389449020902,
+     "affinity": 0.8385231384469721,
      "class": "measured",
-     "imdb": "tt7875464",
-     "matched": "Las herederas"
+     "imdb": "tt6908274",
+     "matched": "Durante la tormenta"
     },
     {
-     "title": "Matchday: Inside FC Barcelona",
-     "year": 2019,
-     "kind": "series",
-     "affinity": 0.9293952796262066,
-     "class": "unverified"
+     "title": "Amar",
+     "year": 2017,
+     "kind": "film",
+     "affinity": 0.86528897575474,
+     "class": "measured",
+     "imdb": "tt5479616",
+     "matched": "Amar"
     },
     {
-     "title": "FC Barcelona: A New Era",
-     "year": 2022,
-     "kind": "series",
-     "affinity": 0.91941271994503,
-     "class": "unverified"
+     "title": "Culpa mía",
+     "year": 2023,
+     "kind": "film",
+     "affinity": 0.8459773486250021,
+     "class": "measured",
+     "imdb": "tt21909764",
+     "matched": "Culpa mía"
+    },
+    {
+     "title": "El árbol de la sangre",
+     "year": 2018,
+     "kind": "film",
+     "affinity": 0.8366269055400061,
+     "class": "measured",
+     "imdb": "tt6433832",
+     "matched": "El árbol de la sangre"
     },
     {
      "title": "I Am Georgina",
      "year": 2022,
      "kind": "series",
-     "affinity": 0.9169179489499575,
+     "affinity": 0.904269402821362,
      "class": "spanish_original",
      "wikidata": "Q110734341",
      "matched": "I Am Georgina"
     },
     {
-     "title": "Society of the Snow: Who Were We on the Mountain?",
-     "year": 2024,
+     "title": "El juego de las llaves",
+     "year": 2019,
      "kind": "series",
-     "affinity": 0.9164498142928975,
-     "class": "unverified"
+     "affinity": 0.8950834033066796,
+     "class": "unverified",
+     "note": "found on Wikidata without an original language"
+    },
+    {
+     "title": "Perfil falso",
+     "year": 2023,
+     "kind": "series",
+     "affinity": 0.8937625561344126,
+     "class": "spanish_original",
+     "imdb": "tt14494938",
+     "wikidata": "Q118955274",
+     "matched": "Perfil falso"
+    },
+    {
+     "title": "Too Hot to Handle: Latino",
+     "year": 2021,
+     "kind": "series",
+     "affinity": 0.9080618854040157,
+     "class": "spanish_original",
+     "wikidata": "Q110624062",
+     "matched": "Too Hot to Handle: Latino"
     }
    ]
   },
@@ -204,96 +210,102 @@
    "favourites_resolved": [
     "Up",
     "Taylor Swift",
-    "Harry Potter",
-    "The Philosopher's Stone"
+    "Harry Potter and the Sorcerer's Stone"
    ],
    "titles": [
     {
-     "title": "Relatos salvajes",
-     "year": 2014,
+     "title": "El orfanato",
+     "year": 2007,
      "kind": "film",
-     "affinity": 0.8056561001652927,
+     "affinity": 0.7514379662027312,
      "class": "measured",
-     "imdb": "tt3011894",
-     "matched": "Relatos salvajes"
-    },
-    {
-     "title": "El secreto de sus ojos",
-     "year": 2009,
-     "kind": "film",
-     "affinity": 0.7772329762268391,
-     "class": "measured",
-     "imdb": "tt1305806",
-     "matched": "El secreto de sus ojos"
+     "imdb": "tt0464141",
+     "matched": "El orfanato"
     },
     {
      "title": "Tengo ganas de ti",
      "year": 2012,
      "kind": "film",
-     "affinity": 0.8183534115616818,
+     "affinity": 0.8005525273239655,
      "class": "measured",
      "imdb": "tt1797504",
      "matched": "Tengo ganas de ti"
     },
     {
-     "title": "Reyes de la noche",
+     "title": "Camino",
+     "year": 2008,
+     "kind": "film",
+     "affinity": 0.736667833965727,
+     "class": "measured",
+     "imdb": "tt1206285",
+     "matched": "Camino"
+    },
+    {
+     "title": "Tres metros sobre el cielo",
+     "year": 2010,
+     "kind": "film",
+     "affinity": 0.7901315624483599,
+     "class": "measured",
+     "imdb": "tt1648216",
+     "matched": "Tres metros sobre el cielo"
+    },
+    {
+     "title": "Voces inocentes",
+     "year": 2004,
+     "kind": "film",
+     "affinity": 0.7156585029582282,
+     "class": "measured",
+     "imdb": "tt0387914",
+     "matched": "Voces inocentes"
+    },
+    {
+     "title": "El viaje de Carol",
+     "year": 2002,
+     "kind": "film",
+     "affinity": 0.7524099455366361,
+     "class": "measured",
+     "imdb": "tt0331701",
+     "matched": "El viaje de Carol"
+    },
+    {
+     "title": "Siempre bruja",
+     "year": 2019,
+     "kind": "series",
+     "affinity": 0.9168782170738314,
+     "class": "spanish_original",
+     "imdb": "tt8001250",
+     "wikidata": "Q61466337",
+     "matched": "Siempre bruja"
+    },
+    {
+     "title": "La cocinera de Castamar",
      "year": 2021,
      "kind": "series",
-     "affinity": 0.8338865326229292,
-     "class": "measured",
-     "imdb": "tt12782398",
-     "matched": "Reyes de la noche"
-    },
-    {
-     "title": "Palmeras en la nieve",
-     "year": 2015,
-     "kind": "film",
-     "affinity": 0.7964662812741545,
-     "class": "measured",
-     "imdb": "tt3202202",
-     "matched": "Palmeras en la nieve"
-    },
-    {
-     "title": "Nuestros amantes",
-     "year": 2016,
-     "kind": "film",
-     "affinity": 0.8141602861870929,
-     "class": "measured",
-     "imdb": "tt4631532",
-     "matched": "Nuestros amantes"
-    },
-    {
-     "title": "Welcome to the Family",
-     "year": 2018,
-     "kind": "series",
-     "affinity": 0.910105364937316,
-     "class": "not_spanish",
-     "wikidata": "Q114546126",
-     "languages": []
-    },
-    {
-     "title": "David the Gnome",
-     "year": 1985,
-     "kind": "series",
-     "affinity": 0.9087707995620331,
-     "class": "unverified"
-    },
-    {
-     "title": "Villainous",
-     "year": 2017,
-     "kind": "series",
-     "affinity": 0.9073348505468652,
-     "class": "unverified",
-     "note": "found on Wikidata without an original language"
-    },
-    {
-     "title": "I Am Georgina",
-     "year": 2022,
-     "kind": "series",
-     "affinity": 0.9048405155299757,
+     "affinity": 0.9067816650372534,
      "class": "spanish_original",
-     "wikidata": "Q110734341",
-     "matched": "I Am Georgina"
+     "imdb": "tt12626014",
+     "wikidata": "Q105616635",
+     "matched": "La cocinera de Castamar"
+    },
+    {
+     "title": "Zorro",
+     "year": 2024,
+     "kind": "series",
+     "affinity": 0.8978640819452115,
+     "class": "spanish_original",
+     "imdb": "tt20252368",
+     "wikidata": "Q114819532",
+     "matched": "Zorro"
+    },
+    {
+     "title": "Go! Vive a tu manera",
+     "year": 2019,
+     "kind": "series",
+     "affinity": 0.9093249153209961,
+     "class": "spanish_original",
+     "imdb": "tt9654086",
+     "wikidata": "Q60292960",
+     "matched": "Go! Vive a tu manera"
     }
    ]
   },
@@ -404,23 +416,41 @@
    "favourites_resolved": [
     "Stranger Things",
     "Metallica",
-    "IT"
+    "It"
    ],
    "titles": [
+    {
+     "title": "Verónica",
+     "year": 2017,
+     "kind": "film",
+     "affinity": 0.8890215015845138,
+     "class": "measured",
+     "imdb": "tt5862312",
+     "matched": "Verónica"
+    },
     {
      "title": "Cuando acecha la maldad",
      "year": 2023,
      "kind": "film",
-     "affinity": 0.850267045247239,
+     "affinity": 0.8071829554592073,
      "class": "measured",
      "imdb": "tt16300962",
      "matched": "Cuando acecha la maldad"
     },
     {
+     "title": "Los Parecidos",
+     "year": 2015,
+     "kind": "film",
+     "affinity": 0.8457472786403952,
+     "class": "measured",
+     "imdb": "tt3949658",
+     "matched": "Los Parecidos"
+    },
+    {
      "title": "REC",
      "year": 2007,
      "kind": "film",
-     "affinity": 0.8758544717770088,
+     "affinity": 0.8357901496668705,
      "class": "measured",
      "imdb": "tt1038988",
      "matched": "REC"
@@ -429,61 +459,43 @@
      "title": "REC 2",
      "year": 2009,
      "kind": "film",
-     "affinity": 0.8652204917830638,
+     "affinity": 0.8199872142695631,
      "class": "measured",
      "imdb": "tt1245112",
      "matched": "REC 2"
     },
     {
-     "title": "Los sin nombre",
-     "year": 1999,
+     "title": "La influencia",
+     "year": 2019,
      "kind": "film",
-     "affinity": 0.7982303505548287,
+     "affinity": 0.831139868095839,
      "class": "measured",
-     "imdb": "tt0222368",
-     "matched": "Los sin nombre"
-    },
-    {
-     "title": "Verónica",
-     "year": 2017,
-     "kind": "film",
-     "affinity": 0.887210414454638,
-     "class": "measured",
-     "imdb": "tt5862312",
-     "matched": "Verónica"
-    },
-    {
-     "title": "Secuestrados",
-     "year": 2010,
-     "kind": "film",
-     "affinity": 0.8077187303060511,
-     "class": "measured",
-     "imdb": "tt1629377",
-     "matched": "Secuestrados"
+     "imdb": "tt4008566",
+     "matched": "La influencia"
     },
     {
      "title": "Aterrados",
      "year": 2017,
      "kind": "film",
-     "affinity": 0.8718839332492175,
+     "affinity": 0.8327364553377364,
      "class": "measured",
      "imdb": "tt7549892",
      "matched": "Aterrados"
     },
     {
-     "title": "Belzebuth",
-     "year": 2017,
+     "title": "La abuela",
+     "year": 2021,
      "kind": "film",
-     "affinity": 0.859341313728433,
+     "affinity": 0.7814740834561233,
      "class": "measured",
-     "imdb": "tt3662308",
-     "matched": "Belzebuth"
+     "imdb": "tt11807888",
+     "matched": "La abuela"
     },
     {
      "title": "Tin & Tina",
      "year": 2023,
      "kind": "film",
-     "affinity": 0.8120647793768951,
+     "affinity": 0.7666104864470488,
      "class": "measured",
      "imdb": "tt7354440",
      "matched": "Tin & Tina"
@@ -492,7 +504,7 @@
      "title": "Tesis",
      "year": 1996,
      "kind": "film",
-     "affinity": 0.8052096866823106,
+     "affinity": 0.76828201237265,
      "class": "measured",
      "imdb": "tt0117883",
      "matched": "Tesis"
@@ -509,94 +521,94 @@
    ],
    "titles": [
     {
-     "title": "El espinazo del diablo",
-     "year": 2001,
-     "kind": "film",
-     "affinity": 0.761270950516544,
-     "class": "measured",
-     "imdb": "tt0256009",
-     "matched": "El espinazo del diablo"
-    },
-    {
-     "title": "Patagonia",
-     "year": 2010,
-     "kind": "film",
-     "affinity": 0.7619399712908795,
-     "class": "measured",
-     "imdb": "tt1020559",
-     "matched": "Patagonia"
-    },
-    {
      "title": "XXY",
      "year": 2007,
      "kind": "film",
-     "affinity": 0.7928335546476571,
+     "affinity": 0.8212937651301467,
      "class": "measured",
      "imdb": "tt0995829",
      "matched": "XXY"
     },
     {
-     "title": "El Perro",
-     "year": 2004,
+     "title": "Mal día para pescar",
+     "year": 2009,
      "kind": "film",
-     "affinity": 0.7562407191707097,
+     "affinity": 0.8079348315808469,
      "class": "measured",
-     "imdb": "tt0420548",
-     "matched": "El Perro"
+     "imdb": "tt1388402",
+     "matched": "Mal día para pescar"
+    },
+    {
+     "title": "Magical Girl",
+     "year": 2014,
+     "kind": "film",
+     "affinity": 0.7879600729356837,
+     "class": "measured",
+     "imdb": "tt3089326",
+     "matched": "Magical Girl"
+    },
+    {
+     "title": "El espinazo del diablo",
+     "year": 2001,
+     "kind": "film",
+     "affinity": 0.7590442704853595,
+     "class": "measured",
+     "imdb": "tt0256009",
+     "matched": "El espinazo del diablo"
     },
     {
      "title": "Krámpack",
      "year": 2000,
      "kind": "film",
-     "affinity": 0.7815685696210299,
+     "affinity": 0.7938387998570107,
      "class": "measured",
      "imdb": "tt0250478",
      "matched": "Krámpack"
     },
     {
-     "title": "Los sin nombre",
-     "year": 1999,
+     "title": "Patagonia",
+     "year": 2010,
      "kind": "film",
-     "affinity": 0.7218516159948757,
+     "affinity": 0.7766870642936897,
      "class": "measured",
-     "imdb": "tt0222368",
-     "matched": "Los sin nombre"
+     "imdb": "tt1020559",
+     "matched": "Patagonia"
     },
     {
-     "title": "Juan de los Muertos",
+     "title": "Y tu mamá también",
+     "year": 2001,
+     "kind": "film",
+     "affinity": 0.8462114359147013,
+     "class": "measured",
+     "imdb": "tt0245574",
+     "matched": "Y tu mamá también"
+    },
+    {
+     "title": "Juan de los muertos",
      "year": 2011,
      "kind": "film",
-     "affinity": 0.8019139125297792,
+     "affinity": 0.7763592397832064,
      "class": "measured",
      "imdb": "tt1838571",
-     "matched": "Juan de los Muertos"
-    },
-    {
-     "title": "Acción mutante",
-     "year": 1993,
-     "kind": "film",
-     "affinity": 0.782673411729031,
-     "class": "measured",
-     "imdb": "tt0106215",
-     "matched": "Acción mutante"
+     "matched": "Juan de los muertos"
     },
     {
      "title": "Los cronocrímenes",
      "year": 2007,
      "kind": "film",
-     "affinity": 0.7979387474873891,
+     "affinity": 0.7921960011390612,
      "class": "measured",
      "imdb": "tt0480669",
      "matched": "Los cronocrímenes"
     },
     {
-     "title": "El topo",
-     "year": 1970,
+     "title": "Medianeras",
+     "year": 2011,
      "kind": "film",
-     "affinity": 0.7783582823622818,
+     "affinity": 0.8360948044492789,
      "class": "measured",
-     "imdb": "tt0067866",
-     "matched": "El topo"
+     "imdb": "tt1235841",
+     "matched": "Medianeras"
     }
    ]
   },
@@ -617,15 +629,6 @@
      "class": "measured",
      "imdb": "tt15301048",
      "matched": "Argentina, 1985"
-    },
-    {
-     "title": "La red avispa",
-     "year": 2019,
-     "kind": "film",
-     "affinity": 0.8569494609751547,
-     "class": "measured",
-     "imdb": "tt6760876",
-     "matched": "La red avispa"
     },
     {
      "title": "La noche de 12 años",
@@ -664,6 +667,15 @@
      "matched": "Monos"
     },
     {
+     "title": "El buen patrón",
+     "year": 2021,
+     "kind": "film",
+     "affinity": 0.8024965878353759,
+     "class": "measured",
+     "imdb": "tt13066182",
+     "matched": "El buen patrón"
+    },
+    {
      "title": "La sociedad de la nieve",
      "year": 2023,
      "kind": "film",
@@ -691,13 +703,13 @@
      "matched": "El desconocido"
     },
     {
-     "title": "¡Ay, Carmela!",
-     "year": 1990,
+     "title": "La abuela",
+     "year": 2021,
      "kind": "film",
-     "affinity": 0.7385362349143385,
+     "affinity": 0.722092513576607,
      "class": "measured",
-     "imdb": "tt0101025",
-     "matched": "¡Ay, Carmela!"
+     "imdb": "tt11807888",
+     "matched": "La abuela"
     }
    ]
   },
@@ -705,101 +717,100 @@
    "id": "p08",
    "model": null,
    "favourites_resolved": [
-    "Pride",
-    "A Civil Action",
+    "Pride and Prejudice",
     "Adele",
     "Bridgerton"
    ],
    "titles": [
     {
-     "title": "El séptimo día",
-     "year": 2004,
+     "title": "Julieta",
+     "year": 2016,
      "kind": "film",
-     "affinity": 0.7685611384123595,
+     "affinity": 0.8328809100408241,
      "class": "measured",
-     "imdb": "tt0380736",
-     "matched": "El séptimo día"
-    },
-    {
-     "title": "Mi querida señorita",
-     "year": 1972,
-     "kind": "film",
-     "affinity": 0.7928452390402886,
-     "class": "measured",
-     "imdb": "tt0067425",
-     "matched": "Mi querida señorita"
+     "imdb": "tt4326444",
+     "matched": "Julieta"
     },
     {
      "title": "Palmeras en la nieve",
      "year": 2015,
      "kind": "film",
-     "affinity": 0.8386013565268375,
+     "affinity": 0.8316885042482227,
      "class": "measured",
      "imdb": "tt3202202",
      "matched": "Palmeras en la nieve"
     },
     {
-     "title": "La violetera",
-     "year": 1958,
+     "title": "10.000 km",
+     "year": 2014,
      "kind": "film",
-     "affinity": 0.796321268869642,
+     "affinity": 0.8004727165024138,
      "class": "measured",
-     "imdb": "tt0052369",
-     "matched": "La violetera"
+     "imdb": "tt3114132",
+     "matched": "10.000 km"
     },
     {
-     "title": "Mar adentro",
-     "year": 2004,
+     "title": "Volver",
+     "year": 2006,
      "kind": "film",
-     "affinity": 0.790864177601914,
+     "affinity": 0.7999385296626633,
      "class": "measured",
-     "imdb": "tt0369702",
-     "matched": "Mar adentro"
+     "imdb": "tt0441909",
+     "matched": "Volver"
     },
     {
-     "title": "Las 13 rosas",
-     "year": 2007,
+     "title": "Todos lo saben",
+     "year": 2018,
      "kind": "film",
-     "affinity": 0.7948243631555119,
+     "affinity": 0.7902373807579423,
      "class": "measured",
-     "imdb": "tt0809533",
-     "matched": "Las 13 rosas"
+     "imdb": "tt4964788",
+     "matched": "Todos lo saben"
+    },
+    {
+     "title": "Nuestros amantes",
+     "year": 2016,
+     "kind": "film",
+     "affinity": 0.8419584591091329,
+     "class": "measured",
+     "imdb": "tt4631532",
+     "matched": "Nuestros amantes"
     },
     {
      "title": "Juana la Loca",
      "year": 2001,
      "kind": "film",
-     "affinity": 0.8251986489071292,
+     "affinity": 0.8035843391688137,
      "class": "measured",
      "imdb": "tt0270480",
      "matched": "Juana la Loca"
     },
     {
-     "title": "Lope",
-     "year": 2010,
+     "title": "Dolor y gloria",
+     "year": 2019,
      "kind": "film",
-     "affinity": 0.7718783672528063,
+     "affinity": 0.8190145787150251,
      "class": "measured",
-     "imdb": "tt1186357",
-     "matched": "Lope"
-    },
-    {
-     "title": "Los Borgia",
-     "year": 2006,
-     "kind": "film",
-     "affinity": 0.7666832963981071,
-     "class": "measured",
-     "imdb": "tt0482473",
-     "matched": "Los Borgia"
+     "imdb": "tt8291806",
+     "matched": "Dolor y gloria"
     },
     {
      "title": "La novia",
      "year": 2015,
      "kind": "film",
-     "affinity": 0.7950605905787036,
+     "affinity": 0.7898095818517041,
      "class": "measured",
      "imdb": "tt2734566",
      "matched": "La novia"
+    },
+    {
+     "title": "Roma",
+     "year": 2018,
+     "kind": "film",
+     "affinity": 0.8371314005137765,
+     "class": "measured",
+     "imdb": "tt6155172",
+     "matched": "Roma"
     }
    ]
   },
@@ -813,22 +824,13 @@
    ],
    "titles": [
     {
-     "title": "El Mariachi",
+     "title": "El mariachi",
      "year": 1992,
      "kind": "film",
      "affinity": 0.7960982697118489,
      "class": "measured",
      "imdb": "tt0104815",
-     "matched": "El Mariachi"
-    },
-    {
-     "title": "Mar adentro",
-     "year": 2004,
-     "kind": "film",
-     "affinity": 0.7766153978216168,
-     "class": "measured",
-     "imdb": "tt0369702",
-     "matched": "Mar adentro"
+     "matched": "El mariachi"
     },
     {
      "title": "El orfanato",
@@ -840,6 +842,15 @@
      "matched": "El orfanato"
     },
     {
+     "title": "Mar adentro",
+     "year": 2004,
+     "kind": "film",
+     "affinity": 0.7766153978216168,
+     "class": "measured",
+     "imdb": "tt0369702",
+     "matched": "Mar adentro"
+    },
+    {
      "title": "El espinazo del diablo",
      "year": 2001,
      "kind": "film",
@@ -849,15 +860,6 @@
      "matched": "El espinazo del diablo"
     },
     {
-     "title": "El Perro",
-     "year": 2004,
-     "kind": "film",
-     "affinity": 0.7463476885259727,
-     "class": "measured",
-     "imdb": "tt0420548",
-     "matched": "El Perro"
-    },
-    {
      "title": "Sin nombre",
      "year": 2009,
      "kind": "film",
@@ -865,6 +867,15 @@
      "class": "measured",
      "imdb": "tt1127715",
      "matched": "Sin nombre"
+    },
+    {
+     "title": "El club",
+     "year": 2015,
+     "kind": "film",
+     "affinity": 0.7502334905960253,
+     "class": "measured",
+     "imdb": "tt4375438",
+     "matched": "El club"
     },
     {
      "title": "El topo",
@@ -917,61 +928,61 @@
      "title": "Mar adentro",
      "year": 2004,
      "kind": "film",
-     "affinity": 0.8735381823248188,
+     "affinity": 0.8736596813188001,
      "class": "measured",
      "imdb": "tt0369702",
      "matched": "Mar adentro"
     },
     {
-     "title": "7 cajas",
-     "year": 2012,
-     "kind": "film",
-     "affinity": 0.8254085974148689,
-     "class": "measured",
-     "imdb": "tt2333598",
-     "matched": "7 cajas"
-    },
-    {
-     "title": "Sin nombre",
-     "year": 2009,
-     "kind": "film",
-     "affinity": 0.8232203886292715,
-     "class": "measured",
-     "imdb": "tt1127715",
-     "matched": "Sin nombre"
-    },
-    {
-     "title": "El Perro",
-     "year": 2004,
-     "kind": "film",
-     "affinity": 0.807749938023977,
-     "class": "measured",
-     "imdb": "tt0420548",
-     "matched": "El Perro"
-    },
-    {
-     "title": "7 días en La Habana",
-     "year": 2011,
-     "kind": "film",
-     "affinity": 0.8239688925277929,
-     "class": "measured",
-     "imdb": "tt1797348",
-     "matched": "7 días en La Habana"
-    },
-    {
      "title": "Magical Girl",
      "year": 2014,
      "kind": "film",
-     "affinity": 0.8353185703347277,
+     "affinity": 0.8421678566888132,
      "class": "measured",
      "imdb": "tt3089326",
      "matched": "Magical Girl"
     },
     {
+     "title": "Sin nombre",
+     "year": 2009,
+     "kind": "film",
+     "affinity": 0.8265316189949413,
+     "class": "measured",
+     "imdb": "tt1127715",
+     "matched": "Sin nombre"
+    },
+    {
+     "title": "7 cajas",
+     "year": 2012,
+     "kind": "film",
+     "affinity": 0.8258210246433064,
+     "class": "measured",
+     "imdb": "tt2333598",
+     "matched": "7 cajas"
+    },
+    {
+     "title": "7 días en La Habana",
+     "year": 2011,
+     "kind": "film",
+     "affinity": 0.825406163128565,
+     "class": "measured",
+     "imdb": "tt1797348",
+     "matched": "7 días en La Habana"
+    },
+    {
+     "title": "El aura",
+     "year": 2005,
+     "kind": "film",
+     "affinity": 0.798810407626506,
+     "class": "measured",
+     "imdb": "tt0420509",
+     "matched": "El aura"
+    },
+    {
      "title": "Biutiful",
      "year": 2010,
      "kind": "film",
-     "affinity": 0.8817981439762601,
+     "affinity": 0.8826734205834176,
      "class": "spanish_original",
      "wikidata": "Q879174",
      "matched": "Biutiful"
@@ -980,28 +991,31 @@
      "title": "No",
      "year": 2012,
      "kind": "film",
-     "affinity": 0.8716840699363965,
+     "affinity": 0.8690928072856696,
      "class": "spanish_original",
      "imdb": "tt2059255",
      "wikidata": "Q2620241",
      "matched": "No"
     },
     {
-     "title": "The Pearl Button",
-     "year": 2015,
-     "kind": "film",
-     "affinity": 0.8518812300102923,
+     "title": "Frontera Verde",
+     "year": 2019,
+     "kind": "series",
+     "affinity": 0.8679562714943991,
      "class": "spanish_original",
-     "imdb": "tt4377864",
-     "wikidata": "Q18959449",
-     "matched": "El botón de nácar"
+     "wikidata": "Q66686180",
+     "matched": "Frontera Verde"
     },
     {
-     "title": "Crystal Fairy & the Magical Cactus",
-     "year": 2013,
-     "kind": "film",
-     "affinity": 0.8462073548206674,
-     "class": "unverified"
+     "title": "If I Hadn't Met You",
+     "year": 2018,
+     "kind": "series",
+     "affinity": 0.8643373043684196,
+     "class": "not_spanish",
+     "wikidata": "Q57314301",
+     "languages": [
+      "Q7026"
+     ]
     }
    ]
   },
@@ -1011,14 +1025,14 @@
    "favourites_resolved": [
     "Squid Game",
     "BTS",
-    "League Of Legends"
+    "League of Legends"
    ],
    "titles": [
     {
      "title": "Verónica",
      "year": 2017,
      "kind": "film",
-     "affinity": 0.8253081141046176,
+     "affinity": 0.8246215771956631,
      "class": "measured",
      "imdb": "tt5862312",
      "matched": "Verónica"
@@ -1027,7 +1041,7 @@
      "title": "Durante la tormenta",
      "year": 2018,
      "kind": "film",
-     "affinity": 0.8212701551352755,
+     "affinity": 0.8224726613737965,
      "class": "measured",
      "imdb": "tt6908274",
      "matched": "Durante la tormenta"
@@ -1036,7 +1050,7 @@
      "title": "El bar",
      "year": 2017,
      "kind": "film",
-     "affinity": 0.8175996957969148,
+     "affinity": 0.8251060142797271,
      "class": "measured",
      "imdb": "tt5121816",
      "matched": "El bar"
@@ -1045,63 +1059,67 @@
      "title": "Hogar",
      "year": 2020,
      "kind": "film",
-     "affinity": 0.7782418690430719,
+     "affinity": 0.7829808326912643,
      "class": "measured",
      "imdb": "tt9345754",
      "matched": "Hogar"
     },
     {
+     "title": "Tarde para la ira",
+     "year": 2016,
+     "kind": "film",
+     "affinity": 0.7608159400887664,
+     "class": "measured",
+     "imdb": "tt4771896",
+     "matched": "Tarde para la ira"
+    },
+    {
      "title": "Los ojos de Julia",
      "year": 2010,
      "kind": "film",
-     "affinity": 0.7447780788701842,
+     "affinity": 0.7452892188756886,
      "class": "measured",
      "imdb": "tt1512685",
      "matched": "Los ojos de Julia"
     },
     {
-     "title": "Extinction",
-     "year": 2015,
-     "kind": "film",
-     "affinity": 0.8054583543872572,
-     "class": "measured",
-     "imdb": "tt3467412",
-     "matched": "Extinction"
-    },
-    {
-     "title": "Frontera Verde",
-     "year": 2019,
-     "kind": "series",
-     "affinity": 0.9111578162417092,
-     "class": "spanish_original",
-     "wikidata": "Q66686180",
-     "matched": "Frontera Verde"
-    },
-    {
-     "title": "The Innocent",
+     "title": "El inocente",
      "year": 2021,
      "kind": "series",
-     "affinity": 0.9040134682302868,
+     "affinity": 0.9041211869167269,
      "class": "spanish_original",
      "imdb": "tt10147644",
      "wikidata": "Q101137196",
      "matched": "El inocente"
     },
     {
-     "title": "The Five Juanas",
+     "title": "¿Quién mató a Sara?",
      "year": 2021,
      "kind": "series",
-     "affinity": 0.9028165050896259,
+     "affinity": 0.9009967990976167,
      "class": "spanish_original",
-     "wikidata": "Q108443295",
-     "matched": "The Five Juanas"
+     "imdb": "tt11937816",
+     "wikidata": "Q105593020",
+     "matched": "¿Quién mató a Sara?"
     },
     {
-     "title": "O sabor das margaridas",
-     "year": 2018,
+     "title": "Berlín",
+     "year": 2023,
      "kind": "series",
-     "affinity": 0.9015522799329566,
-     "class": "unverified"
+     "affinity": 0.8965755495623706,
+     "class": "spanish_original",
+     "imdb": "tt16288804",
+     "wikidata": "Q109850709",
+     "matched": "Berlín"
+    },
+    {
+     "title": "Frontera Verde",
+     "year": 2019,
+     "kind": "series",
+     "affinity": 0.8974565572026244,
+     "class": "spanish_original",
+     "wikidata": "Q66686180",
+     "matched": "Frontera Verde"
     }
    ]
   },
@@ -1115,37 +1133,37 @@
    ],
    "titles": [
     {
+     "title": "Madres paralelas",
+     "year": 2021,
+     "kind": "film",
+     "affinity": 0.8144761060278218,
+     "class": "measured",
+     "imdb": "tt12618926",
+     "matched": "Madres paralelas"
+    },
+    {
      "title": "Todos lo saben",
      "year": 2018,
      "kind": "film",
-     "affinity": 0.818684911155101,
+     "affinity": 0.8155853068746787,
      "class": "measured",
      "imdb": "tt4964788",
      "matched": "Todos lo saben"
     },
     {
-     "title": "Las herederas",
-     "year": 2018,
+     "title": "Palmeras en la nieve",
+     "year": 2015,
      "kind": "film",
-     "affinity": 0.8124407208762366,
+     "affinity": 0.8481834876184706,
      "class": "measured",
-     "imdb": "tt7875464",
-     "matched": "Las herederas"
-    },
-    {
-     "title": "El árbol de la sangre",
-     "year": 2018,
-     "kind": "film",
-     "affinity": 0.8376032220908705,
-     "class": "measured",
-     "imdb": "tt6433832",
-     "matched": "El árbol de la sangre"
+     "imdb": "tt3202202",
+     "matched": "Palmeras en la nieve"
     },
     {
      "title": "Julieta",
      "year": 2016,
      "kind": "film",
-     "affinity": 0.8281738860194621,
+     "affinity": 0.8267345974514079,
      "class": "measured",
      "imdb": "tt4326444",
      "matched": "Julieta"
@@ -1154,55 +1172,55 @@
      "title": "La enfermedad del domingo",
      "year": 2018,
      "kind": "film",
-     "affinity": 0.8344181828299831,
+     "affinity": 0.8324142461359226,
      "class": "measured",
      "imdb": "tt6053948",
      "matched": "La enfermedad del domingo"
     },
     {
-     "title": "María (y los demás)",
-     "year": 2016,
+     "title": "Volver",
+     "year": 2006,
      "kind": "film",
-     "affinity": 0.803630176228734,
+     "affinity": 0.8070073219878687,
      "class": "measured",
-     "imdb": "tt4597598",
-     "matched": "María (y los demás)"
-    },
-    {
-     "title": "Dolor y gloria",
-     "year": 2019,
-     "kind": "film",
-     "affinity": 0.8410150773957912,
-     "class": "measured",
-     "imdb": "tt8291806",
-     "matched": "Dolor y gloria"
-    },
-    {
-     "title": "Roma",
-     "year": 2018,
-     "kind": "film",
-     "affinity": 0.8627069640963245,
-     "class": "measured",
-     "imdb": "tt6155172",
-     "matched": "Roma"
-    },
-    {
-     "title": "El baile de los 41",
-     "year": 2020,
-     "kind": "film",
-     "affinity": 0.8085978157993837,
-     "class": "measured",
-     "imdb": "tt11525022",
-     "matched": "El baile de los 41"
+     "imdb": "tt0441909",
+     "matched": "Volver"
     },
     {
      "title": "Juana la Loca",
      "year": 2001,
      "kind": "film",
-     "affinity": 0.7701900142839702,
+     "affinity": 0.8169975472745148,
      "class": "measured",
      "imdb": "tt0270480",
      "matched": "Juana la Loca"
+    },
+    {
+     "title": "Dolor y gloria",
+     "year": 2019,
+     "kind": "film",
+     "affinity": 0.8467035758614099,
+     "class": "measured",
+     "imdb": "tt8291806",
+     "matched": "Dolor y gloria"
+    },
+    {
+     "title": "El baile de los 41",
+     "year": 2020,
+     "kind": "film",
+     "affinity": 0.8205127521242622,
+     "class": "measured",
+     "imdb": "tt11525022",
+     "matched": "El baile de los 41"
+    },
+    {
+     "title": "Lope",
+     "year": 2010,
+     "kind": "film",
+     "affinity": 0.7936364981762841,
+     "class": "measured",
+     "imdb": "tt1186357",
+     "matched": "Lope"
     }
    ]
   },
@@ -1216,28 +1234,28 @@
    ],
    "titles": [
     {
-     "title": "El Mariachi",
-     "year": 1992,
-     "kind": "film",
-     "affinity": 0.8105694830187066,
-     "class": "measured",
-     "imdb": "tt0104815",
-     "matched": "El Mariachi"
-    },
-    {
      "title": "Amores perros",
      "year": 2000,
      "kind": "film",
-     "affinity": 0.8038743433466553,
+     "affinity": 0.843072625696735,
      "class": "measured",
      "imdb": "tt0245712",
      "matched": "Amores perros"
     },
     {
+     "title": "El mariachi",
+     "year": 1992,
+     "kind": "film",
+     "affinity": 0.8273723816997113,
+     "class": "measured",
+     "imdb": "tt0104815",
+     "matched": "El mariachi"
+    },
+    {
      "title": "Nueve reinas",
      "year": 2000,
      "kind": "film",
-     "affinity": 0.7580350613259074,
+     "affinity": 0.7961993326259328,
      "class": "measured",
      "imdb": "tt0247586",
      "matched": "Nueve reinas"
@@ -1246,7 +1264,7 @@
      "title": "Y tu mamá también",
      "year": 2001,
      "kind": "film",
-     "affinity": 0.7954623819874753,
+     "affinity": 0.8398079012519803,
      "class": "measured",
      "imdb": "tt0245574",
      "matched": "Y tu mamá también"
@@ -1255,55 +1273,55 @@
      "title": "El topo",
      "year": 1970,
      "kind": "film",
-     "affinity": 0.7491303820051365,
+     "affinity": 0.7915381031963283,
      "class": "measured",
      "imdb": "tt0067866",
      "matched": "El topo"
     },
     {
-     "title": "Sin noticias de Dios",
-     "year": 2001,
+     "title": "Mar adentro",
+     "year": 2004,
      "kind": "film",
-     "affinity": 0.7551052012952628,
+     "affinity": 0.7917290323798746,
      "class": "measured",
-     "imdb": "tt0284491",
-     "matched": "Sin noticias de Dios"
+     "imdb": "tt0369702",
+     "matched": "Mar adentro"
     },
     {
      "title": "7 días en La Habana",
      "year": 2011,
      "kind": "film",
-     "affinity": 0.7515187394117764,
+     "affinity": 0.7929382035379475,
      "class": "measured",
      "imdb": "tt1797348",
      "matched": "7 días en La Habana"
     },
     {
-     "title": "25 Watts",
-     "year": 2001,
+     "title": "La piel que habito",
+     "year": 2011,
      "kind": "film",
-     "affinity": 0.7567539303209967,
+     "affinity": 0.8094042145947928,
      "class": "measured",
-     "imdb": "tt0280381",
-     "matched": "25 Watts"
+     "imdb": "tt1189073",
+     "matched": "La piel que habito"
     },
     {
-     "title": "Ánimas Trujano",
-     "year": 1961,
+     "title": "Tesis",
+     "year": 1996,
      "kind": "film",
-     "affinity": 0.711418101088194,
+     "affinity": 0.7490240688907666,
      "class": "measured",
-     "imdb": "tt0055646",
-     "matched": "Ánimas Trujano"
+     "imdb": "tt0117883",
+     "matched": "Tesis"
     },
     {
-     "title": "Balada triste de trompeta",
-     "year": 2010,
+     "title": "La teta asustada",
+     "year": 2009,
      "kind": "film",
-     "affinity": 0.7140699505555981,
+     "affinity": 0.7630471858058574,
      "class": "measured",
-     "imdb": "tt1572491",
-     "matched": "Balada triste de trompeta"
+     "imdb": "tt1206488",
+     "matched": "La teta asustada"
     }
    ]
   },
@@ -1313,98 +1331,98 @@
    "favourites_resolved": [
     "Grey's Anatomy",
     "Beyoncé",
-    "Sephora"
+    "SEPHORA脳バイブス"
    ],
    "titles": [
     {
-     "title": "Amar",
-     "year": 2017,
+     "title": "Cerdita",
+     "year": 2022,
      "kind": "film",
-     "affinity": 0.8789711616230378,
+     "affinity": 0.7929362612223413,
      "class": "measured",
-     "imdb": "tt5479616",
-     "matched": "Amar"
+     "imdb": "tt10399608",
+     "matched": "Cerdita"
     },
     {
-     "title": "Soltera codiciada",
-     "year": 2018,
+     "title": "Hogar",
+     "year": 2020,
      "kind": "film",
-     "affinity": 0.8425469055843338,
+     "affinity": 0.819595902811695,
      "class": "measured",
-     "imdb": "tt8435268",
-     "matched": "Soltera codiciada"
+     "imdb": "tt9345754",
+     "matched": "Hogar"
     },
     {
-     "title": "El árbol de la sangre",
-     "year": 2018,
-     "kind": "film",
-     "affinity": 0.826173253119771,
-     "class": "measured",
-     "imdb": "tt6433832",
-     "matched": "El árbol de la sangre"
-    },
-    {
-     "title": "Abzurdah",
-     "year": 2015,
-     "kind": "film",
-     "affinity": 0.8407033645217447,
-     "class": "measured",
-     "imdb": "tt4413338",
-     "matched": "Abzurdah"
-    },
-    {
-     "title": "La Casa de las Flores: la película",
+     "title": "Madres paralelas",
      "year": 2021,
      "kind": "film",
-     "affinity": 0.843630812155465,
+     "affinity": 0.809955290706792,
      "class": "measured",
-     "imdb": "tt14549558",
-     "matched": "La Casa de las Flores: la película"
+     "imdb": "tt12618926",
+     "matched": "Madres paralelas"
     },
     {
-     "title": "El hilo rojo",
-     "year": 2016,
+     "title": "Nuevo orden",
+     "year": 2020,
      "kind": "film",
-     "affinity": 0.843122539879929,
+     "affinity": 0.7809982758298377,
      "class": "measured",
-     "imdb": "tt5271772",
-     "matched": "El hilo rojo"
+     "imdb": "tt12474056",
+     "matched": "Nuevo orden"
+    },
+    {
+     "title": "Ema",
+     "year": 2019,
+     "kind": "film",
+     "affinity": 0.8122663874196926,
+     "class": "measured",
+     "imdb": "tt8800266",
+     "matched": "Ema"
+    },
+    {
+     "title": "La enfermedad del domingo",
+     "year": 2018,
+     "kind": "film",
+     "affinity": 0.831118416740968,
+     "class": "measured",
+     "imdb": "tt6053948",
+     "matched": "La enfermedad del domingo"
     },
     {
      "title": "El practicante",
      "year": 2020,
      "kind": "film",
-     "affinity": 0.7958530466323035,
+     "affinity": 0.8165662060264349,
      "class": "measured",
      "imdb": "tt11127690",
      "matched": "El practicante"
     },
     {
-     "title": "Toc Toc",
-     "year": 2017,
+     "title": "Nadie sabe que estoy aquí",
+     "year": 2020,
      "kind": "film",
-     "affinity": 0.8073140761277753,
+     "affinity": 0.8213928176030586,
      "class": "measured",
-     "imdb": "tt6060156",
-     "matched": "Toc Toc"
+     "imdb": "tt10728764",
+     "matched": "Nadie sabe que estoy aquí"
     },
     {
-     "title": "Loco por ella",
+     "title": "Una película de policías",
      "year": 2021,
      "kind": "film",
-     "affinity": 0.8388686471574776,
+     "affinity": 0.7855871416154367,
      "class": "measured",
-     "imdb": "tt11698630",
-     "matched": "Loco por ella"
+     "imdb": "tt14035242",
+     "matched": "Una película de policías"
     },
     {
-     "title": "Diecisiete",
-     "year": 2019,
+     "title": "Nowhere",
+     "year": 2023,
      "kind": "film",
-     "affinity": 0.8275357135911837,
+     "affinity": 0.7908670494506631,
      "class": "measured",
-     "imdb": "tt8988748",
-     "matched": "Diecisiete"
+     "imdb": "tt15789472",
+     "matched": "Nowhere"
     }
    ]
   },
@@ -1418,94 +1436,94 @@
    ],
    "titles": [
     {
-     "title": "Los últimos días",
-     "year": 2013,
-     "kind": "film",
-     "affinity": 0.8429644388906695,
-     "class": "measured",
-     "imdb": "tt1935914",
-     "matched": "Los últimos días"
-    },
-    {
      "title": "EVA",
      "year": 2011,
      "kind": "film",
-     "affinity": 0.8343170646006732,
+     "affinity": 0.8536733305963964,
      "class": "measured",
      "imdb": "tt1298554",
      "matched": "EVA"
     },
     {
+     "title": "Los últimos días",
+     "year": 2013,
+     "kind": "film",
+     "affinity": 0.8563704900989375,
+     "class": "measured",
+     "imdb": "tt1935914",
+     "matched": "Los últimos días"
+    },
+    {
      "title": "7 cajas",
      "year": 2012,
      "kind": "film",
-     "affinity": 0.8043600824911731,
+     "affinity": 0.7904081258545793,
      "class": "measured",
      "imdb": "tt2333598",
      "matched": "7 cajas"
     },
     {
-     "title": "Magical Girl",
-     "year": 2014,
+     "title": "Los sin nombre",
+     "year": 1999,
      "kind": "film",
-     "affinity": 0.7983034376619068,
+     "affinity": 0.7437990400966343,
      "class": "measured",
-     "imdb": "tt3089326",
-     "matched": "Magical Girl"
+     "imdb": "tt0222368",
+     "matched": "Los sin nombre"
     },
     {
-     "title": "Los Parecidos",
-     "year": 2015,
+     "title": "Secuestrados",
+     "year": 2010,
      "kind": "film",
-     "affinity": 0.8099744708641896,
+     "affinity": 0.742473532958437,
      "class": "measured",
-     "imdb": "tt3949658",
-     "matched": "Los Parecidos"
+     "imdb": "tt1629377",
+     "matched": "Secuestrados"
     },
     {
-     "title": "El aura",
-     "year": 2005,
+     "title": "REC",
+     "year": 2007,
      "kind": "film",
-     "affinity": 0.7514112750084311,
+     "affinity": 0.7855923014197258,
      "class": "measured",
-     "imdb": "tt0420509",
-     "matched": "El aura"
+     "imdb": "tt1038988",
+     "matched": "REC"
     },
     {
      "title": "Los cronocrímenes",
      "year": 2007,
      "kind": "film",
-     "affinity": 0.855527837314032,
+     "affinity": 0.8627780016112234,
      "class": "measured",
      "imdb": "tt0480669",
      "matched": "Los cronocrímenes"
     },
     {
+     "title": "El incidente",
+     "year": 2014,
+     "kind": "film",
+     "affinity": 0.8415351366134091,
+     "class": "measured",
+     "imdb": "tt3528756",
+     "matched": "El incidente"
+    },
+    {
      "title": "La habitación de Fermat",
      "year": 2007,
      "kind": "film",
-     "affinity": 0.8115200830420799,
+     "affinity": 0.8223396183035715,
      "class": "measured",
      "imdb": "tt1016301",
      "matched": "La habitación de Fermat"
     },
     {
-     "title": "El Incidente",
-     "year": 2014,
+     "title": "Juan de los muertos",
+     "year": 2011,
      "kind": "film",
-     "affinity": 0.8299658469674888,
+     "affinity": 0.7862448440123392,
      "class": "measured",
-     "imdb": "tt3528756",
-     "matched": "El Incidente"
-    },
-    {
-     "title": "El método",
-     "year": 2005,
-     "kind": "film",
-     "affinity": 0.7787548067034893,
-     "class": "measured",
-     "imdb": "tt0427582",
-     "matched": "El método"
+     "imdb": "tt1838571",
+     "matched": "Juan de los muertos"
     }
    ]
   },
@@ -1518,24 +1536,6 @@
     "The Great British Baking Show"
    ],
    "titles": [
-    {
-     "title": "Mi querida señorita",
-     "year": 1972,
-     "kind": "film",
-     "affinity": 0.8049784675921859,
-     "class": "measured",
-     "imdb": "tt0067425",
-     "matched": "Mi querida señorita"
-    },
-    {
-     "title": "Reinas",
-     "year": 2005,
-     "kind": "film",
-     "affinity": 0.80896290200473,
-     "class": "measured",
-     "imdb": "tt0434304",
-     "matched": "Reinas"
-    },
     {
      "title": "Gente que viene y bah",
      "year": 2019,
@@ -1555,15 +1555,6 @@
      "matched": "Nuestros amantes"
     },
     {
-     "title": "Promoción fantasma",
-     "year": 2012,
-     "kind": "film",
-     "affinity": 0.8095862681700157,
-     "class": "measured",
-     "imdb": "tt1924273",
-     "matched": "Promoción fantasma"
-    },
-    {
      "title": "Sentimental",
      "year": 2020,
      "kind": "film",
@@ -1573,14 +1564,50 @@
      "matched": "Sentimental"
     },
     {
-     "title": "Go! Live Your Way",
-     "year": 2019,
+     "title": "Mi querida señorita",
+     "year": 1972,
+     "kind": "film",
+     "affinity": 0.8049784675921859,
+     "class": "measured",
+     "imdb": "tt0067425",
+     "matched": "Mi querida señorita"
+    },
+    {
+     "title": "Reinas",
+     "year": 2005,
+     "kind": "film",
+     "affinity": 0.80896290200473,
+     "class": "measured",
+     "imdb": "tt0434304",
+     "matched": "Reinas"
+    },
+    {
+     "title": "Promoción fantasma",
+     "year": 2012,
+     "kind": "film",
+     "affinity": 0.8095862681700157,
+     "class": "measured",
+     "imdb": "tt1924273",
+     "matched": "Promoción fantasma"
+    },
+    {
+     "title": "La cocinera de Castamar",
+     "year": 2021,
      "kind": "series",
-     "affinity": 0.8991167117658688,
+     "affinity": 0.8878092259041489,
      "class": "spanish_original",
-     "imdb": "tt9654086",
-     "wikidata": "Q60292960",
-     "matched": "Go! Vive a tu Manera"
+     "imdb": "tt12626014",
+     "wikidata": "Q105616635",
+     "matched": "La cocinera de Castamar"
+    },
+    {
+     "title": "A Perfect Story",
+     "year": 2023,
+     "kind": "series",
+     "affinity": 0.8794974425556239,
+     "class": "spanish_original",
+     "wikidata": "Q120973836",
+     "matched": "A Perfect Story"
     },
     {
      "title": "Soy Luna",
@@ -1593,25 +1620,14 @@
      "matched": "Soy Luna"
     },
     {
-     "title": "MasterChef Junior",
-     "year": 2013,
+     "title": "Go! Vive a tu manera",
+     "year": 2019,
      "kind": "series",
-     "affinity": 0.8947682455538053,
-     "class": "not_spanish",
-     "wikidata": "Q3297839",
-     "languages": [
-      "Q1860"
-     ]
-    },
-    {
-     "title": "The Cook of Castamar",
-     "year": 2021,
-     "kind": "series",
-     "affinity": 0.8878092259041489,
+     "affinity": 0.8991167117658688,
      "class": "spanish_original",
-     "imdb": "tt12626014",
-     "wikidata": "Q105616635",
-     "matched": "La cocinera de Castamar"
+     "imdb": "tt9654086",
+     "wikidata": "Q60292960",
+     "matched": "Go! Vive a tu manera"
     }
    ]
   },
@@ -1621,41 +1637,23 @@
    "favourites_resolved": [
     "The Sopranos",
     "Bruce Springsteen",
-    "Sports Illustrated"
+    "Sports Illustrated: The College Football Book"
    ],
    "titles": [
     {
      "title": "Sin nombre",
      "year": 2009,
      "kind": "film",
-     "affinity": 0.8371991491819186,
+     "affinity": 0.8403854584570261,
      "class": "measured",
      "imdb": "tt1127715",
      "matched": "Sin nombre"
     },
     {
-     "title": "Nueve reinas",
-     "year": 2000,
-     "kind": "film",
-     "affinity": 0.8139229030525005,
-     "class": "measured",
-     "imdb": "tt0247586",
-     "matched": "Nueve reinas"
-    },
-    {
-     "title": "Rudo y Cursi",
-     "year": 2008,
-     "kind": "film",
-     "affinity": 0.8308961123624437,
-     "class": "measured",
-     "imdb": "tt0405393",
-     "matched": "Rudo y Cursi"
-    },
-    {
      "title": "Celda 211",
      "year": 2009,
      "kind": "film",
-     "affinity": 0.8226307830118259,
+     "affinity": 0.83762345064957,
      "class": "measured",
      "imdb": "tt1242422",
      "matched": "Celda 211"
@@ -1664,55 +1662,73 @@
      "title": "Mar adentro",
      "year": 2004,
      "kind": "film",
-     "affinity": 0.8196631241444216,
+     "affinity": 0.842530135740963,
      "class": "measured",
      "imdb": "tt0369702",
      "matched": "Mar adentro"
     },
     {
-     "title": "El aura",
-     "year": 2005,
+     "title": "La isla mínima",
+     "year": 2014,
      "kind": "film",
-     "affinity": 0.785351305661957,
+     "affinity": 0.8077929699748079,
      "class": "measured",
-     "imdb": "tt0420509",
-     "matched": "El aura"
+     "imdb": "tt3253930",
+     "matched": "La isla mínima"
+    },
+    {
+     "title": "Pájaros de verano",
+     "year": 2018,
+     "kind": "film",
+     "affinity": 0.8399120663274594,
+     "class": "measured",
+     "imdb": "tt6386748",
+     "matched": "Pájaros de verano"
+    },
+    {
+     "title": "Nueve reinas",
+     "year": 2000,
+     "kind": "film",
+     "affinity": 0.8173436372798223,
+     "class": "measured",
+     "imdb": "tt0247586",
+     "matched": "Nueve reinas"
     },
     {
      "title": "7 días en La Habana",
      "year": 2011,
      "kind": "film",
-     "affinity": 0.8085193741829231,
+     "affinity": 0.7985315291452539,
      "class": "measured",
      "imdb": "tt1797348",
      "matched": "7 días en La Habana"
     },
     {
-     "title": "Pantaleón y las visitadoras",
-     "year": 1999,
+     "title": "La piel que habito",
+     "year": 2011,
      "kind": "film",
-     "affinity": 0.7810267524012363,
+     "affinity": 0.8012842884784651,
      "class": "measured",
-     "imdb": "tt0190611",
-     "matched": "Pantaleón y las visitadoras"
-    },
-    {
-     "title": "Ánimas Trujano",
-     "year": 1961,
-     "kind": "film",
-     "affinity": 0.7656386639377687,
-     "class": "measured",
-     "imdb": "tt0055646",
-     "matched": "Ánimas Trujano"
+     "imdb": "tt1189073",
+     "matched": "La piel que habito"
     },
     {
      "title": "Elefante blanco",
      "year": 2012,
      "kind": "film",
-     "affinity": 0.7811749020180176,
+     "affinity": 0.7772599409723632,
      "class": "measured",
      "imdb": "tt2132324",
      "matched": "Elefante blanco"
+    },
+    {
+     "title": "El desconocido",
+     "year": 2015,
+     "kind": "film",
+     "affinity": 0.7602367784808189,
+     "class": "measured",
+     "imdb": "tt3169770",
+     "matched": "El desconocido"
     }
    ]
   },
@@ -1726,33 +1742,6 @@
    ],
    "titles": [
     {
-     "title": "Carmen",
-     "year": 1983,
-     "kind": "film",
-     "affinity": 0.7545104360949548,
-     "class": "measured",
-     "imdb": "tt0085297",
-     "matched": "Carmen"
-    },
-    {
-     "title": "El Perro",
-     "year": 2004,
-     "kind": "film",
-     "affinity": 0.7633445830007848,
-     "class": "measured",
-     "imdb": "tt0420548",
-     "matched": "El Perro"
-    },
-    {
-     "title": "Lucía",
-     "year": 1968,
-     "kind": "film",
-     "affinity": 0.7747983691510459,
-     "class": "measured",
-     "imdb": "tt0064609",
-     "matched": "Lucía"
-    },
-    {
      "title": "El espinazo del diablo",
      "year": 2001,
      "kind": "film",
@@ -1762,13 +1751,13 @@
      "matched": "El espinazo del diablo"
     },
     {
-     "title": "Cría cuervos",
-     "year": 1976,
+     "title": "El perro",
+     "year": 2004,
      "kind": "film",
-     "affinity": 0.7591435602516405,
+     "affinity": 0.7633445830007848,
      "class": "measured",
-     "imdb": "tt0074360",
-     "matched": "Cría cuervos"
+     "imdb": "tt0420548",
+     "matched": "El perro"
     },
     {
      "title": "7 cajas",
@@ -1778,6 +1767,33 @@
      "class": "measured",
      "imdb": "tt2333598",
      "matched": "7 cajas"
+    },
+    {
+     "title": "Carmen",
+     "year": 1983,
+     "kind": "film",
+     "affinity": 0.7545104360949548,
+     "class": "measured",
+     "imdb": "tt0085297",
+     "matched": "Carmen"
+    },
+    {
+     "title": "XXY",
+     "year": 2007,
+     "kind": "film",
+     "affinity": 0.7863757994718525,
+     "class": "measured",
+     "imdb": "tt0995829",
+     "matched": "XXY"
+    },
+    {
+     "title": "EVA",
+     "year": 2011,
+     "kind": "film",
+     "affinity": 0.7859614311678306,
+     "class": "measured",
+     "imdb": "tt1298554",
+     "matched": "EVA"
     },
     {
      "title": "El Chacal de Nahueltoro",
@@ -1798,15 +1814,6 @@
      "matched": "El violín"
     },
     {
-     "title": "Macario",
-     "year": 1960,
-     "kind": "film",
-     "affinity": 0.7828170491809222,
-     "class": "measured",
-     "imdb": "tt0054042",
-     "matched": "Macario"
-    },
-    {
      "title": "Los viajes del viento",
      "year": 2009,
      "kind": "film",
@@ -1814,6 +1821,15 @@
      "class": "measured",
      "imdb": "tt1426374",
      "matched": "Los viajes del viento"
+    },
+    {
+     "title": "El laberinto del fauno",
+     "year": 2006,
+     "kind": "film",
+     "affinity": 0.8638159146637782,
+     "class": "measured",
+     "imdb": "tt0457430",
+     "matched": "El laberinto del fauno"
     }
    ]
   },
@@ -1924,97 +1940,101 @@
    "favourites_resolved": [
     "Friends",
     "Shakira",
-    "Starbucks"
+    "Onward: How Starbucks Fought for Its Life without Losing Its Soul"
    ],
    "titles": [
-    {
-     "title": "Nuestros amantes",
-     "year": 2016,
-     "kind": "film",
-     "affinity": 0.869375202115202,
-     "class": "measured",
-     "imdb": "tt4631532",
-     "matched": "Nuestros amantes"
-    },
-    {
-     "title": "Amar",
-     "year": 2017,
-     "kind": "film",
-     "affinity": 0.8606633172384556,
-     "class": "measured",
-     "imdb": "tt5479616",
-     "matched": "Amar"
-    },
-    {
-     "title": "Solteras",
-     "year": 2019,
-     "kind": "film",
-     "affinity": 0.841032212230262,
-     "class": "measured",
-     "imdb": "tt6736198",
-     "matched": "Solteras"
-    },
-    {
-     "title": "Kiki, el amor se hace",
-     "year": 2016,
-     "kind": "film",
-     "affinity": 0.825670452671616,
-     "class": "measured",
-     "imdb": "tt4922692",
-     "matched": "Kiki, el amor se hace"
-    },
     {
      "title": "10.000 km",
      "year": 2014,
      "kind": "film",
-     "affinity": 0.7999499305579527,
+     "affinity": 0.7933903191413508,
      "class": "measured",
      "imdb": "tt3114132",
      "matched": "10.000 km"
     },
     {
-     "title": "Julieta",
+     "title": "7 días en La Habana",
+     "year": 2011,
+     "kind": "film",
+     "affinity": 0.7620437694714096,
+     "class": "measured",
+     "imdb": "tt1797348",
+     "matched": "7 días en La Habana"
+    },
+    {
+     "title": "Amar",
+     "year": 2017,
+     "kind": "film",
+     "affinity": 0.8241764743099176,
+     "class": "measured",
+     "imdb": "tt5479616",
+     "matched": "Amar"
+    },
+    {
+     "title": "Nuestros amantes",
      "year": 2016,
      "kind": "film",
-     "affinity": 0.810621439950337,
+     "affinity": 0.8237319848155361,
      "class": "measured",
-     "imdb": "tt4326444",
-     "matched": "Julieta"
+     "imdb": "tt4631532",
+     "matched": "Nuestros amantes"
+    },
+    {
+     "title": "La Casa de las Flores: la película",
+     "year": 2021,
+     "kind": "film",
+     "affinity": 0.8205428148344579,
+     "class": "measured",
+     "imdb": "tt14549558",
+     "matched": "La Casa de las Flores: la película"
+    },
+    {
+     "title": "Kiki, el amor se hace",
+     "year": 2016,
+     "kind": "film",
+     "affinity": 0.795464142596973,
+     "class": "measured",
+     "imdb": "tt4922692",
+     "matched": "Kiki, el amor se hace"
+    },
+    {
+     "title": "Las chicas del cable",
+     "year": 2017,
+     "kind": "series",
+     "affinity": 0.9145268875292833,
+     "class": "spanish_original",
+     "imdb": "tt5674718",
+     "wikidata": "Q27443124",
+     "matched": "Las chicas del cable"
+    },
+    {
+     "title": "La cocinera de Castamar",
+     "year": 2021,
+     "kind": "series",
+     "affinity": 0.9094808792951564,
+     "class": "spanish_original",
+     "imdb": "tt12626014",
+     "wikidata": "Q105616635",
+     "matched": "La cocinera de Castamar"
     },
     {
      "title": "Three Days of Christmas",
      "year": 2019,
      "kind": "series",
-     "affinity": 0.9155132157134821,
+     "affinity": 0.9157573557932986,
      "class": "spanish_original",
      "wikidata": "Q77857635",
      "matched": "Three Days of Christmas"
     },
     {
-     "title": "Wild Angel",
-     "year": 1998,
+     "title": "Alta mar",
+     "year": 2019,
      "kind": "series",
-     "affinity": 0.9107292004835915,
-     "class": "unverified"
-    },
-    {
-     "title": "A Perfect Story",
-     "year": 2023,
-     "kind": "series",
-     "affinity": 0.9091172272472445,
+     "affinity": 0.903679431199568,
      "class": "spanish_original",
-     "wikidata": "Q120973836",
-     "matched": "A Perfect Story"
-    },
-    {
-     "title": "A Private Affair",
-     "year": 2022,
-     "kind": "series",
-     "affinity": 0.9075531886790154,
-     "class": "spanish_original",
-     "imdb": "tt10698534",
-     "wikidata": "Q106571768",
-     "matched": "Un asunto privado"
+     "imdb": "tt8961508",
+     "wikidata": "Q59591953",
+     "matched": "Alta mar"
     }
    ]
   }

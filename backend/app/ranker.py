@@ -10,6 +10,12 @@ sys.path.insert(0, str(config.REPO_ROOT / "pipeline"))
 from comprende_pipeline.coverage import GRID  # noqa: E402
 
 BUCKET_ORDER = ["watch_now", "stretch", "later", "unmeasured"]
+# Small nudges toward titles a learner has heard of and can find today. Lift among a learner's top
+# matches spans only a few hundredths, so these reorder close matches without overriding taste:
+# at most +0.03 for a title Qloo rates as very popular, +0.02 for one from 2020 on (none before 1990).
+KNOWN_WEIGHT = 0.03
+RECENT_WEIGHT = 0.02
+RECENT_SPAN = (1990, 2020)
 
 
 @dataclass
@@ -43,8 +49,16 @@ def _lift(c: Candidate, typical: float | None) -> float | None:
     return round(c.affinity - base, 4) if base is not None else None
 
 
+def _nudge(p: dict) -> float:
+    """Bonus for well-known and recent titles (see KNOWN_WEIGHT, RECENT_WEIGHT)."""
+    start, end = RECENT_SPAN
+    recent = min(1.0, max(0.0, (p["year"] - start) / (end - start))) if p["year"] else 0.0
+    return KNOWN_WEIGHT * (p["popularity"] or 0.0) + RECENT_WEIGHT * recent
+
+
 def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) -> dict:
-    """Group candidates by how much of the dialogue the learner can follow, most personal taste match first."""
+    """Group candidates by how much of the dialogue the learner can follow, most personal taste match first,
+    with close matches nudged toward well-known and recent titles."""
     bases = [c.measured.taste_baseline for c in candidates if c.measured and c.measured.taste_baseline is not None]
     typical = sum(bases) / len(bases) if bases else None
     seen, picks = set(), []
@@ -81,7 +95,7 @@ def rank(candidates: list[Candidate], vocab_size: float, per_bucket: int = 6) ->
 
     def taste(p):
         key = p["lift"] if p["lift"] is not None else (p["affinity"] - 1 if p["affinity"] is not None else -9)
-        return (key, p["affinity"] or 0)
+        return (key + _nudge(p), p["affinity"] or 0)
 
     # Every measured candidate with a taste score goes on the map; the browser recomputes coverage
     # from the stored curve as the learner moves the vocabulary slider.

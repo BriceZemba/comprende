@@ -91,3 +91,16 @@ def test_dialogue_density_reaches_the_pick():
     out = rank([Candidate(qloo_id="Q9", name="Peli", kind="film", affinity=0.8, measured=m)], 3000)
     pick = out["buckets"]["watch_now"][0]
     assert pick["words_per_minute"] == 92 and pick["dialogue"] == "dense"
+
+
+def test_close_matches_lean_to_known_recent_titles_but_taste_still_wins():
+    def c(i, aff, year, pop):
+        m = measured(f"tt{i}", 0.97, 2000)
+        m.taste_baseline = 0.70
+        return Candidate(f"q{i}", f"T{i}", "film", year=year, affinity=aff, popularity=pop, measured=m)
+    # 0.01 apart in lift: the recent, well-known title goes first
+    out = rank([c(1, 0.81, 1992, 0.80), c(2, 0.80, 2021, 0.99)], vocab_size=3000)
+    assert [p["imdb"] for p in out["buckets"]["watch_now"]] == ["tt2", "tt1"]
+    # 0.10 apart: the stronger taste match stays first
+    out = rank([c(1, 0.90, 1992, 0.80), c(2, 0.80, 2021, 0.99)], vocab_size=3000)
+    assert [p["imdb"] for p in out["buckets"]["watch_now"]] == ["tt1", "tt2"]

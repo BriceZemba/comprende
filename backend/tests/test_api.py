@@ -94,3 +94,16 @@ def test_recorded_example_is_served(monkeypatch):
     assert r.status_code == 200
     data = r.json()
     assert data["recorded_at"] and any(e["event"]["type"] == "result" for e in data["events"])
+
+
+def test_title_lookup_matches_spanish_or_english_names_without_accents(monkeypatch):
+    c = setup(monkeypatch)
+    cat = main.load_catalog()
+    cat.titles[0].title_es, cat.titles[0].title_en, cat.titles[0].sitelinks = "La casa de papel", "Money Heist", 75
+    cat.titles[1].title_es, cat.titles[1].title_en = "La casa de Élite", None
+    r = c.get("/api/title", params={"q": "money heist"}).json()
+    assert [t["imdb"] for t in r["titles"]] == ["tt1"] and len(r["titles"][0]["curve"]) == len(r["grid"])
+    assert [t["imdb"] for t in c.get("/api/title", params={"q": "ELITE"}).json()["titles"]] == ["tt2"]
+    assert [t["imdb"] for t in c.get("/api/title", params={"q": "casa"}).json()["titles"]] == ["tt1", "tt2"]
+    assert c.get("/api/title", params={"q": "z"}).json()["titles"] == []
+    assert [t["imdb"] for t in c.get("/api/title", params={"q": "papel casa"}).json()["titles"]] == ["tt1"]

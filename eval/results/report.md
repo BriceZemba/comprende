@@ -5,16 +5,16 @@
 | Metric | Gemini alone (no Qloo, no subtitles) | Comprende without Qloo (popularity instead of taste) | Comprende (Qloo + subtitle coverage) |
 |---|---|---|---|
 | Titles returned | 200 | 200 | 200 |
-| Verified Spanish-original | 86.5% | 100.0% | 93.5% |
-| Real title, not originally Spanish | 1.5% | 0.0% | 2.5% |
-| Not verified automatically (not proof of invention) | 12.0% | 0.0% | 4.0% |
-| Distinct titles / all titles | 56.0% | 8.0% | 68.5% |
-| Mean overlap between profiles (Jaccard) | 0.08 | 0.66 | 0.03 |
-| Titles with measured dialogue | 88 | 200 | 173 |
-| …of which followable (≥ 95% coverage at the profile's level) | 61.4% | 48.0% | 48.0% |
+| Verified Spanish-original | 86.5% | 100.0% | 99.0% |
+| Real title, not originally Spanish | 1.5% | 0.0% | 0.5% |
+| Not verified automatically (not proof of invention) | 12.0% | 0.0% | 0.5% |
+| Distinct titles / all titles | 56.0% | 8.0% | 61.0% |
+| Mean overlap between profiles (Jaccard) | 0.08 | 0.66 | 0.04 |
+| Titles with measured dialogue | 88 | 200 | 176 |
+| …of which followable (≥ 95% coverage at the profile's level) | 61.4% | 48.0% | 47.7% |
 | …of which too hard (< 90% coverage) | 14.8% | 6.0% | 0.0% |
-| First five picks with measured dialogue | 50 | 100 | 99 |
-| …of which followable (≥ 95%) | 60.0% | 82.0% | 69.7% |
+| First five picks with measured dialogue | 50 | 100 | 100 |
+| …of which followable (≥ 95%) | 60.0% | 82.0% | 70.0% |
 | …of which too hard (< 90%) | 14.0% | 0.0% | 0.0% |
 
 ## Gemini alone (no Qloo, no subtitles)
@@ -29,17 +29,17 @@ Not verified automatically (a title being here does not mean it is invented; sti
 
 ## Comprende without Qloo (popularity instead of taste)
 
-Run at 2026-10-23T01:12:18+00:00; model(s): -.
+Run at 2026-10-27T02:56:25+00:00; model(s): -.
 
-Most repeated titles: Hable con ella (20/20); Volver (20/20); Mar adentro (20/20); La casa de papel (20/20); El laberinto del fauno (20/20); El secreto de sus ojos (15/20); La mala educación (15/20); Relatos salvajes (15/20).
+Most repeated titles: Volver (20/20); Hable con ella (20/20); Mar adentro (20/20); La casa de papel (20/20); El laberinto del fauno (20/20); El secreto de sus ojos (15/20); Relatos salvajes (15/20); La mala educación (15/20).
 
 
 ## Comprende (Qloo + subtitle coverage)
 
-Run at 2026-10-23T01:10:37+00:00; model(s): -.
+Run at 2026-10-27T02:56:23+00:00; model(s): -.
 
-Most repeated titles: Mar adentro (6/20); Nueve reinas (5/20); Sin nombre (5/20); El aura (4/20); El topo (4/20); Los cronocrímenes (4/20); 7 días en La Habana (4/20); El Perro (4/20).
+Most repeated titles: Mar adentro (6/20); Nueve reinas (5/20); La piel que habito (5/20); 7 días en La Habana (5/20); Sin nombre (4/20); Los cronocrímenes (4/20); El aura (3/20); Magical Girl (3/20).
 
-Not originally Spanish: MasterChef Junior; Welcome to the Family.
+Not originally Spanish: If I Hadn't Met You.
 
-Not verified automatically (a title being here does not mean it is invented; still to check by hand): Crystal Fairy & the Magical Cactus; David the Gnome; FC Barcelona: A New Era; Matchday: Inside FC Barcelona; O sabor das margaridas; Society of the Snow: Who Were We on the Mountain?; Villainous; Wild Angel.
+Not verified automatically (a title being here does not mean it is invented; still to check by hand): El juego de las llaves.

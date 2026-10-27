@@ -60,11 +60,11 @@
   "mean_jaccard": 0.6646616541353383,
   "repeated": [
    [
-    "Hable con ella",
+    "Volver",
     20
    ],
    [
-    "Volver",
+    "Hable con ella",
     20
    ],
    [
@@ -84,11 +84,11 @@
     15
    ],
    [
-    "La mala educación",
+    "Relatos salvajes",
     15
    ],
    [
-    "Relatos salvajes",
+    "La mala educación",
     15
    ]
   ],
@@ -99,16 +99,16 @@
   "first5_95": 0.82,
   "first5_below_90": 0.0,
   "label": "Comprende without Qloo (popularity instead of taste)",
-  "run_at": "2026-10-23T01:12:18+00:00"
+  "run_at": "2026-10-27T02:56:25+00:00"
  },
  "comprende": {
   "titles": 200,
-  "spanish_original": 0.935,
-  "measured": 173,
-  "not_spanish": 0.025,
-  "unverified": 0.04,
-  "distinct_share": 0.685,
-  "mean_jaccard": 0.032187279343870515,
+  "spanish_original": 0.99,
+  "measured": 176,
+  "not_spanish": 0.005,
+  "unverified": 0.005,
+  "distinct_share": 0.61,
+  "mean_jaccard": 0.03889852339827898,
   "repeated": [
    [
     "Mar adentro",
@@ -119,15 +119,15 @@
     5
    ],
    [
-    "Sin nombre",
+    "La piel que habito",
     5
    ],
    [
-    "El aura",
-    4
+    "7 días en La Habana",
+    5
    ],
    [
-    "El topo",
+    "Sin nombre",
     4
    ],
    [
@@ -135,21 +135,21 @@
     4
    ],
    [
-    "7 días en La Habana",
-    4
+    "El aura",
+    3
    ],
    [
-    "El Perro",
-    4
+    "Magical Girl",
+    3
    ]
   ],
-  "fit_n": 173,
-  "fit_95": 0.4797687861271676,
+  "fit_n": 176,
+  "fit_95": 0.4772727272727273,
   "fit_below_90": 0.0,
-  "first5_n": 99,
-  "first5_95": 0.696969696969697,
+  "first5_n": 100,
+  "first5_95": 0.7,
   "first5_below_90": 0.0,
   "label": "Comprende (Qloo + subtitle coverage)",
-  "run_at": "2026-10-23T01:10:37+00:00"
+  "run_at": "2026-10-27T02:56:23+00:00"
  }
 }
