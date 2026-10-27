@@ -197,6 +197,7 @@ class Session:
     result: dict | None = None
     done: set[tuple[str, str]] = field(default_factory=set)  # (tool, kind) calls that completed
     variety: str = "any"  # any | spain | latam, see VARIETIES
+    seen: dict[str, str] = field(default_factory=dict)  # every search match: qloo id -> display name
 
 
 class ComprendeAgent:
@@ -215,10 +216,11 @@ class ComprendeAgent:
         rows = await self.qloo.search(query, types, take=5)
         if not rows and types:
             rows = await self.qloo.search(query, None, take=5)
-        if rows:
+        for r in rows:
             # A Spanish favourite is shown by its original title: "La casa de papel", not "Money Heist".
-            s.favourites.setdefault(rows[0].entity_id, self.catalog.spanish_name(_imdb_ids(rows[0]), rows[0].akas_es)
-                                    or rows[0].name)
+            s.seen.setdefault(r.entity_id, self.catalog.spanish_name(_imdb_ids(r), r.akas_es) or r.name)
+        if rows:
+            s.favourites.setdefault(rows[0].entity_id, s.seen[rows[0].entity_id])
         return {"matches": [{"id": r.entity_id, "name": r.name, "kind": r.subtype.rsplit(":", 1)[-1], "year": r.year}
                             for r in rows]}
 
@@ -257,8 +259,12 @@ class ComprendeAgent:
         batches = await asyncio.gather(*(self.qloo.insights(**{
             "filter.type": KINDS[kind], "signal.interests.entities": signal_entity_ids,
             "filter.results.entities": ids[i:i + 50], "feature.explainability": True, "take": 50,
-        }) for i in range(0, len(ids), 50)))
-        rows: list[Entity] = [r for batch in batches for r in batch]
+        }) for i in range(0, len(ids), 50)), return_exceptions=True)
+        failed = [b for b in batches if isinstance(b, BaseException)]
+        if len(failed) == len(batches):
+            raise failed[0]
+        # A batch Qloo refused leaves those titles unscored; the others still count.
+        rows: list[Entity] = [r for batch in batches if not isinstance(batch, BaseException) for r in batch]
         added = self._add(s, rows, kind)
         return {"scored": len(rows), "top": [c.name for c in sorted(added, key=lambda c: -(c.affinity or 0))[:8]]}
 
@@ -321,8 +327,10 @@ class ComprendeAgent:
     # ---- helpers -------------------------------------------------------------
 
     def _remember(self, s: Session, ids: list[str]) -> None:
+        # The model may signal with a lower search match than the first: name it as Qloo did. An id that
+        # never came back from a search still counts as a signal but is never shown as a name.
         for i in ids:
-            s.favourites.setdefault(i, i)
+            s.favourites.setdefault(i, s.seen.get(i, ""))
 
     def _add(self, s: Session, rows: list[Entity], kind: str) -> list[Candidate]:
         out = []
@@ -352,9 +360,10 @@ class ComprendeAgent:
             s.done.add((name, str(args.get("kind", ""))))
             return out
         except QlooError as e:
+            if e.code not in self.qloo_errors:  # one line per kind of failure, not one per call
+                await self.emit({"type": "warning", "code": "qloo", "data": {"code": e.code},
+                                 "text": f"Qloo did not answer ({e.code})"})
             self.qloo_errors.append(e.code)
-            await self.emit({"type": "warning", "code": "qloo", "data": {"code": e.code},
-                             "text": f"Qloo did not answer ({e.code})"})
             return {"error": e.code, "retryable": e.retryable}
 
     async def explain_picks(self, result: dict) -> dict:
@@ -368,7 +377,7 @@ class ComprendeAgent:
         await self.emit({"type": "step", "tool": "explain_picks", "text": "Writing a reason for each pick",
                          "data": {"count": len(shown)}})
         by_id = {c.qloo_id: c for c in s.candidates if c.qloo_id}
-        return await explain(shown, by_id, list(s.favourites.values()))
+        return await explain(shown, by_id, [n for n in s.favourites.values() if n])
 
     # ---- runs ----------------------------------------------------------------
 
@@ -408,7 +417,8 @@ class ComprendeAgent:
         if s.result is None:
             await self.rank_for_learner(s)
         listen = sorted(s.listen, key=lambda x: -(x["affinity"] or 0))
-        return {"mode": mode, "model": self.model_used, "favourites": s.favourites, "variety": s.variety,
+        return {"mode": mode, "model": self.model_used, "favourites": {i: n for i, n in s.favourites.items() if n},
+                "variety": s.variety,
                 "qloo_calls": self.qloo.calls + self.qloo.cached - requests_before,
                 "qloo_errors": sorted(set(self.qloo_errors)), "qloo_unavailable": bool(self.qloo_errors) and not s.candidates,
                 "listen": {"artists": [x for x in listen if x["kind"] == "artist"][:8],

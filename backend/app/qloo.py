@@ -6,6 +6,8 @@ Server-side only: the key never reaches the browser. Responses are cached on dis
 import asyncio
 import hashlib
 import json
+import os
+import random
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -16,6 +18,14 @@ import httpx
 from . import config
 
 CACHE_TTL_S = 7 * 24 * 3600
+# Qloo answers in 1-3 s. When it cannot be reached or hangs, later calls fail at once for a short while instead
+# of each waiting out its own timeout, so a run ends in seconds with a clear message rather than in minutes.
+TIMEOUT = httpx.Timeout(12.0, connect=6.0)
+UNREACHABLE_PAUSE_S = 30.0
+# Qloo refuses bursts (429): three simultaneous runs, ~30 parallel calls each, were refused in production.
+# One process keeps at most this many requests in flight, and a refused call waits longer each time.
+MAX_IN_FLIGHT = int(os.environ.get("QLOO_MAX_IN_FLIGHT", "6"))
+ATTEMPTS = 4
 
 
 class QlooError(Exception):
@@ -96,8 +106,10 @@ class QlooClient:
         self.cache_dir = cache_dir
         self.calls = 0  # live requests made, for the agent trace and quota tracking
         self.cached = 0  # requests answered from the disk cache (same Qloo data, no quota used)
+        self._down_until = 0.0  # monotonic time until which calls fail fast (see UNREACHABLE_PAUSE_S)
+        self._slots = asyncio.Semaphore(MAX_IN_FLIGHT)
         self._http = httpx.AsyncClient(
-            base_url=self.base_url, timeout=httpx.Timeout(20.0, connect=10.0), transport=transport,
+            base_url=self.base_url, timeout=TIMEOUT, transport=transport,
             headers={"X-Api-Key": self.api_key, "Accept": "application/json"},
         )
 
@@ -120,9 +132,19 @@ class QlooClient:
             return json.loads(cache.read_text(encoding="utf-8"))
         if not self.api_key:
             raise QlooError("QLOO_NO_KEY", 0, "QLOO_API_KEY is not set")
-        for attempt in range(3):
+        if time.monotonic() < self._down_until:
+            raise QlooError("QLOO_UNREACHABLE", 0, "Qloo did not answer a moment ago", True)
+        for attempt in range(ATTEMPTS):
             self.calls += 1
-            resp = await self._http.get(path, params=flat)
+            try:
+                async with self._slots:
+                    resp = await self._http.get(path, params=flat)
+            except (httpx.TimeoutException, httpx.TransportError) as e:
+                if attempt == 0 and not isinstance(e, httpx.TimeoutException):  # a hang is not retried
+                    await asyncio.sleep(1.0)
+                    continue
+                self._down_until = time.monotonic() + UNREACHABLE_PAUSE_S
+                raise QlooError("QLOO_UNREACHABLE", 0, type(e).__name__, True) from e
             if resp.status_code == 200:
                 data = resp.json()
                 if cache:
@@ -130,8 +152,8 @@ class QlooClient:
                     cache.write_text(json.dumps(data), encoding="utf-8")
                 return data
             err = _error_from(resp)
-            if err.retryable and attempt < 2:
-                await asyncio.sleep(1.5 * (attempt + 1))
+            if err.retryable and attempt < ATTEMPTS - 1:
+                await asyncio.sleep(_backoff(resp, attempt))
                 continue
             raise err
         raise QlooError("QLOO_UNREACHABLE", 0, "retries exhausted", True)
@@ -182,6 +204,16 @@ def _flatten(params: dict[str, Any]) -> list[tuple[str, str]]:
             v = "true" if v else "false"
         out.append((k, str(v)))
     return out
+
+
+def _backoff(resp: httpx.Response, attempt: int) -> float:
+    """Seconds before retrying a refused or failed call: Qloo's Retry-After when given (capped), else 1, 2, 4 s,
+    with jitter so simultaneous runs do not retry in step."""
+    try:
+        after = float(resp.headers.get("retry-after", ""))
+    except ValueError:
+        after = 2.0 ** attempt
+    return min(after, 6.0) + random.uniform(0, 0.5)
 
 
 def _error_from(resp: httpx.Response) -> QlooError:

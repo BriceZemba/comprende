@@ -124,3 +124,28 @@ def test_entities_by_external_ids():
     rows = run(client_with(handler).entities_by_external("imdb", ["tt0457430", "tt0441909"]))
     assert seen == {"external.imdb.ids": "tt0457430,tt0441909"}
     assert rows[0].entity_id == "AAAA"
+
+
+def test_unreachable_qloo_fails_fast_with_a_qloo_error():
+    import asyncio, time
+    import httpx
+    import pytest
+    from app.qloo import QlooClient, QlooError
+    tries = []
+
+    def down(request):
+        tries.append(1)
+        raise httpx.ConnectError("down", request=request)
+
+    async def go():
+        q = QlooClient(api_key="k", cache_dir=None, transport=httpx.MockTransport(down))
+        with pytest.raises(QlooError) as first:
+            await q.search("Volver")
+        t0 = time.monotonic()
+        with pytest.raises(QlooError):
+            await q.search("Roma")  # inside the pause: no network call, no wait
+        await q.aclose()
+        return first.value.code, time.monotonic() - t0
+
+    code, waited = asyncio.run(go())
+    assert code == "QLOO_UNREACHABLE" and len(tries) == 2 and waited < 0.1

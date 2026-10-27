@@ -470,3 +470,12 @@ def test_variety_reaches_qloo_and_the_result(monkeypatch):
     assert out["variety"] == "latam"
     assert seen_countries and all("Spain" not in c for c in seen_countries)
     assert "Q-MX" in scored and "Q-ES" not in scored  # only Latin American measured titles are scored
+
+
+def test_signal_ids_are_named_from_search_matches_never_shown_raw():
+    from app.agent import ComprendeAgent, Session
+    s = Session(vocab_size=3000)
+    s.seen = {"Q-2ND": "Second match"}
+    agent = ComprendeAgent(None, None, None)
+    agent._remember(s, ["Q-2ND", "Q-UNKNOWN"])
+    assert s.favourites == {"Q-2ND": "Second match", "Q-UNKNOWN": ""}

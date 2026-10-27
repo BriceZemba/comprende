@@ -285,7 +285,7 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
         </div>
       )}
 
-      {b.watch_now.length === 0 && b.stretch.length > 0 && (
+      {b.watch_now.length === 0 && (b.stretch.length > 0 || b.later.length > 0) && (
         <p className="mt-8 max-w-2xl rounded-2xl bg-warn-soft p-4 text-sm">{t.res.beginner(f.int(result.vocab_size))}</p>
       )}
 
