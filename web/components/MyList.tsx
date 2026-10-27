@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useI18n } from "@/lib/i18n";
-import InstallApp from "./InstallApp";
 import { markWatched, unlocked, type Profile, type Verdict } from "@/lib/profile";
 
 const VERDICTS: Verdict[] = ["easy", "ok", "hard"];
@@ -61,10 +60,7 @@ export default function MyList({ profile, onChange }: { profile: Profile; onChan
           </li>
         ))}
       </ul>
-      <div className="mt-3 flex flex-wrap items-center gap-3">
-        <InstallApp />
-        <p className="text-xs text-muted">{t.list.note}</p>
-      </div>
+      <p className="mt-3 text-xs text-muted">{t.list.note}</p>
     </section>
   );
 }

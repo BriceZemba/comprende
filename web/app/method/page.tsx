@@ -112,13 +112,6 @@ export default function Method() {
         <p className="text-sm text-muted">{t.method.compareNote}</p>
       </section>
 
-      <section className="mt-10 space-y-3">
-        <h2 className="font-display text-2xl">{t.method.limitsT}</h2>
-        <ul className="list-disc space-y-2 pl-5 leading-relaxed">
-          {t.method.limits.map((l) => <li key={l}>{l}</li>)}
-        </ul>
-      </section>
-
       <p className="mt-12 text-sm text-muted">{t.method.data(opensubs)}</p>
       </main>
     </div>

@@ -259,9 +259,14 @@ export default function Home() {
                 onForget={() => setProfile(null)} />
             </div>
           )}
-          <div className="grid items-center gap-10 lg:grid-cols-[1.25fr_1fr]">
+          <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+            <div aria-hidden className="pointer-events-none absolute -left-40 -top-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(closest-side,color-mix(in_oklab,var(--good)_14%,transparent),transparent)] blur-2xl" />
             <div>
-              <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
+              <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-card px-3.5 py-1.5 text-xs font-medium text-muted shadow-sm sm:text-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+                {t.intro.eyebrow(f.int(proof?.titles ?? 1464))}
+              </p>
+              <h1 className="font-display text-5xl leading-[1.04] tracking-tight sm:text-6xl lg:text-[4rem]">
                 {t.intro.title((s) => <em className="text-accent">{s}</em>, (s) => <em className="text-accent">{s}</em>)}
               </h1>
               <p className="mt-6 max-w-2xl text-lg text-muted">
@@ -273,7 +278,7 @@ export default function Home() {
                   {t.intro.start}
                 </button>
                 <button type="button" onClick={playExample}
-                  className="rounded-full border border-line bg-card px-6 py-4 text-lg hover:border-accent">
+                  className="rounded-full border border-line bg-card px-6 py-4 text-lg shadow-sm hover:border-accent">
                   {t.intro.example}
                 </button>
               </div>
@@ -288,19 +293,17 @@ export default function Home() {
           )}
 
           {proof && (
-            <dl className="mt-14 grid gap-4 border-t border-line pt-8 sm:grid-cols-3">
-              <div>
-                <dt className="text-sm text-muted">{t.intro.proofTitles}</dt>
-                <dd className="font-display text-4xl">{f.int(proof.titles)}</dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted">{t.intro.proofFirst(f.pct1(proof.llm))}</dt>
-                <dd className="font-display text-4xl">{f.pct1(proof.ours)}</dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted">{t.intro.proofPersonal(f.pct1(proof.noQloo))}</dt>
-                <dd className="font-display text-4xl">{f.pct1(proof.personal)}</dd>
-              </div>
+            <dl className="mt-16 grid gap-3 sm:grid-cols-3">
+              {([
+                [t.intro.proofTitles, f.int(proof.titles)],
+                [t.intro.proofFirst(f.pct1(proof.llm)), f.pct1(proof.ours)],
+                [t.intro.proofPersonal(f.pct1(proof.noQloo)), f.pct1(proof.personal)],
+              ] as const).map(([label, value]) => (
+                <div key={label} className="flex flex-col-reverse justify-end gap-2 rounded-3xl border border-line bg-card p-5 sm:p-6">
+                  <dt className="text-sm text-muted">{label}</dt>
+                  <dd className="font-display text-4xl text-accent sm:text-5xl">{value}</dd>
+                </div>
+              ))}
               <p className="text-xs text-muted sm:col-span-3">
                 {t.intro.proofFoot} <a href="/method" className="underline">{t.intro.proofLink}</a>.
               </p>
@@ -356,10 +359,13 @@ export default function Home() {
 
       <section id="how" className="mt-28 border-t border-line pt-12">
         <h2 className="font-display text-3xl">{t.how.title}</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-3">
-          {([[t.how.c1t, t.how.c1], [t.how.c2t, t.how.c2], [t.how.c3t, t.how.c3]] as const).map(([title, body]) => (
-            <div key={title}>
-              <p className="font-display text-xl">{title}</p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {([[t.how.c1t, t.how.c1], [t.how.c2t, t.how.c2], [t.how.c3t, t.how.c3]] as const).map(([title, body], i) => (
+            <div key={title} className="rounded-3xl border border-line bg-card p-6">
+              <span className={`grid h-10 w-10 place-items-center rounded-2xl font-display text-lg ${["bg-accent text-accent-ink", "bg-good text-paper", "bg-later text-paper"][i]}`} aria-hidden>
+                {i + 1}
+              </span>
+              <p className="mt-4 font-display text-xl">{title}</p>
               <p className="mt-2 text-muted">{body}</p>
             </div>
           ))}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { LANGS, useI18n } from "@/lib/i18n";
+import InstallApp from "./InstallApp";
 
 type Theme = "light" | "dark";
 
@@ -59,8 +60,9 @@ export default function Header({ onLogo, nav }: { onLogo?: () => void; nav?: Rea
   return (
     <header className="flex items-center justify-between gap-3 py-6">
       {onLogo ? <button type="button" onClick={onLogo}>{logo}</button> : <Link href="/">{logo}</Link>}
-      <div className="flex items-center gap-3 sm:gap-5">
-        {nav && <nav className="hidden gap-5 whitespace-nowrap text-sm text-muted sm:flex">{nav}</nav>}
+      <div className="flex items-center gap-2 sm:gap-4">
+        {nav && <nav className="hidden gap-5 whitespace-nowrap text-sm text-muted md:flex">{nav}</nav>}
+        <InstallApp />
         <ThemeToggle />
         <LangSwitch />
       </div>

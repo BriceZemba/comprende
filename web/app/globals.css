@@ -85,6 +85,10 @@
   --font-display: var(--font-fraunces);
 }
 
+html, body {
+  overflow-x: clip; /* decorative glows may reach past the edge on a phone; they must not widen the page */
+}
+
 body {
   background: var(--paper);
   color: var(--ink);
@@ -105,6 +109,19 @@ body {
 html { scroll-padding-bottom: 6rem; } /* focus never hides under the fixed update bar */
 .rise { animation: rise 0.35s ease-out backwards; }
 
+/* Home-page example: a step's progress bar, coverage bars growing to their value, and a spinner that
+   turns into a check mark. */
+@keyframes fill { from { width: 0; } to { width: 100%; } }
+@keyframes grow { from { width: 0; } }
+@keyframes gone { to { opacity: 0; visibility: hidden; } }
+@keyframes appear { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
+.fill { animation: fill var(--step-ms, 4s) linear forwards; }
+.grow { animation: grow 1.2s cubic-bezier(.2,.7,.2,1) backwards; }
+.gone { animation: gone 0.2s ease-out forwards; }
+.appear { animation: appear 0.3s ease-out backwards; }
+
 @media (prefers-reduced-motion: reduce) {
-  .rise { animation: none; }
+  .rise, .grow, .appear { animation: none; }
+  .fill { animation: none; width: 100%; }
+  .gone { display: none; }
 }
