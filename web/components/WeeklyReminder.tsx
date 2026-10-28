@@ -41,7 +41,7 @@ export default function WeeklyReminder({ profile }: { profile: Profile | null })
   };
 
   return (
-    <section aria-labelledby="reminder-title" className="rise mt-10 max-w-2xl rounded-3xl border border-line bg-card p-5 sm:p-6">
+    <section id="reminder" aria-labelledby="reminder-title" className="rise mt-10 scroll-mt-6 max-w-2xl rounded-3xl border border-line bg-card p-5 sm:p-6">
       <h3 id="reminder-title" className="font-display text-2xl">{r.title}</h3>
       <p className="mt-1 text-sm text-muted">{next ? r.leadNext(next) : r.lead}</p>
       <div className="mt-4 flex flex-wrap items-end gap-3">

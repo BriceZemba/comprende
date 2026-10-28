@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import type { ListenPick, Pick, RunResult } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
 import TasteMap from "./TasteMap";
@@ -213,8 +213,9 @@ function ShareButton({ onShare }: { onShare: () => Promise<boolean> }) {
   );
 }
 
-export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note, isSaved, onSave, onShare, recordedAt, watchOn }: {
+export default function Results({ result, onRestart, onChangeLevel, feedback, onFeedback, onUpdate, note, isSaved, onSave, onShare, recordedAt, watchOn, afterPicks }: {
   result: RunResult;
+  afterPicks?: ReactNode; // shown right under the picks, where the learner is looking (the weekly reminder)
   watchOn: boolean;
   recordedAt: string | null;
   onShare: () => Promise<boolean>;
@@ -242,7 +243,15 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
       <p className="text-sm font-medium uppercase tracking-wider text-accent">{t.res.eyebrow}</p>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <h1 className="font-display mt-1 text-3xl sm:text-4xl">{t.res.title}</h1>
-        <ShareButton onShare={onShare} />
+        <div className="flex flex-wrap items-center gap-2">
+          {afterPicks && !empty && (
+            <a href="#reminder" className="rounded-full border border-line bg-card px-4 py-2 text-sm hover:border-accent"
+              onClick={(e) => { e.preventDefault(); document.getElementById("reminder")?.scrollIntoView({ block: "start" }); }}>
+              {t.reminder.jump}
+            </a>
+          )}
+          <ShareButton onShare={onShare} />
+        </div>
       </div>
       <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
         <span className="text-muted">{t.res.fansOf}</span>
@@ -301,6 +310,8 @@ export default function Results({ result, onRestart, onChangeLevel, feedback, on
           </div>
         </div>
       ))}
+
+      {!empty && afterPicks}
 
       {result.map && <TasteMap titles={result.map.titles} grid={result.map.grid} vocab={result.vocab_size} />}
 

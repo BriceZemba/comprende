@@ -83,6 +83,8 @@ export default function Home() {
 
   useEffect(() => {
     const onPop = (e: PopStateEvent) => {
+      // A link to a section on the page (#how, #check) also fires popstate, with no state: stay where we are.
+      if (e.state == null && location.hash) return;
       const s = (e.state?.stage as Stage | undefined) ?? "intro";
       // A run cannot be resumed from history; its entry leads back to the level step.
       setStage(s === "run" ? "level" : s === "results" && !result ? "intro" : s);
@@ -363,9 +365,9 @@ export default function Home() {
             onShare={share}
             recordedAt={recordedAt}
             watchOn={watchOn}
+            afterPicks={<WeeklyReminder profile={profile} />}
           />
           {profile && <MyList profile={profile} onChange={setProfile} />}
-          <WeeklyReminder profile={profile} />
         </>
       )}
 

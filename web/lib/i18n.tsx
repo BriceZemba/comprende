@@ -247,6 +247,7 @@ const en = {
   },
   reminder: {
     title: "Your weekly film night",
+    jump: "⏰ Weekly reminder",
     lead: "Pick a day: your calendar reminds you every week, and Comprende shows your next film and what came within reach since.",
     leadNext: (name: string) => `Pick a day: your calendar reminds you every week. First up: ${name}. Comprende then shows what came within reach.`,
     day: "Day", time: "Time",
@@ -540,6 +541,7 @@ const fr: Messages = {
   },
   reminder: {
     title: "Votre soirée film de la semaine",
+    jump: "⏰ Rappel chaque semaine",
     lead: "Choisissez un jour : votre calendrier vous le rappelle chaque semaine, et Comprende vous montre votre prochain film et ce qui est devenu accessible.",
     leadNext: (name) => `Choisissez un jour : votre calendrier vous le rappelle chaque semaine. Pour commencer : ${name}. Comprende vous montre ensuite ce qui est devenu accessible.`,
     day: "Jour", time: "Heure",
@@ -831,6 +833,7 @@ const es: Messages = {
   },
   reminder: {
     title: "Tu noche de cine semanal",
+    jump: "⏰ Recordatorio semanal",
     lead: "Elige un día: tu calendario te lo recuerda cada semana, y Comprende te muestra tu próxima película y lo que ya está a tu alcance.",
     leadNext: (name) => `Elige un día: tu calendario te lo recuerda cada semana. Para empezar: ${name}. Después Comprende te muestra lo que ya está a tu alcance.`,
     day: "Día", time: "Hora",
