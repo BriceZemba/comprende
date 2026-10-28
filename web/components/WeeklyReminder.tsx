@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import type { Profile } from "@/lib/profile";
-import { googleCalendarUrl, ics, type Reminder } from "@/lib/reminder";
+import { googleCalendarUrl, type Reminder } from "@/lib/reminder";
 
 const ORDER = [1, 2, 3, 4, 5, 6, 0]; // Monday first
 
-// "Your next film", once a week: the learner picks a day and an hour and adds a repeating event to their own
-// calendar. The calendar does the reminding (no account, no notification permission, nothing sent to us);
-// the event opens Comprende, which shows the next saved film and what came within reach since.
+// "Your next film", once a week: the learner picks a day and an hour, and Google Calendar opens with a repeating
+// event ready to save. The calendar does the reminding (no account with us, no notification permission, nothing
+// sent to us); the event links back to Comprende, which shows the next saved film and what came within reach.
 export default function WeeklyReminder({ profile }: { profile: Profile | null }) {
   const { t, lang } = useI18n();
   const r = t.reminder;
@@ -24,15 +24,6 @@ export default function WeeklyReminder({ profile }: { profile: Profile | null })
     const [hour, minute] = time.split(":").map(Number);
     return { day, hour: hour || 0, minute: minute || 0, title: r.event, details: next ? r.next(next) : r.generic,
              url: `${window.location.origin}/?from=reminder` };
-  };
-  const download = () => {
-    const blob = new Blob([ics(build(), new Date(), `${crypto.randomUUID()}@comprende`)], { type: "text/calendar" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "comprende-film-night.ics";
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 10_000);
-    setDone(true);
   };
   const google = () => {
     const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -57,12 +48,8 @@ export default function WeeklyReminder({ profile }: { profile: Profile | null })
           <input type="time" value={time} onChange={(e) => { setTime(e.target.value); setDone(false); }}
             className="mt-1 min-h-11 rounded-xl border border-line bg-paper px-3" />
         </label>
-        <button type="button" onClick={download}
-          className="min-h-11 rounded-full bg-accent px-5 font-medium text-accent-ink hover:brightness-110">
-          {r.add}
-        </button>
         <button type="button" onClick={google}
-          className="min-h-11 rounded-full border border-line bg-paper px-5 hover:border-accent">
+          className="min-h-11 rounded-full bg-accent px-5 font-medium text-accent-ink hover:brightness-110">
           {r.google}
         </button>
       </div>

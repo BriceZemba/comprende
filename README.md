@@ -24,7 +24,7 @@ Learners are told to watch shows in Spanish. They pick something famous, get los
 
    Each pick comes with a one-line reason, how much dialogue it has, and where to watch it in your country.
 4. Drag the **vocabulary slider** on the map to see titles move from "later" to "watch now".
-5. Save titles to **My list**. After a film, answer "Watched it?" and your level moves. The next visit tells you what came within reach. Add a **weekly film night** to your own calendar (.ics or Google Calendar) with your next film and a link back.
+5. Save titles to **My list**. After a film, answer "Watched it?" and your level moves. The next visit tells you what came within reach. Add a **weekly film night** to Google Calendar with your next film and a link back.
 6. Switch **EN / FR / ES** and light / dark in the header.
 
 ## How Qloo powers it
