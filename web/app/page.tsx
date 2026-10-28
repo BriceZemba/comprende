@@ -306,21 +306,23 @@ export default function Home() {
           <CanIFollow vocab={profile?.vocab ?? 3000} onCheck={() => go("level")} />
 
           {proof && (
-            <dl className="mt-16 grid gap-3 sm:grid-cols-3">
-              {([
-                [t.intro.proofTitles, f.int(proof.titles)],
-                [t.intro.proofFirst(f.pct1(proof.llm)), f.pct1(proof.ours)],
-                [t.intro.proofPersonal(f.pct1(proof.noQloo)), f.pct1(proof.personal)],
-              ] as const).map(([label, value]) => (
-                <div key={label} className="flex flex-col-reverse justify-end gap-2 rounded-3xl border border-line bg-card p-5 sm:p-6">
-                  <dt className="text-sm text-muted">{label}</dt>
-                  <dd className="font-display text-4xl text-accent sm:text-5xl">{value}</dd>
-                </div>
-              ))}
-              <p className="text-xs text-muted sm:col-span-3">
+            <div className="mt-16">
+              <dl className="grid gap-3 sm:grid-cols-3">
+                {([
+                  [t.intro.proofTitles, f.int(proof.titles)],
+                  [t.intro.proofFirst(f.pct1(proof.llm)), f.pct1(proof.ours)],
+                  [t.intro.proofPersonal(f.pct1(proof.noQloo)), f.pct1(proof.personal)],
+                ] as const).map(([label, value]) => (
+                  <div key={label} className="flex flex-col-reverse justify-end gap-2 rounded-3xl border border-line bg-card p-5 sm:p-6">
+                    <dt className="text-sm text-muted">{label}</dt>
+                    <dd className="font-display text-4xl text-accent sm:text-5xl">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-3 text-xs text-muted">
                 {t.intro.proofFoot} <a href="/method" className="underline">{t.intro.proofLink}</a>.
               </p>
-            </dl>
+            </div>
           )}
         </section>
       )}

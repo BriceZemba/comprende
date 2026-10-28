@@ -111,17 +111,19 @@ html { scroll-padding-bottom: 6rem; } /* focus never hides under the fixed updat
 
 /* Home-page example: a step's progress bar, coverage bars growing to their value, and a spinner that
    turns into a check mark. */
-@keyframes fill { from { width: 0; } to { width: 100%; } }
-@keyframes grow { from { width: 0; } }
+/* Bars scale instead of changing width: a width animation recomputes the page layout on every frame
+   (Lighthouse on a phone: 3.6 s of layout, 4 s of blocked main thread). */
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes grow { from { transform: scaleX(0); } }
 @keyframes gone { to { opacity: 0; visibility: hidden; } }
 @keyframes appear { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
-.fill { animation: fill var(--step-ms, 4s) linear forwards; }
-.grow { animation: grow 1.2s cubic-bezier(.2,.7,.2,1) backwards; }
+.fill { width: 100%; transform-origin: left; animation: fill var(--step-ms, 4s) linear forwards; }
+.grow { transform-origin: left; animation: grow 1.2s cubic-bezier(.2,.7,.2,1) backwards; }
 .gone { animation: gone 0.2s ease-out forwards; }
 .appear { animation: appear 0.3s ease-out backwards; }
 
 @media (prefers-reduced-motion: reduce) {
   .rise, .grow, .appear { animation: none; }
-  .fill { animation: none; width: 100%; }
+  .fill { animation: none; transform: none; }
   .gone { display: none; }
 }
