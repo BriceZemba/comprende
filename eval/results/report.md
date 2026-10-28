@@ -5,27 +5,27 @@
 | Metric | Gemini alone (no Qloo, no subtitles) | Comprende without Qloo (popularity instead of taste) | Comprende (Qloo + subtitle coverage) |
 |---|---|---|---|
 | Titles returned | 200 | 200 | 200 |
-| Verified Spanish-original | 86.5% | 100.0% | 99.0% |
-| Real title, not originally Spanish | 1.5% | 0.0% | 0.5% |
-| Not verified automatically (not proof of invention) | 12.0% | 0.0% | 0.5% |
-| Distinct titles / all titles | 56.0% | 8.0% | 61.0% |
-| Mean overlap between profiles (Jaccard) | 0.08 | 0.66 | 0.04 |
-| Titles with measured dialogue | 88 | 200 | 176 |
-| …of which followable (≥ 95% coverage at the profile's level) | 61.4% | 48.0% | 47.7% |
-| …of which too hard (< 90% coverage) | 14.8% | 6.0% | 0.0% |
-| First five picks with measured dialogue | 50 | 100 | 100 |
-| …of which followable (≥ 95%) | 60.0% | 82.0% | 70.0% |
-| …of which too hard (< 90%) | 14.0% | 0.0% | 0.0% |
+| Verified Spanish-original | 90.0% | 100.0% | 99.0% |
+| Real title, not originally Spanish | 2.0% | 0.0% | 0.5% |
+| Not verified automatically (not proof of invention) | 8.0% | 0.0% | 0.5% |
+| Distinct titles / all titles | 69.0% | 8.0% | 61.0% |
+| Mean overlap between profiles (Jaccard) | 0.03 | 0.66 | 0.04 |
+| Titles with measured dialogue | 85 | 200 | 176 |
+| …of which followable (≥ 95% coverage at the profile's level) | 58.8% | 48.0% | 47.7% |
+| …of which too hard (< 90% coverage) | 14.1% | 6.0% | 0.0% |
+| First five picks with measured dialogue | 47 | 100 | 100 |
+| …of which followable (≥ 95%) | 63.8% | 82.0% | 70.0% |
+| …of which too hard (< 90%) | 10.6% | 0.0% | 0.0% |
 
 ## Gemini alone (no Qloo, no subtitles)
 
-Run at 2026-10-22T17:28:36+00:00; model(s): gemini-3.5-flash, gemini-3.5-flash-lite.
+Run at 2026-10-28T00:56:19+00:00; model(s): gemini-3.5-flash.
 
-Most repeated titles: La casa de papel (12/20); Gran Hotel (8/20); El secreto de sus ojos (7/20); Contratiempo (7/20); El Ministerio del Tiempo (6/20); Élite (5/20); Velvet (5/20); Relatos salvajes (4/20).
+Most repeated titles: El laberinto del fauno (4/20); El secreto de sus ojos (4/20); El hoyo (4/20); La casa de papel (4/20); El Ministerio del Tiempo (4/20); Club de Cuervos (4/20); Go! Vive a tu manera (4/20); Las chicas del cable (4/20).
 
-Not originally Spanish: Atrapa la bandera; La Rueda del Tiempo; Los Otros.
+Not originally Spanish: Atrapa la bandera; Gisaku; Klaus; Nocturna.
 
-Not verified automatically (a title being here does not mean it is invented; still to check by hand): Amor con fianza; América Salvaje; Ana y los siete; Bronca; Cantajuego; Crimen organizado; El Camino de Santiago; El marginal; España Salvaje; Flow Calle; Narcos: Mexico; Narcos: México; Nuestra Tierra; OT: El Reencuentro; Otro Trago; Pacífico; Panama; Patagonia; Platino; Ritmo Salvaje; Señor dame paciencia; Sucesor; Superlópez; Zip y Zape y el club de la canica.
+Not verified automatically (a title being here does not mean it is invented; still to check by hand): Amor con fianza; El Marginal; El apóstol; El marginal; Extra en Español; Jugando con fuego: Hispanoamérica; La Caza. Monteperdido; La frecuencia Kirlian; Las leyendas; Nailed It! México; Noticia de un secuestro; Ojitos de Huevo; Pacificum: El retorno a la ballena; Pasteleros contra el tiempo; Un disfraz para Nicolás; Zip y Zap y el club de la canica.
 
 ## Comprende without Qloo (popularity instead of taste)
 

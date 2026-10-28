@@ -1,38 +1,11 @@
 {
- "run_at": "2026-10-22T17:28:36+00:00",
+ "run_at": "2026-10-28T00:56:19+00:00",
  "prompt": "I am learning Spanish and know about {vocab} Spanish words.\nI love: {favs}.\nRecommend 10 films or TV series originally made in Spanish (Spanish is the original language of the\ndialogue) that I would love given my taste and could follow at my level. Real titles only.",
  "results": [
   {
    "id": "p01",
    "model": "gemini-3.5-flash",
    "titles": [
-    {
-     "title": "El secreto de sus ojos",
-     "year": 2009,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt1305806",
-     "wikidata": "Q748851",
-     "matched": "El secreto de sus ojos"
-    },
-    {
-     "title": "Los cronocrímenes",
-     "year": 2007,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0480669",
-     "wikidata": "Q510864",
-     "matched": "Los cronocrímenes"
-    },
-    {
-     "title": "La casa de papel",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
-    },
     {
      "title": "El laberinto del fauno",
      "year": 2006,
@@ -43,13 +16,13 @@
      "matched": "El laberinto del fauno"
     },
     {
-     "title": "El ministerio del tiempo",
-     "year": 2015,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt4136774",
-     "wikidata": "Q19361054",
-     "matched": "El Ministerio del Tiempo"
+     "title": "El secreto de sus ojos",
+     "year": 2009,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt1305806",
+     "wikidata": "Q748851",
+     "matched": "El secreto de sus ojos"
     },
     {
      "title": "Abre los ojos",
@@ -61,6 +34,15 @@
      "matched": "Abre los ojos"
     },
     {
+     "title": "La isla mínima",
+     "year": 2014,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt3253930",
+     "wikidata": "Q18145311",
+     "matched": "La isla mínima"
+    },
+    {
      "title": "Relatos salvajes",
      "year": 2014,
      "kind": "film",
@@ -68,15 +50,6 @@
      "imdb": "tt3011894",
      "wikidata": "Q16672466",
      "matched": "Relatos salvajes"
-    },
-    {
-     "title": "Contratiempo",
-     "year": 2016,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt4857264",
-     "wikidata": "Q28114432",
-     "matched": "Contratiempo"
     },
     {
      "title": "El hoyo",
@@ -88,13 +61,40 @@
      "matched": "El hoyo"
     },
     {
-     "title": "Fariña",
-     "year": 2018,
+     "title": "Los cronocrímenes",
+     "year": 2007,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0480669",
+     "wikidata": "Q510864",
+     "matched": "Los cronocrímenes"
+    },
+    {
+     "title": "La piel que habito",
+     "year": 2011,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt1189073",
+     "wikidata": "Q1130310",
+     "matched": "La piel que habito"
+    },
+    {
+     "title": "La casa de papel",
+     "year": 2017,
+     "kind": "series",
+     "class": "measured",
+     "imdb": "tt6468322",
+     "wikidata": "Q29647346",
+     "matched": "La casa de papel"
+    },
+    {
+     "title": "El ministerio del tiempo",
+     "year": 2015,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt6970710",
-     "wikidata": "Q42300440",
-     "matched": "Fariña"
+     "imdb": "tt4136774",
+     "wikidata": "Q19361054",
+     "matched": "El Ministerio del Tiempo"
     }
    ]
   },
@@ -102,6 +102,18 @@
    "id": "p02",
    "model": "gemini-3.5-flash",
    "titles": [
+    {
+     "title": "Amor con fianza",
+     "year": 2021,
+     "kind": "series",
+     "class": "unverified"
+    },
+    {
+     "title": "Jugando con fuego: Hispanoamérica",
+     "year": 2021,
+     "kind": "series",
+     "class": "unverified"
+    },
     {
      "title": "Club de Cuervos",
      "year": 2015,
@@ -112,35 +124,21 @@
      "matched": "Club de Cuervos"
     },
     {
-     "title": "Nicky Jam: El Ganador",
+     "title": "Nicky Jam: El ganador",
      "year": 2018,
      "kind": "series",
      "class": "spanish_original",
      "wikidata": "Q30105379",
-     "matched": "Nicky Jam: El Ganador"
+     "matched": "Nicky Jam: El ganador"
     },
     {
-     "title": "Amor con fianza",
-     "year": 2021,
-     "kind": "series",
-     "class": "unverified"
-    },
-    {
-     "title": "Rudo y Cursi",
-     "year": 2008,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0405393",
-     "wikidata": "Q2382723",
-     "matched": "Rudo y Cursi"
-    },
-    {
-     "title": "Jugando con fuego: Latino",
-     "year": 2021,
+     "title": "La reina del flow",
+     "year": 2018,
      "kind": "series",
      "class": "spanish_original",
-     "wikidata": "Q110624062",
-     "matched": "Jugando con fuego: Latino"
+     "imdb": "tt8560918",
+     "wikidata": "Q54377174",
+     "matched": "La reina del flow"
     },
     {
      "title": "El Presidente",
@@ -152,58 +150,13 @@
      "matched": "El presidente"
     },
     {
-     "title": "Ritmo Salvaje",
-     "year": 2022,
-     "kind": "series",
-     "class": "unverified"
-    },
-    {
-     "title": "A través de mi ventana",
-     "year": 2022,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt14463484",
-     "wikidata": "Q110833192",
-     "matched": "A través de mi ventana"
-    },
-    {
-     "title": "Flow Calle",
-     "year": 2022,
-     "kind": "film",
-     "class": "unverified",
-     "note": "found on Wikidata without an original language"
-    },
-    {
-     "title": "Élite",
-     "year": 2018,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt7134908",
-     "wikidata": "Q53000974",
-     "matched": "Élite"
-    }
-   ]
-  },
-  {
-   "id": "p03",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "Abuelos",
+     "title": "Apache: La vida de Carlos Tevez",
      "year": 2019,
-     "kind": "film",
+     "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt8092586",
-     "wikidata": "Q99484059",
-     "matched": "Abuelos"
-    },
-    {
-     "title": "El cuaderno de Sara",
-     "year": 2018,
-     "kind": "film",
-     "class": "spanish_original",
-     "wikidata": "Q47919356",
-     "matched": "El cuaderno de Sara"
+     "imdb": "tt10715172",
+     "wikidata": "Q85742175",
+     "matched": "Apache, la vida de Carlos Tévez"
     },
     {
      "title": "Campeones",
@@ -215,28 +168,96 @@
      "matched": "Campeones"
     },
     {
-     "title": "Zip y Zape y el club de la canica",
+     "title": "Valeria",
+     "year": 2020,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt9731288",
+     "wikidata": "Q89759231",
+     "matched": "Valeria"
+    },
+    {
+     "title": "Goles en contra",
+     "year": 2022,
+     "kind": "series",
+     "class": "spanish_original",
+     "wikidata": "Q114870107",
+     "matched": "Goles en contra"
+    }
+   ]
+  },
+  {
+   "id": "p03",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "Las aventuras de Tadeo Jones",
+     "year": 2012,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt1764625",
+     "wikidata": "Q1707921",
+     "matched": "Las aventuras de Tadeo Jones"
+    },
+    {
+     "title": "Zip y Zap y el club de la canica",
      "year": 2013,
      "kind": "film",
      "class": "unverified"
     },
     {
-     "title": "La llamada",
-     "year": 2017,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt5176252",
-     "wikidata": "Q28517966",
-     "matched": "La llamada"
+     "title": "Go! Vive a tu manera",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt9654086",
+     "wikidata": "Q60292960",
+     "matched": "Go! Vive a tu manera"
     },
     {
-     "title": "El club de los incomprendidos",
-     "year": 2014,
+     "title": "Soy Luna",
+     "year": 2016,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt5189554",
+     "wikidata": "Q20741004",
+     "matched": "Soy Luna"
+    },
+    {
+     "title": "Siempre bruja",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt8001250",
+     "wikidata": "Q61466337",
+     "matched": "Siempre bruja"
+    },
+    {
+     "title": "Metegol",
+     "year": 2013,
      "kind": "film",
      "class": "measured",
-     "imdb": "tt3686272",
-     "wikidata": "Q18709330",
-     "matched": "El club de los incomprendidos"
+     "imdb": "tt1634003",
+     "wikidata": "Q5664643",
+     "matched": "Metegol"
+    },
+    {
+     "title": "El internado",
+     "year": 2007,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt1024810",
+     "wikidata": "Q837329",
+     "matched": "El internado"
+    },
+    {
+     "title": "Tierra Incógnita",
+     "year": 2022,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt15566204",
+     "wikidata": "Q107380024",
+     "matched": "Tierra incógnita"
     },
     {
      "title": "Atrapa la bandera",
@@ -251,34 +272,19 @@
      ]
     },
     {
-     "title": "Las aventuras de Tadeo Jones",
-     "year": 2012,
+     "title": "Zipi y Zape y la isla del capitán",
+     "year": 2016,
      "kind": "film",
      "class": "measured",
-     "imdb": "tt1764625",
-     "wikidata": "Q1707921",
-     "matched": "Las aventuras de Tadeo Jones"
-    },
-    {
-     "title": "Ana y los siete",
-     "year": 2002,
-     "kind": "series",
-     "class": "unverified"
-    },
-    {
-     "title": "Los protegidos",
-     "year": 2010,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt1534370",
-     "wikidata": "Q2402176",
-     "matched": "Los protegidos"
+     "imdb": "tt4110400",
+     "wikidata": "Q26304735",
+     "matched": "Zipi y Zape y la isla del capitán"
     }
    ]
   },
   {
    "id": "p04",
-   "model": "gemini-3.5-flash-lite",
+   "model": "gemini-3.5-flash",
    "titles": [
     {
      "title": "El secreto de sus ojos",
@@ -288,33 +294,6 @@
      "imdb": "tt1305806",
      "wikidata": "Q748851",
      "matched": "El secreto de sus ojos"
-    },
-    {
-     "title": "Nueve reinas",
-     "year": 2000,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0247586",
-     "wikidata": "Q1404323",
-     "matched": "Nueve reinas"
-    },
-    {
-     "title": "Contratiempo",
-     "year": 2016,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt4857264",
-     "wikidata": "Q28114432",
-     "matched": "Contratiempo"
-    },
-    {
-     "title": "La casa de papel",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
     },
     {
      "title": "El clan",
@@ -326,359 +305,13 @@
      "matched": "El Clan"
     },
     {
-     "title": "La isla mínima",
-     "year": 2014,
+     "title": "Nueve reinas",
+     "year": 2000,
      "kind": "film",
      "class": "measured",
-     "imdb": "tt3253930",
-     "wikidata": "Q18145311",
-     "matched": "La isla mínima"
-    },
-    {
-     "title": "Crematorio",
-     "year": 2011,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt1661526",
-     "wikidata": "Q1592559",
-     "matched": "Crematorio"
-    },
-    {
-     "title": "Relatos salvajes",
-     "year": 2014,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt3011894",
-     "wikidata": "Q16672466",
-     "matched": "Relatos salvajes"
-    },
-    {
-     "title": "Hierro",
-     "year": 2019,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt8337662",
-     "wikidata": "Q64511687",
-     "matched": "Hierro"
-    },
-    {
-     "title": "Fariña",
-     "year": 2018,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt6970710",
-     "wikidata": "Q42300440",
-     "matched": "Fariña"
-    }
-   ]
-  },
-  {
-   "id": "p05",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "El Barco",
-     "year": 2011,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt1788634",
-     "wikidata": "Q250868",
-     "matched": "El barco"
-    },
-    {
-     "title": "El Internado",
-     "year": 2007,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt1024810",
-     "wikidata": "Q837329",
-     "matched": "El internado"
-    },
-    {
-     "title": "El Ministerio del Tiempo",
-     "year": 2015,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt4136774",
-     "wikidata": "Q19361054",
-     "matched": "El Ministerio del Tiempo"
-    },
-    {
-     "title": "Gran Hotel",
-     "year": 2011,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt2006421",
-     "wikidata": "Q2706591",
-     "matched": "Gran Hotel"
-    },
-    {
-     "title": "La Casa de Papel",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
-    },
-    {
-     "title": "La Rueda del Tiempo",
-     "year": 2021,
-     "kind": "series",
-     "class": "not_spanish",
-     "wikidata": "Q60746841",
-     "languages": [
-      "Q1860"
-     ]
-    },
-    {
-     "title": "Los Hombres de Paco",
-     "year": 2005,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt0475464",
-     "wikidata": "Q1236363",
-     "matched": "Los hombres de Paco"
-    },
-    {
-     "title": "El Habitante Incierto",
-     "year": 2004,
-     "kind": "film",
-     "class": "spanish_original",
-     "imdb": "tt0436374",
-     "wikidata": "Q18393896",
-     "matched": "El habitante incierto"
-    },
-    {
-     "title": "Los Otros",
-     "year": 2001,
-     "kind": "film",
-     "class": "not_spanish",
-     "wikidata": "Q332515",
-     "languages": [
-      "Q1860"
-     ]
-    },
-    {
-     "title": "El Orfanato",
-     "year": 2007,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0464141",
-     "wikidata": "Q923911",
-     "matched": "El orfanato"
-    }
-   ]
-  },
-  {
-   "id": "p06",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "La que se avecina",
-     "year": 2007,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt0922037",
-     "wikidata": "Q61072",
-     "matched": "La que se avecina"
-    },
-    {
-     "title": "Aquí no hay quien viva",
-     "year": 2003,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt0381733",
-     "wikidata": "Q4846058",
-     "matched": "Aquí no hay quien viva"
-    },
-    {
-     "title": "Paquita Salas",
-     "year": 2016,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt5866074",
-     "wikidata": "Q27230249",
-     "matched": "Paquita Salas"
-    },
-    {
-     "title": "El vecino",
-     "year": 2019,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt9731222",
-     "wikidata": "Q81275966",
-     "matched": "El Vecino"
-    },
-    {
-     "title": "Camera Café",
-     "year": 2005,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt0481033",
-     "wikidata": "Q17407229",
-     "matched": "Camera Café"
-    },
-    {
-     "title": "Champions",
-     "year": 2018,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt6793580",
-     "wikidata": "Q51543325",
-     "matched": "Campeones"
-    },
-    {
-     "title": "Spanish Movie",
-     "year": 2009,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt1467391",
-     "wikidata": "Q2413683",
-     "matched": "Spanish Movie"
-    },
-    {
-     "title": "Perdiendo el norte",
-     "year": 2015,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt3500544",
-     "wikidata": "Q19153660",
-     "matched": "Perdiendo el norte"
-    },
-    {
-     "title": "El bar",
-     "year": 2017,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt5121816",
-     "wikidata": "Q28775783",
-     "matched": "El bar"
-    },
-    {
-     "title": "Superlópez",
-     "year": 2018,
-     "kind": "film",
-     "class": "unverified"
-    }
-   ]
-  },
-  {
-   "id": "p07",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "Crematorio",
-     "year": 2011,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt1661526",
-     "wikidata": "Q1592559",
-     "matched": "Crematorio"
-    },
-    {
-     "title": "Los simuladores",
-     "year": 2002,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt0316613",
-     "wikidata": "Q1601158",
-     "matched": "Los simuladores"
-    },
-    {
-     "title": "El reino",
-     "year": 2021,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt15068148",
-     "wikidata": "Q104813441",
-     "matched": "El reino"
-    },
-    {
-     "title": "La zona",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6693154",
-     "wikidata": "Q42330728",
-     "matched": "La zona"
-    },
-    {
-     "title": "Élite",
-     "year": 2018,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt7134908",
-     "wikidata": "Q53000974",
-     "matched": "Élite"
-    },
-    {
-     "title": "El inocente",
-     "year": 2021,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt10147644",
-     "wikidata": "Q101137196",
-     "matched": "El inocente"
-    },
-    {
-     "title": "Antidisturbios",
-     "year": 2020,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt10883660",
-     "wikidata": "Q98593733",
-     "matched": "Antidisturbios"
-    },
-    {
-     "title": "La casa de papel",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
-    },
-    {
-     "title": "Relatos salvajes",
-     "year": 2014,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt3011894",
-     "wikidata": "Q16672466",
-     "matched": "Relatos salvajes"
-    },
-    {
-     "title": "El ángel",
-     "year": 2018,
-     "kind": "film",
-     "class": "spanish_original",
-     "imdb": "tt7204348",
-     "wikidata": "Q51886007",
-     "matched": "El Ángel"
-    }
-   ]
-  },
-  {
-   "id": "p08",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "Gran Hotel",
-     "year": 2011,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt2006421",
-     "wikidata": "Q2706591",
-     "matched": "Gran Hotel"
-    },
-    {
-     "title": "Velvet",
-     "year": 2013,
-     "kind": "series",
-     "class": "spanish_original",
-     "wikidata": "Q16645689",
-     "matched": "Velvet"
+     "imdb": "tt0247586",
+     "wikidata": "Q1404323",
+     "matched": "Nueve reinas"
     },
     {
      "title": "Las chicas del cable",
@@ -690,91 +323,90 @@
      "matched": "Las chicas del cable"
     },
     {
-     "title": "El tiempo entre costuras",
-     "year": 2013,
+     "title": "Gran Hotel",
+     "year": 2011,
      "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt1864750",
-     "wikidata": "Q15634798",
-     "matched": "El tiempo entre costuras"
-    },
-    {
-     "title": "Señorita Polvora",
-     "year": 2015,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt3986120",
-     "wikidata": "Q18378180",
-     "matched": "Señorita Pólvora"
-    },
-    {
-     "title": "La cocinera de Castamar",
-     "year": 2021,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt12626014",
-     "wikidata": "Q105616635",
-     "matched": "La cocinera de Castamar"
-    },
-    {
-     "title": "Isabel",
-     "year": 2012,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt2011533",
-     "wikidata": "Q2715144",
-     "matched": "Isabel"
-    },
-    {
-     "title": "El internado",
-     "year": 2007,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt1024810",
-     "wikidata": "Q837329",
-     "matched": "El internado"
-    },
-    {
-     "title": "Alta mar",
-     "year": 2019,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt8961508",
-     "wikidata": "Q59591953",
-     "matched": "Alta mar"
-    },
-    {
-     "title": "Palmeras en la nieve",
-     "year": 2015,
-     "kind": "film",
      "class": "measured",
-     "imdb": "tt3202202",
-     "wikidata": "Q20870852",
-     "matched": "Palmeras en la nieve"
+     "imdb": "tt2006421",
+     "wikidata": "Q2706591",
+     "matched": "Gran Hotel"
+    },
+    {
+     "title": "Luis Miguel: La serie",
+     "year": 2018,
+     "kind": "series",
+     "class": "spanish_original",
+     "wikidata": "Q30007163",
+     "matched": "Luis Miguel: La serie"
+    },
+    {
+     "title": "Arde Madrid",
+     "year": 2018,
+     "kind": "series",
+     "class": "measured",
+     "imdb": "tt7684260",
+     "wikidata": "Q55989052",
+     "matched": "Arde Madrid"
+    },
+    {
+     "title": "Fariña",
+     "year": 2018,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt6970710",
+     "wikidata": "Q42300440",
+     "matched": "Fariña"
+    },
+    {
+     "title": "El ángel",
+     "year": 2018,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt7204348",
+     "wikidata": "Q51886007",
+     "matched": "El Ángel"
+    },
+    {
+     "title": "Gigantes",
+     "year": 2018,
+     "kind": "series",
+     "class": "measured",
+     "imdb": "tt6970690",
+     "wikidata": "Q56682785",
+     "matched": "Gigantes"
     }
    ]
   },
   {
-   "id": "p09",
-   "model": "gemini-3.5-flash-lite",
+   "id": "p05",
+   "model": "gemini-3.5-flash",
    "titles": [
     {
-     "title": "El secreto de sus ojos",
-     "year": 2009,
-     "kind": "film",
+     "title": "Paraíso",
+     "year": 2021,
+     "kind": "series",
      "class": "measured",
-     "imdb": "tt1305806",
-     "wikidata": "Q748851",
-     "matched": "El secreto de sus ojos"
+     "imdb": "tt11623464",
+     "wikidata": "Q105194199",
+     "matched": "Paraíso"
     },
     {
-     "title": "El laberinto del fauno",
-     "year": 2006,
+     "title": "Feria: La luz más oscura",
+     "year": 2022,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt13323004",
+     "wikidata": "Q105942762",
+     "matched": "Feria: la luz más oscura"
+    },
+    {
+     "title": "Verónica",
+     "year": 2017,
      "kind": "film",
      "class": "measured",
-     "imdb": "tt0457430",
-     "wikidata": "Q216006",
-     "matched": "El laberinto del fauno"
+     "imdb": "tt5862312",
+     "wikidata": "Q39073956",
+     "matched": "Verónica"
     },
     {
      "title": "El orfanato",
@@ -786,22 +418,352 @@
      "matched": "El orfanato"
     },
     {
-     "title": "Contratiempo",
+     "title": "Los cronocrímenes",
+     "year": 2007,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0480669",
+     "wikidata": "Q510864",
+     "matched": "Los cronocrímenes"
+    },
+    {
+     "title": "30 monedas",
+     "year": 2020,
+     "kind": "series",
+     "class": "spanish_original",
+     "wikidata": "Q85864398",
+     "matched": "30 monedas"
+    },
+    {
+     "title": "El laberinto del fauno",
+     "year": 2006,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0457430",
+     "wikidata": "Q216006",
+     "matched": "El laberinto del fauno"
+    },
+    {
+     "title": "El hoyo",
+     "year": 2019,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt8228288",
+     "wikidata": "Q67628998",
+     "matched": "El hoyo"
+    },
+    {
+     "title": "El internado: Las Cumbres",
+     "year": 2021,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt11709206",
+     "wikidata": "Q85842673",
+     "matched": "El internado: Las Cumbres"
+    },
+    {
+     "title": "Tesis",
+     "year": 1996,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0117883",
+     "wikidata": "Q1636502",
+     "matched": "Tesis"
+    }
+   ]
+  },
+  {
+   "id": "p06",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "Paquita Salas",
+     "year": 2016,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt5866074",
+     "wikidata": "Q27230249",
+     "matched": "Paquita Salas"
+    },
+    {
+     "title": "Requisitos para ser una persona normal",
+     "year": 2015,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt3720724",
+     "wikidata": "Q22000288",
+     "matched": "Requisitos para ser una persona normal"
+    },
+    {
+     "title": "Gente que viene y bah",
+     "year": 2019,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt6869362",
+     "wikidata": "Q63685146",
+     "matched": "Gente que viene y bah"
+    },
+    {
+     "title": "Toc Toc",
+     "year": 2017,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt6060156",
+     "wikidata": "Q42165807",
+     "matched": "Toc Toc"
+    },
+    {
+     "title": "Vivir dos veces",
+     "year": 2019,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt9063902",
+     "wikidata": "Q81561094",
+     "matched": "Vivir dos veces"
+    },
+    {
+     "title": "El vecino",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt9731222",
+     "wikidata": "Q81275966",
+     "matched": "El Vecino"
+    },
+    {
+     "title": "La Casa de las Flores",
+     "year": 2018,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt8387348",
+     "wikidata": "Q41982130",
+     "matched": "La casa de las flores"
+    },
+    {
+     "title": "Machos Alfa",
+     "year": 2022,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt18482892",
+     "wikidata": "Q115929235",
+     "matched": "Machos alfa"
+    },
+    {
+     "title": "Kiki, el amor se hace",
      "year": 2016,
      "kind": "film",
      "class": "measured",
-     "imdb": "tt4857264",
-     "wikidata": "Q28114432",
-     "matched": "Contratiempo"
+     "imdb": "tt4922692",
+     "wikidata": "Q23301831",
+     "matched": "Kiki, el amor se hace"
     },
     {
-     "title": "La casa de papel",
-     "year": 2017,
+     "title": "Ojitos de Huevo",
+     "year": 2023,
+     "kind": "series",
+     "class": "unverified",
+     "note": "found on Wikidata without an original language"
+    }
+   ]
+  },
+  {
+   "id": "p07",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "Monarca",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt8655736",
+     "wikidata": "Q67603630",
+     "matched": "Monarca"
+    },
+    {
+     "title": "Galgos",
+     "year": 2024,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt23557990",
+     "wikidata": "Q124744902",
+     "matched": "Galgos"
+    },
+    {
+     "title": "El reino",
+     "year": 2021,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt15068148",
+     "wikidata": "Q104813441",
+     "matched": "El reino"
+    },
+    {
+     "title": "Club de Cuervos",
+     "year": 2015,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt4680240",
+     "wikidata": "Q20774965",
+     "matched": "Club de Cuervos"
+    },
+    {
+     "title": "Argentina, 1985",
+     "year": 2022,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt15301048",
+     "wikidata": "Q113450389",
+     "matched": "Argentina, 1985"
+    },
+    {
+     "title": "El marginal",
+     "year": 2016,
+     "kind": "series",
+     "class": "unverified",
+     "note": "found on Wikidata without an original language"
+    },
+    {
+     "title": "Amores perros",
+     "year": 2000,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0245712",
+     "wikidata": "Q474098",
+     "matched": "Amores perros"
+    },
+    {
+     "title": "El robo del siglo",
+     "year": 2020,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt10948718",
+     "wikidata": "Q66619990",
+     "matched": "El robo del siglo"
+    },
+    {
+     "title": "7 cajas",
+     "year": 2012,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt2333598",
+     "wikidata": "Q429395",
+     "matched": "7 cajas"
+    },
+    {
+     "title": "Noticia de un secuestro",
+     "year": 2022,
+     "kind": "series",
+     "class": "unverified"
+    }
+   ]
+  },
+  {
+   "id": "p08",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "Gran Hotel",
+     "year": 2011,
      "kind": "series",
      "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
+     "imdb": "tt2006421",
+     "wikidata": "Q2706591",
+     "matched": "Gran Hotel"
+    },
+    {
+     "title": "Velvet",
+     "year": 2013,
+     "kind": "series",
+     "class": "spanish_original",
+     "wikidata": "Q16645689",
+     "matched": "Velvet"
+    },
+    {
+     "title": "Las chicas del cable",
+     "year": 2017,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt5674718",
+     "wikidata": "Q27443124",
+     "matched": "Las chicas del cable"
+    },
+    {
+     "title": "La cocinera de Castamar",
+     "year": 2021,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt12626014",
+     "wikidata": "Q105616635",
+     "matched": "La cocinera de Castamar"
+    },
+    {
+     "title": "El tiempo entre costuras",
+     "year": 2013,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt1864750",
+     "wikidata": "Q15634798",
+     "matched": "El tiempo entre costuras"
+    },
+    {
+     "title": "Palmeras en la nieve",
+     "year": 2015,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt3202202",
+     "wikidata": "Q20870852",
+     "matched": "Palmeras en la nieve"
+    },
+    {
+     "title": "Como agua para chocolate",
+     "year": 1992,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt0103994",
+     "wikidata": "Q5196238",
+     "matched": "Como agua para chocolate"
+    },
+    {
+     "title": "Tres metros sobre el cielo",
+     "year": 2010,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt1648216",
+     "wikidata": "Q944385",
+     "matched": "Tres metros sobre el cielo"
+    },
+    {
+     "title": "Alta mar",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt8961508",
+     "wikidata": "Q59591953",
+     "matched": "Alta mar"
+    },
+    {
+     "title": "Juana la Loca",
+     "year": 2001,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0270480",
+     "wikidata": "Q3766322",
+     "matched": "Juana la Loca"
+    }
+   ]
+  },
+  {
+   "id": "p09",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "El laberinto del fauno",
+     "year": 2006,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0457430",
+     "wikidata": "Q216006",
+     "matched": "El laberinto del fauno"
     },
     {
      "title": "El ministerio del tiempo",
@@ -813,133 +775,182 @@
      "matched": "El Ministerio del Tiempo"
     },
     {
-     "title": "Gran Hotel",
-     "year": 2011,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt2006421",
-     "wikidata": "Q2706591",
-     "matched": "Gran Hotel"
-    },
-    {
-     "title": "El Internado",
-     "year": 2007,
-     "kind": "series",
+     "title": "Alatriste",
+     "year": 2006,
+     "kind": "film",
      "class": "spanish_original",
-     "imdb": "tt1024810",
-     "wikidata": "Q837329",
-     "matched": "El internado"
+     "wikidata": "Q1421902",
+     "matched": "Alatriste"
     },
     {
-     "title": "Oscuro deseo",
+     "title": "El Cid",
      "year": 2020,
      "kind": "series",
-     "class": "measured",
-     "imdb": "tt12540080",
-     "wikidata": "Q85809906",
-     "matched": "Oscuro deseo"
+     "class": "spanish_original",
+     "imdb": "tt10689614",
+     "wikidata": "Q101541477",
+     "matched": "El Cid"
     },
     {
-     "title": "Mar de plástico",
-     "year": 2015,
+     "title": "La catedral del mar",
+     "year": 2018,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt4719586",
-     "wikidata": "Q21006388",
-     "matched": "Mar de plástico"
+     "imdb": "tt4944694",
+     "wikidata": "Q28517189",
+     "matched": "La catedral del mar"
+    },
+    {
+     "title": "Sin límites",
+     "year": 2022,
+     "kind": "series",
+     "class": "spanish_original",
+     "wikidata": "Q106971805",
+     "matched": "Sin límites"
+    },
+    {
+     "title": "Águila Roja",
+     "year": 2009,
+     "kind": "series",
+     "class": "measured",
+     "imdb": "tt1381020",
+     "wikidata": "Q2730318",
+     "matched": "Águila Roja"
+    },
+    {
+     "title": "El espinazo del diablo",
+     "year": 2001,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0256009",
+     "wikidata": "Q1350521",
+     "matched": "El espinazo del diablo"
+    },
+    {
+     "title": "Hernán",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt9645942",
+     "wikidata": "Q75846719",
+     "matched": "Hernán"
+    },
+    {
+     "title": "La Caza. Monteperdido",
+     "year": 2019,
+     "kind": "series",
+     "class": "unverified",
+     "note": "found on Wikidata without an original language"
     }
    ]
   },
   {
    "id": "p10",
-   "model": "gemini-3.5-flash-lite",
+   "model": "gemini-3.5-flash",
    "titles": [
     {
-     "title": "Nuestra Tierra",
-     "year": 2007,
-     "kind": "film",
-     "class": "unverified"
-    },
-    {
-     "title": "Guadalquivir",
-     "year": 2013,
+     "title": "El faro de las orcas",
+     "year": 2016,
      "kind": "film",
      "class": "measured",
-     "imdb": "tt3313740",
-     "wikidata": "Q97929042",
-     "matched": "Guadalquivir"
+     "imdb": "tt4944658",
+     "wikidata": "Q28464794",
+     "matched": "El faro de las orcas"
     },
     {
-     "title": "Cantábrico",
-     "year": 2017,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt6601954",
-     "wikidata": "Q29469791",
-     "matched": "Cantábrico"
-    },
-    {
-     "title": "La Última Cima",
-     "year": 2010,
-     "kind": "film",
-     "class": "spanish_original",
-     "imdb": "tt1651902",
-     "wikidata": "Q9019676",
-     "matched": "La última cima"
-    },
-    {
-     "title": "El Camino de Santiago",
-     "year": 2015,
-     "kind": "film",
-     "class": "unverified"
-    },
-    {
-     "title": "Panama",
-     "year": 2020,
-     "kind": "film",
-     "class": "unverified"
-    },
-    {
-     "title": "Pacífico",
-     "year": 2012,
-     "kind": "series",
-     "class": "unverified"
-    },
-    {
-     "title": "América Salvaje",
+     "title": "Andes Mágicos",
      "year": 2019,
      "kind": "series",
-     "class": "unverified"
+     "class": "spanish_original",
+     "wikidata": "Q111634107",
+     "matched": "Andes Mágicos"
     },
     {
-     "title": "España Salvaje",
-     "year": 2017,
-     "kind": "series",
-     "class": "unverified"
-    },
-    {
-     "title": "Patagonia",
+     "title": "Colombia magia salvaje",
      "year": 2015,
-     "kind": "series",
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt5027202",
+     "wikidata": "Q23821142",
+     "matched": "Colombia magia salvaje"
+    },
+    {
+     "title": "Diarios de motocicleta",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0318462",
+     "wikidata": "Q309246",
+     "matched": "Diarios de motocicleta"
+    },
+    {
+     "title": "Pacificum: El retorno a la ballena",
+     "year": 2017,
+     "kind": "film",
      "class": "unverified"
+    },
+    {
+     "title": "La tierra y la sombra",
+     "year": 2015,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt4663992",
+     "wikidata": "Q19824753",
+     "matched": "La tierra y la sombra"
+    },
+    {
+     "title": "Roma",
+     "year": 2018,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt6155172",
+     "wikidata": "Q27959455",
+     "matched": "Roma"
+    },
+    {
+     "title": "Los reyes",
+     "year": 2018,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt8819180",
+     "wikidata": "Q106624750",
+     "matched": "Los Reyes"
+    },
+    {
+     "title": "El abrazo de la serpiente",
+     "year": 2015,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt4285496",
+     "wikidata": "Q19824642",
+     "matched": "El abrazo de la serpiente"
+    },
+    {
+     "title": "La delgada línea amarilla",
+     "year": 2015,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt3422094",
+     "wikidata": "Q20899630",
+     "matched": "La delgada línea amarilla"
     }
    ]
   },
   {
    "id": "p11",
-   "model": "gemini-3.5-flash-lite",
+   "model": "gemini-3.5-flash",
    "titles": [
     {
-     "title": "El Ministerio del Tiempo",
-     "year": 2015,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt4136774",
-     "wikidata": "Q19361054",
-     "matched": "El Ministerio del Tiempo"
+     "title": "El Hoyo",
+     "year": 2019,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt8228288",
+     "wikidata": "Q67628998",
+     "matched": "El hoyo"
     },
     {
-     "title": "La Casa de Papel",
+     "title": "La casa de papel",
      "year": 2017,
      "kind": "series",
      "class": "measured",
@@ -948,13 +959,39 @@
      "matched": "La casa de papel"
     },
     {
-     "title": "El Inocente",
-     "year": 2021,
+     "title": "Bienvenidos a Edén",
+     "year": 2022,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt10147644",
-     "wikidata": "Q101137196",
-     "matched": "El inocente"
+     "imdb": "tt13457822",
+     "wikidata": "Q105720346",
+     "matched": "Bienvenidos a Edén"
+    },
+    {
+     "title": "Memorias de Idhún",
+     "year": 2020,
+     "kind": "series",
+     "class": "spanish_original",
+     "wikidata": "Q98381294",
+     "matched": "Memorias de Idhún"
+    },
+    {
+     "title": "El ministerio del tiempo",
+     "year": 2015,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt4136774",
+     "wikidata": "Q19361054",
+     "matched": "El Ministerio del Tiempo"
+    },
+    {
+     "title": "Go! Vive a tu manera",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt9654086",
+     "wikidata": "Q60292960",
+     "matched": "Go! Vive a tu manera"
     },
     {
      "title": "Élite",
@@ -966,32 +1003,6 @@
      "matched": "Élite"
     },
     {
-     "title": "Física o Química",
-     "year": 2008,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt1153059",
-     "wikidata": "Q649097",
-     "matched": "Física o química"
-    },
-    {
-     "title": "Vis a vis",
-     "year": 2015,
-     "kind": "series",
-     "class": "spanish_original",
-     "wikidata": "Q19413951",
-     "matched": "Vis a vis"
-    },
-    {
-     "title": "Alba",
-     "year": 2021,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt12446242",
-     "wikidata": "Q105761392",
-     "matched": "Alba"
-    },
-    {
      "title": "Contratiempo",
      "year": 2016,
      "kind": "film",
@@ -1001,28 +1012,30 @@
      "matched": "Contratiempo"
     },
     {
-     "title": "El Bar",
-     "year": 2017,
+     "title": "Klaus",
+     "year": 2019,
      "kind": "film",
-     "class": "measured",
-     "imdb": "tt5121816",
-     "wikidata": "Q28775783",
-     "matched": "El bar"
+     "class": "not_spanish",
+     "wikidata": "Q67208596",
+     "languages": [
+      "Q1860",
+      "Q56463"
+     ]
     },
     {
-     "title": "Cien años de perdón",
-     "year": 2016,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt3655414",
-     "wikidata": "Q21694499",
-     "matched": "Cien años de perdón"
+     "title": "El inocente",
+     "year": 2021,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt10147644",
+     "wikidata": "Q101137196",
+     "matched": "El inocente"
     }
    ]
   },
   {
    "id": "p12",
-   "model": "gemini-3.5-flash-lite",
+   "model": "gemini-3.5-flash",
    "titles": [
     {
      "title": "Gran Hotel",
@@ -1051,6 +1064,24 @@
      "matched": "Velvet"
     },
     {
+     "title": "Las chicas del cable",
+     "year": 2017,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt5674718",
+     "wikidata": "Q27443124",
+     "matched": "Las chicas del cable"
+    },
+    {
+     "title": "Isabel",
+     "year": 2012,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt2011533",
+     "wikidata": "Q2715144",
+     "matched": "Isabel"
+    },
+    {
      "title": "La cocinera de Castamar",
      "year": 2021,
      "kind": "series",
@@ -1060,286 +1091,13 @@
      "matched": "La cocinera de Castamar"
     },
     {
-     "title": "Señor dame paciencia",
-     "year": 2022,
-     "kind": "series",
-     "class": "unverified"
-    },
-    {
-     "title": "Juana la Virgen",
-     "year": 2002,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt0312151",
-     "wikidata": "Q3318890",
-     "matched": "Juana, la virgen"
-    },
-    {
-     "title": "La catedral del mar",
-     "year": 2018,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt4944694",
-     "wikidata": "Q28517189",
-     "matched": "La catedral del mar"
-    },
-    {
-     "title": "alta mar",
-     "year": 2019,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt8961508",
-     "wikidata": "Q59591953",
-     "matched": "Alta mar"
-    },
-    {
-     "title": "Las chicas del cable",
-     "year": 2017,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt5674718",
-     "wikidata": "Q27443124",
-     "matched": "Las chicas del cable"
-    },
-    {
-     "title": "Palmeras en la nieve",
-     "year": 2015,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt3202202",
-     "wikidata": "Q20870852",
-     "matched": "Palmeras en la nieve"
-    }
-   ]
-  },
-  {
-   "id": "p13",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "Celda 211",
-     "year": 2009,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt1242422",
-     "wikidata": "Q1052975",
-     "matched": "Celda 211"
-    },
-    {
-     "title": "El reino",
-     "year": 2018,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt7095482",
-     "wikidata": "Q51859909",
-     "matched": "El reino"
-    },
-    {
-     "title": "La isla mínima",
-     "year": 2014,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt3253930",
-     "wikidata": "Q18145311",
-     "matched": "La isla mínima"
-    },
-    {
-     "title": "Contratiempo",
-     "year": 2016,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt4857264",
-     "wikidata": "Q28114432",
-     "matched": "Contratiempo"
-    },
-    {
-     "title": "Cien años de perdón",
-     "year": 2016,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt3655414",
-     "wikidata": "Q21694499",
-     "matched": "Cien años de perdón"
-    },
-    {
-     "title": "El secreto de sus ojos",
-     "year": 2009,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt1305806",
-     "wikidata": "Q748851",
-     "matched": "El secreto de sus ojos"
-    },
-    {
-     "title": "Nueve reinas",
-     "year": 2000,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0247586",
-     "wikidata": "Q1404323",
-     "matched": "Nueve reinas"
-    },
-    {
-     "title": "La casa de papel",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
-    },
-    {
-     "title": "Narcos: Mexico",
-     "year": 2018,
-     "kind": "series",
-     "class": "unverified",
-     "note": "found on Wikidata without an original language"
-    },
-    {
-     "title": "Antidisturbios",
+     "title": "Explota Explota",
      "year": 2020,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt10883660",
-     "wikidata": "Q98593733",
-     "matched": "Antidisturbios"
-    }
-   ]
-  },
-  {
-   "id": "p14",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "Velvet",
-     "year": 2013,
-     "kind": "series",
-     "class": "spanish_original",
-     "wikidata": "Q16645689",
-     "matched": "Velvet"
-    },
-    {
-     "title": "Las chicas del cable",
-     "year": 2017,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt5674718",
-     "wikidata": "Q27443124",
-     "matched": "Las chicas del cable"
-    },
-    {
-     "title": "Gran Hotel",
-     "year": 2011,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt2006421",
-     "wikidata": "Q2706591",
-     "matched": "Gran Hotel"
-    },
-    {
-     "title": "La casa de papel",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
-    },
-    {
-     "title": "Elite",
-     "year": 2018,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt7134908",
-     "wikidata": "Q53000974",
-     "matched": "Élite"
-    },
-    {
-     "title": "Paquita Salas",
-     "year": 2016,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt5866074",
-     "wikidata": "Q27230249",
-     "matched": "Paquita Salas"
-    },
-    {
-     "title": "La reina del flow",
-     "year": 2018,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt8560918",
-     "wikidata": "Q54377174",
-     "matched": "La reina del flow"
-    },
-    {
-     "title": "Pieles",
-     "year": 2017,
      "kind": "film",
      "class": "measured",
-     "imdb": "tt5808778",
-     "wikidata": "Q28773369",
-     "matched": "Pieles"
-    },
-    {
-     "title": "Alta mar",
-     "year": 2019,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt8961508",
-     "wikidata": "Q59591953",
-     "matched": "Alta mar"
-    },
-    {
-     "title": "Toy Boy",
-     "year": 2019,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt8693266",
-     "wikidata": "Q64991343",
-     "matched": "Toy Boy"
-    }
-   ]
-  },
-  {
-   "id": "p15",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "El incidente",
-     "year": 2014,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt3528756",
-     "wikidata": "Q47408279",
-     "matched": "El Incidente"
-    },
-    {
-     "title": "Los cronocrímenes",
-     "year": 2007,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0480669",
-     "wikidata": "Q510864",
-     "matched": "Los cronocrímenes"
-    },
-    {
-     "title": "El ministerio del tiempo",
-     "year": 2015,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt4136774",
-     "wikidata": "Q19361054",
-     "matched": "El Ministerio del Tiempo"
-    },
-    {
-     "title": "Contratiempo",
-     "year": 2016,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt4857264",
-     "wikidata": "Q28114432",
-     "matched": "Contratiempo"
+     "imdb": "tt11238932",
+     "wikidata": "Q99703228",
+     "matched": "Explota, explota"
     },
     {
      "title": "La llamada",
@@ -1351,237 +1109,37 @@
      "matched": "La llamada"
     },
     {
-     "title": "El bar",
-     "year": 2017,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt5121816",
-     "wikidata": "Q28775783",
-     "matched": "El bar"
-    },
-    {
-     "title": "Platino",
-     "year": 2014,
-     "kind": "film",
-     "class": "unverified"
-    },
-    {
-     "title": "La casa de papel",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
-    },
-    {
-     "title": "Durante la tormenta",
-     "year": 2018,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt6908274",
-     "wikidata": "Q59707291",
-     "matched": "Durante la tormenta"
-    },
-    {
-     "title": "El vecino",
+     "title": "Alta mar",
      "year": 2019,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt9731222",
-     "wikidata": "Q81275966",
-     "matched": "El Vecino"
-    }
-   ]
-  },
-  {
-   "id": "p16",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "MasterChef España",
-     "year": 2013,
-     "kind": "series",
-     "class": "spanish_original",
-     "wikidata": "Q10886135",
-     "matched": "MasterChef España"
+     "imdb": "tt8961508",
+     "wikidata": "Q59591953",
+     "matched": "Alta mar"
     },
     {
-     "title": "Bake Off España",
-     "year": 2019,
-     "kind": "series",
-     "class": "spanish_original",
-     "wikidata": "Q61965112",
-     "matched": "Bake Off España"
-    },
-    {
-     "title": "OT: El Reencuentro",
-     "year": 2016,
-     "kind": "series",
-     "class": "unverified"
-    },
-    {
-     "title": "Cantajuego",
-     "year": 2010,
-     "kind": "film",
-     "class": "unverified"
-    },
-    {
-     "title": "Otro Trago",
-     "year": 2020,
-     "kind": "film",
-     "class": "unverified"
-    },
-    {
-     "title": "La Llamada",
-     "year": 2017,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt5176252",
-     "wikidata": "Q28517966",
-     "matched": "La llamada"
-    },
-    {
-     "title": "Sucesor",
-     "year": 2021,
-     "kind": "series",
-     "class": "unverified"
-    },
-    {
-     "title": "Gran Hotel",
-     "year": 2011,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt2006421",
-     "wikidata": "Q2706591",
-     "matched": "Gran Hotel"
-    },
-    {
-     "title": "Velvet",
-     "year": 2013,
-     "kind": "series",
-     "class": "spanish_original",
-     "wikidata": "Q16645689",
-     "matched": "Velvet"
-    },
-    {
-     "title": "Paquita Salas",
-     "year": 2016,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt5866074",
-     "wikidata": "Q27230249",
-     "matched": "Paquita Salas"
-    }
-   ]
-  },
-  {
-   "id": "p17",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "La casa de papel",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
-    },
-    {
-     "title": "Narcos: México",
-     "year": 2018,
-     "kind": "series",
-     "class": "unverified",
-     "note": "found on Wikidata without an original language"
-    },
-    {
-     "title": "El marginal",
-     "year": 2016,
-     "kind": "series",
-     "class": "unverified",
-     "note": "found on Wikidata without an original language"
-    },
-    {
-     "title": "Celda 211",
-     "year": 2009,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt1242422",
-     "wikidata": "Q1052975",
-     "matched": "Celda 211"
-    },
-    {
-     "title": "Antidisturbios",
+     "title": "Alguien tiene que morir",
      "year": 2020,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt10883660",
-     "wikidata": "Q98593733",
-     "matched": "Antidisturbios"
-    },
-    {
-     "title": "El secreto de sus ojos",
-     "year": 2009,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt1305806",
-     "wikidata": "Q748851",
-     "matched": "El secreto de sus ojos"
-    },
-    {
-     "title": "Club de Cuervos",
-     "year": 2015,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt4680240",
-     "wikidata": "Q20774965",
-     "matched": "Club de Cuervos"
-    },
-    {
-     "title": "Bronca",
-     "year": 2023,
-     "kind": "series",
-     "class": "unverified"
-    },
-    {
-     "title": "Maradona: sueño bendito",
-     "year": 2021,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt8431322",
-     "wikidata": "Q96195800",
-     "matched": "Maradona, sueño bendito"
-    },
-    {
-     "title": "Crimen organizado",
-     "year": 2019,
-     "kind": "film",
-     "class": "unverified"
+     "imdb": "tt10311932",
+     "wikidata": "Q85802007",
+     "matched": "Alguien tiene que morir"
     }
    ]
   },
   {
-   "id": "p18",
-   "model": "gemini-3.5-flash-lite",
+   "id": "p13",
+   "model": "gemini-3.5-flash",
    "titles": [
     {
-     "title": "El laberinto del fauno",
-     "year": 2006,
+     "title": "Amores perros",
+     "year": 2000,
      "kind": "film",
      "class": "measured",
-     "imdb": "tt0457430",
-     "wikidata": "Q216006",
-     "matched": "El laberinto del fauno"
-    },
-    {
-     "title": "El secreto de sus ojos",
-     "year": 2009,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt1305806",
-     "wikidata": "Q748851",
-     "matched": "El secreto de sus ojos"
+     "imdb": "tt0245712",
+     "wikidata": "Q474098",
+     "matched": "Amores perros"
     },
     {
      "title": "Relatos salvajes",
@@ -1593,109 +1151,13 @@
      "matched": "Relatos salvajes"
     },
     {
-     "title": "Pan de limón con semillas de amapola",
-     "year": 2021,
-     "kind": "film",
-     "class": "spanish_original",
-     "imdb": "tt12658852",
-     "wikidata": "Q108458240",
-     "matched": "Pan de limón con semillas de amapola"
-    },
-    {
-     "title": "La sociedad de la nieve",
-     "year": 2023,
+     "title": "Nueve reinas",
+     "year": 2000,
      "kind": "film",
      "class": "measured",
-     "imdb": "tt16277242",
-     "wikidata": "Q112252419",
-     "matched": "La sociedad de la nieve"
-    },
-    {
-     "title": "El internado",
-     "year": 2007,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt1024810",
-     "wikidata": "Q837329",
-     "matched": "El internado"
-    },
-    {
-     "title": "Gran Hotel",
-     "year": 2011,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt2006421",
-     "wikidata": "Q2706591",
-     "matched": "Gran Hotel"
-    },
-    {
-     "title": "El ministerio del tiempo",
-     "year": 2015,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt4136774",
-     "wikidata": "Q19361054",
-     "matched": "El Ministerio del Tiempo"
-    },
-    {
-     "title": "Alta mar",
-     "year": 2019,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt8961508",
-     "wikidata": "Q59591953",
-     "matched": "Alta mar"
-    },
-    {
-     "title": "El desorden que dejas",
-     "year": 2020,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt9731242",
-     "wikidata": "Q85867753",
-     "matched": "El Desorden Que Dejas"
-    }
-   ]
-  },
-  {
-   "id": "p19",
-   "model": "gemini-3.5-flash-lite",
-   "titles": [
-    {
-     "title": "El secreto de sus ojos",
-     "year": 2009,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt1305806",
-     "wikidata": "Q748851",
-     "matched": "El secreto de sus ojos"
-    },
-    {
-     "title": "La isla mínima",
-     "year": 2014,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt3253930",
-     "wikidata": "Q18145311",
-     "matched": "La isla mínima"
-    },
-    {
-     "title": "Celda 211",
-     "year": 2009,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt1242422",
-     "wikidata": "Q1052975",
-     "matched": "Celda 211"
-    },
-    {
-     "title": "Contratiempo",
-     "year": 2016,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt4857264",
-     "wikidata": "Q28114432",
-     "matched": "Contratiempo"
+     "imdb": "tt0247586",
+     "wikidata": "Q1404323",
+     "matched": "Nueve reinas"
     },
     {
      "title": "La casa de papel",
@@ -1707,40 +1169,40 @@
      "matched": "La casa de papel"
     },
     {
-     "title": "El reino",
+     "title": "El día de la bestia",
+     "year": 1995,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0112922",
+     "wikidata": "Q1312929",
+     "matched": "El día de la bestia"
+    },
+    {
+     "title": "El robo del siglo",
+     "year": 2020,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt10948718",
+     "wikidata": "Q66619990",
+     "matched": "El robo del siglo"
+    },
+    {
+     "title": "Fariña",
      "year": 2018,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt7095482",
-     "wikidata": "Q51859909",
-     "matched": "El reino"
-    },
-    {
-     "title": "Nueve reinas",
-     "year": 2000,
-     "kind": "film",
-     "class": "measured",
-     "imdb": "tt0247586",
-     "wikidata": "Q1404323",
-     "matched": "Nueve reinas"
-    },
-    {
-     "title": "Hierro",
-     "year": 2019,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt8337662",
-     "wikidata": "Q64511687",
-     "matched": "Hierro"
+     "imdb": "tt6970710",
+     "wikidata": "Q42300440",
+     "matched": "Fariña"
     },
     {
-     "title": "El inocente",
-     "year": 2021,
+     "title": "Los simuladores",
+     "year": 2002,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt10147644",
-     "wikidata": "Q101137196",
-     "matched": "El inocente"
+     "imdb": "tt0316613",
+     "wikidata": "Q1601158",
+     "matched": "Los simuladores"
     },
     {
      "title": "Tarde para la ira",
@@ -1750,48 +1212,30 @@
      "imdb": "tt4771896",
      "wikidata": "Q26921375",
      "matched": "Tarde para la ira"
+    },
+    {
+     "title": "Matando Cabos",
+     "year": 2004,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0380538",
+     "wikidata": "Q837974",
+     "matched": "Matando Cabos"
     }
    ]
   },
   {
-   "id": "p20",
-   "model": "gemini-3.5-flash-lite",
+   "id": "p14",
+   "model": "gemini-3.5-flash",
    "titles": [
     {
-     "title": "La Casa de Papel",
-     "year": 2017,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt6468322",
-     "wikidata": "Q29647346",
-     "matched": "La casa de papel"
-    },
-    {
-     "title": "Élite",
-     "year": 2018,
+     "title": "Respira",
+     "year": 2024,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt7134908",
-     "wikidata": "Q53000974",
-     "matched": "Élite"
-    },
-    {
-     "title": "Gran Hotel",
-     "year": 2011,
-     "kind": "series",
-     "class": "measured",
-     "imdb": "tt2006421",
-     "wikidata": "Q2706591",
-     "matched": "Gran Hotel"
-    },
-    {
-     "title": "Club de Cuervos",
-     "year": 2015,
-     "kind": "series",
-     "class": "spanish_original",
-     "imdb": "tt4680240",
-     "wikidata": "Q20774965",
-     "matched": "Club de Cuervos"
+     "imdb": "tt28298539",
+     "wikidata": "Q127283230",
+     "matched": "Respira"
     },
     {
      "title": "Velvet",
@@ -1811,6 +1255,24 @@
      "matched": "La casa de las flores"
     },
     {
+     "title": "Madres. Amor y vida",
+     "year": 2020,
+     "kind": "series",
+     "class": "measured",
+     "imdb": "tt9204170",
+     "wikidata": "Q89892347",
+     "matched": "Madres. Amor y vida"
+    },
+    {
+     "title": "Las chicas del cable",
+     "year": 2017,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt5674718",
+     "wikidata": "Q27443124",
+     "matched": "Las chicas del cable"
+    },
+    {
      "title": "Valeria",
      "year": 2020,
      "kind": "series",
@@ -1820,22 +1282,550 @@
      "matched": "Valeria"
     },
     {
-     "title": "Paquita Salas",
+     "title": "Explota Explota",
+     "year": 2020,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt11238932",
+     "wikidata": "Q99703228",
+     "matched": "Explota, explota"
+    },
+    {
+     "title": "Élite",
+     "year": 2018,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt7134908",
+     "wikidata": "Q53000974",
+     "matched": "Élite"
+    },
+    {
+     "title": "Rebelde",
+     "year": 2004,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt0414766",
+     "wikidata": "Q11702343",
+     "matched": "Rebelde"
+    },
+    {
+     "title": "La Reina del Flow",
+     "year": 2018,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt8560918",
+     "wikidata": "Q54377174",
+     "matched": "La reina del flow"
+    }
+   ]
+  },
+  {
+   "id": "p15",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "El hoyo",
+     "year": 2019,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt8228288",
+     "wikidata": "Q67628998",
+     "matched": "El hoyo"
+    },
+    {
+     "title": "Durante la tormenta",
+     "year": 2018,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt6908274",
+     "wikidata": "Q59707291",
+     "matched": "Durante la tormenta"
+    },
+    {
+     "title": "Los cronocrímenes",
+     "year": 2007,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0480669",
+     "wikidata": "Q510864",
+     "matched": "Los cronocrímenes"
+    },
+    {
+     "title": "Abre los ojos",
+     "year": 1997,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt0125659",
+     "wikidata": "Q1136400",
+     "matched": "Abre los ojos"
+    },
+    {
+     "title": "El ministerio del tiempo",
+     "year": 2015,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt4136774",
+     "wikidata": "Q19361054",
+     "matched": "El Ministerio del Tiempo"
+    },
+    {
+     "title": "Historias para no dormir",
+     "year": 2021,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt14881288",
+     "wikidata": "Q109059171",
+     "matched": "Historias para no dormir"
+    },
+    {
+     "title": "Eva",
+     "year": 2011,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt1298554",
+     "wikidata": "Q519910",
+     "matched": "EVA"
+    },
+    {
+     "title": "Órbita 9",
+     "year": 2017,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt3469798",
+     "wikidata": "Q42577704",
+     "matched": "Órbita 9"
+    },
+    {
+     "title": "30 monedas",
+     "year": 2020,
+     "kind": "series",
+     "class": "spanish_original",
+     "wikidata": "Q85864398",
+     "matched": "30 monedas"
+    },
+    {
+     "title": "La frecuencia Kirlian",
+     "year": 2017,
+     "kind": "series",
+     "class": "unverified",
+     "note": "found on Wikidata without an original language"
+    }
+   ]
+  },
+  {
+   "id": "p16",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "Bake Off España",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "wikidata": "Q61965112",
+     "matched": "Bake Off España"
+    },
+    {
+     "title": "Explota Explota",
+     "year": 2020,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt11238932",
+     "wikidata": "Q99703228",
+     "matched": "Explota, explota"
+    },
+    {
+     "title": "La llamada",
+     "year": 2017,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt5176252",
+     "wikidata": "Q28517966",
+     "matched": "La llamada"
+    },
+    {
+     "title": "Voy a pasármelo bien",
+     "year": 2022,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt15198592",
+     "wikidata": "Q110913618",
+     "matched": "Voy a pasármelo bien"
+    },
+    {
+     "title": "Nailed It! México",
+     "year": 2019,
+     "kind": "series",
+     "class": "unverified",
+     "note": "found on Wikidata without an original language"
+    },
+    {
+     "title": "Pasteleros contra el tiempo",
+     "year": 2023,
+     "kind": "series",
+     "class": "unverified"
+    },
+    {
+     "title": "Violetta",
+     "year": 2012,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt2171665",
+     "wikidata": "Q1976180",
+     "matched": "Violetta"
+    },
+    {
+     "title": "Go! Vive a tu manera",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt9654086",
+     "wikidata": "Q60292960",
+     "matched": "Go! Vive a tu manera"
+    },
+    {
+     "title": "La tribu",
+     "year": 2018,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt6708044",
+     "wikidata": "Q50381419",
+     "matched": "La tribu"
+    },
+    {
+     "title": "Soy Luna",
      "year": 2016,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt5866074",
-     "wikidata": "Q27230249",
-     "matched": "Paquita Salas"
+     "imdb": "tt5189554",
+     "wikidata": "Q20741004",
+     "matched": "Soy Luna"
+    }
+   ]
+  },
+  {
+   "id": "p17",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "El secreto de sus ojos",
+     "year": 2009,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt1305806",
+     "wikidata": "Q748851",
+     "matched": "El secreto de sus ojos"
     },
     {
-     "title": "Las Chicas del Cable",
-     "year": 2017,
+     "title": "Gigantes",
+     "year": 2018,
+     "kind": "series",
+     "class": "measured",
+     "imdb": "tt6970690",
+     "wikidata": "Q56682785",
+     "matched": "Gigantes"
+    },
+    {
+     "title": "Fariña",
+     "year": 2018,
      "kind": "series",
      "class": "spanish_original",
-     "imdb": "tt5674718",
-     "wikidata": "Q27443124",
-     "matched": "Las chicas del cable"
+     "imdb": "tt6970710",
+     "wikidata": "Q42300440",
+     "matched": "Fariña"
+    },
+    {
+     "title": "El Clan",
+     "year": 2015,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt4411504",
+     "wikidata": "Q18709329",
+     "matched": "El Clan"
+    },
+    {
+     "title": "El Marginal",
+     "year": 2016,
+     "kind": "series",
+     "class": "unverified",
+     "note": "found on Wikidata without an original language"
+    },
+    {
+     "title": "Club de Cuervos",
+     "year": 2015,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt4680240",
+     "wikidata": "Q20774965",
+     "matched": "Club de Cuervos"
+    },
+    {
+     "title": "Monzón",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt9852660",
+     "wikidata": "Q65160023",
+     "matched": "Monzón"
+    },
+    {
+     "title": "Campeones",
+     "year": 2018,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt6793580",
+     "wikidata": "Q51543325",
+     "matched": "Campeones"
+    },
+    {
+     "title": "Héroes: Silencio y rock & roll",
+     "year": 2021,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt14354838",
+     "wikidata": "Q106726912",
+     "matched": "Héroes: Silencio y rock & roll"
+    },
+    {
+     "title": "La Casa de Papel",
+     "year": 2017,
+     "kind": "series",
+     "class": "measured",
+     "imdb": "tt6468322",
+     "wikidata": "Q29647346",
+     "matched": "La casa de papel"
+    }
+   ]
+  },
+  {
+   "id": "p18",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "Nocturna",
+     "year": 2007,
+     "kind": "film",
+     "class": "not_spanish",
+     "wikidata": "Q3342613",
+     "languages": [
+      "Q1860"
+     ]
+    },
+    {
+     "title": "El laberinto del fauno",
+     "year": 2006,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0457430",
+     "wikidata": "Q216006",
+     "matched": "El laberinto del fauno"
+    },
+    {
+     "title": "El espíritu de la colmena",
+     "year": 1973,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0070040",
+     "wikidata": "Q2290517",
+     "matched": "El espíritu de la colmena"
+    },
+    {
+     "title": "El libro de Lila",
+     "year": 2017,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt6870750",
+     "wikidata": "Q54666523",
+     "matched": "El libro de Lila"
+    },
+    {
+     "title": "Ana y Bruno",
+     "year": 2017,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt1183352",
+     "wikidata": "Q60738309",
+     "matched": "Ana y Bruno"
+    },
+    {
+     "title": "La leyenda de la Nahuala",
+     "year": 2007,
+     "kind": "film",
+     "class": "spanish_original",
+     "imdb": "tt1003009",
+     "wikidata": "Q5967136",
+     "matched": "La leyenda de la nahuala"
+    },
+    {
+     "title": "Las leyendas",
+     "year": 2017,
+     "kind": "series",
+     "class": "unverified"
+    },
+    {
+     "title": "El apóstol",
+     "year": 2012,
+     "kind": "film",
+     "class": "unverified"
+    },
+    {
+     "title": "Un disfraz para Nicolás",
+     "year": 2020,
+     "kind": "film",
+     "class": "unverified",
+     "note": "found on Wikidata without an original language"
+    },
+    {
+     "title": "Gisaku",
+     "year": 2005,
+     "kind": "film",
+     "class": "not_spanish",
+     "wikidata": "Q3107750",
+     "languages": [
+      "Q5287"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p19",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "La isla mínima",
+     "year": 2014,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt3253930",
+     "wikidata": "Q18145311",
+     "matched": "La isla mínima"
+    },
+    {
+     "title": "El secreto de sus ojos",
+     "year": 2009,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt1305806",
+     "wikidata": "Q748851",
+     "matched": "El secreto de sus ojos"
+    },
+    {
+     "title": "Tarde para la ira",
+     "year": 2016,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt4771896",
+     "wikidata": "Q26921375",
+     "matched": "Tarde para la ira"
+    },
+    {
+     "title": "Que Dios nos perdone",
+     "year": 2016,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt4944596",
+     "wikidata": "Q28609115",
+     "matched": "Que Dios nos perdone"
+    },
+    {
+     "title": "Hierro",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt8337662",
+     "wikidata": "Q64511687",
+     "matched": "Hierro"
+    },
+    {
+     "title": "As bestas",
+     "year": 2022,
+     "kind": "film",
+     "class": "spanish_original",
+     "wikidata": "Q108919489",
+     "matched": "As bestas"
+    },
+    {
+     "title": "El aura",
+     "year": 2005,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt0420509",
+     "wikidata": "Q2389686",
+     "matched": "El aura"
+    },
+    {
+     "title": "Contratiempo",
+     "year": 2016,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt4857264",
+     "wikidata": "Q28114432",
+     "matched": "Contratiempo"
+    },
+    {
+     "title": "El cuerpo",
+     "year": 2012,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt1937149",
+     "wikidata": "Q3050323",
+     "matched": "El cuerpo"
+    },
+    {
+     "title": "Relatos salvajes",
+     "year": 2014,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt3011894",
+     "wikidata": "Q16672466",
+     "matched": "Relatos salvajes"
+    }
+   ]
+  },
+  {
+   "id": "p20",
+   "model": "gemini-3.5-flash",
+   "titles": [
+    {
+     "title": "Extra en Español",
+     "year": 2002,
+     "kind": "series",
+     "class": "unverified"
+    },
+    {
+     "title": "Valeria",
+     "year": 2020,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt9731288",
+     "wikidata": "Q89759231",
+     "matched": "Valeria"
+    },
+    {
+     "title": "Machos Alfa",
+     "year": 2022,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt18482892",
+     "wikidata": "Q115929235",
+     "matched": "Machos alfa"
+    },
+    {
+     "title": "La Casa de las Flores",
+     "year": 2018,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt8387348",
+     "wikidata": "Q41982130",
+     "matched": "La casa de las flores"
+    },
+    {
+     "title": "Ocho apellidos vascos",
+     "year": 2014,
+     "kind": "film",
+     "class": "measured",
+     "imdb": "tt2955316",
+     "wikidata": "Q16007945",
+     "matched": "Ocho apellidos vascos"
     },
     {
      "title": "Toc Toc",
@@ -1845,6 +1835,42 @@
      "imdb": "tt6060156",
      "wikidata": "Q42165807",
      "matched": "Toc Toc"
+    },
+    {
+     "title": "Rebelde",
+     "year": 2004,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt0414766",
+     "wikidata": "Q11702343",
+     "matched": "Rebelde"
+    },
+    {
+     "title": "Control Z",
+     "year": 2020,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt11937662",
+     "wikidata": "Q94197571",
+     "matched": "Control Z"
+    },
+    {
+     "title": "Club de Cuervos",
+     "year": 2015,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt4680240",
+     "wikidata": "Q20774965",
+     "matched": "Club de Cuervos"
+    },
+    {
+     "title": "Go! Vive a tu manera",
+     "year": 2019,
+     "kind": "series",
+     "class": "spanish_original",
+     "imdb": "tt9654086",
+     "wikidata": "Q60292960",
+     "matched": "Go! Vive a tu manera"
     }
    ]
   }

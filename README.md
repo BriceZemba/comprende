@@ -52,9 +52,9 @@ Learners are told to watch shows in Spanish. They pick something famous, get los
 | Titles measured from real subtitles | 1,464 Spanish-original films and series, language checked against Wikidata and Wikipedia | `data/catalog_es.json` |
 | The difficulty measure behaves as published research predicts | Median title needs 3,000 lemmas for 95% coverage (Webb & Rodgers 2009: about 3,000 word families plus proper nouns for English film) | `data/validation_es.md` |
 | A hypothesis that did not hold | Animation and family titles are **not** easier than dramas (94.0% vs 95.4% coverage at 3,000 lemmas) | `data/validation_es.md` |
-| A language model alone ignores level | Gemini with no Qloo and no subtitles, on 20 profiles: of its 88 measured picks, 61.4% followable at the learner's level, 14.8% below 90% coverage | `eval/results/report.md` |
+| A language model alone ignores level | Gemini with no Qloo and no subtitles, on 20 profiles: of its 85 measured picks, 58.8% followable at the learner's level, 14.1% below 90% coverage | `eval/results/report.md` |
 | Qloo is what makes it personal | Same subtitle data without Qloo (popularity instead of taste): 8.0% distinct titles across 20 learners, list overlap 0.66. With Qloo: 61.0% distinct, overlap 0.04 | `eval/results/report.md` |
-| Comprende vs. a language model, first five picks | 70.0% followable at the learner's level vs 60.0%; 0.0% far too hard (< 90%) vs 14.0%; 99.0% verified Spanish-original vs 86.5% | `eval/results/report.md` |
+| Comprende vs. a language model, first five picks | 70.0% followable at the learner's level vs 63.8%; 0.0% far too hard (< 90%) vs 10.6%; 99.0% verified Spanish-original vs 90.0% | `eval/results/report.md` |
 | Real people can use it | 9 testers (6 learning Spanish): none needed help, median 14 s to results, 4.0 of the first 5 picks they would watch, 9 of 9 explained "held back" correctly | user test sheet (not in the repo: testers' answers) |
 
 **Reproduce:** `python pipeline/scripts/validate_catalog.py`, `python eval/run_llm_baseline.py`, `python eval/run_comprende.py`, `python eval/metrics.py`.

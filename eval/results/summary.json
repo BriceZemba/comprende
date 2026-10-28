@@ -1,54 +1,54 @@
 {
  "llm_only": {
   "titles": 200,
-  "spanish_original": 0.865,
-  "measured": 88,
-  "not_spanish": 0.015,
-  "unverified": 0.12,
-  "distinct_share": 0.56,
-  "mean_jaccard": 0.07539483582338398,
+  "spanish_original": 0.9,
+  "measured": 85,
+  "not_spanish": 0.02,
+  "unverified": 0.08,
+  "distinct_share": 0.69,
+  "mean_jaccard": 0.028255494256797825,
   "repeated": [
    [
-    "La casa de papel",
-    12
-   ],
-   [
-    "Gran Hotel",
-    8
+    "El laberinto del fauno",
+    4
    ],
    [
     "El secreto de sus ojos",
-    7
+    4
    ],
    [
-    "Contratiempo",
-    7
+    "El hoyo",
+    4
+   ],
+   [
+    "La casa de papel",
+    4
    ],
    [
     "El Ministerio del Tiempo",
-    6
+    4
    ],
    [
-    "Élite",
-    5
+    "Club de Cuervos",
+    4
    ],
    [
-    "Velvet",
-    5
+    "Go! Vive a tu manera",
+    4
    ],
    [
-    "Relatos salvajes",
+    "Las chicas del cable",
     4
    ]
   ],
-  "fit_n": 88,
-  "fit_95": 0.6136363636363636,
-  "fit_below_90": 0.14772727272727273,
-  "first5_n": 50,
-  "first5_95": 0.6,
-  "first5_below_90": 0.14,
+  "fit_n": 85,
+  "fit_95": 0.5882352941176471,
+  "fit_below_90": 0.1411764705882353,
+  "first5_n": 47,
+  "first5_95": 0.6382978723404256,
+  "first5_below_90": 0.10638297872340426,
   "label": "Gemini alone (no Qloo, no subtitles)",
-  "run_at": "2026-10-22T17:28:36+00:00"
+  "run_at": "2026-10-28T00:56:19+00:00"
  },
  "no_qloo": {
   "titles": 200,

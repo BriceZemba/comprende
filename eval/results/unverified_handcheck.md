@@ -1,5 +1,7 @@
 # Hand check of titles the automatic check could not verify (LLM-only baseline)
 
+> This hand check is for the baseline run of 2026-10-22 (flash and flash-lite). The current baseline (2026-10-28, gemini-3.5-flash only) leaves 16 of 200 titles not verified automatically (8.0%); they are listed in `report.md` and were not checked by hand. We do not claim any of them is invented.
+
 The automatic check (`eval/titles.py`) requires an exact Wikidata label match. 24 of the 200 titles Gemini named failed it (23 distinct titles; *Narcos: México* appears twice). Each was looked up by hand on Wikidata (Spanish and English labels) on 2026-10-22.
 
 | Title (year as given) | Finding | Wikidata |
