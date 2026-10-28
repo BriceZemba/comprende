@@ -10,6 +10,7 @@ import csv
 import json
 import random
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -43,19 +44,39 @@ async def comprende_list(favs: list[str], vocab: int) -> list[str]:
     return [f"{p['name']} ({p['year']})" if p.get("year") else p["name"] for p in picks]
 
 
-def llm_list(favs: list[str], vocab: int) -> list[str]:
-    from google import genai
+# Gemini answers 503 "high demand" or 429 at busy times. The comparison must use the same model as the
+# baseline, so wait and retry it (about 2 minutes in all) rather than switching to another one.
+RETRY_WAITS_S = (5, 10, 20, 30, 45)
 
-    client = genai.Client(api_key=config.GEMINI_API_KEY)
-    titles = ask(client, BASELINE_MODEL, PROMPT.format(vocab=f"{vocab:,}", favs=", ".join(favs)))
-    return [f"{t['title']} ({t['year']})" for t in titles[:N]]
+
+def llm_list(favs: list[str], vocab: int, client=None, sleep=time.sleep) -> list[str]:
+    from google import genai
+    from google.genai import errors
+
+    client = client or genai.Client(api_key=config.GEMINI_API_KEY)
+    prompt = PROMPT.format(vocab=f"{vocab:,}", favs=", ".join(favs))
+    for attempt, wait in enumerate((*RETRY_WAITS_S, None), 1):
+        try:
+            titles = ask(client, BASELINE_MODEL, prompt)
+            return [f"{t['title']} ({t['year']})" for t in titles[:N]]
+        except errors.APIError as e:
+            if "perday" in str(e).lower():
+                sys.exit("Gemini's daily quota for the comparison model is used up (it resets at midnight Pacific "
+                         "time, the next morning in Morocco). Nothing was saved.")
+            if e.code not in (429, 500, 503, 504) or wait is None:
+                sys.exit(f"Gemini is still not answering ({e.code}); try again in a few minutes. Nothing was saved.")
+            print(f"Gemini is busy ({e.code}), retrying in {wait} s (attempt {attempt} of {len(RETRY_WAITS_S)})…",
+                  flush=True)
+            sleep(wait)
 
 
 def main():
     if len(sys.argv) < 4:
         sys.exit(__doc__)
     tester, vocab, favs = sys.argv[1], int(sys.argv[2]), sys.argv[3:]
-    lists = {"comprende": asyncio.run(comprende_list(favs, vocab)), "llm_only": llm_list(favs, vocab)}
+    # The chatbot list first: it is the one that may have to wait, and nothing is saved until both exist.
+    llm = llm_list(favs, vocab)
+    lists = {"comprende": asyncio.run(comprende_list(favs, vocab)), "llm_only": llm}
     order = random.sample(["comprende", "llm_only"], 2)
     for label, system in zip("AB", order):
         print(f"\nList {label}")
