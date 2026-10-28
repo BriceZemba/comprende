@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import AgentRun from "@/components/AgentRun";
 import CanIFollow from "@/components/CanIFollow";
+import WeeklyReminder from "@/components/WeeklyReminder";
 import HeroPreview from "@/components/HeroPreview";
 import FavouritesStep, { type Favourite } from "@/components/FavouritesStep";
 import LevelStep from "@/components/LevelStep";
@@ -296,6 +297,7 @@ export default function Home() {
           {profile && (
             <>
               <MyList profile={profile} onChange={setProfile} />
+              <WeeklyReminder profile={profile} />
             </>
           )}
 
@@ -363,6 +365,7 @@ export default function Home() {
             watchOn={watchOn}
           />
           {profile && <MyList profile={profile} onChange={setProfile} />}
+          <WeeklyReminder profile={profile} />
         </>
       )}
 

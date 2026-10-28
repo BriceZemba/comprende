@@ -24,7 +24,7 @@ Learners are told to watch shows in Spanish. They pick something famous, get los
 
    Each pick comes with a one-line reason, how much dialogue it has, and where to watch it in your country.
 4. Drag the **vocabulary slider** on the map to see titles move from "later" to "watch now".
-5. Save titles to **My list**. After a film, answer "Watched it?" and your level moves. The next visit tells you what came within reach.
+5. Save titles to **My list**. After a film, answer "Watched it?" and your level moves. The next visit tells you what came within reach. Add a **weekly film night** to your own calendar (.ics or Google Calendar) with your next film and a link back.
 6. Switch **EN / FR / ES** and light / dark in the header.
 
 ## How Qloo powers it
@@ -79,7 +79,7 @@ flowchart LR
 |---|---|
 | `pipeline/` | Offline: Spanish-original titles (Wikidata, language checked on Wikipedia), subtitles (OPUS OpenSubtitles, fetched by byte range), lemmatisation with clitic repair, frequency list, coverage curves, dialogue density, vocabulary-check items |
 | `backend/` | Qloo client (server-side key, cached), planner and explainer agents, model backups, ranker, API with server-sent events, recorded example |
-| `web/` | Next.js app: "can you watch it without subtitles?" lookup, favourites, word check, live agent steps, results, map, My list, welcome back, methods page, EN/FR/ES, installable |
+| `web/` | Next.js app: "can you watch it without subtitles?" lookup, favourites, word check, live agent steps, results, map, My list, welcome back, weekly calendar reminder, methods page, EN/FR/ES, installable |
 | `eval/` | Fixed taste profiles, language-model baseline, Comprende runner, title verification, report |
 
 ## Run locally
@@ -97,6 +97,7 @@ cd web && npm install && npm run dev   # http://localhost:3000
 - `cd backend && python -m pytest -q tests`
 - `node --experimental-strip-types web/lib/comprehension.parity.test.ts`: the web app's maths checked against the Python pipeline.
 - `node --experimental-strip-types web/lib/profile.test.ts`
+- `node --experimental-strip-types web/lib/reminder.test.ts`
 
 To refresh the home-page example before a demo: `python backend/scripts/record_example.py`.
 
