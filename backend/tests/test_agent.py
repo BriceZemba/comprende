@@ -461,12 +461,12 @@ def test_variety_reaches_qloo_and_the_result(monkeypatch):
     async def emit(e):
         return None
 
-    async def go():
+    async def go(variety):
         q = QlooClient(api_key="k", cache_dir=None, transport=httpx.MockTransport(h))
         return await agent_mod.ComprendeAgent(q, Catalog([spain, mexico]), emit).run(
-            "Breaking Bad", {}, 3000, variety="latam")
+            "Breaking Bad", {}, 3000, variety=variety)
 
-    out = asyncio.run(go())
+    out = asyncio.run(go("latam"))
     assert out["variety"] == "latam"
     assert seen_countries and all("Spain" not in c for c in seen_countries)
     assert "Q-MX" in scored and "Q-ES" not in scored  # only Latin American measured titles are scored
@@ -479,3 +479,16 @@ def test_signal_ids_are_named_from_search_matches_never_shown_raw():
     agent = ComprendeAgent(None, None, None)
     agent._remember(s, ["Q-2ND", "Q-UNKNOWN"])
     assert s.favourites == {"Q-2ND": "Second match", "Q-UNKNOWN": ""}
+
+
+def test_recommended_titles_must_be_made_in_the_chosen_spanish():
+    # Qloo filters on release countries, so a Spanish production released in Mexico can come back for "latam".
+    from app.qloo import Entity
+    spain = Measured(imdb="tt9", wikidata="Q", kind="film", title_es="Todos lo saben", title_en=None, year=2018,
+                     countries=["FRA", "ESP", "ITA"], coverage=[0.97] * GRID_LEN, vocab_for_95=2000, vocab_for_98=None,
+                     qloo_id="Q-TLS")
+    agent = agent_mod.ComprendeAgent(None, Catalog([spain]), None)
+    made_in_spain = Entity(entity_id="Q-TLS", name="Everybody Knows", subtype="urn:entity:movie")
+    unmeasured_mx = Entity(entity_id="Q-X", name="Otra", subtype="urn:entity:movie", countries=["Mexico"])
+    assert agent._made_in_variety(made_in_spain, "spain") and not agent._made_in_variety(made_in_spain, "latam")
+    assert agent._made_in_variety(unmeasured_mx, "latam") and not agent._made_in_variety(unmeasured_mx, "spain")

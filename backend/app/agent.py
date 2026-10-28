@@ -238,6 +238,9 @@ class ComprendeAgent:
         })
         spanish = [r for r in rows if self.catalog.match(r.entity_id, _imdb_ids(r))
                    or self.catalog.is_spanish_original(_imdb_ids(r), r.countries)]
+        if s.variety != "any":
+            # Qloo's filter is on release countries; the chosen Spanish is about where a title was made.
+            spanish = [r for r in spanish if self._made_in_variety(r, s.variety)]
         added = self._add(s, spanish, kind)
         measured = sum(1 for c in added if c.measured)
         return {"returned": len(rows), "dropped_not_spanish_original": len(rows) - len(spanish),
@@ -331,6 +334,12 @@ class ComprendeAgent:
         # never came back from a search still counts as a signal but is never shown as a name.
         for i in ids:
             s.favourites.setdefault(i, s.seen.get(i, ""))
+
+    def _made_in_variety(self, r: Entity, variety: str) -> bool:
+        m = self.catalog.match(r.entity_id, _imdb_ids(r))
+        if m:
+            return in_variety(m.countries, variety)
+        return not r.countries or any(c in VARIETIES[variety] for c in r.countries)
 
     def _add(self, s: Session, rows: list[Entity], kind: str) -> list[Candidate]:
         out = []
